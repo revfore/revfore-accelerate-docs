@@ -1,20 +1,20 @@
 ---
-title: Tables
+title: Views
 ---
 
-# Tables
+# Views
 
-Tables are the **foundation of all relational data structures** in Revfore Accelerate.
+Views are the **foundation of all relational data structures** in Revfore Accelerate.
 
 They define how your business data is stored, organized, and managed.
 
 ---
 
-## 🧠 What is a Table?
+## 🧠 What is a View?
 
-A table represents a **business entity** and contains a set of records (rows) and attributes (columns).
+A View represents a **business entity** and contains a set of records (rows) and attributes (columns).
 
-Examples of common tables:
+Examples of common Views:
 
 - Employees
 - Assets
@@ -22,18 +22,18 @@ Examples of common tables:
 - Services
 - Locations
 
-Each table is designed to capture data at its **natural level of detail**.
+Each View is designed to capture data at its **natural level of detail**.
 
 ---
 
-## 🧱 Table Structure
+## 🧱 View Structure
 
-A table consists of:
+A View consists of:
 
 ### Columns (Fields)
 Each column defines a specific attribute of the data.
 
-Example (Employee table):
+Example (Employee View):
 
 - Employee Name  
 - Department  
@@ -54,24 +54,24 @@ Example:
 
 ---
 
-## ⚙️ How Tables Work in Revfore Accelerate
+## ⚙️ How Views Work in Revfore Accelerate
 
-Tables in Revfore Accelerate are:
+Views in Revfore Accelerate are:
 
 - **Defined through metadata** (no SQL required)
-- **Editable through a common UI**
+- **EdiView through a common UI**
 - **Reusable across workflows and dashboards**
 - **Integrated with relationships and views**
 
-Once a table is defined, it becomes part of a broader relational model.
+Once a View is defined, it becomes part of a broader relational model.
 
 ---
 
-## 🔗 Tables and Relationships
+## 🔗 Views and Relationships
 
-Tables rarely exist in isolation.
+Views rarely exist in isolation.
 
-They are typically connected to other tables using relationships.
+They are typically connected to other Views using relationships.
 
 Example:
 
@@ -83,10 +83,10 @@ These relationships allow you to build more powerful and flexible data models.
 
 ---
 
-## 🧭 Designing Tables (Best Practices)
+## 🧭 Designing Views (Best Practices)
 
 ### Think in Business Terms
-Define tables based on real-world entities, not technical structures.
+Define Views based on real-world entities, not technical structures.
 
 ✔️ Good:
 - Employee
@@ -94,14 +94,14 @@ Define tables based on real-world entities, not technical structures.
 - Product
 
 ❌ Avoid:
-- Generic or unclear tables like "Data1" or "Misc"
+- Generic or unclear Views like "Data1" or "Misc"
 
 ---
 
-### Keep Tables Focused
-Each table should represent **one primary concept**.
+### Keep Views Focused
+Each View should represent **one primary concept**.
 
-Avoid combining unrelated data into a single table.
+Avoid combining unrelated data into a single View.
 
 ---
 
@@ -113,7 +113,7 @@ Use names that are:
 ---
 
 ### Plan for Reuse
-Tables should be designed so they can be reused across:
+Views should be designed so they can be reused across:
 - Planning models
 - Dashboards
 - Workflows
@@ -126,14 +126,14 @@ Let’s say you want to plan labor costs.
 
 You might create:
 
-**Employee Table**
+**Employee View**
 - Employee Name
 - Department
 - Role
 - Base Salary
 
 Then:
-- Link to a Department table
+- Link to a Department View
 - Use the data in planning workflows
 - Build views for reporting
 
