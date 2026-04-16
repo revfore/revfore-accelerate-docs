@@ -22,6 +22,12 @@ nav:
       - Relationships: concepts/relationships.md
       - Views: concepts/views.md
 
+plugins:
+  - search
+  - mike:
+      deploy_prefix: revfore-accelerate
+      alias_type: copy
+
 extra:
   version:
     provider: mike
