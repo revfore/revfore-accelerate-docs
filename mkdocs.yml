@@ -21,10 +21,6 @@ nav:
       - Tables: concepts/tables.md
       - Relationships: concepts/relationships.md
       - Views: concepts/views.md
-  - Developer Guide:
-      - Creating Tables: developer/creating-tables.md
-  - Examples:
-      - Overview: examples/index.md
 
 extra:
   version:
