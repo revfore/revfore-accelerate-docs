@@ -1,7 +1,7 @@
 site_name: Revfore Accelerate Docs
 site_description: Documentation for Revfore Accelerate
-site_url: https://YOUR_GITHUB_USERNAME.github.io/revfore-accelerate-docs/
-repo_url: https://github.com/YOUR_GITHUB_USERNAME/revfore-accelerate-docs
+site_url: https://docs.revfore.com/revfore-accelerate/
+repo_url: https://github.com/revfore/revfore-accelerate-docs
 repo_name: revfore-accelerate-docs
 
 theme:
