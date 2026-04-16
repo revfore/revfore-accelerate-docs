@@ -17,6 +17,7 @@ A View represents a **business entity** and contains a set of records (rows) and
 Examples of common Views:
 
 - Customers
+- Carriers
 
 Each View is designed to capture data at its **natural level of detail**.
 
