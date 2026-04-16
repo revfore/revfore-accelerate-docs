@@ -15,8 +15,8 @@ This guide will help you understand the core concepts and get up and running wit
 Revfore Accelerate is a **no-code relational framework** that allows you to:
 
 - Create relational tables along with their relationships to other tables
-- Create relations models that source data from any number of relational tables
-- Build reusable views from the models
+- Create relational models that source data from any number of relational tables
+- Build reusable views from the relational models along with allowed user actions
 - Surface data in editable grids and dashboards
 
 All without writing SQL.
