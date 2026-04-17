@@ -23,10 +23,10 @@ nav:
       - Relational Models: concepts/models.md
       - Relational Views: concepts/views.md
   - Application Groups:     
-      - Config: appGroups/config/config.md
-      - Admin: appGroups/admin/admin.md
-      - Home: appGroups/home/home.md
-      - Help: appGroups/help/help.md
+      - Config: appGroups/config/index.md
+      - Admin: appGroups/admin/index.md
+      - Home: appGroups/home/index.md
+      - Help: appGroups/help/index.md
 
 plugins:
   - search
