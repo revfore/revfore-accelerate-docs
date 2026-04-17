@@ -22,6 +22,11 @@ nav:
       - Relational Tables: concepts/tables.md
       - Relational Models: concepts/models.md
       - Relational Views: concepts/views.md
+  - Application Groups:     
+      - Config: appGroups/config/config.md
+      - Admin: appGroups/admin/admin.md
+      - Home: appGroups/home/home.md
+      - Help: appGroups/help/help.md
 
 plugins:
   - search
