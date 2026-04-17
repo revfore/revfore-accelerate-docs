@@ -24,8 +24,13 @@ nav:
       - Relational Views: concepts/views.md
   - Application Groups:     
       - Config: appGroups/config/index.md
-      - Admin: appGroups/admin/index.md
-      - Home: appGroups/home/index.md
+        - Manage License Keys: appGroups/config/manage-license-key.md
+        - Setup & Upgrade: appGroups/config/setup-upgrade.md
+        - Uninstall: appGroups/config/uninstall.md
+        - Run Maintenance Scripts: appGroups/config/run-maintenance-scripts.md
+        - Other: appGroups/config/other.md
+      - Admin: appGroups/admin/admin.md
+      - Home: appGroups/home/home.md
       - Help: appGroups/help/index.md
 
 plugins:
