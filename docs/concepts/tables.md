@@ -150,5 +150,5 @@ Then:
 
 ## 👉 Next Steps
 
-- Learn about [Relationships](relationships.md)
-- Explore [Views](views.md)
+- Learn about [Relational Models](models.md)
+- Explore [Relational Views](views.md)

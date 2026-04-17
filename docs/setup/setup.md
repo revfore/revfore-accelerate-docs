@@ -73,14 +73,14 @@ The user installing the solution will need to be part of the Administrator secur
 
 ## 💡 Tips
   
-- Review existing Relational Table, Model and View definations to get familiar with them
+- Review existing Relational Table, Model and View definitions to get familiar with them
 - Start with a simple use case (e.g., rate tables or reference data)  
 
 ---
 
 ## 👉 Next Steps
 
-- Return to the [Getting Started Guide](index.md)
-- Learn about [Relational Tables](concepts/tables.md)
-- Explore [Relational Models](concepts/models.md)
-- Build your first [Views](concepts/views.md)
+- Return to the [Getting Started Guide](../index.md)
+- Learn about [Relational Tables](../concepts/tables.md)
+- Explore [Relational Models](../concepts/models.md)
+- Build your first [Views](../concepts/views.md)

@@ -1,10 +1,10 @@
 ---
-title: Relationships
+title: Models
 ---
 
-# Relationships
+# Models
 
-Relationships are the **foundation of all relational data structures** in Revfore Accelerate.
+Models are the **foundation of all relational data structures** in Revfore Accelerate.
 
 They define how your business data is stored, organized, and managed.
 
@@ -14,7 +14,7 @@ They define how your business data is stored, organized, and managed.
 
 A Relationship represents a **business entity** and contains a set of records (rows) and attributes (columns).
 
-Examples of common Relationships:
+Examples of common Models:
 
 - Employees
 - Assets
@@ -54,24 +54,24 @@ Example:
 
 ---
 
-## ⚙️ How Relationships Work in Revfore Accelerate
+## ⚙️ How Models Work in Revfore Accelerate
 
-Relationships in Revfore Accelerate are:
+Models in Revfore Accelerate are:
 
 - **Defined through metadata** (no SQL required)
 - **EdiRelationship through a common UI**
 - **Reusable across workflows and dashboards**
-- **Integrated with relationships and views**
+- **Integrated with Models and views**
 
 Once a Relationship is defined, it becomes part of a broader relational model.
 
 ---
 
-## 🔗 Relationships and Relationships
+## 🔗 Models and Models
 
-Relationships rarely exist in isolation.
+Models rarely exist in isolation.
 
-They are typically connected to other Relationships using relationships.
+They are typically connected to other Models using Models.
 
 Example:
 
@@ -79,14 +79,14 @@ Example:
 - Asset → Location  
 - Product → Service Line  
 
-These relationships allow you to build more powerful and flexible data models.
+These Models allow you to build more powerful and flexible data models.
 
 ---
 
-## 🧭 Designing Relationships (Best Practices)
+## 🧭 Designing Models (Best Practices)
 
 ### Think in Business Terms
-Define Relationships based on real-world entities, not technical structures.
+Define Models based on real-world entities, not technical structures.
 
 ✔️ Good:
 - Employee
@@ -94,11 +94,11 @@ Define Relationships based on real-world entities, not technical structures.
 - Product
 
 ❌ Avoid:
-- Generic or unclear Relationships like "Data1" or "Misc"
+- Generic or unclear Models like "Data1" or "Misc"
 
 ---
 
-### Keep Relationships Focused
+### Keep Models Focused
 Each Relationship should represent **one primary concept**.
 
 Avoid combining unrelated data into a single Relationship.
@@ -113,7 +113,7 @@ Use names that are:
 ---
 
 ### Plan for Reuse
-Relationships should be designed so they can be reused across:
+Models should be designed so they can be reused across:
 - Planning models
 - Dashboards
 - Workflows
@@ -149,6 +149,5 @@ Then:
 ---
 
 ## 👉 Next Steps
-
-- Learn about [Relationships](relationships.md)
-- Explore [Views](views.md)
+- Learn about [Relational Tables](Tables.md)
+- Explore [Relational Views](views.md)
