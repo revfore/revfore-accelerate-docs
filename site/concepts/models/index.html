@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://docs.revfore.com/revfore-accelerate/100/concepts/relationships/">
+        <link rel="canonical" href="https://docs.revfore.com/revfore-accelerate/100/concepts/models/">
       
       
-        <link rel="prev" href="../tables/">
-      
-      
-        <link rel="next" href="../views/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -24,7 +20,7 @@
     
     
       
-        <title>Relationships - Revfore Accelerate Docs</title>
+        <title>Models - Revfore Accelerate Docs</title>
       
     
     
@@ -66,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#relationships" class="md-skip">
+        <a href="#models" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Relationships
+              Models
             
           </span>
         </div>
@@ -262,7 +258,25 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/setup/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup
+  </span>
+  
+
+      </a>
+    </li>
+  
+
     
+      
+      
+  
   
   
   
@@ -275,14 +289,16 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -293,8 +309,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Core Concepts
           </label>
@@ -325,30 +341,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Relationships
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../relationships.md" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -357,164 +353,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-a-relationship" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧠 What is a Relationship?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relationship-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧱 Relationship Structure
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧱 Relationship Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#columns-fields" class="md-nav__link">
-    <span class="md-ellipsis">
-      Columns (Fields)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rows-records" class="md-nav__link">
-    <span class="md-ellipsis">
-      Rows (Records)
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-relationships-work-in-revfore-accelerate" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚙️ How Relationships Work in Revfore Accelerate
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relationships-and-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔗 Relationships and Relationships
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#designing-relationships-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 Designing Relationships (Best Practices)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧭 Designing Relationships (Best Practices)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#think-in-business-terms" class="md-nav__link">
-    <span class="md-ellipsis">
-      Think in Business Terms
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#keep-relationships-focused" class="md-nav__link">
-    <span class="md-ellipsis">
-      Keep Relationships Focused
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-clear-naming" class="md-nav__link">
-    <span class="md-ellipsis">
-      Use Clear Naming
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#plan-for-reuse" class="md-nav__link">
-    <span class="md-ellipsis">
-      Plan for Reuse
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-use-case" class="md-nav__link">
-    <span class="md-ellipsis">
-      🚀 Example Use Case
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      💡 Tips
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      👉 Next Steps
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -617,31 +455,31 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-relationships-work-in-revfore-accelerate" class="md-nav__link">
+  <a href="#how-models-work-in-revfore-accelerate" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ How Relationships Work in Revfore Accelerate
+      ⚙️ How Models Work in Revfore Accelerate
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#relationships-and-relationships" class="md-nav__link">
+  <a href="#models-and-models" class="md-nav__link">
     <span class="md-ellipsis">
-      🔗 Relationships and Relationships
+      🔗 Models and Models
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#designing-relationships-best-practices" class="md-nav__link">
+  <a href="#designing-models-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      🧭 Designing Relationships (Best Practices)
+      🧭 Designing Models (Best Practices)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧭 Designing Relationships (Best Practices)">
+    <nav class="md-nav" aria-label="🧭 Designing Models (Best Practices)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -654,9 +492,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#keep-relationships-focused" class="md-nav__link">
+  <a href="#keep-models-focused" class="md-nav__link">
     <span class="md-ellipsis">
-      Keep Relationships Focused
+      Keep Models Focused
     </span>
   </a>
   
@@ -730,13 +568,13 @@
   
 
 
-<h1 id="relationships">Relationships</h1>
-<p>Relationships are the <strong>foundation of all relational data structures</strong> in Revfore Accelerate.</p>
+<h1 id="models">Models</h1>
+<p>Models are the <strong>foundation of all relational data structures</strong> in Revfore Accelerate.</p>
 <p>They define how your business data is stored, organized, and managed.</p>
 <hr />
 <h2 id="what-is-a-relationship">🧠 What is a Relationship?</h2>
 <p>A Relationship represents a <strong>business entity</strong> and contains a set of records (rows) and attributes (columns).</p>
-<p>Examples of common Relationships:</p>
+<p>Examples of common Models:</p>
 <ul>
 <li>Employees</li>
 <li>Assets</li>
@@ -786,38 +624,38 @@
 </tbody>
 </table>
 <hr />
-<h2 id="how-relationships-work-in-revfore-accelerate">⚙️ How Relationships Work in Revfore Accelerate</h2>
-<p>Relationships in Revfore Accelerate are:</p>
+<h2 id="how-models-work-in-revfore-accelerate">⚙️ How Models Work in Revfore Accelerate</h2>
+<p>Models in Revfore Accelerate are:</p>
 <ul>
 <li><strong>Defined through metadata</strong> (no SQL required)</li>
 <li><strong>EdiRelationship through a common UI</strong></li>
 <li><strong>Reusable across workflows and dashboards</strong></li>
-<li><strong>Integrated with relationships and views</strong></li>
+<li><strong>Integrated with Models and views</strong></li>
 </ul>
 <p>Once a Relationship is defined, it becomes part of a broader relational model.</p>
 <hr />
-<h2 id="relationships-and-relationships">🔗 Relationships and Relationships</h2>
-<p>Relationships rarely exist in isolation.</p>
-<p>They are typically connected to other Relationships using relationships.</p>
+<h2 id="models-and-models">🔗 Models and Models</h2>
+<p>Models rarely exist in isolation.</p>
+<p>They are typically connected to other Models using Models.</p>
 <p>Example:</p>
 <ul>
 <li>Employee → Department  </li>
 <li>Asset → Location  </li>
 <li>Product → Service Line  </li>
 </ul>
-<p>These relationships allow you to build more powerful and flexible data models.</p>
+<p>These Models allow you to build more powerful and flexible data models.</p>
 <hr />
-<h2 id="designing-relationships-best-practices">🧭 Designing Relationships (Best Practices)</h2>
+<h2 id="designing-models-best-practices">🧭 Designing Models (Best Practices)</h2>
 <h3 id="think-in-business-terms">Think in Business Terms</h3>
-<p>Define Relationships based on real-world entities, not technical structures.</p>
+<p>Define Models based on real-world entities, not technical structures.</p>
 <p>✔️ Good:
 - Employee
 - Asset
 - Product</p>
 <p>❌ Avoid:
-- Generic or unclear Relationships like "Data1" or "Misc"</p>
+- Generic or unclear Models like "Data1" or "Misc"</p>
 <hr />
-<h3 id="keep-relationships-focused">Keep Relationships Focused</h3>
+<h3 id="keep-models-focused">Keep Models Focused</h3>
 <p>Each Relationship should represent <strong>one primary concept</strong>.</p>
 <p>Avoid combining unrelated data into a single Relationship.</p>
 <hr />
@@ -827,7 +665,7 @@
 - Consistent across your model</p>
 <hr />
 <h3 id="plan-for-reuse">Plan for Reuse</h3>
-<p>Relationships should be designed so they can be reused across:
+<p>Models should be designed so they can be reused across:
 - Planning models
 - Dashboards
 - Workflows</p>
@@ -855,8 +693,8 @@
 <hr />
 <h2 id="next-steps">👉 Next Steps</h2>
 <ul>
-<li>Learn about <a href="./">Relationships</a></li>
-<li>Explore <a href="../views/">Views</a></li>
+<li>Learn about <a href="Tables.md">Relational Tables</a></li>
+<li>Explore <a href="../views/">Relational Views</a></li>
 </ul>
 
 

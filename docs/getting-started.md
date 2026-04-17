@@ -27,7 +27,7 @@ All without writing SQL.
 
 Before getting started, make sure your environment is ready:
 
-👉 Follow the [Setup Guide](setup.md) to install and configure Revfore Accelerate.
+👉 Follow the [Setup And Installation](setup/setup.md) to install and configure Revfore Accelerate.
 
 ---
 
@@ -95,6 +95,6 @@ Example:
 
 ## 👉 Next Steps
 
-- Learn about [Tables](concepts/tables.md)
-- Understand [Relationships](concepts/relationships.md)
-- Explore [Views](concepts/views.md)
+- Learn about [Relational Tables](concepts/tables.md)
+- Understand [Relational Models](concepts/models.md)
+- Explore [Relational Views](concepts/views.md)
