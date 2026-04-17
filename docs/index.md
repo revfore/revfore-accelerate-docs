@@ -1,3 +1,4 @@
+![alt text](REVFORE_S2-01b.png){ width="500" }
 # Revfore Accelerate
 
 **A no-code relational framework for OneStream that helps developers and administrators build, manage, and surface relational data solutions faster.**

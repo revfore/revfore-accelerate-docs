@@ -16,7 +16,7 @@ Revfore Accelerate is a **no-code relational framework** that allows you to:
 
 - Create relational tables along with their relationships to other tables
 - Create relational models that source data from any number of relational tables
-- Build reusable views from the relational models along with allowed user actions
+- Build reusable relational views from the relational models along with allowed user actions
 - Surface data in editable grids and dashboards
 
 All without writing SQL.
@@ -27,18 +27,18 @@ All without writing SQL.
 
 Before you begin, it’s helpful to understand a few key ideas:
 
-### Tables
-Structured datasets that store your business data  
+### Relational Tables
+Structured datasets that store your business data and define how that data links together through relationships  
 (e.g., Customers, Rates, Employees, Assets, Products, Requests)
 
-### Relationships
-Connections between tables that define how data links together
+### Relational Models
+Unified structures that bring data from multiple tables into one place. Models allow you to define lookups, defaults, required fields, and additional expression-based columns to simplify data entry and enforce consistency
 
-### Views
-Reusable, queryable representations of your relational data
+### Relational Views
+Reusable, queryable representations of your relational data. Views are also where you define what actions users can take, such as adding, editing, or managing data
 
 ### Metadata-Driven UI
-All structures are defined in metadata, allowing the system to automatically generate interfaces
+Core structures are defined in metadata, enabling consistent, automatically generated interfaces that can be leveraged in OneStream Genesis, Partner Solutions, and custom solutions to deliver user-friendly applications and dashboards
 
 ---
 
@@ -46,14 +46,14 @@ All structures are defined in metadata, allowing the system to automatically gen
 
 Here’s the typical process for building a solution:
 
-1. **Create tables**
-   - Define your data structures
+1. **Create tables and relationships**
+   - Define your data structures and how they link together
 
-2. **Define relationships**
-   - Link tables together
+2. **Build relational models**
+   - Unify data across tables with lookups, defaults, required fields, and calculated columns
 
 3. **Build views**
-   - Create reusable data outputs
+   - Create reusable, queryable data outputs, define filters, and control available user actions
 
 4. **Expose in UI**
    - Use dashboards and grids for interaction
@@ -64,13 +64,15 @@ Here’s the typical process for building a solution:
 
 A common starting point:
 
-> Build a planning model for Employees, Assets, or Products
+> Build a rate table for products or services
 
 Example:
-- Create an `Employee` table
-- Add attributes like department, role, and cost
-- Link to other tables (e.g., cost centers)
-- Build a view for reporting or planning
+- Create a `Product` or `Service` table
+- Create a `Rate` table to store pricing or cost details
+- Define rate-related attributes (e.g., unit price, cost, effective dates)
+- Link to other tables (e.g., customers, regions, or units of measure)
+- Build relational models unify data and to apply lookups, defaults, and required fields
+- Create views with filters and user actions for managing and maintaining the data
 
 ---
 
