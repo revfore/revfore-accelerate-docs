@@ -17,11 +17,11 @@ theme:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Setup: setup/setup.md
+  - Setup & Installation: setup/setup.md
   - Core Concepts:
-      - Tables: concepts/tables.md
-      - Relationships: concepts/relationships.md
-      - Views: concepts/views.md
+      - Relational Tables: concepts/tables.md
+      - Relational Models: concepts/models.md
+      - Relational Views: concepts/views.md
 
 plugins:
   - search

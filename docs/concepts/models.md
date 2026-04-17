@@ -149,5 +149,5 @@ Then:
 ---
 
 ## 👉 Next Steps
-- Learn about [Relational Tables](Tables.md)
+- Learn about [Relational Tables](tables.md)
 - Explore [Relational Views](views.md)
