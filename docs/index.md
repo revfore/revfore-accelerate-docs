@@ -12,7 +12,7 @@ Revfore Accelerate simplifies how relational tables, relationships, views, and g
 Revfore Accelerate is designed for OneStream solution development that depends on relational data. It provides a configurable framework for defining and managing:
 
 - Relational tables
-- Table relationships
+- Relational models
 - Relational views
 - Editable lists and grids
 - Dashboard-driven user experiences
@@ -50,10 +50,13 @@ Revfore Accelerate can support a wide range of solutions, including:
 
 ## Core capabilities
 
-### Relational data framework
+### Relational Tables
 Create and manage relational tables, fields, and relationships through a configurable framework.
 
-### Reusable views
+### Relational Models
+Unify data across tables with lookups, defaults, required fields, and calculated columns
+
+### Relational Views
 Define relational views that can be used across dashboards, editable lists, and other user experiences.
 
 ### Governed user interfaces
