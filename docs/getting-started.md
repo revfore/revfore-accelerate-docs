@@ -23,6 +23,14 @@ All without writing SQL.
 
 ---
 
+## ⚙️ Setup
+
+Before getting started, make sure your environment is ready:
+
+👉 Follow the [Setup Guide](setup.md) to install and configure Revfore Accelerate.
+
+---
+
 ## 🧠 Core Concepts
 
 Before you begin, it’s helpful to understand a few key ideas:

@@ -310,27 +310,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tables" class="md-nav__link">
+  <a href="#relational-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables
+      Relational Tables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#relationships" class="md-nav__link">
+  <a href="#relational-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Relationships
+      Relational Models
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#views" class="md-nav__link">
+  <a href="#relational-views" class="md-nav__link">
     <span class="md-ellipsis">
-      Views
+      Relational Views
     </span>
   </a>
   
@@ -552,27 +552,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tables" class="md-nav__link">
+  <a href="#relational-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Tables
+      Relational Tables
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#relationships" class="md-nav__link">
+  <a href="#relational-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Relationships
+      Relational Models
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#views" class="md-nav__link">
+  <a href="#relational-views" class="md-nav__link">
     <span class="md-ellipsis">
-      Views
+      Relational Views
     </span>
   </a>
   
@@ -655,41 +655,41 @@
 <ul>
 <li>Create relational tables along with their relationships to other tables</li>
 <li>Create relational models that source data from any number of relational tables</li>
-<li>Build reusable views from the relational models along with allowed user actions</li>
+<li>Build reusable relational views from the relational models along with allowed user actions</li>
 <li>Surface data in editable grids and dashboards</li>
 </ul>
 <p>All without writing SQL.</p>
 <hr />
 <h2 id="core-concepts">🧠 Core Concepts</h2>
 <p>Before you begin, it’s helpful to understand a few key ideas:</p>
-<h3 id="tables">Tables</h3>
-<p>Structured datasets that store your business data<br />
+<h3 id="relational-tables">Relational Tables</h3>
+<p>Structured datasets that store your business data and define how that data links together through relationships<br />
 (e.g., Customers, Rates, Employees, Assets, Products, Requests)</p>
-<h3 id="relationships">Relationships</h3>
-<p>Connections between tables that define how data links together</p>
-<h3 id="views">Views</h3>
-<p>Reusable, queryable representations of your relational data</p>
+<h3 id="relational-models">Relational Models</h3>
+<p>Unified structures that bring data from multiple tables into one place. Models allow you to define lookups, defaults, required fields, and additional expression-based columns to simplify data entry and enforce consistency</p>
+<h3 id="relational-views">Relational Views</h3>
+<p>Reusable, queryable representations of your relational data. Views are also where you define what actions users can take, such as adding, editing, or managing data</p>
 <h3 id="metadata-driven-ui">Metadata-Driven UI</h3>
-<p>All structures are defined in metadata, allowing the system to automatically generate interfaces</p>
+<p>Core structures are defined in metadata, enabling consistent, automatically generated interfaces that can be leveraged in OneStream Genesis, Partner Solutions, and custom solutions to deliver user-friendly applications and dashboards</p>
 <hr />
 <h2 id="basic-workflow">⚙️ Basic Workflow</h2>
 <p>Here’s the typical process for building a solution:</p>
 <ol>
-<li><strong>Create tables</strong></li>
+<li><strong>Create tables and relationships</strong></li>
 <li>
-<p>Define your data structures</p>
+<p>Define your data structures and how they link together</p>
 </li>
 <li>
-<p><strong>Define relationships</strong></p>
+<p><strong>Build relational models</strong></p>
 </li>
 <li>
-<p>Link tables together</p>
+<p>Unify data across tables with lookups, defaults, required fields, and calculated columns</p>
 </li>
 <li>
 <p><strong>Build views</strong></p>
 </li>
 <li>
-<p>Create reusable data outputs</p>
+<p>Create reusable, queryable data outputs, define filters, and control available user actions</p>
 </li>
 <li>
 <p><strong>Expose in UI</strong></p>
@@ -700,13 +700,15 @@
 <h2 id="your-first-use-case">🏁 Your First Use Case</h2>
 <p>A common starting point:</p>
 <blockquote>
-<p>Build a planning model for Employees, Assets, or Products</p>
+<p>Build a rate table for products or services</p>
 </blockquote>
 <p>Example:
-- Create an <code>Employee</code> table
-- Add attributes like department, role, and cost
-- Link to other tables (e.g., cost centers)
-- Build a view for reporting or planning</p>
+- Create a <code>Product</code> or <code>Service</code> table
+- Create a <code>Rate</code> table to store pricing or cost details
+- Define rate-related attributes (e.g., unit price, cost, effective dates)
+- Link to other tables (e.g., customers, regions, or units of measure)
+- Build relational models unify data and to apply lookups, defaults, and required fields
+- Create views with filters and user actions for managing and maintaining the data</p>
 <hr />
 <h2 id="tips">💡 Tips</h2>
 <ul>
