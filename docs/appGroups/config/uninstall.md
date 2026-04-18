@@ -18,7 +18,7 @@ You can choose a subset of maintenance units to remove.
 
 #### Typical Use
 
-In most cases, users should use the **Upgrade** option in **Setup & Upgrade** instead of this uninstall option.
+In most cases, users should use the **Upgrade** option in [Setup & Upgrade](setup-upgrade.md) instead of this uninstall option.
 
 Use this option only if directed by Revfore.
 
@@ -29,8 +29,6 @@ This option removes everything, including:
 - the database
 - all maintenance units
 - any custom work that has been done in the solution
-
-#### Use This Option Only When
 
 Use **Uninstall Full** only when:
 

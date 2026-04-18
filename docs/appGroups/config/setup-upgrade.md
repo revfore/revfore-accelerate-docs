@@ -62,10 +62,11 @@ To upgrade Revfore Accelerate, you must must create an upgrade file from a full 
 >Step 1b: Choose which RFA maintenance units you want to upgrade
 
 You have the option of
+
 - both **Core** and **Custom** RFA maintenance units, or
 - only the **Core** RFA maintenance units
 
-Leave the checkbox checked if you want **both** upgrade.  Uncheck it if you only want to upgrade the **Core** RFA maintenance units
+Leave the checkbox checked if you want **both** upgraded.  Uncheck it if you only want to upgrade the **Core** RFA maintenance units
 
 !!!Note
 
