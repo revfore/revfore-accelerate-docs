@@ -18,7 +18,7 @@ Use this section to:
 
 ---
 
-## Initial Setup
+## Setup
 
 ### Step 1: Setup Database
 
