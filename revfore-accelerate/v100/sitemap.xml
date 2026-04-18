@@ -21,15 +21,63 @@
          <lastmod>2026-04-18</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relational-models/</loc>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalmodels/</loc>
          <lastmod>2026-04-18</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relational-tables/</loc>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalmodels/columns/</loc>
          <lastmod>2026-04-18</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relational-views/</loc>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalmodels/models/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalmodels/relationships/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalmodels/sources/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationaltables/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationaltables/columns/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationaltables/indexes/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationaltables/relationships/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationaltables/tables/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalviews/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalviews/actions/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalviews/columns/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalviews/filters/</loc>
+         <lastmod>2026-04-18</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-accelerate/v100/appGroups/admin/relationalviews/views/</loc>
          <lastmod>2026-04-18</lastmod>
     </url>
     <url>
