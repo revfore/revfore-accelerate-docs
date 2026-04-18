@@ -87,11 +87,11 @@ Leave the checkbox checked if you want **both** upgraded.  Uncheck it if you onl
 >Step 1d: Uninstall RFA Maintenance Units
 
 - Click on **Uninstall RFA Maintenance Units**
-- This will uninstall the RFA Maintenance Units you choose to remove
+- This will uninstall the RFA Maintenance Units you chose to remove
 
 >Step 1e: Download the upgrade xml file and load it
 
-- Take note of the provided path
+- Take note of the provided path and file name for the new upgrade xml file
 - Go to the OneStream File Explorer, by clicking on the File Explorer at the top left of you OneStream application
 - Locate the file and download it to a local folder
 - Load the upgrade xml file through the **Application tab | Tools | Load/Extract** process in OneStream

@@ -31,9 +31,24 @@ nav:
           - Other: appGroups/config/other.md  
       - Admin:
           - Overview: appGroups/admin/index.md
-          - Relational Tables: appGroups/admin/relational-tables.md
-          - Relational Models: appGroups/admin/relational-models.md
-          - Relational Views: appGroups/admin/relational-views.md
+          - Relational Tables:
+              - Overview: appGroups/admin/relationalTables/index.md
+              - Tables: appGroups/admin/relationalTables/tables.md
+              - Columns: appGroups/admin/relationalTables/columns.md
+              - Indexes: appGroups/admin/relationalTables/indexes.md
+              - Relationships: appGroups/admin/relationalTables/relationships.md
+          - Relational Models:
+              - Overview: appGroups/admin/relationalModels/index.md
+              - Models: appGroups/admin/relationalTables/models.md              
+              - Sources: appGroups/admin/relationalModels/sources.md
+              - Columns: appGroups/admin/relationalModels/columns.md
+              - Relationships: appGroups/admin/relationalModels/relationships.md
+          - Relational Views:
+              - Overview: appGroups/admin/relationalViews/index.md
+              - Views: appGroups/admin/relationalViews/views.md              
+              - Columns: appGroups/admin/relationalViews/columns.md
+              - Actions: appGroups/admin/relationalViews/actions.md
+              - Filters: appGroups/admin/relationalViews/filters.md
           - Lookups: appGroups/admin/lookups.md
           - Forms: appGroups/admin/forms.md
       - Home: appGroups/home/index.md
