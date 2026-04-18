@@ -24,7 +24,7 @@ nav:
       - Relational Views: concepts/views.md
   - Application Groups:     
       - Config: appGroups/config/index.md
-      - Admin: appGroups/admin/admin.md
+      - Admin: appGroups/admin/index.md
       - Home: appGroups/home/home.md
       - Help: appGroups/help/index.md
 
