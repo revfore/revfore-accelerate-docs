@@ -87,8 +87,8 @@ This allows you to surface relational data directly within your application’s 
 
 ---
 
-## Related Areas
+## Related Application Groups
 
-- Use the **Admin** area to create and manage Relational Tables, Models, and Views.
-- Use the **Config** area for setup, upgrades, and system-level configuration.
-- Use the **Help** area for documentation and support resources.
+- Use the **Admin** application group to create and manage Relational Tables, Models, and Views.
+- Use the **Config** application group for setup, upgrades, and system-level configuration.
+- Use the **Help** application group for documentation and support resources.

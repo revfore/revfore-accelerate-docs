@@ -1,12 +1,12 @@
 # Help
 
-The **Help** area provides quick access to documentation and support resources for Revfore Accelerate.
+The **Help** application group provides quick access to documentation and support resources for Revfore Accelerate.
 
-Use this area when you need to review product documentation or contact the Revfore support team.
+Use this application group when you need to review product documentation or contact the Revfore support team.
 
 ## Available Pages
 
-The Help area includes the following pages:
+The Help application group includes the following pages:
 
 - **Documentation**
 - **Contact Support**

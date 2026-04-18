@@ -17,6 +17,12 @@ Both license types allow access to the designer experience, but they differ in h
 
 The **customer reference code** is a unique number for a specific OneStream environment.
 
+It consists of two parts:  
+1) The application customer name found in Application | Application Properties | Customer Name.  
+2) A unique environment value that is auto generated after the solution is installed.  
+
+NOTE: A 'Starter' key can be generated from just the Customer Name.
+
 This code is used to generate a **Full license key** and is only available after Revfore Accelerate has been installed.
 
 ## Starter License Keys

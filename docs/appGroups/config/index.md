@@ -1,12 +1,12 @@
 # Config
 
-The **Config** area is used for **non-daily administrative and system-level tasks** in Revfore Accelerate.
+The **Config** application group is used for **non-daily administrative and system-level tasks** in Revfore Accelerate.
 
-Where the **Admin** area is focused on routine daily administration, the **Config** area is intended for setup, upgrades, licensing, maintenance, and other less frequent actions that help install, maintain, or troubleshoot the solution.
+Where the **Admin** application group is focused on routine daily administration, the **Config** application group is intended for setup, upgrades, licensing, maintenance, and other less frequent actions that help install, maintain, or troubleshoot the solution.
 
 ## Config Sections
 
-The Config area includes the following sections:
+The Config application group includes the following sections:
 
 - [Manage License Key](manage-license-key.md)
 - [Setup & Upgrade](setup-upgrade.md)
@@ -16,7 +16,7 @@ The Config area includes the following sections:
 
 ## When to Use Config
 
-Use the Config area when you need to:
+Use the Config application group when you need to:
 
 - set up Revfore Accelerate for the first time
 - upgrade to a newer version
@@ -25,6 +25,6 @@ Use the Config area when you need to:
 - run maintenance or support-provided scripts
 - perform occasional system-wide synchronization or relinking tasks
 
-## Related Area
+## Related Application Groups
 
-For routine ongoing administration, go to the **Admin** area, where users can review and manage existing Relational Tables, Models, and Views.
+For routine ongoing administration, go to the **Admin** application group, where users can review and manage existing Relational Tables, Models, and Views.

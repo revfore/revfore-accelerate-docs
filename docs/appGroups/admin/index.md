@@ -1,16 +1,16 @@
 # Admin
 
-The **Admin** area is used for **day-to-day administration** of relational data structures in Revfore Accelerate.
+The **Admin** application group is used for **day-to-day administration** of relational data structures in Revfore Accelerate.
 
 This is where users define, manage, and maintain the core components that power relational planning and operational workflows.
 
-While the **Config** area is focused on setup, upgrades, and system-level tasks, the **Admin** area is where users actively build and manage their data structures.
+While the **Config** application group is focused on setup, upgrades, and system-level tasks, the **Admin** application group is where users actively build and manage their data structures.
 
 ---
 
 ## Admin Sections
 
-The Admin area includes the following sections:
+The Admin application group includes the following sections:
 
 - [Relational Tables](relational-tables.md)
 - [Relational Models](relational-models.md)
@@ -22,7 +22,7 @@ The Admin area includes the following sections:
 
 ## Overview
 
-Use the Admin area to:
+Use the Admin application group to:
 
 - define and manage relational data structures
 - organize relationships between entities
@@ -55,7 +55,7 @@ Provide user-facing interfaces for entering and managing data.
 
 ## Typical Workflow
 
-A common workflow in the Admin area:
+A common workflow in the Admin application group:
 
 1. Create **Relational Tables** to define your data structure  
 2. Build **Relational Models** to link those tables together  
@@ -67,7 +67,7 @@ A common workflow in the Admin area:
 
 ## When to Use Admin
 
-Use the Admin area when:
+Use the Admin application group when:
 
 - building or modifying relational data structures
 - configuring planning or operational models
@@ -76,8 +76,8 @@ Use the Admin area when:
 
 ---
 
-## Related Areas
+## Related Application Groups
 
 - Use **Config** for setup, upgrades, licensing, and system-level tasks  
-- Use **Home Application Group** to expose relational views in navigation pages  
+- Use **Home** to expose relational views in navigation pages  
 - Use **Help** for documentation and support resources  

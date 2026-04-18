@@ -4,7 +4,7 @@
 
 The **Setup & Upgrade** section is used to install Revfore Accelerate for the first time and to upgrade it later to a newer version.
 
-The available options change depending on whether the database has already been set up and, if so, what version of the database currently exists.
+The available options change depending on whether the database has already been set up or not.
 
 ## Overview
 
@@ -52,43 +52,54 @@ When upgrading Revfore Accelerate, both the application components and the datab
 
 ### Step 1: Create Upgrade File, Uninstall, and Load
 
-To upgrade Revfore Accelerate, you must first create an upgrade file from a full install package.
+To upgrade Revfore Accelerate, you must must create an upgrade file from a full install package.
 
-#### Instructions
+>Step 1a: Download and Unzip the Revfore Accelerate full install zip file
 
-Please create an upgrade file from a Revfore Accelerate full install XML file.
+- Download the desired version of Revfore Accelerate from the **OneStream Solution Exchange**
+- Unzip it and extract the `ApplicationWorkspaces.xml` file
 
-You will need to download the full install ZIP file for the desired version from the **OneStream Solution Exchange**, unzip it, and select the `ApplicationWorkspaces.xml` file here.
+>Step 1b: Choose which RFA maintenance units you want to upgrade
 
-In addition, you will need to choose whether to upgrade:
-
+You have the option of
 - both **Core** and **Custom** RFA maintenance units, or
 - only the **Core** RFA maintenance units
 
-#### Important Note
+Leave the checkbox checked if you want **both** upgrade.  Uncheck it if you only want to upgrade the **Core** RFA maintenance units
 
-The **Genesis maintenance units** are always ignored during a Revfore Accelerate upgrade.
+!!!Note
 
-If you want to upgrade the Genesis maintenance units, go to the **Revfore Accelerate Designer** page and then navigate to:
+    The **Genesis maintenance units** are always ignored during a Revfore Accelerate upgrade.
 
-1. **Settings**
-2. **Instance Management**
-3. **Upgrade**
+    If you want to upgrade the Genesis maintenance units, go to the **Revfore Accelerate Designer** page and then navigate to:
 
-#### After Processing the File
+    1. **Settings**
+    2. **Instance Management**
+    3. **Upgrade**
 
-After the file is selected and processed, an XML file is created at the displayed path.
+>Step 1c: Create the upgrade file
 
-You will need to:
+- Click on **Select & Create Xml File**
+- Select the `ApplicationWorkspaces.xml` file you extracted
+- This will create an upgrade xml file and save it to your OneStream file explorer.  The path should be provided.
 
-1. save that file to a local folder
-2. load it through the **Application Load/Extract** process in OneStream
+>Step 1d: Uninstall RFA Maintenance Units
+
+- Click on **Uninstall RFA Maintenance Units**
+- This will uninstall the RFA Maintenance Units you choose to remove
+
+>Step 1e: Download the upgrade xml file and load it
+
+- Take note of the provided path
+- Go to the OneStream File Explorer, by clicking on the File Explorer at the top left of you OneStream application
+- Locate the file and download it to a local folder
+- Load the upgrade xml file through the **Application tab | Tools | Load/Extract** process in OneStream
 
 ### Step 2: Upgrade Database
 
-Use **Upgrade Database** to apply any database changes required for the upgraded version.
+>Click on **Upgrade Database** to apply any database changes required for the upgraded version.
 
-This step updates the database structures as needed to align with the new application version.
+- This step updates the database structures as needed to align with the new application version.
 
 ## Notes
 
