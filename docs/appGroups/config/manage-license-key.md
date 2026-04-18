@@ -1,153 +1,58 @@
----
-title: Config
----
+# Manage License Key
 
-# Config
+[← Back to Config Summary](index.md)
 
-Config are the **foundation of all relational data structures** in Revfore Accelerate.
+The **Manage License Key** page is used to retrieve the customer reference code, enter license keys, and validate the current license status for Revfore Accelerate.
 
-They define how your business data is stored, organized, and managed.
+## Overview
 
----
+Revfore Accelerate supports two types of license keys:
 
-## 🧠 What is a Relationship?
+- **Starter**
+- **Full**
 
-A Relationship represents a **business entity** and contains a set of records (rows) and attributes (columns).
+Both license types allow access to the designer experience, but they differ in how they are requested and what areas of the solution they unlock.
 
-Examples of common Config:
+## Customer Reference Code
 
-- Employees
-- Assets
-- Products
-- Services
-- Locations
+The **customer reference code** is a unique number for a specific OneStream environment.
 
-Each Relationship is designed to capture data at its **natural level of detail**.
+This code is used to generate a **Full license key** and is only available after Revfore Accelerate has been installed.
 
----
+## Starter License Keys
 
-## 🧱 Relationship Structure
+A **Starter** license key can be requested before Revfore Accelerate is installed.
 
-A Relationship consists of:
+It only requires the **customer name**, which can be found on the **Application Properties** page in OneStream.
 
-### Columns (Fields)
-Each column defines a specific attribute of the data.
+### Starter Key Benefits
 
-Example (Employee Relationship):
+Starter keys allow users to begin using Revfore Accelerate immediately rather than waiting for a Full license key.
 
-- Employee Name  
-- Department  
-- Role  
-- Salary  
+With a Starter key, users can access the designer pages and work with:
 
----
+- Relational Table definitions
+- Relational Model definitions
+- Relational View definitions
 
-### Rows (Records)
-Each row represents an individual instance of that entity.
+## Full License Keys
 
-Example:
+A **Full** license key requires the **customer reference code**, which is only available after the solution has been installed.
 
-| Employee Name | Department | Role        | Salary |
-|--------------|------------|------------|--------|
-| John Smith   | Finance    | Analyst     | 75,000 |
-| Jane Doe     | HR         | Manager     | 95,000 |
+### Full Key Benefits
 
----
+A Full license key allows users to do everything a Starter key allows, plus gain access to the **end user navigation pages**.
 
-## ⚙️ How Config Work in Revfore Accelerate
+## Common Tasks
 
-Config in Revfore Accelerate are:
+Use this page to:
 
-- **Defined through metadata** (no SQL required)
-- **EdiRelationship through a common UI**
-- **Reusable across workflows and dashboards**
-- **Integrated with Config and views**
+- retrieve the customer reference code
+- enter a new license key
+- validate a Starter or Full license key
+- confirm what level of access the current key provides
 
-Once a Relationship is defined, it becomes part of a broader relational model.
+## Notes
 
----
-
-## 🔗 Config and Config
-
-Config rarely exist in isolation.
-
-They are typically connected to other Config using Config.
-
-Example:
-
-- Employee → Department  
-- Asset → Location  
-- Product → Service Line  
-
-These Config allow you to build more powerful and flexible data Config.
-
----
-
-## 🧭 Designing Config (Best Practices)
-
-### Think in Business Terms
-Define Config based on real-world entities, not technical structures.
-
-✔️ Good:
-- Employee
-- Asset
-- Product
-
-❌ Avoid:
-- Generic or unclear Config like "Data1" or "Misc"
-
----
-
-### Keep Config Focused
-Each Relationship should represent **one primary concept**.
-
-Avoid combining unrelated data into a single Relationship.
-
----
-
-### Use Clear Naming
-Use names that are:
-- Easy to understand
-- Consistent across your model
-
----
-
-### Plan for Reuse
-Config should be designed so they can be reused across:
-- Planning Config
-- Dashboards
-- Workflows
-
----
-
-## 🚀 Example Use Case
-
-Let’s say you want to plan labor costs.
-
-You might create:
-
-**Employee Relationship**
-- Employee Name
-- Department
-- Role
-- Base Salary
-
-Then:
-- Link to a Department Relationship
-- Use the data in planning workflows
-- Build views for reporting
-
----
-
-## 💡 Tips
-
-- Start with your core entities first  
-- Add additional attributes over time  
-- Avoid overcomplicating your initial design  
-- Keep your model flexible  
-
----
-
-## 👉 Next Steps
-- Learn about [Relational Tables](tables.md)
-- Explore [Relational Views](views.md)
+- Starter keys are helpful when you want to begin setup and design work quickly.
+- Full keys are required for full solution access, including end user navigation pages.
