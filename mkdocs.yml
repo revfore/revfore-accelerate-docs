@@ -25,7 +25,7 @@ nav:
   - Application Groups:     
       - Config: appGroups/config/index.md
       - Admin: appGroups/admin/index.md
-      - Home: appGroups/home/home.md
+      - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
 
 plugins:

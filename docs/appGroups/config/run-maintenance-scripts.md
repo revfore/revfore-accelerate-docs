@@ -1,153 +1,25 @@
----
-title: Config
----
+# Run Maintenance Scripts
 
-# Config
+[← Back to Config Summary](index.md)
 
-Config are the **foundation of all relational data structures** in Revfore Accelerate.
+The **Run Maintenance Scripts** section is used to execute database scripts provided by the Revfore support team.
 
-They define how your business data is stored, organized, and managed.
+## Overview
 
----
+Use this section when Revfore provides a script to fix a specific non-routine database issue.
 
-## 🧠 What is a Relationship?
+These scripts are typically intended to address targeted maintenance or support cases and are not part of normal day-to-day administration.
 
-A Relationship represents a **business entity** and contains a set of records (rows) and attributes (columns).
+## When to Use This Section
 
-Examples of common Config:
+Use this section only when:
 
-- Employees
-- Assets
-- Products
-- Services
-- Locations
+- Revfore support has provided a script
+- you need to address a non-routine database issue
+- you have been instructed to run a specific maintenance action
 
-Each Relationship is designed to capture data at its **natural level of detail**.
+## Notes
 
----
-
-## 🧱 Relationship Structure
-
-A Relationship consists of:
-
-### Columns (Fields)
-Each column defines a specific attribute of the data.
-
-Example (Employee Relationship):
-
-- Employee Name  
-- Department  
-- Role  
-- Salary  
-
----
-
-### Rows (Records)
-Each row represents an individual instance of that entity.
-
-Example:
-
-| Employee Name | Department | Role        | Salary |
-|--------------|------------|------------|--------|
-| John Smith   | Finance    | Analyst     | 75,000 |
-| Jane Doe     | HR         | Manager     | 95,000 |
-
----
-
-## ⚙️ How Config Work in Revfore Accelerate
-
-Config in Revfore Accelerate are:
-
-- **Defined through metadata** (no SQL required)
-- **EdiRelationship through a common UI**
-- **Reusable across workflows and dashboards**
-- **Integrated with Config and views**
-
-Once a Relationship is defined, it becomes part of a broader relational model.
-
----
-
-## 🔗 Config and Config
-
-Config rarely exist in isolation.
-
-They are typically connected to other Config using Config.
-
-Example:
-
-- Employee → Department  
-- Asset → Location  
-- Product → Service Line  
-
-These Config allow you to build more powerful and flexible data Config.
-
----
-
-## 🧭 Designing Config (Best Practices)
-
-### Think in Business Terms
-Define Config based on real-world entities, not technical structures.
-
-✔️ Good:
-- Employee
-- Asset
-- Product
-
-❌ Avoid:
-- Generic or unclear Config like "Data1" or "Misc"
-
----
-
-### Keep Config Focused
-Each Relationship should represent **one primary concept**.
-
-Avoid combining unrelated data into a single Relationship.
-
----
-
-### Use Clear Naming
-Use names that are:
-- Easy to understand
-- Consistent across your model
-
----
-
-### Plan for Reuse
-Config should be designed so they can be reused across:
-- Planning Config
-- Dashboards
-- Workflows
-
----
-
-## 🚀 Example Use Case
-
-Let’s say you want to plan labor costs.
-
-You might create:
-
-**Employee Relationship**
-- Employee Name
-- Department
-- Role
-- Base Salary
-
-Then:
-- Link to a Department Relationship
-- Use the data in planning workflows
-- Build views for reporting
-
----
-
-## 💡 Tips
-
-- Start with your core entities first  
-- Add additional attributes over time  
-- Avoid overcomplicating your initial design  
-- Keep your model flexible  
-
----
-
-## 👉 Next Steps
-- Learn about [Relational Tables](tables.md)
-- Explore [Relational Views](views.md)
+- This section is not intended for routine administration.
+- Only run scripts from the Revfore support team.
+- Be sure to understand the purpose of a script before running it in an environment.

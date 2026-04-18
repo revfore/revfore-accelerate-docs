@@ -1,153 +1,62 @@
----
-title: Models
----
+# Help
 
-# Models
+The **Help** area provides quick access to documentation and support resources for Revfore Accelerate.
 
-Models are the **foundation of all relational data structures** in Revfore Accelerate.
+Use this area when you need to review product documentation or contact the Revfore support team.
 
-They define how your business data is stored, organized, and managed.
+## Available Pages
 
----
+The Help area includes the following pages:
 
-## 🧠 What is a Relationship?
-
-A Relationship represents a **business entity** and contains a set of records (rows) and attributes (columns).
-
-Examples of common Models:
-
-- Employees
-- Assets
-- Products
-- Services
-- Locations
-
-Each Relationship is designed to capture data at its **natural level of detail**.
+- **Documentation**
+- **Contact Support**
 
 ---
 
-## 🧱 Relationship Structure
+## Documentation
 
-A Relationship consists of:
+The **Documentation** page provides an embedded web browser experience that links directly to the Revfore Accelerate documentation hosted online.
 
-### Columns (Fields)
-Each column defines a specific attribute of the data.
+This allows users to review the latest available documentation without leaving the solution.
 
-Example (Employee Relationship):
+### Typical Uses
 
-- Employee Name  
-- Department  
-- Role  
-- Salary  
+Use the Documentation page to:
 
----
+- review setup and configuration instructions
+- understand core concepts and features
+- reference designer and admin guidance
+- access the latest published product documentation
 
-### Rows (Records)
-Each row represents an individual instance of that entity.
+### Notes
 
-Example:
-
-| Employee Name | Department | Role        | Salary |
-|--------------|------------|------------|--------|
-| John Smith   | Finance    | Analyst     | 75,000 |
-| Jane Doe     | HR         | Manager     | 95,000 |
+- The page displays the online documentation inside an embedded browser experience.
+- Documentation content is maintained separately from the application and can be updated as new versions are published.
 
 ---
 
-## ⚙️ How Models Work in Revfore Accelerate
+## Contact Support
 
-Models in Revfore Accelerate are:
+The **Contact Support** page provides access to a web page where users can contact the Revfore support team.
 
-- **Defined through metadata** (no SQL required)
-- **EdiRelationship through a common UI**
-- **Reusable across workflows and dashboards**
-- **Integrated with Models and views**
+Use this page when you need help with issues, questions, troubleshooting, or guidance related to Revfore Accelerate.
 
-Once a Relationship is defined, it becomes part of a broader relational model.
+### Typical Uses
 
----
+Use the Contact Support page to:
 
-## 🔗 Models and Models
+- request help with an issue
+- ask product or setup questions
+- get assistance with non-routine maintenance needs
+- contact Revfore for troubleshooting support
 
-Models rarely exist in isolation.
+### Notes
 
-They are typically connected to other Models using Models.
+- This page opens a support web page for contacting Revfore.
+- For database maintenance scripts or other guided fixes, follow instructions provided by the Revfore support team.
 
-Example:
+## Related Information
 
-- Employee → Department  
-- Asset → Location  
-- Product → Service Line  
+For product documentation, use the **Documentation** page.
 
-These Models allow you to build more powerful and flexible data models.
-
----
-
-## 🧭 Designing Models (Best Practices)
-
-### Think in Business Terms
-Define Models based on real-world entities, not technical structures.
-
-✔️ Good:
-- Employee
-- Asset
-- Product
-
-❌ Avoid:
-- Generic or unclear Models like "Data1" or "Misc"
-
----
-
-### Keep Models Focused
-Each Relationship should represent **one primary concept**.
-
-Avoid combining unrelated data into a single Relationship.
-
----
-
-### Use Clear Naming
-Use names that are:
-- Easy to understand
-- Consistent across your model
-
----
-
-### Plan for Reuse
-Models should be designed so they can be reused across:
-- Planning models
-- Dashboards
-- Workflows
-
----
-
-## 🚀 Example Use Case
-
-Let’s say you want to plan labor costs.
-
-You might create:
-
-**Employee Relationship**
-- Employee Name
-- Department
-- Role
-- Base Salary
-
-Then:
-- Link to a Department Relationship
-- Use the data in planning workflows
-- Build views for reporting
-
----
-
-## 💡 Tips
-
-- Start with your core entities first  
-- Add additional attributes over time  
-- Avoid overcomplicating your initial design  
-- Keep your model flexible  
-
----
-
-## 👉 Next Steps
-- Learn about [Relational Tables](tables.md)
-- Explore [Relational Views](views.md)
+For direct assistance, use the **Contact Support** page.

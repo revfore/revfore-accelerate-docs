@@ -2,7 +2,7 @@
 
 [← Back to Config Summary](index.md)
 
-The **Manage License Key** page is used to retrieve the customer reference code, enter license keys, and validate the current license status for Revfore Accelerate.
+The **Manage License Key** section is used to retrieve the customer reference code, enter license keys, and validate the current license status for Revfore Accelerate.
 
 ## Overview
 
@@ -45,7 +45,7 @@ A Full license key allows users to do everything a Starter key allows, plus gain
 
 ## Common Tasks
 
-Use this page to:
+Use this section to:
 
 - retrieve the customer reference code
 - enter a new license key

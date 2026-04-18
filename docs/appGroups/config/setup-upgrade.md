@@ -1,153 +1,97 @@
----
-title: Config
----
+# Setup & Upgrade
 
-# Config
+[← Back to Config Summary](index.md)
 
-Config are the **foundation of all relational data structures** in Revfore Accelerate.
+The **Setup & Upgrade** section is used to install Revfore Accelerate for the first time and to upgrade it later to a newer version.
 
-They define how your business data is stored, organized, and managed.
+The available options change depending on whether the database has already been set up and, if so, what version of the database currently exists.
 
----
+## Overview
 
-## 🧠 What is a Relationship?
+Use this section to:
 
-A Relationship represents a **business entity** and contains a set of records (rows) and attributes (columns).
-
-Examples of common Config:
-
-- Employees
-- Assets
-- Products
-- Services
-- Locations
-
-Each Relationship is designed to capture data at its **natural level of detail**.
+- perform the initial setup of the solution
+- create the required database objects
+- launch the solution after setup
+- prepare and process upgrade files
+- upgrade the database for a newer version
 
 ---
 
-## 🧱 Relationship Structure
+## Initial Setup
 
-A Relationship consists of:
+### Step 1: Setup Database
 
-### Columns (Fields)
-Each column defines a specific attribute of the data.
+Use **Setup Database** to create the initial database structures required by Revfore Accelerate.
 
-Example (Employee Relationship):
+This includes items such as:
 
-- Employee Name  
-- Department  
-- Role  
-- Salary  
+- schemas
+- tables
+- stored procedures
+- views
+- default data
 
----
+This step prepares the environment for the solution to run.
 
-### Rows (Records)
-Each row represents an individual instance of that entity.
+### Step 2: Launch Solution
 
-Example:
+After the database setup is complete, the solution is ready to use.
 
-| Employee Name | Department | Role        | Salary |
-|--------------|------------|------------|--------|
-| John Smith   | Finance    | Analyst     | 75,000 |
-| Jane Doe     | HR         | Manager     | 95,000 |
+At that point, users will typically go to the **Admin** application group to begin reviewing existing and creating new:
 
----
-
-## ⚙️ How Config Work in Revfore Accelerate
-
-Config in Revfore Accelerate are:
-
-- **Defined through metadata** (no SQL required)
-- **EdiRelationship through a common UI**
-- **Reusable across workflows and dashboards**
-- **Integrated with Config and views**
-
-Once a Relationship is defined, it becomes part of a broader relational model.
+- Relational Tables
+- Relational Models
+- Relational Views
 
 ---
 
-## 🔗 Config and Config
+## Upgrade
 
-Config rarely exist in isolation.
+When upgrading Revfore Accelerate, both the application components and the database may need to be updated.
 
-They are typically connected to other Config using Config.
+### Step 1: Create Upgrade File, Uninstall, and Load
 
-Example:
+To upgrade Revfore Accelerate, you must first create an upgrade file from a full install package.
 
-- Employee → Department  
-- Asset → Location  
-- Product → Service Line  
+#### Instructions
 
-These Config allow you to build more powerful and flexible data Config.
+Please create an upgrade file from a Revfore Accelerate full install XML file.
 
----
+You will need to download the full install ZIP file for the desired version from the **OneStream Solution Exchange**, unzip it, and select the `ApplicationWorkspaces.xml` file here.
 
-## 🧭 Designing Config (Best Practices)
+In addition, you will need to choose whether to upgrade:
 
-### Think in Business Terms
-Define Config based on real-world entities, not technical structures.
+- both **Core** and **Custom** RFA maintenance units, or
+- only the **Core** RFA maintenance units
 
-✔️ Good:
-- Employee
-- Asset
-- Product
+#### Important Note
 
-❌ Avoid:
-- Generic or unclear Config like "Data1" or "Misc"
+The **Genesis maintenance units** are always ignored during a Revfore Accelerate upgrade.
 
----
+If you want to upgrade the Genesis maintenance units, go to the **Revfore Accelerate Designer** page and then navigate to:
 
-### Keep Config Focused
-Each Relationship should represent **one primary concept**.
+1. **Settings**
+2. **Instance Management**
+3. **Upgrade**
 
-Avoid combining unrelated data into a single Relationship.
+#### After Processing the File
 
----
+After the file is selected and processed, an XML file is created at the displayed path.
 
-### Use Clear Naming
-Use names that are:
-- Easy to understand
-- Consistent across your model
+You will need to:
 
----
+1. save that file to a local folder
+2. load it through the **Application Load/Extract** process in OneStream
 
-### Plan for Reuse
-Config should be designed so they can be reused across:
-- Planning Config
-- Dashboards
-- Workflows
+### Step 2: Upgrade Database
 
----
+Use **Upgrade Database** to apply any database changes required for the upgraded version.
 
-## 🚀 Example Use Case
+This step updates the database structures as needed to align with the new application version.
 
-Let’s say you want to plan labor costs.
+## Notes
 
-You might create:
-
-**Employee Relationship**
-- Employee Name
-- Department
-- Role
-- Base Salary
-
-Then:
-- Link to a Department Relationship
-- Use the data in planning workflows
-- Build views for reporting
-
----
-
-## 💡 Tips
-
-- Start with your core entities first  
-- Add additional attributes over time  
-- Avoid overcomplicating your initial design  
-- Keep your model flexible  
-
----
-
-## 👉 Next Steps
-- Learn about [Relational Tables](tables.md)
-- Explore [Relational Views](views.md)
+- The Setup & Upgrade section is the primary place to install and upgrade Revfore Accelerate.
+- In most upgrade scenarios, this section should be used instead of manually uninstalling maintenance units.
+- Available actions may vary depending on the current database state and version.

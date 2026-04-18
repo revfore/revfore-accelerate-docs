@@ -1,153 +1,53 @@
----
-title: Config
----
+# Other
 
-# Config
+[← Back to Config Summary](index.md)
 
-Config are the **foundation of all relational data structures** in Revfore Accelerate.
+The **Other** section includes additional system-level actions that administrators can run as needed.
 
-They define how your business data is stored, organized, and managed.
+These actions are generally safe to run and are helpful for synchronizing metadata or relinking records after installs or upgrades.
 
----
+## Available Actions
 
-## 🧠 What is a Relationship?
+### Sync All Managed Relational Views
 
-A Relationship represents a **business entity** and contains a set of records (rows) and attributes (columns).
+This action loops through all managed relational views and syncs their definitions with the actual SQL views in the database.
 
-Examples of common Config:
+#### When to Use
 
-- Employees
-- Assets
-- Products
-- Services
-- Locations
+This is helpful when:
 
-Each Relationship is designed to capture data at its **natural level of detail**.
+- you have made changes to relational view definitions
+- you want to ensure those changes have been applied to the database
+- you want to confirm that all managed SQL views are in sync
 
----
+#### Notes
 
-## 🧱 Relationship Structure
-
-A Relationship consists of:
-
-### Columns (Fields)
-Each column defines a specific attribute of the data.
-
-Example (Employee Relationship):
-
-- Employee Name  
-- Department  
-- Role  
-- Salary  
+- This action is safe to run anytime.
+- The system automatically runs this during setup and after any upgrade.
 
 ---
 
-### Rows (Records)
-Each row represents an individual instance of that entity.
+### Relink Forms and Users
 
-Example:
+Forms and Users are linked using both:
 
-| Employee Name | Department | Role        | Salary |
-|--------------|------------|------------|--------|
-| John Smith   | Finance    | Analyst     | 75,000 |
-| Jane Doe     | HR         | Manager     | 95,000 |
+- their hidden unique IDs
+- their names
 
----
+This process takes the names and updates the unique IDs.
 
-## ⚙️ How Config Work in Revfore Accelerate
+Revfore Accelerate normally uses the unique IDs, so these records need to be relinked after an install or upgrade.
 
-Config in Revfore Accelerate are:
+#### When to Use
 
-- **Defined through metadata** (no SQL required)
-- **EdiRelationship through a common UI**
-- **Reusable across workflows and dashboards**
-- **Integrated with Config and views**
+Use this action when:
 
-Once a Relationship is defined, it becomes part of a broader relational model.
+- forms or users need to be relinked after an install
+- forms or users need to be relinked after an upgrade
+- the automatic relinking process did not complete as expected
 
----
+#### Notes
 
-## 🔗 Config and Config
-
-Config rarely exist in isolation.
-
-They are typically connected to other Config using Config.
-
-Example:
-
-- Employee → Department  
-- Asset → Location  
-- Product → Service Line  
-
-These Config allow you to build more powerful and flexible data Config.
-
----
-
-## 🧭 Designing Config (Best Practices)
-
-### Think in Business Terms
-Define Config based on real-world entities, not technical structures.
-
-✔️ Good:
-- Employee
-- Asset
-- Product
-
-❌ Avoid:
-- Generic or unclear Config like "Data1" or "Misc"
-
----
-
-### Keep Config Focused
-Each Relationship should represent **one primary concept**.
-
-Avoid combining unrelated data into a single Relationship.
-
----
-
-### Use Clear Naming
-Use names that are:
-- Easy to understand
-- Consistent across your model
-
----
-
-### Plan for Reuse
-Config should be designed so they can be reused across:
-- Planning Config
-- Dashboards
-- Workflows
-
----
-
-## 🚀 Example Use Case
-
-Let’s say you want to plan labor costs.
-
-You might create:
-
-**Employee Relationship**
-- Employee Name
-- Department
-- Role
-- Base Salary
-
-Then:
-- Link to a Department Relationship
-- Use the data in planning workflows
-- Build views for reporting
-
----
-
-## 💡 Tips
-
-- Start with your core entities first  
-- Add additional attributes over time  
-- Avoid overcomplicating your initial design  
-- Keep your model flexible  
-
----
-
-## 👉 Next Steps
-- Learn about [Relational Tables](tables.md)
-- Explore [Relational Views](views.md)
+- This process should automatically run, but it can also be run manually here if needed.
+- It is safe to run anytime.
+- Revfore Accelerate automatically creates user records when it encounters a new user login.

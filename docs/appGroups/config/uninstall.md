@@ -1,153 +1,42 @@
----
-title: Config
----
+# Uninstall
 
-# Config
+[← Back to Config Summary](index.md)
 
-Config are the **foundation of all relational data structures** in Revfore Accelerate.
+The **Uninstall** section is used to remove some or all of Revfore Accelerate.
 
-They define how your business data is stored, organized, and managed.
+There are two uninstall options, depending on whether you want to remove only the application components or completely remove the entire solution.
 
----
+## Uninstall Options
 
-## 🧠 What is a Relationship?
+### Option 1: Uninstall UI / Business Rules
 
-A Relationship represents a **business entity** and contains a set of records (rows) and attributes (columns).
+This option removes the UI and Business Rules stored in maintenance units while leaving the database in place.
 
-Examples of common Config:
+This is typically used as part of an upgrade-related process where application components need to be removed and reloaded.
 
-- Employees
-- Assets
-- Products
-- Services
-- Locations
+You can choose a subset of maintenance units to remove.
 
-Each Relationship is designed to capture data at its **natural level of detail**.
+#### Typical Use
 
----
+In most cases, users should use the **Upgrade** option in **Setup & Upgrade** instead of this uninstall option.
 
-## 🧱 Relationship Structure
+Use this option only if directed by Revfore.
 
-A Relationship consists of:
+### Option 2: Uninstall Full
 
-### Columns (Fields)
-Each column defines a specific attribute of the data.
+This option removes everything, including:
 
-Example (Employee Relationship):
+- the database
+- all maintenance units
+- any custom work that has been done in the solution
 
-- Employee Name  
-- Department  
-- Role  
-- Salary  
+#### Use This Option Only When
 
----
+Use **Uninstall Full** only when:
 
-### Rows (Records)
-Each row represents an individual instance of that entity.
+- you are no longer using the solution, or
+- you want to fully reset the environment by uninstalling and reinstalling it
 
-Example:
+## Warning
 
-| Employee Name | Department | Role        | Salary |
-|--------------|------------|------------|--------|
-| John Smith   | Finance    | Analyst     | 75,000 |
-| Jane Doe     | HR         | Manager     | 95,000 |
-
----
-
-## ⚙️ How Config Work in Revfore Accelerate
-
-Config in Revfore Accelerate are:
-
-- **Defined through metadata** (no SQL required)
-- **EdiRelationship through a common UI**
-- **Reusable across workflows and dashboards**
-- **Integrated with Config and views**
-
-Once a Relationship is defined, it becomes part of a broader relational model.
-
----
-
-## 🔗 Config and Config
-
-Config rarely exist in isolation.
-
-They are typically connected to other Config using Config.
-
-Example:
-
-- Employee → Department  
-- Asset → Location  
-- Product → Service Line  
-
-These Config allow you to build more powerful and flexible data Config.
-
----
-
-## 🧭 Designing Config (Best Practices)
-
-### Think in Business Terms
-Define Config based on real-world entities, not technical structures.
-
-✔️ Good:
-- Employee
-- Asset
-- Product
-
-❌ Avoid:
-- Generic or unclear Config like "Data1" or "Misc"
-
----
-
-### Keep Config Focused
-Each Relationship should represent **one primary concept**.
-
-Avoid combining unrelated data into a single Relationship.
-
----
-
-### Use Clear Naming
-Use names that are:
-- Easy to understand
-- Consistent across your model
-
----
-
-### Plan for Reuse
-Config should be designed so they can be reused across:
-- Planning Config
-- Dashboards
-- Workflows
-
----
-
-## 🚀 Example Use Case
-
-Let’s say you want to plan labor costs.
-
-You might create:
-
-**Employee Relationship**
-- Employee Name
-- Department
-- Role
-- Base Salary
-
-Then:
-- Link to a Department Relationship
-- Use the data in planning workflows
-- Build views for reporting
-
----
-
-## 💡 Tips
-
-- Start with your core entities first  
-- Add additional attributes over time  
-- Avoid overcomplicating your initial design  
-- Keep your model flexible  
-
----
-
-## 👉 Next Steps
-- Learn about [Relational Tables](tables.md)
-- Explore [Relational Views](views.md)
+A full uninstall removes all solution components, including customizations. Make sure you fully understand the impact before proceeding.
