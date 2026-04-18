@@ -22,9 +22,21 @@ nav:
       - Relational Tables: concepts/tables.md
       - Relational Models: concepts/models.md
       - Relational Views: concepts/views.md
-  - Application Groups:     
-      - Config: appGroups/config/index.md
-      - Admin: appGroups/admin/index.md
+  - Application Groups:
+      - Config:
+          - Overview: appGroups/config/index.md
+          - Manage License Keys: appGroups/config/manage-license-key.md   
+          - Setup & Upgrade: appGroups/config/setup-upgrade.md
+          - Uninstall: appGroups/config/uninstall.md
+          - Run Maintenance Scripts: appGroups/config/run-maintenance-scripts.md
+          - Other: appGroups/config/other.md  
+      - Admin:
+          - Overview: appGroups/admin/index.md
+          - Relational Tables: appGroups/admin/relational-tables.md
+          - Relational Models: appGroups/admin/relational-models.md
+          - Relational Views: appGroups/admin/relational-views.md
+          - Lookups: appGroups/admin/lookups.md
+          - Forms: appGroups/admin/forms.md
       - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
 
