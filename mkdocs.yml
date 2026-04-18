@@ -39,7 +39,7 @@ nav:
               - Relationships: appGroups/admin/relationalTables/relationships.md
           - Relational Models:
               - Overview: appGroups/admin/relationalModels/index.md
-              - Models: appGroups/admin/relationalTables/models.md              
+              - Models: appGroups/admin/relationalModels/models.md              
               - Sources: appGroups/admin/relationalModels/sources.md
               - Columns: appGroups/admin/relationalModels/columns.md
               - Relationships: appGroups/admin/relationalModels/relationships.md
