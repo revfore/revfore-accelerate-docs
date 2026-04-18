@@ -624,39 +624,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 1: Create Upgrade File, Uninstall, and Load">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#instructions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instructions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#important-note" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important Note
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#after-processing-the-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      After Processing the File
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1069,39 +1036,6 @@
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Step 1: Create Upgrade File, Uninstall, and Load">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#instructions" class="md-nav__link">
-    <span class="md-ellipsis">
-      Instructions
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#important-note" class="md-nav__link">
-    <span class="md-ellipsis">
-      Important Note
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#after-processing-the-file" class="md-nav__link">
-    <span class="md-ellipsis">
-      After Processing the File
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1148,7 +1082,7 @@
 <h1 id="setup-upgrade">Setup &amp; Upgrade</h1>
 <p><a href="../">← Back to Config Summary</a></p>
 <p>The <strong>Setup &amp; Upgrade</strong> section is used to install Revfore Accelerate for the first time and to upgrade it later to a newer version.</p>
-<p>The available options change depending on whether the database has already been set up and, if so, what version of the database currently exists.</p>
+<p>The available options change depending on whether the database has already been set up or not.</p>
 <h2 id="overview">Overview</h2>
 <p>Use this section to:</p>
 <ul>
@@ -1183,16 +1117,23 @@
 <h2 id="upgrade">Upgrade</h2>
 <p>When upgrading Revfore Accelerate, both the application components and the database may need to be updated.</p>
 <h3 id="step-1-create-upgrade-file-uninstall-and-load">Step 1: Create Upgrade File, Uninstall, and Load</h3>
-<p>To upgrade Revfore Accelerate, you must first create an upgrade file from a full install package.</p>
-<h4 id="instructions">Instructions</h4>
-<p>Please create an upgrade file from a Revfore Accelerate full install XML file.</p>
-<p>You will need to download the full install ZIP file for the desired version from the <strong>OneStream Solution Exchange</strong>, unzip it, and select the <code>ApplicationWorkspaces.xml</code> file here.</p>
-<p>In addition, you will need to choose whether to upgrade:</p>
+<p>To upgrade Revfore Accelerate, you must must create an upgrade file from a full install package.</p>
+<blockquote>
+<p>Step 1a: Download and Unzip the Revfore Accelerate full install zip file</p>
+</blockquote>
 <ul>
-<li>both <strong>Core</strong> and <strong>Custom</strong> RFA maintenance units, or</li>
-<li>only the <strong>Core</strong> RFA maintenance units</li>
+<li>Download the desired version of Revfore Accelerate from the <strong>OneStream Solution Exchange</strong></li>
+<li>Unzip it and extract the <code>ApplicationWorkspaces.xml</code> file</li>
 </ul>
-<h4 id="important-note">Important Note</h4>
+<blockquote>
+<p>Step 1b: Choose which RFA maintenance units you want to upgrade</p>
+</blockquote>
+<p>You have the option of
+- both <strong>Core</strong> and <strong>Custom</strong> RFA maintenance units, or
+- only the <strong>Core</strong> RFA maintenance units</p>
+<p>Leave the checkbox checked if you want <strong>both</strong> upgrade.  Uncheck it if you only want to upgrade the <strong>Core</strong> RFA maintenance units</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>The <strong>Genesis maintenance units</strong> are always ignored during a Revfore Accelerate upgrade.</p>
 <p>If you want to upgrade the Genesis maintenance units, go to the <strong>Revfore Accelerate Designer</strong> page and then navigate to:</p>
 <ol>
@@ -1200,16 +1141,38 @@
 <li><strong>Instance Management</strong></li>
 <li><strong>Upgrade</strong></li>
 </ol>
-<h4 id="after-processing-the-file">After Processing the File</h4>
-<p>After the file is selected and processed, an XML file is created at the displayed path.</p>
-<p>You will need to:</p>
-<ol>
-<li>save that file to a local folder</li>
-<li>load it through the <strong>Application Load/Extract</strong> process in OneStream</li>
-</ol>
+</div>
+<blockquote>
+<p>Step 1c: Create the upgrade file</p>
+</blockquote>
+<ul>
+<li>Click on <strong>Select &amp; Create Xml File</strong></li>
+<li>Select the <code>ApplicationWorkspaces.xml</code> file you extracted</li>
+<li>This will create an upgrade xml file and save it to your OneStream file explorer.  The path should be provided.</li>
+</ul>
+<blockquote>
+<p>Step 1d: Uninstall RFA Maintenance Units</p>
+</blockquote>
+<ul>
+<li>Click on <strong>Uninstall RFA Maintenance Units</strong></li>
+<li>This will uninstall the RFA Maintenance Units you choose to remove</li>
+</ul>
+<blockquote>
+<p>Step 1e: Download the upgrade xml file and load it</p>
+</blockquote>
+<ul>
+<li>Take note of the provided path</li>
+<li>Go to the OneStream File Explorer, by clicking on the File Explorer at the top left of you OneStream application</li>
+<li>Locate the file and download it to a local folder</li>
+<li>Load the upgrade xml file through the <strong>Application tab | Tools | Load/Extract</strong> process in OneStream</li>
+</ul>
 <h3 id="step-2-upgrade-database">Step 2: Upgrade Database</h3>
-<p>Use <strong>Upgrade Database</strong> to apply any database changes required for the upgraded version.</p>
-<p>This step updates the database structures as needed to align with the new application version.</p>
+<blockquote>
+<p>Click on <strong>Upgrade Database</strong> to apply any database changes required for the upgraded version.</p>
+</blockquote>
+<ul>
+<li>This step updates the database structures as needed to align with the new application version.</li>
+</ul>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>The Setup &amp; Upgrade section is the primary place to install and upgrade Revfore Accelerate.</li>
