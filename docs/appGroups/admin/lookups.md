@@ -1,83 +1,34 @@
-# Admin
+# Lookups
 
-The **Admin** area is used for **day-to-day administration** of relational data structures in Revfore Accelerate.
+[← Back to Admin](index.md)
 
-This is where users define, manage, and maintain the core components that power relational planning and operational workflows.
+Lookups are used to define **standardized values and controlled lists** used throughout the solution.
 
-While the **Config** area is focused on setup, upgrades, and system-level tasks, the **Admin** area is where users actively build and manage their data structures.
-
----
-
-## Admin Sections
-
-The Admin area includes the following sections:
-
-- [Relational Tables](relational-tables.md)
-- [Relational Models](relational-models.md)
-- [Relational Views](relational-views.md)
-- [Lookups](lookups.md)
-- [Forms](forms.md)
-
----
+They help ensure consistency and improve data quality.
 
 ## Overview
 
-Use the Admin area to:
+Use Lookups to:
 
-- define and manage relational data structures
-- organize relationships between entities
-- create reusable data views
-- manage supporting lookup data
-- configure forms for user interaction and data entry
+- define controlled value lists
+- standardize input values across tables and forms
+- improve data consistency and governance
 
----
+## Key Concepts
 
-## How the Sections Work Together
+- Lookups provide predefined values
+- Lookups are reusable across tables and forms
+- Lookups help prevent inconsistent or invalid data entry
 
-The Admin components are designed to work together as part of a relational framework:
+## Typical Use Cases
 
-### Relational Tables
-Define the core business entities and store detailed data.
+- Status values (Active, Inactive)
+- Categories or classifications
+- Dropdown selections in forms
+- Standardized codes and labels
 
-### Relational Models
-Connect tables together and define relationships between entities.
+## Notes
 
-### Relational Views
-Provide reusable, queryable outputs of relational data for reporting and application use.
-
-### Lookups
-Support standardized values and controlled lists used across tables and forms.
-
-### Forms
-Provide user-facing interfaces for entering and managing data.
-
----
-
-## Typical Workflow
-
-A common workflow in the Admin area:
-
-1. Create **Relational Tables** to define your data structure  
-2. Build **Relational Models** to link those tables together  
-3. Define **Relational Views** to expose and use the data  
-4. Configure **Lookups** for controlled values  
-5. Use **Forms** to allow users to interact with the data  
-
----
-
-## When to Use Admin
-
-Use the Admin area when:
-
-- building or modifying relational data structures
-- configuring planning or operational models
-- managing data definitions and relationships
-- creating user-facing data entry or interaction experiences
-
----
-
-## Related Areas
-
-- Use **Config** for setup, upgrades, licensing, and system-level tasks  
-- Use **Home Application Group** to expose relational views in navigation pages  
-- Use **Help** for documentation and support resources  
+- Use Lookups wherever consistent values are required
+- Keep lookup lists simple and well-defined
+- Reuse existing lookups when possible
