@@ -10,7 +10,7 @@ Relational tables represent the primary business entities or objects in your sol
 
 Use the Relational Tables page to:
 
-- create new relational table definition
+- create new relational table definitions
 - review existing table definitions
 - manage table-level settings
 - sync the table definitions with the database
@@ -21,26 +21,26 @@ Each relational table should represent a clear business concept, such as a produ
 
 The following fields are used for a Relational Table header record.
 
-| Field | Data Type | Allow Updates | Is Lookup Type | Purpose | Notes |
-|---|---|---|---|---|---|
-| Relational Table Id | int | Yes | - | Unique identifier for the relational table record. |
-| Relational Table Name | nvarchar | Yes | - | Internal name of the relational table. | No spaces or special characters
-| Relational Table Display Name | nvarchar | Yes | - | User-friendly display name shown in the application. |
-| Relational Table Description | nvarchar | Yes | - | Description of the relational table and its purpose. |
-| Alias | nvarchar | Yes | - | Alternate short name or alias for the relational table. | No spaces or special characters
-| Type | int | - | Yes | Type classification of the relational table. |
-| Is RFA Managed | bit | Yes | - | Indicates whether the table is managed by Revfore Accelerate. |
-| Is Custom | bit | Yes | - | Indicates whether the table is custom. |
-| Schema | int | Yes | Yes | Schema associated with the relational table. | 
-| Is Enabled | bit | Yes | - | Indicates whether the table is enabled for use. |
-| Created Date | datetime | - | - | Date and time the record was created. |
-| Modified Date | datetime | - | - | Date and time the record was last modified. |
-| Created By | int | - | Yes | User who created the relational table record. |
-| Modified By | int | - | Yes | User who last modified the relational table record. |
+| Field | Data Type| Purpose | Notes |
+|---|---|---|---|
+| Relational Table Name | nvarchar | Internal name of the relational table. | This is the name of the actual table in the database.  No spaces or special characters are allowed.
+| Relational Table Display Name | nvarchar | User-friendly display name shown in the application. |
+| Relational Table Description | nvarchar | Description of the relational table and its purpose. |
+| Alias | nvarchar | Alternate short name or alias for the relational table. | This will be used for joining tables and views, and as the prefix for model and view column names. No spaces or special characters are allowed.
+| Is RFA Managed | bit | Indicates whether the table is managed by Revfore Accelerate. | If Managed, the table header, columns, indexes and relationships are defined in RFA and created from RFA using the Sync process.  If not managed, the table is create directly in the database by some other method and RFA only references it.  Both RFA managed and non-managed tables can be used in Relational Models and Views.
+| Is Custom | bit | Indicates whether the table is custom. | Almost all non-system tables will be custom.
+| Schema | int | Schema associated with the relational table.  Schemas provide a unique namespace for tables and views. | This will be auto-assigned based on the Is Custom value.  Custom tables should be assigned to the custom schema which is the one with 'x' in the name.
+| Is Enabled | bit | Indicates whether the table is enabled for use. |
+| Ext Ref Unique Code | nvarchar | Unique value for the relational table record. | This is readonly and will be auto set the same value as the Table Name
+| Created Date | datetime | Date and time the record was created. |
+| Modified Date | datetime | Date and time the record was last modified. |
+| Created By | int | User who created the relational table record. |
+| Modified By | int | User who last modified the relational table record. |
+| Relational Table Id | int | Unique identifier for the relational table record. | If you leave blank, the system will auto assign
 
 ## Typical Use Cases
 
-Use relational tables to define entities such as:
+Use relational tables to define business entities and objects such as:
 
 - Employees
 - Assets

@@ -10,20 +10,25 @@ They define the core business entities and store data at its natural level of de
 
 Use Relational Tables to:
 
-- define business entities (e.g., Employees, Assets, Products)
+- define business entities and objects (e.g., Employees, Assets, Products, Rates)
 - store detailed operational and planning data
 - structure data in a flexible, relational format
 
-Each table consists of:
+Each table definition consists of:
 
-- **Columns (fields)** – attributes of the entity  
-- **Rows (records)** – individual instances of the entity  
+- [Tables](tables.md) – name, alias, schema, and other table-level settings
+- [Columns](columns.md) – fields that define the attributes of the business entity or object
+- [Indexes](indexes.md) – indexes used to improve query performance, support efficient data access, and enforce uniqueness when required
+- [Relationships](relationships.md) – relationships to related tables, primarily through foreign keys, but also for navigation between related records
 
 ## Key Concepts
 
-- Tables are defined using metadata (no SQL required)
-- Tables are reusable across models, views, and forms
-- Tables represent real-world business entities
+- Tables are defined using metadata, so relational structures can be configured without writing SQL.
+- Tables represent real-world business entities, objects, and hierarchical structures.
+- Tables can be reused across models, views, and forms.
+- Tables include both business fields and table-level configuration such as naming, schema, and status.
+- Tables can be related to other tables through foreign keys or through navigation-oriented relationships.
+- Tables can use indexes to improve performance and enforce uniqueness where needed.
 
 ## Typical Use Cases
 
@@ -31,6 +36,18 @@ Each table consists of:
 - Asset tracking
 - Product and service modeling
 - Operational data capture
+
+## Create a new Relational Table
+
+1. Go to **Admin | Relational Tables**
+2. Click on '**Add+**' or '**Inline Entry**'
+3. Click on the '**+**' button on the top left of the grid
+4. Enter required fields and click **Save**
+
+!!!Note
+    The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned
+    See [Adding New Records](addingNewRecords.md) for general information about adding records
+
 
 ## Notes
 
