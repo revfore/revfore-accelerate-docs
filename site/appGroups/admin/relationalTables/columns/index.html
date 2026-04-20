@@ -804,6 +804,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-column-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Column Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1333,6 +1342,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-column-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Column Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1398,6 +1416,164 @@
 <li>manage the structure of table data</li>
 <li>control how data is stored and displayed</li>
 </ul>
+<h2 id="relational-table-column-fields">Relational Table Column Fields</h2>
+<p>The following fields are used for a Relational Table Column record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Table</td>
+<td>int</td>
+<td>Identifies the relational table that the column belongs to.</td>
+<td>This links the column record back to its parent relational table.</td>
+</tr>
+<tr>
+<td>Column Name</td>
+<td>nvarchar</td>
+<td>Internal name of the column.</td>
+<td>This is the name of the actual column in the database. No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Column Display Name</td>
+<td>nvarchar</td>
+<td>User-friendly display name shown in the application.</td>
+<td>This is typically the label users will see.</td>
+</tr>
+<tr>
+<td>Column Description</td>
+<td>nvarchar</td>
+<td>Description of the column and its purpose.</td>
+<td>Use this to document how the column should be used.</td>
+</tr>
+<tr>
+<td>Data Type</td>
+<td>int</td>
+<td>Defines the data type of the column.</td>
+<td>This controls how the value is stored and interpreted in the database.</td>
+</tr>
+<tr>
+<td>Sequence Number</td>
+<td>int</td>
+<td>Determines the relative order of the column.</td>
+<td>This is typically used to control the display and processing order of columns.</td>
+</tr>
+<tr>
+<td>Is Nullable</td>
+<td>bit</td>
+<td>Indicates whether the column allows null values.</td>
+<td>If enabled, the column is not required.</td>
+</tr>
+<tr>
+<td>Max Length</td>
+<td>int</td>
+<td>Defines the maximum allowed length for the column value.</td>
+<td>Typically used for text-based fields such as nvarchar.</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td>int</td>
+<td>Defines the total number of digits allowed for numeric values.</td>
+<td>Used with numeric data types such as decimal that support precision and scale.</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>int</td>
+<td>Defines the number of digits allowed to the right of the decimal place.</td>
+<td>Used with numeric data types that support decimal values.</td>
+</tr>
+<tr>
+<td>Is Identity</td>
+<td>bit</td>
+<td>Indicates whether the column is an identity column.</td>
+<td>Identity columns are typically auto-incrementing numeric keys and are assigned to the primary key column</td>
+</tr>
+<tr>
+<td>Is Primary Key</td>
+<td>bit</td>
+<td>Indicates whether the column is part of the primary key.</td>
+<td>Primary key columns uniquely identify records in the table.</td>
+</tr>
+<tr>
+<td>Default Value</td>
+<td>nvarchar</td>
+<td>Defines the default value for the column.</td>
+<td>This value is used when no value is explicitly provided.</td>
+</tr>
+<tr>
+<td>Bulk Update Flag</td>
+<td>int</td>
+<td>Controls how the column behaves during bulk update processes.</td>
+<td>Use this to manage whether and how the column participates in bulk updates.</td>
+</tr>
+<tr>
+<td>Lookup - Standard Parameter</td>
+<td>nvarchar</td>
+<td>Defines a standard parameter used for lookup behavior.</td>
+<td>Used when the column relies on a standard lookup parameter.</td>
+</tr>
+<tr>
+<td>Lookup - Dynamic</td>
+<td>int</td>
+<td>Defines the dynamic lookup associated with the column.</td>
+<td>Used when the column relies on a dynamic RFA lookup definition.</td>
+</tr>
+<tr>
+<td>Is Custom</td>
+<td>bit</td>
+<td>Indicates whether the column is custom.</td>
+<td>Most user-defined columns will be custom.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the column is enabled for use.</td>
+<td>Disabled columns are not intended for active use.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational table column record.</td>
+<td>This is typically used as a stable external reference.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational table column record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational table column record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Table Column Id</td>
+<td>int</td>
+<td>Unique identifier for the relational table column record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="key-concepts">Key Concepts</h2>
 <p>Each column represents a single attribute of a business entity.</p>
 <p>Examples include:</p>

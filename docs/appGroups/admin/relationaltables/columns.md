@@ -1,8 +1,8 @@
-# Columns
+# Table Columns
 
 [← Back to Relational Tables Overview](index.md)
 
-The **Columns** page is used to define and manage the fields that belong to a relational table.
+The **Table Columns** page is used to define and manage the fields that belong to a relational table.
 
 Columns describe the attributes of each record stored in a table.
 
@@ -39,7 +39,7 @@ The following fields are used for a Relational Table Column record.
 | Lookup - Dynamic | int | Defines the dynamic lookup associated with the column. | Used when the column relies on a dynamic RFA lookup definition. |
 | Is Custom | bit | Indicates whether the column is custom. | Most user-defined columns will be custom. |
 | Is Enabled | bit | Indicates whether the column is enabled for use. | Disabled columns are not intended for active use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational table column record. | This is typically used as a stable external reference. |
+| Ext Ref Unique Code | nvarchar | Unique value for the relational table column record. | This is readonly and will be auto set the Table Name & Column Name providing a unique value for the record that is used for importing data |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational table column record. | This is system maintained. |
@@ -77,6 +77,17 @@ When defining columns:
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
 7. Create new [Relational Index](indexes.md)
+
+!!!Note Important Notes
+    The Ext Ref Unique Code and Relational Column Id will be auto-assigned
+    The Sequence Number will be auto-assigned if blank on a new record
+    The first column should be the **Primary Key Column**. It should be not nullable and an Int or BigInt. It is typically an Identity column.  All tables need a primary key column.
+    Text based columns will require a Max Length
+    Decimal values will require a Precision
+    Lookup values do not need to be specified here.  They will need to be specified on the Relational Model.
+    **All Relational Tables require the following columns**: CreatedDate, ModifiedDate, CreatedById, ModifiedById.  Enter these in the name field and click on save and the rest of the column attributes will auto populate
+    Importing from excel and spreadsheet require an [XRefUniqueCode](xRefUniqueCodeColumn.md) column defined as a column in the Relational Table or as an expression column in the Relational Model
+    See [Adding New Records](addingNewRecords.md) for general information about adding records
 
 ## Notes
 

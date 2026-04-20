@@ -45,7 +45,7 @@ Each table definition consists of:
 4. Enter required fields and click **Save**
 5. Create new [Relational Columns](columns.md)
 
-!!!Note
+!!!Note Important Notes
     The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned
     See [Adding New Records](addingNewRecords.md) for general information about adding records
 
