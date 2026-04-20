@@ -15,32 +15,6 @@ Use the Home Application Group to:
 
 You can also add custom navigation groups and pages to **any Genesis workspace**, not just the Home Application Group.
 
----
-
-## When to Use the Home Application Group
-
-The Home Application Group is best suited for:
-
-- adding a **limited number of navigation groups and pages**
-- extending an existing solution with a small number of custom pages
-- quickly exposing Relational Views to end users
-
----
-
-## When to Use a Separate Instance
-
-If you need to:
-
-- create a large number of navigation groups and pages
-- build a full solution experience
-- leverage additional application groups such as:
-  - Config
-  - Admin
-  - Help
-
-👉 then you should create a **separate Genesis instance**
-
-This approach is recommended when building a **complete standalone solution**.
 
 ---
 
@@ -63,9 +37,7 @@ This allows you to surface relational data directly within your application’s 
 
     4. Select the **"Revfore Accelerate (RFA)"** workspace.
 
-    5. In the filter field, type:
-       
-       `ContentItem`
+    5. In the filter field, type: `ContentItem`
 
     6. Select one of the following dashboards:
 
