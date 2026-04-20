@@ -15,6 +15,37 @@ Use the Columns page to:
 - manage the structure of table data
 - control how data is stored and displayed
 
+## Relational Table Column Fields
+
+The following fields are used for a Relational Table Column record.
+
+| Field | Data Type | Purpose | Notes |
+|---|---|---|---|
+| Relational Table | int | Identifies the relational table that the column belongs to. | This links the column record back to its parent relational table. |
+| Column Name | nvarchar | Internal name of the column. | This is the name of the actual column in the database. No spaces or special characters are allowed. |
+| Column Display Name | nvarchar | User-friendly display name shown in the application. | This is typically the label users will see. |
+| Column Description | nvarchar | Description of the column and its purpose. | Use this to document how the column should be used. |
+| Data Type | int | Defines the data type of the column. | This controls how the value is stored and interpreted in the database. |
+| Sequence Number | int | Determines the relative order of the column. | This is typically used to control the display and processing order of columns. |
+| Is Nullable | bit | Indicates whether the column allows null values. | If enabled, the column is not required. |
+| Max Length | int | Defines the maximum allowed length for the column value. | Typically used for text-based fields such as nvarchar. |
+| Precision | int | Defines the total number of digits allowed for numeric values. | Used with numeric data types such as decimal that support precision and scale. |
+| Scale | int | Defines the number of digits allowed to the right of the decimal place. | Used with numeric data types that support decimal values. |
+| Is Identity | bit | Indicates whether the column is an identity column. | Identity columns are typically auto-incrementing numeric keys and are assigned to the primary key column |
+| Is Primary Key | bit | Indicates whether the column is part of the primary key. | Primary key columns uniquely identify records in the table. |
+| Default Value | nvarchar | Defines the default value for the column. | This value is used when no value is explicitly provided. |
+| Bulk Update Flag | int | Controls how the column behaves during bulk update processes. | Use this to manage whether and how the column participates in bulk updates. |
+| Lookup - Standard Parameter | nvarchar | Defines a standard parameter used for lookup behavior. | Used when the column relies on a standard lookup parameter. |
+| Lookup - Dynamic | int | Defines the dynamic lookup associated with the column. | Used when the column relies on a dynamic RFA lookup definition. |
+| Is Custom | bit | Indicates whether the column is custom. | Most user-defined columns will be custom. |
+| Is Enabled | bit | Indicates whether the column is enabled for use. | Disabled columns are not intended for active use. |
+| Ext Ref Unique Code | nvarchar | Unique value for the relational table column record. | This is typically used as a stable external reference. |
+| Created Date | datetime | Date and time the record was created. | This is system maintained. |
+| Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
+| Created By | int | User who created the relational table column record. | This is system maintained. |
+| Modified By | int | User who last modified the relational table column record. | This is system maintained. |
+| Relational Table Column Id | int | Unique identifier for the relational table column record. | If left blank, the system will typically auto assign it. |
+
 ## Key Concepts
 
 Each column represents a single attribute of a business entity.
