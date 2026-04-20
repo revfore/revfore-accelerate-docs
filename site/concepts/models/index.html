@@ -24,7 +24,7 @@
     
     
       
-        <title>Models - Revfore Accelerate Docs</title>
+        <title>Relational Models - Revfore Accelerate Docs</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#models" class="md-skip">
+        <a href="#relational-models" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Models
+              Relational Models
             
           </span>
         </div>
@@ -394,37 +394,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-relationship" class="md-nav__link">
+  <a href="#what-is-a-relational-model" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 What is a Relationship?
+      What is a Relational Model?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#relationship-structure" class="md-nav__link">
+  <a href="#types-of-relational-models" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 Relationship Structure
+      Types of Relational Models
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧱 Relationship Structure">
+    <nav class="md-nav" aria-label="Types of Relational Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#columns-fields" class="md-nav__link">
+  <a href="#data-entry-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Columns (Fields)
+      Data Entry Models
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rows-records" class="md-nav__link">
+  <a href="#read-only-analysis-and-reporting-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Rows (Records)
+      Read-Only Analysis and Reporting Models
     </span>
   </a>
   
@@ -436,37 +436,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-models-work-in-revfore-accelerate" class="md-nav__link">
+  <a href="#model-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ How Models Work in Revfore Accelerate
+      Model Structure
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#models-and-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔗 Models and Models
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#designing-models-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 Designing Models (Best Practices)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧭 Designing Models (Best Practices)">
+    <nav class="md-nav" aria-label="Model Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#think-in-business-terms" class="md-nav__link">
+  <a href="#model-sources" class="md-nav__link">
     <span class="md-ellipsis">
-      Think in Business Terms
+      Model Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-relational-models-work-in-revfore-accelerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ How Relational Models Work in Revfore Accelerate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models-and-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Models and Views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-relational-models-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Relational Models (Best Practices)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing Relational Models (Best Practices)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-with-the-business-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start with the Business Use Case
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-the-model-to-its-intended-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match the Model to Its Intended Use
     </span>
   </a>
   
@@ -482,18 +533,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-clear-naming" class="md-nav__link">
+  <a href="#use-reusable-structures" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Clear Naming
+      Use Reusable Structures
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#plan-for-reuse" class="md-nav__link">
+  <a href="#build-on-well-defined-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Plan for Reuse
+      Build on Well-Defined Tables
     </span>
   </a>
   
@@ -505,18 +556,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-use-case" class="md-nav__link">
+  <a href="#example-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      🚀 Example Use Case
+      Example Use Cases
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-data-entry-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Data Entry Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-read-only-analysis-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Read-Only Analysis Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     <span class="md-ellipsis">
-      💡 Tips
+      Tips
     </span>
   </a>
   
@@ -525,7 +600,7 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      👉 Next Steps
+      Next Steps
     </span>
   </a>
   
@@ -1413,37 +1488,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-relationship" class="md-nav__link">
+  <a href="#what-is-a-relational-model" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 What is a Relationship?
+      What is a Relational Model?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#relationship-structure" class="md-nav__link">
+  <a href="#types-of-relational-models" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 Relationship Structure
+      Types of Relational Models
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧱 Relationship Structure">
+    <nav class="md-nav" aria-label="Types of Relational Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#columns-fields" class="md-nav__link">
+  <a href="#data-entry-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Columns (Fields)
+      Data Entry Models
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rows-records" class="md-nav__link">
+  <a href="#read-only-analysis-and-reporting-models" class="md-nav__link">
     <span class="md-ellipsis">
-      Rows (Records)
+      Read-Only Analysis and Reporting Models
     </span>
   </a>
   
@@ -1455,37 +1530,88 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-models-work-in-revfore-accelerate" class="md-nav__link">
+  <a href="#model-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ How Models Work in Revfore Accelerate
+      Model Structure
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#models-and-models" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔗 Models and Models
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#designing-models-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 Designing Models (Best Practices)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧭 Designing Models (Best Practices)">
+    <nav class="md-nav" aria-label="Model Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#think-in-business-terms" class="md-nav__link">
+  <a href="#model-sources" class="md-nav__link">
     <span class="md-ellipsis">
-      Think in Business Terms
+      Model Sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model Relationships
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-relational-models-work-in-revfore-accelerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ How Relational Models Work in Revfore Accelerate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#models-and-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Models and Views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-relational-models-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Relational Models (Best Practices)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing Relational Models (Best Practices)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-with-the-business-use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start with the Business Use Case
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-the-model-to-its-intended-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match the Model to Its Intended Use
     </span>
   </a>
   
@@ -1501,18 +1627,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-clear-naming" class="md-nav__link">
+  <a href="#use-reusable-structures" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Clear Naming
+      Use Reusable Structures
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#plan-for-reuse" class="md-nav__link">
+  <a href="#build-on-well-defined-tables" class="md-nav__link">
     <span class="md-ellipsis">
-      Plan for Reuse
+      Build on Well-Defined Tables
     </span>
   </a>
   
@@ -1524,18 +1650,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-use-case" class="md-nav__link">
+  <a href="#example-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      🚀 Example Use Case
+      Example Use Cases
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-data-entry-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Data Entry Model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-read-only-analysis-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Read-Only Analysis Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     <span class="md-ellipsis">
-      💡 Tips
+      Tips
     </span>
   </a>
   
@@ -1544,7 +1694,7 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      👉 Next Steps
+      Next Steps
     </span>
   </a>
   
@@ -1568,133 +1718,171 @@
   
 
 
-<h1 id="models">Models</h1>
-<p>Models are the <strong>foundation of all relational data structures</strong> in Revfore Accelerate.</p>
-<p>They define how your business data is stored, organized, and managed.</p>
+<h1 id="relational-models">Relational Models</h1>
+<p>Relational Models organize and connect relational data structures in Revfore Accelerate.</p>
+<p>They define how data from one or more relational tables is brought together into a meaningful structure for data entry, reporting, analysis, and application use.</p>
 <hr />
-<h2 id="what-is-a-relationship">🧠 What is a Relationship?</h2>
-<p>A Relationship represents a <strong>business entity</strong> and contains a set of records (rows) and attributes (columns).</p>
-<p>Examples of common Models:</p>
+<h2 id="what-is-a-relational-model">What is a Relational Model?</h2>
+<p>A relational model represents a structured combination of one or more relational tables and the relationships between them.</p>
+<p>It provides the layer between raw table definitions and user-facing outputs such as relational views.</p>
+<p>Examples of common models:</p>
 <ul>
-<li>Employees</li>
-<li>Assets</li>
-<li>Products</li>
-<li>Services</li>
-<li>Locations</li>
+<li>Employee Model</li>
+<li>Product Rates Model</li>
+<li>Transaction Model</li>
+<li>Customer and Transaction Model</li>
 </ul>
-<p>Each Relationship is designed to capture data at its <strong>natural level of detail</strong>.</p>
+<p>Each model is designed around a specific business purpose or use case.</p>
 <hr />
-<h2 id="relationship-structure">🧱 Relationship Structure</h2>
-<p>A Relationship consists of:</p>
-<h3 id="columns-fields">Columns (Fields)</h3>
-<p>Each column defines a specific attribute of the data.</p>
-<p>Example (Employee Relationship):</p>
+<h2 id="types-of-relational-models">Types of Relational Models</h2>
+<p>Relational Models can support different types of use cases.</p>
+<h3 id="data-entry-models">Data Entry Models</h3>
+<p>Some models are centered around a <strong>single primary table</strong> along with the foreign key tables it can join to.</p>
+<p>These models are commonly used for:</p>
 <ul>
-<li>Employee Name  </li>
-<li>Department  </li>
-<li>Role  </li>
-<li>Salary  </li>
+<li>data entry</li>
+<li>data maintenance</li>
+<li>operational workflows</li>
+<li>reporting and analysis on a primary business entity</li>
+</ul>
+<p>Examples include:</p>
+<ul>
+<li>an Employee table joined to Department and Location tables</li>
+<li>an Asset table joined to Asset Type and Location tables</li>
+<li>a Product table joined to Category and Service Line tables</li>
+</ul>
+<p>These models are often used when users need to manage records directly while also seeing related descriptive data.</p>
+<h3 id="read-only-analysis-and-reporting-models">Read-Only Analysis and Reporting Models</h3>
+<p>Other models are designed primarily for <strong>analysis and reporting</strong>.</p>
+<p>These models are typically read-only and often join to a wider set of related tables.</p>
+<p>They may represent structures such as:</p>
+<ul>
+<li>parent-child hierarchies</li>
+<li>master data and transaction data</li>
+<li>broad analytical datasets that combine many related entities</li>
+</ul>
+<p>Examples include:</p>
+<ul>
+<li>a customer master table joined to transaction history</li>
+<li>a product hierarchy joined to sales or forecast detail</li>
+<li>a parent-child organizational structure joined to performance metrics</li>
+</ul>
+<p>These models are generally optimized for reporting, analysis, and user consumption rather than direct data entry.</p>
+<hr />
+<h2 id="model-structure">Model Structure</h2>
+<p>A relational model consists of:</p>
+<h3 id="model-sources">Model Sources</h3>
+<p>Sources define which relational tables are included in the model.</p>
+<p>Examples of sources:</p>
+<ul>
+<li>Employee Table</li>
+<li>Department Table</li>
+<li>Asset Table</li>
+<li>Location Table</li>
+<li>Transaction Table</li>
 </ul>
 <hr />
-<h3 id="rows-records">Rows (Records)</h3>
-<p>Each row represents an individual instance of that entity.</p>
+<h3 id="model-columns">Model Columns</h3>
+<p>Columns define the fields that the model exposes for downstream use.</p>
+<p>Examples of model columns:</p>
+<ul>
+<li>Employee Name</li>
+<li>Department Name</li>
+<li>Asset Type</li>
+<li>Location Code</li>
+<li>Transaction Amount</li>
+</ul>
+<hr />
+<h3 id="model-relationships">Model Relationships</h3>
+<p>Model Relationships define which Table Relationships will be exposed for downstream use in Navigation pages</p>
+<hr />
+<h2 id="how-relational-models-work-in-revfore-accelerate">⚙️ How Relational Models Work in Revfore Accelerate</h2>
+<p>Relational Models in Revfore Accelerate are:</p>
+<ul>
+<li>defined through metadata</li>
+<li>built from one or more relational tables</li>
+<li>reusable across views, dashboards, and workflows</li>
+<li>structured to support business-focused use cases</li>
+</ul>
+<p>Once a model is defined, it can be used as the foundation for one or more relational views.</p>
+<hr />
+<h2 id="models-and-views">Models and Views</h2>
+<p>Models are not the primary end-user interface.</p>
+<p>Instead, they provide the structured data layer that powers relational views.</p>
+<p>A single model can support multiple views, each designed for a different purpose.</p>
 <p>Example:</p>
-<table>
-<thead>
-<tr>
-<th>Employee Name</th>
-<th>Department</th>
-<th>Role</th>
-<th>Salary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>John Smith</td>
-<td>Finance</td>
-<td>Analyst</td>
-<td>75,000</td>
-</tr>
-<tr>
-<td>Jane Doe</td>
-<td>HR</td>
-<td>Manager</td>
-<td>95,000</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="how-models-work-in-revfore-accelerate">⚙️ How Models Work in Revfore Accelerate</h2>
-<p>Models in Revfore Accelerate are:</p>
 <ul>
-<li><strong>Defined through metadata</strong> (no SQL required)</li>
-<li><strong>EdiRelationship through a common UI</strong></li>
-<li><strong>Reusable across workflows and dashboards</strong></li>
-<li><strong>Integrated with Models and views</strong></li>
+<li>one workforce model</li>
+<li>multiple views for data entry, reporting, and analysis</li>
 </ul>
-<p>Once a Relationship is defined, it becomes part of a broader relational model.</p>
+<p>This allows you to separate data structure from user presentation.</p>
 <hr />
-<h2 id="models-and-models">🔗 Models and Models</h2>
-<p>Models rarely exist in isolation.</p>
-<p>They are typically connected to other Models using Models.</p>
-<p>Example:</p>
+<h2 id="designing-relational-models-best-practices">Designing Relational Models (Best Practices)</h2>
+<h3 id="start-with-the-business-use-case">Start with the Business Use Case</h3>
+<p>Design the model around the business question, workflow, or maintenance process you are trying to support.</p>
+<p>✔️ Good:</p>
 <ul>
-<li>Employee → Department  </li>
-<li>Asset → Location  </li>
-<li>Product → Service Line  </li>
+<li>Workforce Planning Model</li>
+<li>Asset Management Model</li>
+<li>Product Forecast Model</li>
+<li>Customer Transaction Analysis Model</li>
 </ul>
-<p>These Models allow you to build more powerful and flexible data models.</p>
+<p>❌ Avoid:</p>
+<ul>
+<li>overly generic models with no clear purpose</li>
+</ul>
 <hr />
-<h2 id="designing-models-best-practices">🧭 Designing Models (Best Practices)</h2>
-<h3 id="think-in-business-terms">Think in Business Terms</h3>
-<p>Define Models based on real-world entities, not technical structures.</p>
-<p>✔️ Good:
-- Employee
-- Asset
-- Product</p>
-<p>❌ Avoid:
-- Generic or unclear Models like "Data1" or "Misc"</p>
+<h3 id="match-the-model-to-its-intended-use">Match the Model to Its Intended Use</h3>
+<p>If the model will support data entry, keep it centered around a primary table and the related foreign key tables needed to maintain and describe those records.</p>
+<p>If the model will support reporting or analysis, it can join more broadly across related tables, hierarchies, and transaction structures.</p>
 <hr />
 <h3 id="keep-models-focused">Keep Models Focused</h3>
-<p>Each Relationship should represent <strong>one primary concept</strong>.</p>
-<p>Avoid combining unrelated data into a single Relationship.</p>
+<p>Each model should support one primary business purpose.</p>
+<p>Avoid trying to combine too many unrelated entities into a single model.</p>
 <hr />
-<h3 id="use-clear-naming">Use Clear Naming</h3>
-<p>Use names that are:
-- Easy to understand
-- Consistent across your model</p>
+<h3 id="use-reusable-structures">Use Reusable Structures</h3>
+<p>Models should be designed so they can support more than one downstream view when appropriate.</p>
+<p>This improves consistency and reduces duplication.</p>
 <hr />
-<h3 id="plan-for-reuse">Plan for Reuse</h3>
-<p>Models should be designed so they can be reused across:
-- Planning models
-- Dashboards
-- Workflows</p>
+<h3 id="build-on-well-defined-tables">Build on Well-Defined Tables</h3>
+<p>Strong models depend on well-structured relational tables and clear relationships.</p>
+<p>Good table design makes model design much easier.</p>
 <hr />
-<h2 id="example-use-case">🚀 Example Use Case</h2>
-<p>Let’s say you want to plan labor costs.</p>
-<p>You might create:</p>
-<p><strong>Employee Relationship</strong>
-- Employee Name
-- Department
-- Role
-- Base Salary</p>
-<p>Then:
-- Link to a Department Relationship
-- Use the data in planning workflows
-- Build views for reporting</p>
-<hr />
-<h2 id="tips">💡 Tips</h2>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<h3 id="example-1-data-entry-model">Example 1: Data Entry Model</h3>
+<p>You want to maintain employee setup data.</p>
+<p>You might create a model based on:</p>
 <ul>
-<li>Start with your core entities first  </li>
-<li>Add additional attributes over time  </li>
-<li>Avoid overcomplicating your initial design  </li>
-<li>Keep your model flexible  </li>
+<li>Employee Table</li>
+<li>Department Table</li>
+<li>Location Table</li>
+</ul>
+<p>This allows users to enter and maintain employee records while referencing related department and location information.</p>
+<h3 id="example-2-read-only-analysis-model">Example 2: Read-Only Analysis Model</h3>
+<p>You want to analyze customer transactions.</p>
+<p>You might create a model based on:</p>
+<ul>
+<li>Customer Table</li>
+<li>Transaction Table</li>
+<li>Product Table</li>
+<li>Organization Hierarchy Table</li>
+</ul>
+<p>This allows users to review and analyze related data across master and transaction structures.</p>
+<hr />
+<h2 id="tips">Tips</h2>
+<ul>
+<li>start with the intended use case</li>
+<li>use a single-table-centered model for most data entry use cases</li>
+<li>use broader read-only models for analysis and reporting</li>
+<li>keep relationships easy to understand</li>
+<li>reuse models when they support multiple views</li>
 </ul>
 <hr />
-<h2 id="next-steps">👉 Next Steps</h2>
+<h2 id="next-steps">Next Steps</h2>
 <ul>
-<li>Learn about <a href="../tables/">Relational Tables</a></li>
-<li>Explore <a href="../views/">Relational Views</a></li>
+<li>Learn about <a href="../../appGroups/admin/relationalModels/">Relational Models</a></li>
+<li>Learn about <a href="../views/">Relational Views</a></li>
+<li>Review your table and relationship definitions before building more advanced views</li>
 </ul>
 
 
@@ -1702,9 +1890,6 @@
 
 
 
-
-  
-  
 
 
 

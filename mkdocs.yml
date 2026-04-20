@@ -53,6 +53,10 @@ nav:
           - Forms: appGroups/admin/forms.md
       - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
+  - Integration: 
+      - Overview: integration/index.md
+      - Content Item Layouts: integration/contentItemLayouts.md
+      - Content Sub Item Settings: integration/contentSubItemSettings.md
 
 plugins:
   - search
