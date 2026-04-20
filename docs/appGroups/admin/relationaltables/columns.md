@@ -80,13 +80,22 @@ When defining columns:
 
 !!!Note Important Notes
     The Ext Ref Unique Code and Relational Column Id will be auto-assigned
+
     The Sequence Number will be auto-assigned if blank on a new record
+
     The first column should be the **Primary Key Column**. It should be not nullable and an Int or BigInt. It is typically an Identity column.  All tables need a primary key column.
+
     Text based columns will require a Max Length
+
     Decimal values will require a Precision
+
     Lookup values do not need to be specified here.  They will need to be specified on the Relational Model.
+
     **All Relational Tables require the following columns**: CreatedDate, ModifiedDate, CreatedById, ModifiedById.  Enter these in the name field and click on save and the rest of the column attributes will auto populate
-    Importing from excel and spreadsheet require an [XRefUniqueCode](xRefUniqueCodeColumn.md) column defined as a column in the Relational Table or as an expression column in the Relational Model
+
+    Importing from excel and spreadsheet require an [XRefUniqueCode](xRefUniqueCodeColumn.md) column defined as a column in the Relational Table or as an expression column in the Relational 
+    Model
+    
     See [Adding New Records](addingNewRecords.md) for general information about adding records
 
 ## Notes

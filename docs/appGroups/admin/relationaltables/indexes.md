@@ -70,11 +70,13 @@ When working with indexes:
 4. In the '**Relational Tables : Indexes**' section, Click on '**Add**' or '**Inline Entry**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
-5. Create new [Table Relationships](relationships.md)
+7. Create new [Table Relationships](relationships.md)
 
 !!!Note Important Notes
     The Ext Ref Unique Code and Relational Index Id will be auto-assigned
+
     The Relational Index Name will be auto-assigned if blank or has the value 'Auto()' in it
+
     See [Adding New Records](addingNewRecords.md) for general information about adding records
 
 ## Notes

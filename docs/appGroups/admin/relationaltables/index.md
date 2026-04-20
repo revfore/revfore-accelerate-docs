@@ -44,6 +44,9 @@ Each table definition consists of:
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create new [Relational Columns](columns.md)
+6. Create new [Relational Index](indexes.md)
+7. Create new [Table Relationships](relationships.md)
+8. Click on the **Sync** button to sync the table definition with the database
 
 !!!Note Important Notes
     The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned

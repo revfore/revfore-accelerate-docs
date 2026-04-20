@@ -67,8 +67,10 @@ When defining relationships:
 6. Enter required fields and click **Save**
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Relational Index Id will be auto-assigned
-    The Relational Index Name will be auto-assigned if blank or has the value 'Auto()' in it
+    The Ext Ref Unique Code and Relational Relationship Id will be auto-assigned
+
+    The Relational Relationship Name will be auto-assigned if blank or has the value 'Auto()' in it
+    
     See [Adding New Records](addingNewRecords.md) for general information about adding records
 
 ## Notes

@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#indexes" class="md-skip">
+        <a href="#table-indexes" class="md-skip">
           Skip to content
         </a>
       
@@ -825,6 +825,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-index-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Index Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -837,6 +846,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational Index
     </span>
   </a>
   
@@ -1324,6 +1342,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-index-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Index Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1336,6 +1363,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational Index
     </span>
   </a>
   
@@ -1368,18 +1404,153 @@
   
 
 
-<h1 id="indexes">Indexes</h1>
+<h1 id="table-indexes">Table Indexes</h1>
 <p><a href="../">← Back to Relational Tables Overview</a></p>
-<p>The <strong>Indexes</strong> page is used to define and manage indexes for relational tables.</p>
+<p>The <strong>Table Indexes</strong> page is used to define and manage indexes for relational tables.</p>
 <p>Indexes help improve performance and support efficient data access.</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Indexes page to:</p>
 <ul>
 <li>define indexes on relational tables</li>
 <li>improve query and retrieval performance</li>
+<li>ensure uniqueness of specific column values such as names</li>
 <li>support efficient filtering and lookups</li>
 <li>optimize how data is accessed in the database</li>
 </ul>
+<h2 id="relational-table-index-fields">Relational Table Index Fields</h2>
+<p>The following fields are used for a Relational Table Index record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Table</td>
+<td>int</td>
+<td>Identifies the relational table that the index belongs to.</td>
+<td>This links the index record back to its parent relational table.</td>
+</tr>
+<tr>
+<td>Relational Index Name</td>
+<td>nvarchar</td>
+<td>Internal name of the relational index.</td>
+<td>This should be clear and unique within the table. No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Is Unique</td>
+<td>bit</td>
+<td>Indicates whether the index enforces unique values.</td>
+<td>Use this when the indexed column combination must be unique across records.</td>
+</tr>
+<tr>
+<td>Relational Column 1</td>
+<td>int</td>
+<td>Defines the first column included in the index.</td>
+<td>This is typically the primary column used by the index.</td>
+</tr>
+<tr>
+<td>Relational Column 1 Is Ascending</td>
+<td>bit</td>
+<td>Indicates whether the first indexed column is sorted in ascending order.</td>
+<td>If not enabled, the column is sorted in descending order.</td>
+</tr>
+<tr>
+<td>Relational Column 2</td>
+<td>int</td>
+<td>Defines the second column included in the index.</td>
+<td>Use when the index includes multiple columns.</td>
+</tr>
+<tr>
+<td>Relational Column 2 Is Ascending</td>
+<td>bit</td>
+<td>Indicates whether the second indexed column is sorted in ascending order.</td>
+<td>If not enabled, the column is sorted in descending order.</td>
+</tr>
+<tr>
+<td>Relational Column 3</td>
+<td>int</td>
+<td>Defines the third column included in the index.</td>
+<td>Use when the index includes multiple columns.</td>
+</tr>
+<tr>
+<td>Relational Column 3 Is Ascending</td>
+<td>bit</td>
+<td>Indicates whether the third indexed column is sorted in ascending order.</td>
+<td>If not enabled, the column is sorted in descending order.</td>
+</tr>
+<tr>
+<td>Relational Column 4</td>
+<td>int</td>
+<td>Defines the fourth column included in the index.</td>
+<td>Use when the index includes multiple columns.</td>
+</tr>
+<tr>
+<td>Relational Column 4 Is Ascending</td>
+<td>bit</td>
+<td>Indicates whether the fourth indexed column is sorted in ascending order.</td>
+<td>If not enabled, the column is sorted in descending order.</td>
+</tr>
+<tr>
+<td>Relational Column 5</td>
+<td>int</td>
+<td>Defines the fifth column included in the index.</td>
+<td>Use when the index includes multiple columns.</td>
+</tr>
+<tr>
+<td>Relational Column 5 Is Ascending</td>
+<td>bit</td>
+<td>Indicates whether the fifth indexed column is sorted in ascending order.</td>
+<td>If not enabled, the column is sorted in descending order.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the index is enabled for use.</td>
+<td>Disabled indexes are not intended for active use.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational index record.</td>
+<td>This is readonly and will be auto set the Table Name &amp; Index Name providing a unique value for the record that is used for importing data</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational index record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational index record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Index Id</td>
+<td>int</td>
+<td>Unique identifier for the relational index record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="key-concepts">Key Concepts</h2>
 <p>Indexes are used to improve performance for common access patterns.</p>
 <p>They are especially useful when:</p>
@@ -1387,6 +1558,7 @@
 <li>tables contain large amounts of data</li>
 <li>certain fields are frequently searched or filtered</li>
 <li>joins or relational lookups depend on specific columns</li>
+<li>they are also helpful to ensure uniqueness of specific column values such as a name</li>
 </ul>
 <h2 id="design-guidance">Design Guidance</h2>
 <p>When working with indexes:</p>
@@ -1395,6 +1567,22 @@
 <li>avoid creating unnecessary indexes</li>
 <li>balance performance benefits with maintenance overhead</li>
 </ul>
+<h2 id="create-a-new-relational-index">Create a new Relational Index</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Tables</strong></li>
+<li>Select the desired Relational Table and click on '<strong>Edit+</strong>'</li>
+<li>In the Child Views list, Select '<strong>Relational Tables : Indexes</strong>'</li>
+<li>In the '<strong>Relational Tables : Indexes</strong>' section, Click on '<strong>Add</strong>' or '<strong>Inline Entry</strong>' </li>
+<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+<li>Create new <a href="../relationships/">Table Relationships</a></li>
+</ol>
+<div class="admonition note important notes">
+<p class="admonition-title">Note</p>
+<p>The Ext Ref Unique Code and Relational Index Id will be auto-assigned
+The Relational Index Name will be auto-assigned if blank or has the value 'Auto()' in it
+See <a href="addingNewRecords.md">Adding New Records</a> for general information about adding records</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Indexes are a technical optimization feature and may not be needed for every table.</li>
