@@ -1,9 +1,14 @@
 [
   {
-    "version": "v100",
-    "title": "v100",
+    "version": "PV911-SV100",
+    "title": "PV911-SV100",
     "aliases": [
       "latest"
     ]
+  },
+  {
+    "version": "v100",
+    "title": "v100",
+    "aliases": []
   }
 ]
