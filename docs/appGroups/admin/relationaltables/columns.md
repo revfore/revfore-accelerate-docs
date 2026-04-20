@@ -21,7 +21,7 @@ Each column represents a single attribute of a business entity.
 
 Examples include:
 
-- Employee Name
+- Name
 - Department
 - Role
 - Status
@@ -36,6 +36,16 @@ When defining columns:
 - align fields to real business attributes
 - avoid adding unnecessary columns too early
 - keep the structure flexible enough to support future growth
+
+## Create a new Relational Column
+
+1. Go to **Admin | Relational Tables**
+2. Select the desired Relational Table and click on '**Edit+**'
+3. In the Child Views list, Select '**Relational Tables : Columns**'
+4. In the '**Relational Tables : Columns**' section, Click on '**Add**' or '**Inline Entry**' 
+5. Click on the '**+**' button on the top left of the grid
+6. Enter required fields and click **Save**
+7. Create new [Relational Index](indexes.md)
 
 ## Notes
 

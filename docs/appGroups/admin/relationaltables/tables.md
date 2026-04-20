@@ -48,6 +48,14 @@ Use relational tables to define business entities and objects such as:
 - Services
 - Locations
 - Rates
+  
+## Create a new Relational Table
+
+1. Go to **Admin | Relational Tables**
+2. Click on '**Add+**' or '**Inline Entry**'
+3. Click on the '**+**' button on the top left of the grid
+4. Enter required fields and click **Save**
+5. Create new [Relational Columns](columns.md)
 
 ## Notes
 

@@ -43,6 +43,7 @@ Each table definition consists of:
 2. Click on '**Add+**' or '**Inline Entry**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
+5. Create new [Relational Columns](columns.md)
 
 !!!Note
     The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned
