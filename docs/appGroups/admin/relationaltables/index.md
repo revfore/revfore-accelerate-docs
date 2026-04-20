@@ -1,40 +1,39 @@
-# Indexes
+# Relational Tables
 
-[← Back to Relational Tables Overview](index.md)
+[← Back to Admin](index.md)
 
-The **Indexes** page is used to define and manage indexes for relational tables.
+Relational Tables are the **foundation of the Revfore Accelerate data model**.
 
-Indexes help improve performance and support efficient data access.
+They define the core business entities and store data at its natural level of detail.
 
 ## Overview
 
-Use the Indexes page to:
+Use Relational Tables to:
 
-- define indexes on relational tables
-- improve query and retrieval performance
-- support efficient filtering and lookups
-- optimize how data is accessed in the database
+- define business entities (e.g., Employees, Assets, Products)
+- store detailed operational and planning data
+- structure data in a flexible, relational format
+
+Each table consists of:
+
+- **Columns (fields)** – attributes of the entity  
+- **Rows (records)** – individual instances of the entity  
 
 ## Key Concepts
 
-Indexes are used to improve performance for common access patterns.
+- Tables are defined using metadata (no SQL required)
+- Tables are reusable across models, views, and forms
+- Tables represent real-world business entities
 
-They are especially useful when:
+## Typical Use Cases
 
-- tables contain large amounts of data
-- certain fields are frequently searched or filtered
-- joins or relational lookups depend on specific columns
-
-## Design Guidance
-
-When working with indexes:
-
-- focus on fields that are commonly used in filtering, searching, or joining
-- avoid creating unnecessary indexes
-- balance performance benefits with maintenance overhead
+- Employee planning
+- Asset tracking
+- Product and service modeling
+- Operational data capture
 
 ## Notes
 
-- Indexes are a technical optimization feature and may not be needed for every table.
-- Index strategy should align with expected usage patterns.
-- Use indexes thoughtfully to support performance without overcomplicating the design.
+- Tables should be designed around clear business concepts
+- Avoid combining unrelated data into a single table
+- Keep naming consistent and meaningful
