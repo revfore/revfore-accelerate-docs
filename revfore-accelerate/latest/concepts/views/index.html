@@ -24,7 +24,7 @@
     
     
       
-        <title>Views - Revfore Accelerate Docs</title>
+        <title>Relational Views - Revfore Accelerate Docs</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#views" class="md-skip">
+        <a href="#relational-views" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Views
+              Relational Views
             
           </span>
         </div>
@@ -415,37 +415,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-view" class="md-nav__link">
+  <a href="#what-is-a-relational-view" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 What is a View?
+      What is a Relational View?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-structure" class="md-nav__link">
+  <a href="#types-of-relational-views" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 View Structure
+      Types of Relational Views
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧱 View Structure">
+    <nav class="md-nav" aria-label="Types of Relational Views">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#columns-fields" class="md-nav__link">
+  <a href="#data-entry-and-maintenance-views" class="md-nav__link">
     <span class="md-ellipsis">
-      Columns (Fields)
+      Data Entry and Maintenance Views
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rows-records" class="md-nav__link">
+  <a href="#read-only-analysis-and-reporting-views" class="md-nav__link">
     <span class="md-ellipsis">
-      Rows (Records)
+      Read-Only Analysis and Reporting Views
     </span>
   </a>
   
@@ -457,37 +457,97 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-views-work-in-revfore-accelerate" class="md-nav__link">
+  <a href="#view-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ How Views Work in Revfore Accelerate
+      View Structure
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#views-and-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔗 Views and Relationships
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#designing-views-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 Designing Views (Best Practices)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧭 Designing Views (Best Practices)">
+    <nav class="md-nav" aria-label="View Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#think-in-business-terms" class="md-nav__link">
+  <a href="#columns" class="md-nav__link">
     <span class="md-ellipsis">
-      Think in Business Terms
+      Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-relational-views-work-in-revfore-accelerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ How Relational Views Work in Revfore Accelerate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views-and-sql-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Views and SQL Views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views-and-user-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Views and User Experience
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-relational-views-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Relational Views (Best Practices)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing Relational Views (Best Practices)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-for-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design for the User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-the-view-to-the-model-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match the View to the Model Type
     </span>
   </a>
   
@@ -503,18 +563,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-clear-naming" class="md-nav__link">
+  <a href="#show-only-what-matters" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Clear Naming
+      Show Only What Matters
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#plan-for-reuse" class="md-nav__link">
+  <a href="#reuse-models-thoughtfully" class="md-nav__link">
     <span class="md-ellipsis">
-      Plan for Reuse
+      Reuse Models Thoughtfully
     </span>
   </a>
   
@@ -526,18 +586,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-use-case" class="md-nav__link">
+  <a href="#example-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      🚀 Example Use Case
+      Example Use Cases
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-data-entry-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Data Entry View
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-read-only-analysis-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Read-Only Analysis View
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     <span class="md-ellipsis">
-      💡 Tips
+      Tips
     </span>
   </a>
   
@@ -546,7 +630,7 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      👉 Next Steps
+      Next Steps
     </span>
   </a>
   
@@ -1413,37 +1497,37 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-is-a-view" class="md-nav__link">
+  <a href="#what-is-a-relational-view" class="md-nav__link">
     <span class="md-ellipsis">
-      🧠 What is a View?
+      What is a Relational View?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#view-structure" class="md-nav__link">
+  <a href="#types-of-relational-views" class="md-nav__link">
     <span class="md-ellipsis">
-      🧱 View Structure
+      Types of Relational Views
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="🧱 View Structure">
+    <nav class="md-nav" aria-label="Types of Relational Views">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#columns-fields" class="md-nav__link">
+  <a href="#data-entry-and-maintenance-views" class="md-nav__link">
     <span class="md-ellipsis">
-      Columns (Fields)
+      Data Entry and Maintenance Views
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rows-records" class="md-nav__link">
+  <a href="#read-only-analysis-and-reporting-views" class="md-nav__link">
     <span class="md-ellipsis">
-      Rows (Records)
+      Read-Only Analysis and Reporting Views
     </span>
   </a>
   
@@ -1455,37 +1539,97 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-views-work-in-revfore-accelerate" class="md-nav__link">
+  <a href="#view-structure" class="md-nav__link">
     <span class="md-ellipsis">
-      ⚙️ How Views Work in Revfore Accelerate
+      View Structure
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#views-and-relationships" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔗 Views and Relationships
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#designing-views-best-practices" class="md-nav__link">
-    <span class="md-ellipsis">
-      🧭 Designing Views (Best Practices)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🧭 Designing Views (Best Practices)">
+    <nav class="md-nav" aria-label="View Structure">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#think-in-business-terms" class="md-nav__link">
+  <a href="#columns" class="md-nav__link">
     <span class="md-ellipsis">
-      Think in Business Terms
+      Columns
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filters
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-relational-views-work-in-revfore-accelerate" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ How Relational Views Work in Revfore Accelerate
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views-and-sql-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Views and SQL Views
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#views-and-user-experience" class="md-nav__link">
+    <span class="md-ellipsis">
+      Views and User Experience
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-relational-views-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Relational Views (Best Practices)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Designing Relational Views (Best Practices)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#design-for-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design for the User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#match-the-view-to-the-model-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Match the View to the Model Type
     </span>
   </a>
   
@@ -1501,18 +1645,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#use-clear-naming" class="md-nav__link">
+  <a href="#show-only-what-matters" class="md-nav__link">
     <span class="md-ellipsis">
-      Use Clear Naming
+      Show Only What Matters
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#plan-for-reuse" class="md-nav__link">
+  <a href="#reuse-models-thoughtfully" class="md-nav__link">
     <span class="md-ellipsis">
-      Plan for Reuse
+      Reuse Models Thoughtfully
     </span>
   </a>
   
@@ -1524,18 +1668,42 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#example-use-case" class="md-nav__link">
+  <a href="#example-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      🚀 Example Use Case
+      Example Use Cases
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Example Use Cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-1-data-entry-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 1: Data Entry View
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-2-read-only-analysis-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 2: Read-Only Analysis View
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#tips" class="md-nav__link">
     <span class="md-ellipsis">
-      💡 Tips
+      Tips
     </span>
   </a>
   
@@ -1544,7 +1712,7 @@
         <li class="md-nav__item">
   <a href="#next-steps" class="md-nav__link">
     <span class="md-ellipsis">
-      👉 Next Steps
+      Next Steps
     </span>
   </a>
   
@@ -1568,130 +1736,206 @@
   
 
 
-<h1 id="views">Views</h1>
-<p>Views are the <strong>foundation of all relational data structures</strong> in Revfore Accelerate.</p>
-<p>They define how your business data is stored, organized, and managed.</p>
+<h1 id="relational-views">Relational Views</h1>
+<p>Relational Views define how relational model data is exposed for user interaction, reporting, and analysis in Revfore Accelerate.</p>
+<p>They are built on top of Relational Models and are used to create reusable <strong>SQL views</strong> in the database that can then be consumed by the application.</p>
 <hr />
-<h2 id="what-is-a-view">🧠 What is a View?</h2>
-<p>A View represents a <strong>business entity</strong> and contains a set of records (rows) and attributes (columns).</p>
-<p>Examples of common Views:</p>
+<h2 id="what-is-a-relational-view">What is a Relational View?</h2>
+<p>A Relational View is a configurable representation of data based on a Relational Model.  It can represent all columns in the model or a subset.</p>
+<p>It determines what data is exposed, how it is labeled, what actions are available, and how users can filter or interact with the data.</p>
+<p>Each Relational View creates a corresponding <strong>SQL view</strong> in the database.</p>
+<p>Examples of common views:</p>
 <ul>
-<li>Customers</li>
-<li>Carriers</li>
+<li>Workforce Planning View</li>
+<li>Asset Maintenance View</li>
+<li>Product Analysis View</li>
+<li>Customer Transaction View</li>
 </ul>
-<p>Each View is designed to capture data at its <strong>natural level of detail</strong>.</p>
+<p>Each view is designed around a specific user experience or reporting need.</p>
 <hr />
-<h2 id="view-structure">🧱 View Structure</h2>
-<p>A View consists of:</p>
-<h3 id="columns-fields">Columns (Fields)</h3>
-<p>Each column defines a specific attribute of the data.</p>
-<p>Example (Employee View):</p>
+<h2 id="types-of-relational-views">Types of Relational Views</h2>
+<p>Relational Views can support different types of use cases depending on the type of model they are built on.</p>
+<h3 id="data-entry-and-maintenance-views">Data Entry and Maintenance Views</h3>
+<p>Some views are built on models centered around a <strong>single primary table</strong> along with related foreign key tables.</p>
+<p>These views are commonly used for:</p>
 <ul>
-<li>Employee Name  </li>
-<li>Department  </li>
-<li>Role  </li>
-<li>Salary  </li>
+<li>data entry</li>
+<li>record maintenance</li>
+<li>operational workflows</li>
+<li>reporting on a primary business entity</li>
 </ul>
-<hr />
-<h3 id="rows-records">Rows (Records)</h3>
-<p>Each row represents an individual instance of that entity.</p>
-<p>Example:</p>
-<table>
-<thead>
-<tr>
-<th>Employee Name</th>
-<th>Department</th>
-<th>Role</th>
-<th>Salary</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>John Smith</td>
-<td>Finance</td>
-<td>Analyst</td>
-<td>75,000</td>
-</tr>
-<tr>
-<td>Jane Doe</td>
-<td>HR</td>
-<td>Manager</td>
-<td>95,000</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="how-views-work-in-revfore-accelerate">⚙️ How Views Work in Revfore Accelerate</h2>
-<p>Views in Revfore Accelerate are:</p>
+<p>Examples include:</p>
 <ul>
-<li><strong>Defined through metadata</strong> (no SQL required)</li>
-<li><strong>EdiView through a common UI</strong></li>
-<li><strong>Reusable across workflows and dashboards</strong></li>
-<li><strong>Integrated with relationships and views</strong></li>
+<li>an Employee view that allows users to maintain employee records while showing related department and location information</li>
+<li>an Asset view that allows users to manage asset setup data while showing related type or location details</li>
 </ul>
-<p>Once a View is defined, it becomes part of a broader relational model.</p>
-<hr />
-<h2 id="views-and-relationships">🔗 Views and Relationships</h2>
-<p>Views rarely exist in isolation.</p>
-<p>They are typically connected to other Views using relationships.</p>
-<p>Example:</p>
+<p>These views are typically focused on a primary entity and are often used in editable or user-managed experiences.</p>
+<h3 id="read-only-analysis-and-reporting-views">Read-Only Analysis and Reporting Views</h3>
+<p>Other views are built on broader read-only models that join multiple related tables.</p>
+<p>These are commonly used for:</p>
 <ul>
-<li>Employee → Department  </li>
-<li>Asset → Location  </li>
-<li>Product → Service Line  </li>
+<li>reporting</li>
+<li>analysis</li>
+<li>inquiry</li>
+<li>reviewing master and transaction data together</li>
 </ul>
-<p>These relationships allow you to build more powerful and flexible data models.</p>
+<p>These views may be based on structures such as:</p>
+<ul>
+<li>parent-child hierarchies</li>
+<li>master data and transaction data</li>
+<li>multi-table analytical models</li>
+</ul>
+<p>Examples include:</p>
+<ul>
+<li>a customer transaction analysis view</li>
+<li>a product hierarchy reporting view</li>
+<li>an organizational rollup analysis view</li>
+</ul>
+<p>These views are generally designed for user consumption and analysis rather than direct maintenance of the underlying records.</p>
 <hr />
-<h2 id="designing-views-best-practices">🧭 Designing Views (Best Practices)</h2>
-<h3 id="think-in-business-terms">Think in Business Terms</h3>
-<p>Define Views based on real-world entities, not technical structures.</p>
-<p>✔️ Good:
-- Employee
-- Asset
-- Product</p>
-<p>❌ Avoid:
-- Generic or unclear Views like "Data1" or "Misc"</p>
+<h2 id="view-structure">View Structure</h2>
+<p>A Relational View consists of:</p>
+<h3 id="columns">Columns</h3>
+<p>Columns determine which fields are included in the SQL view and shown to users.</p>
+<p>Examples of view columns:</p>
+<ul>
+<li>Employee Name</li>
+<li>Department</li>
+<li>Asset Type</li>
+<li>Location</li>
+<li>Transaction Amount</li>
+</ul>
+<hr />
+<h3 id="actions">Actions</h3>
+<p>Actions define the interactions available from the view.</p>
+<p>Examples of actions:</p>
+<ul>
+<li>Add / Edit / Copy / Delete</li>
+<li>Bulk Update</li>
+<li>Spreadsheet</li>
+<li>File Export / Import</li>
+</ul>
+<hr />
+<h3 id="filters">Filters</h3>
+<p>Filters define how users can narrow or focus the data shown in the view.</p>
+<p>Examples of filters:</p>
+<ul>
+<li>Open Transactions</li>
+<li>West Region Locations</li>
+<li>Heavy Equipment Assets</li>
+<li>Entered this Month</li>
+</ul>
+<hr />
+<h2 id="how-relational-views-work-in-revfore-accelerate">⚙️ How Relational Views Work in Revfore Accelerate</h2>
+<p>Relational Views in Revfore Accelerate are:</p>
+<ul>
+<li>defined through metadata</li>
+<li>built on top of Relational Models</li>
+<li>used to generate SQL views in the database</li>
+<li>reusable across dashboards, forms, and navigation pages</li>
+<li>designed for both user interaction and downstream reporting</li>
+</ul>
+<p>Once a Relational View is configured, its definition can be synced so that the corresponding SQL view is created or updated in the database.</p>
+<hr />
+<h2 id="views-and-sql-views">Views and SQL Views</h2>
+<p>A key concept in Revfore Accelerate is that a Relational View is not just an application definition. It also drives the creation of a corresponding <strong>SQL view</strong>.</p>
+<p>This provides several benefits:</p>
+<ul>
+<li>consistent database-level access to the defined view structure</li>
+<li>reuse of the same logic across application pages and reporting</li>
+<li>alignment between application-facing and database-facing representations</li>
+<li>easier integration with other reporting and technical processes</li>
+</ul>
+<p>This means a Relational View serves both as an application configuration object and as a generator of reusable SQL-based output.</p>
+<hr />
+<h2 id="views-and-user-experience">Views and User Experience</h2>
+<p>Relational Views translate structured model data into a usable interface.</p>
+<p>They allow users to:</p>
+<ul>
+<li>review data</li>
+<li>filter and analyze data</li>
+<li>take action on related records</li>
+<li>interact with business information in a focused way</li>
+</ul>
+<p>A well-designed view makes complex relational data easier to understand and use.</p>
+<hr />
+<h2 id="designing-relational-views-best-practices">Designing Relational Views (Best Practices)</h2>
+<h3 id="design-for-the-user">Design for the User</h3>
+<p>Build the view around what the user needs to see and do.</p>
+<p>✔️ Good:</p>
+<ul>
+<li>a planning view focused on key editable fields</li>
+<li>a reporting view focused on summary and analysis</li>
+<li>an admin view focused on configuration and maintenance</li>
+</ul>
+<p>❌ Avoid:</p>
+<ul>
+<li>views with too many columns, filters, or actions</li>
+<li>views that try to serve too many unrelated purposes</li>
+</ul>
+<hr />
+<h3 id="match-the-view-to-the-model-type">Match the View to the Model Type</h3>
+<p>If the underlying model is centered around a primary table for maintenance, the view should typically support focused data entry or record management.</p>
+<p>If the underlying model is broader and read-only, the view should typically focus on analysis, inquiry, or reporting.</p>
 <hr />
 <h3 id="keep-views-focused">Keep Views Focused</h3>
-<p>Each View should represent <strong>one primary concept</strong>.</p>
-<p>Avoid combining unrelated data into a single View.</p>
+<p>Each view should support one primary use case.</p>
+<p>If needed, create multiple views from the same model instead of overloading one view.</p>
 <hr />
-<h3 id="use-clear-naming">Use Clear Naming</h3>
-<p>Use names that are:
-- Easy to understand
-- Consistent across your model</p>
+<h3 id="show-only-what-matters">Show Only What Matters</h3>
+<p>Include the columns, filters, and actions that are most relevant to the user.</p>
+<p>This keeps the experience cleaner and easier to use.</p>
 <hr />
-<h3 id="plan-for-reuse">Plan for Reuse</h3>
-<p>Views should be designed so they can be reused across:
-- Planning models
-- Dashboards
-- Workflows</p>
+<h3 id="reuse-models-thoughtfully">Reuse Models Thoughtfully</h3>
+<p>Views should build on strong relational models rather than duplicating structure at the view level.</p>
+<p>This improves consistency and maintainability.</p>
 <hr />
-<h2 id="example-use-case">🚀 Example Use Case</h2>
-<p>Let’s say you want to plan labor costs.</p>
-<p>You might create:</p>
-<p><strong>Employee View</strong>
-- Employee Name
-- Department
-- Role
-- Base Salary</p>
-<p>Then:
-- Link to a Department View
-- Use the data in planning workflows
-- Build views for reporting</p>
-<hr />
-<h2 id="tips">💡 Tips</h2>
+<h2 id="example-use-cases">Example Use Cases</h2>
+<h3 id="example-1-data-entry-view">Example 1: Data Entry View</h3>
+<p>You have a workforce model based on:</p>
 <ul>
-<li>Start with your core entities first  </li>
-<li>Add additional attributes over time  </li>
-<li>Avoid overcomplicating your initial design  </li>
-<li>Keep your model flexible  </li>
+<li>Employee Table</li>
+<li>Department Table</li>
+<li>Location Table</li>
+</ul>
+<p>You might create a view that:</p>
+<ul>
+<li>allows users to maintain employee records</li>
+<li>displays related department and location information</li>
+<li>supports filtering by department or location</li>
+</ul>
+<p>This view also creates a SQL view representing that same structure in the database.</p>
+<h3 id="example-2-read-only-analysis-view">Example 2: Read-Only Analysis View</h3>
+<p>You have a reporting model based on:</p>
+<ul>
+<li>Customer Table</li>
+<li>Transaction Table</li>
+<li>Product Table</li>
+<li>Organization Hierarchy Table</li>
+</ul>
+<p>You might create a view that:</p>
+<ul>
+<li>presents customer transaction data</li>
+<li>supports analysis across multiple related entities</li>
+<li>provides filters and actions for inquiry and reporting</li>
+</ul>
+<p>This view also creates a SQL view that can be used for reporting and technical integration.</p>
+<hr />
+<h2 id="tips">Tips</h2>
+<ul>
+<li>start with the intended user experience</li>
+<li>use focused views for data entry and maintenance</li>
+<li>use broader views for reporting and analysis</li>
+<li>keep columns, filters, and actions easy to understand</li>
+<li>remember that each Relational View also creates a SQL view</li>
 </ul>
 <hr />
-<h2 id="next-steps">👉 Next Steps</h2>
+<h2 id="next-steps">Next Steps</h2>
 <ul>
-<li>Learn about <a href="../models/">Relational Models</a></li>
-<li>Explore <a href="./">Relational Views</a></li>
+<li>Learn about <a href="../../appGroups/admin/relationalViews/">Relational Views</a></li>
+<li>Review your relational model to make sure it supports the intended view</li>
+<li>Configure columns, actions, and filters based on the desired user experience</li>
+<li>Sync the view definition to create or update the corresponding SQL view</li>
 </ul>
 
 
@@ -1699,9 +1943,6 @@
 
 
 
-
-  
-  
 
 
 
