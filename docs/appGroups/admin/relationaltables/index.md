@@ -48,7 +48,6 @@ Each table definition consists of:
     The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned
     See [Adding New Records](addingNewRecords.md) for general information about adding records
 
-
 ## Notes
 
 - Tables should be designed around clear business concepts
