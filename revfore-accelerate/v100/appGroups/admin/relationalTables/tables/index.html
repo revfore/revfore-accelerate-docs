@@ -1375,7 +1375,7 @@
 <h2 id="overview">Overview</h2>
 <p>Use the Relational Tables page to:</p>
 <ul>
-<li>create new relational table definition</li>
+<li>create new relational table definitions</li>
 <li>review existing table definitions</li>
 <li>manage table-level settings</li>
 <li>sync the table definitions with the database</li>
@@ -1388,129 +1388,99 @@
 <tr>
 <th>Field</th>
 <th>Data Type</th>
-<th>Allow Updates</th>
-<th>Is Lookup Type</th>
 <th>Purpose</th>
 <th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Relational Table Id</td>
-<td>int</td>
-<td>Yes</td>
-<td>-</td>
-<td>Unique identifier for the relational table record.</td>
-<td></td>
-</tr>
-<tr>
 <td>Relational Table Name</td>
 <td>nvarchar</td>
-<td>Yes</td>
-<td>-</td>
 <td>Internal name of the relational table.</td>
-<td>No spaces or special characters</td>
+<td>This is the name of the actual table in the database.  No spaces or special characters are allowed.</td>
 </tr>
 <tr>
 <td>Relational Table Display Name</td>
 <td>nvarchar</td>
-<td>Yes</td>
-<td>-</td>
 <td>User-friendly display name shown in the application.</td>
 <td></td>
 </tr>
 <tr>
 <td>Relational Table Description</td>
 <td>nvarchar</td>
-<td>Yes</td>
-<td>-</td>
 <td>Description of the relational table and its purpose.</td>
 <td></td>
 </tr>
 <tr>
 <td>Alias</td>
 <td>nvarchar</td>
-<td>Yes</td>
-<td>-</td>
 <td>Alternate short name or alias for the relational table.</td>
-<td>No spaces or special characters</td>
-</tr>
-<tr>
-<td>Type</td>
-<td>int</td>
-<td>-</td>
-<td>Yes</td>
-<td>Type classification of the relational table.</td>
-<td></td>
+<td>This will be used for joining tables and views, and as the prefix for model and view column names. No spaces or special characters are allowed.</td>
 </tr>
 <tr>
 <td>Is RFA Managed</td>
 <td>bit</td>
-<td>Yes</td>
-<td>-</td>
 <td>Indicates whether the table is managed by Revfore Accelerate.</td>
-<td></td>
+<td>If Managed, the table header, columns, indexes and relationships are defined in RFA and created from RFA using the Sync process.  If not managed, the table is create directly in the database by some other method and RFA only references it.  Both RFA managed and non-managed tables can be used in Relational Models and Views.</td>
 </tr>
 <tr>
 <td>Is Custom</td>
 <td>bit</td>
-<td>Yes</td>
-<td>-</td>
 <td>Indicates whether the table is custom.</td>
-<td></td>
+<td>Almost all non-system tables will be custom.</td>
 </tr>
 <tr>
 <td>Schema</td>
 <td>int</td>
-<td>Yes</td>
-<td>Yes</td>
-<td>Schema associated with the relational table.</td>
-<td></td>
+<td>Schema associated with the relational table.  Schemas provide a unique namespace for tables and views.</td>
+<td>This will be auto-assigned based on the Is Custom value.  Custom tables should be assigned to the custom schema which is the one with 'x' in the name.</td>
 </tr>
 <tr>
 <td>Is Enabled</td>
 <td>bit</td>
-<td>Yes</td>
-<td>-</td>
 <td>Indicates whether the table is enabled for use.</td>
 <td></td>
 </tr>
 <tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational table record.</td>
+<td>This is readonly and will be auto set the same value as the Table Name</td>
+</tr>
+<tr>
 <td>Created Date</td>
 <td>datetime</td>
-<td>-</td>
-<td>-</td>
 <td>Date and time the record was created.</td>
 <td></td>
 </tr>
 <tr>
 <td>Modified Date</td>
 <td>datetime</td>
-<td>-</td>
-<td>-</td>
 <td>Date and time the record was last modified.</td>
 <td></td>
 </tr>
 <tr>
 <td>Created By</td>
 <td>int</td>
-<td>-</td>
-<td>Yes</td>
 <td>User who created the relational table record.</td>
 <td></td>
 </tr>
 <tr>
 <td>Modified By</td>
 <td>int</td>
-<td>-</td>
-<td>Yes</td>
 <td>User who last modified the relational table record.</td>
 <td></td>
+</tr>
+<tr>
+<td>Relational Table Id</td>
+<td>int</td>
+<td>Unique identifier for the relational table record.</td>
+<td>If you leave blank, the system will auto assign</td>
 </tr>
 </tbody>
 </table>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
-<p>Use relational tables to define entities such as:</p>
+<p>Use relational tables to define business entities and objects such as:</p>
 <ul>
 <li>Employees</li>
 <li>Assets</li>
