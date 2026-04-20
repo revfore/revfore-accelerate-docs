@@ -783,6 +783,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-header-record-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Header Record Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -1315,6 +1324,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-header-record-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Header Record Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -1352,17 +1370,145 @@
 
 <h1 id="tables">Tables</h1>
 <p><a href="../">← Back to Relational Tables Overview</a></p>
-<p>The <strong>Tables</strong> page is used to define and manage the core relational tables in Revfore Accelerate.</p>
-<p>Relational tables represent the primary business entities in your solution and provide the foundation for the broader relational framework.</p>
+<p>The <strong>Relational Tables</strong> page is used to define and manage the header fields for a relational table</p>
+<p>Relational tables represent the primary business entities or objects in your solution and provide the foundation for the broader relational framework.</p>
 <h2 id="overview">Overview</h2>
-<p>Use the Tables page to:</p>
+<p>Use the Relational Tables page to:</p>
 <ul>
-<li>create new relational tables</li>
+<li>create new relational table definition</li>
 <li>review existing table definitions</li>
 <li>manage table-level settings</li>
-<li>organize the core entities used throughout the solution</li>
+<li>sync the table definitions with the database</li>
 </ul>
-<p>Each relational table should represent a clear business concept, such as a product, employee, asset, service, or location.</p>
+<p>Each relational table should represent a clear business concept, such as a product, employee, asset, service, rates or location.</p>
+<h2 id="relational-table-header-record-fields">Relational Table Header Record Fields</h2>
+<p>The following fields are used for a Relational Table header record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Allow Updates</th>
+<th>Is Lookup Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Table Id</td>
+<td>int</td>
+<td>Yes</td>
+<td>-</td>
+<td>Unique identifier for the relational table record.</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Table Name</td>
+<td>nvarchar</td>
+<td>Yes</td>
+<td>-</td>
+<td>Internal name of the relational table.</td>
+<td>No spaces or special characters</td>
+</tr>
+<tr>
+<td>Relational Table Display Name</td>
+<td>nvarchar</td>
+<td>Yes</td>
+<td>-</td>
+<td>User-friendly display name shown in the application.</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Table Description</td>
+<td>nvarchar</td>
+<td>Yes</td>
+<td>-</td>
+<td>Description of the relational table and its purpose.</td>
+<td></td>
+</tr>
+<tr>
+<td>Alias</td>
+<td>nvarchar</td>
+<td>Yes</td>
+<td>-</td>
+<td>Alternate short name or alias for the relational table.</td>
+<td>No spaces or special characters</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>int</td>
+<td>-</td>
+<td>Yes</td>
+<td>Type classification of the relational table.</td>
+<td></td>
+</tr>
+<tr>
+<td>Is RFA Managed</td>
+<td>bit</td>
+<td>Yes</td>
+<td>-</td>
+<td>Indicates whether the table is managed by Revfore Accelerate.</td>
+<td></td>
+</tr>
+<tr>
+<td>Is Custom</td>
+<td>bit</td>
+<td>Yes</td>
+<td>-</td>
+<td>Indicates whether the table is custom.</td>
+<td></td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>int</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Schema associated with the relational table.</td>
+<td></td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Yes</td>
+<td>-</td>
+<td>Indicates whether the table is enabled for use.</td>
+<td></td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>-</td>
+<td>-</td>
+<td>Date and time the record was created.</td>
+<td></td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>-</td>
+<td>-</td>
+<td>Date and time the record was last modified.</td>
+<td></td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>-</td>
+<td>Yes</td>
+<td>User who created the relational table record.</td>
+<td></td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>-</td>
+<td>Yes</td>
+<td>User who last modified the relational table record.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <p>Use relational tables to define entities such as:</p>
 <ul>
@@ -1371,10 +1517,11 @@
 <li>Products</li>
 <li>Services</li>
 <li>Locations</li>
+<li>Rates</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Tables should be designed around business entities rather than technical groupings.</li>
+<li>Tables should be designed around business entities and objects rather than technical groupings.</li>
 <li>Keep table names clear and consistent.</li>
 <li>Tables are the starting point for columns, relationships, models, views, and forms.</li>
 </ul>

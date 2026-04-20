@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#indexes" class="md-skip">
+        <a href="#relational-tables" class="md-skip">
           Skip to content
         </a>
       
@@ -771,9 +771,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-guidance" class="md-nav__link">
+  <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Design Guidance
+      Typical Use Cases
     </span>
   </a>
   
@@ -1333,9 +1333,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#design-guidance" class="md-nav__link">
+  <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Design Guidance
+      Typical Use Cases
     </span>
   </a>
   
@@ -1368,38 +1368,40 @@
   
 
 
-<h1 id="indexes">Indexes</h1>
-<p><a href="./">← Back to Relational Tables Overview</a></p>
-<p>The <strong>Indexes</strong> page is used to define and manage indexes for relational tables.</p>
-<p>Indexes help improve performance and support efficient data access.</p>
+<h1 id="relational-tables">Relational Tables</h1>
+<p><a href="./">← Back to Admin</a></p>
+<p>Relational Tables are the <strong>foundation of the Revfore Accelerate data model</strong>.</p>
+<p>They define the core business entities and store data at its natural level of detail.</p>
 <h2 id="overview">Overview</h2>
-<p>Use the Indexes page to:</p>
+<p>Use Relational Tables to:</p>
 <ul>
-<li>define indexes on relational tables</li>
-<li>improve query and retrieval performance</li>
-<li>support efficient filtering and lookups</li>
-<li>optimize how data is accessed in the database</li>
+<li>define business entities (e.g., Employees, Assets, Products)</li>
+<li>store detailed operational and planning data</li>
+<li>structure data in a flexible, relational format</li>
+</ul>
+<p>Each table consists of:</p>
+<ul>
+<li><strong>Columns (fields)</strong> – attributes of the entity  </li>
+<li><strong>Rows (records)</strong> – individual instances of the entity  </li>
 </ul>
 <h2 id="key-concepts">Key Concepts</h2>
-<p>Indexes are used to improve performance for common access patterns.</p>
-<p>They are especially useful when:</p>
 <ul>
-<li>tables contain large amounts of data</li>
-<li>certain fields are frequently searched or filtered</li>
-<li>joins or relational lookups depend on specific columns</li>
+<li>Tables are defined using metadata (no SQL required)</li>
+<li>Tables are reusable across models, views, and forms</li>
+<li>Tables represent real-world business entities</li>
 </ul>
-<h2 id="design-guidance">Design Guidance</h2>
-<p>When working with indexes:</p>
+<h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
-<li>focus on fields that are commonly used in filtering, searching, or joining</li>
-<li>avoid creating unnecessary indexes</li>
-<li>balance performance benefits with maintenance overhead</li>
+<li>Employee planning</li>
+<li>Asset tracking</li>
+<li>Product and service modeling</li>
+<li>Operational data capture</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Indexes are a technical optimization feature and may not be needed for every table.</li>
-<li>Index strategy should align with expected usage patterns.</li>
-<li>Use indexes thoughtfully to support performance without overcomplicating the design.</li>
+<li>Tables should be designed around clear business concepts</li>
+<li>Avoid combining unrelated data into a single table</li>
+<li>Keep naming consistent and meaningful</li>
 </ul>
 
 
