@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#relationships" class="md-skip">
+        <a href="#table-relationships" class="md-skip">
           Skip to content
         </a>
       
@@ -846,6 +846,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-relationship-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Relationship Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -858,6 +867,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-table-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational Table Relationship
     </span>
   </a>
   
@@ -1324,6 +1342,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-table-relationship-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Table Relationship Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -1336,6 +1363,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-table-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational Table Relationship
     </span>
   </a>
   
@@ -1368,9 +1404,9 @@
   
 
 
-<h1 id="relationships">Relationships</h1>
+<h1 id="table-relationships">Table Relationships</h1>
 <p><a href="../">← Back to Relational Tables Overview</a></p>
-<p>The <strong>Relationships</strong> page is used to define how relational tables connect to one another.</p>
+<p>The <strong>Table Relationships</strong> page is used to define how relational tables connect to one another.</p>
 <p>These relationships allow individual tables to work together as part of a broader relational structure.</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Relationships page to:</p>
@@ -1380,6 +1416,122 @@
 <li>support downstream model and view configuration</li>
 <li>enable richer and more connected data solutions</li>
 </ul>
+<h2 id="relational-table-relationship-fields">Relational Table Relationship Fields</h2>
+<p>The following fields are used for a Relational Table Relationship record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Table</td>
+<td>int</td>
+<td>Identifies the relational table that the relationship belongs to.</td>
+<td>This links the relationship record back to its parent relational table.</td>
+</tr>
+<tr>
+<td>Relational Relationship Name</td>
+<td>nvarchar</td>
+<td>Internal name of the relational relationship.</td>
+<td>This should clearly describe the relationship. No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Is Foreign Key</td>
+<td>bit</td>
+<td>Indicates whether the relationship is enforced as a foreign key.</td>
+<td>Relationships are primarily used for foreign keys, but they can also be used only for navigation between related records.</td>
+</tr>
+<tr>
+<td>Is Optional</td>
+<td>bit</td>
+<td>Indicates whether the relationship is optional.</td>
+<td>If not optional, Model Sources will default to Inner joins vs Left joins.  Inner joins are more efficient.</td>
+</tr>
+<tr>
+<td>Join Alias Suffix</td>
+<td>nvarchar</td>
+<td>Suffix used when generating join aliases for the relationship.</td>
+<td>This helps distinguish joins when the same table is referenced multiple times.  Not required if only joining to a table once. No spaces or special characters are allowed.  A good example is the CreatedById and ModifiedById columns, they both relate to the same 'User' table and require different Join Alias Suffixes</td>
+</tr>
+<tr>
+<td>Relational Column 1</td>
+<td>int</td>
+<td>Defines the primary column in the source table used for the relationship.</td>
+<td>This is typically the source column that joins to the related table.</td>
+</tr>
+<tr>
+<td>Category Flag</td>
+<td>int</td>
+<td>Defines the category flag associated with the source side of the relationship.</td>
+<td>These are used to organize the relationships for end-users</td>
+</tr>
+<tr>
+<td>Related To Table</td>
+<td>int</td>
+<td>Identifies the related table on the other side of the relationship.</td>
+<td>This is the table that the source table points to or navigates to.</td>
+</tr>
+<tr>
+<td>Related To Column 1</td>
+<td>int</td>
+<td>Defines the primary column in the related table used for the relationship.</td>
+<td>This is the target column that the source column joins to.</td>
+</tr>
+<tr>
+<td>Related To Category Flag</td>
+<td>int</td>
+<td>Defines the category flag associated with the related side of the relationship.</td>
+<td>These are used to organize the relationships for end-users</td>
+</tr>
+<tr>
+<td>Display Name Flag</td>
+<td>int</td>
+<td>Identifies the display name behavior for the relationship.</td>
+<td>Used to control how related records are labeled or presented in the application.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational relationship record.</td>
+<td>This is readonly and will be auto set the Table Name &amp; Relationship Name providing a unique value for the record that is used for importing data</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational relationship record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational relationship record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Relationship Id</td>
+<td>int</td>
+<td>Unique identifier for the relational relationship record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <p>Examples of common table relationships include:</p>
 <ul>
@@ -1396,6 +1548,21 @@
 <li>avoid unnecessary complexity</li>
 <li>make sure the relationship supports a meaningful business use case</li>
 </ul>
+<h2 id="create-a-new-relational-table-relationship">Create a new Relational Table Relationship</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Tables</strong></li>
+<li>Select the desired Relational Table and click on '<strong>Edit+</strong>'</li>
+<li>In the Child Views list, Select '<strong>Relational Tables : Relationships</strong>'</li>
+<li>In the '<strong>Relational Tables : Relationships</strong>' section, Click on '<strong>Add</strong>' or '<strong>Inline Entry</strong>' </li>
+<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+</ol>
+<div class="admonition note important notes">
+<p class="admonition-title">Note</p>
+<p>The Ext Ref Unique Code and Relational Index Id will be auto-assigned
+The Relational Index Name will be auto-assigned if blank or has the value 'Auto()' in it
+See <a href="addingNewRecords.md">Adding New Records</a> for general information about adding records</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Relationships at the table level form a foundation for higher-level modeling.</li>
