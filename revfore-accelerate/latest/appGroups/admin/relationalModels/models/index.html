@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#relational-model" class="md-skip">
+        <a href="#relational-models" class="md-skip">
           Skip to content
         </a>
       
@@ -1011,18 +1011,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Purpose
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
+  <a href="#relational-model-header-record-fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Concepts
+      Relational Model Header Record Fields
     </span>
   </a>
   
@@ -1032,6 +1032,15 @@
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational Model
     </span>
   </a>
   
@@ -1196,6 +1205,27 @@
   
   <span class="md-ellipsis">
     Views
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../relationalViews/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -1863,18 +1893,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
-      Purpose
+      Overview
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#key-concepts" class="md-nav__link">
+  <a href="#relational-model-header-record-fields" class="md-nav__link">
     <span class="md-ellipsis">
-      Key Concepts
+      Relational Model Header Record Fields
     </span>
   </a>
   
@@ -1884,6 +1914,15 @@
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational Model
     </span>
   </a>
   
@@ -1916,34 +1955,135 @@
   
 
 
-<h1 id="relational-model">Relational Model</h1>
-<p>A <strong>Relational Model</strong> defines how data from one or more Relational Tables is <strong>organized and connected</strong>.</p>
-<p>It serves as the structural layer between raw data and user-facing outputs, bringing together related entities into a meaningful and usable form.</p>
-<h2 id="purpose">Purpose</h2>
-<p>Relational Models are used to:</p>
+<h1 id="relational-models">Relational Models</h1>
+<p><a href="../">← Back to Relational Models Overview</a></p>
+<p>The <strong>Relational Models</strong> page is used to define and manage the header fields for a relational model.</p>
+<p>Relational models define how relational data is organized for data entry, reporting, and analysis. A model can represent a single primary table along with related foreign key tables, or it can represent a broader read-only analytical structure across multiple related tables.</p>
+<h2 id="overview">Overview</h2>
+<p>Use the Relational Models page to:</p>
 <ul>
-<li>combine data from multiple tables</li>
-<li>define relationships between entities</li>
-<li>organize data for reporting, planning, and application use</li>
-<li>provide a structured foundation for Relational Views</li>
+<li>create new relational model definitions</li>
+<li>review existing relational model definitions</li>
+<li>manage model-level settings</li>
+<li>organize data structures for downstream views</li>
 </ul>
-<h2 id="key-concepts">Key Concepts</h2>
-<ul>
-<li>A model represents a <strong>cohesive data structure</strong> built around a specific business purpose</li>
-<li>Models connect tables in a way that reflects real-world relationships</li>
-<li>Models are reusable and can support multiple downstream views</li>
-</ul>
+<p>Each relational model should represent a clear business use case, such as a workforce model, asset model, product model, customer transaction model, or reporting model.</p>
+<h2 id="relational-model-header-record-fields">Relational Model Header Record Fields</h2>
+<p>The following fields are used for a Relational Model header record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Model Name</td>
+<td>nvarchar</td>
+<td>Internal name of the relational model.</td>
+<td>No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Relational Model Display Name</td>
+<td>nvarchar</td>
+<td>User-friendly display name shown in the application.</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Model Description</td>
+<td>nvarchar</td>
+<td>Description of the relational model and its purpose.</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Table</td>
+<td>int</td>
+<td>Identifies the primary relational table associated with the model.</td>
+<td>This is typically the main business entity or object that the model is centered on.</td>
+</tr>
+<tr>
+<td>Is Custom</td>
+<td>bit</td>
+<td>Indicates whether the model is custom.</td>
+<td>Almost all non-system models will be custom.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the model is enabled for use.</td>
+<td></td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational model record.</td>
+<td>This is readonly and will be auto set the same value as the Model Name, providing a unique value for the record that is used for importing data.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td></td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td></td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational model record.</td>
+<td></td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational model record.</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Model Id</td>
+<td>int</td>
+<td>Unique identifier for the relational model record.</td>
+<td>If you leave blank, the system will auto assign.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
+<p>Use relational models to define data structures such as:</p>
 <ul>
-<li>Workforce models combining employees and departments  </li>
-<li>Asset models linking assets to locations  </li>
-<li>Product and service models for planning and analysis  </li>
+<li>Workforce models</li>
+<li>Asset models</li>
+<li>Product and service models</li>
+<li>Customer and transaction models</li>
+<li>Reporting and analysis models</li>
 </ul>
+<h2 id="create-a-new-relational-model">Create a new Relational Model</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Models</strong></li>
+<li>Click on <strong>Add+</strong> or <strong>Inline Entry</strong></li>
+<li>Click on the <strong>+</strong> button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+<li>Create new <a href="../sources/">Model Sources</a></li>
+<li>Create new <a href="../columns/">Model Columns</a></li>
+<li>Create new <a href="../relationships/">Model Relationships</a></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Important Notes</p>
+<p>The Ext Ref Unique Code and Relational Model Id will be auto-assigned.</p>
+<p>See <a href="../../../../concepts/metadataDrivenUI/actions/#general-actions">General Actions</a> for more information about adding records.</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>A well-designed model simplifies downstream configuration</li>
-<li>Models should be focused on a clear business use case</li>
-<li>Models act as the bridge between tables and views</li>
+<li>Models should be designed around a clear business use case.</li>
+<li>Some models are centered around a single primary table and related foreign key tables for data entry and maintenance.</li>
+<li>Other models are broader read-only structures used for reporting and analysis across related tables.</li>
+<li>Models provide the foundation for Relational Views.</li>
 </ul>
 
 

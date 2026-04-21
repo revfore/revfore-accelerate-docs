@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#relationships" class="md-skip">
+        <a href="#model-relationships" class="md-skip">
           Skip to content
         </a>
       
@@ -1083,6 +1083,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-model-relationship-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model Relationship Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -1095,6 +1104,24 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-a-new-model-relationship-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import a new Model Relationship (Recommended)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-model-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Model Relationship
     </span>
   </a>
   
@@ -1196,6 +1223,27 @@
   
   <span class="md-ellipsis">
     Views
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../relationalViews/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -1872,6 +1920,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-model-relationship-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model Relationship Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -1884,6 +1941,24 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-a-new-model-relationship-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import a new Model Relationship (Recommended)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-model-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Model Relationship
     </span>
   </a>
   
@@ -1916,18 +1991,101 @@
   
 
 
-<h1 id="relationships">Relationships</h1>
+<h1 id="model-relationships">Model Relationships</h1>
 <p><a href="../">← Back to Relational Models Overview</a></p>
-<p>The <strong>Relationships</strong> page is used to define how sources within a relational model are connected.</p>
-<p>These relationships allow the model to combine multiple entities into a cohesive and usable structure.</p>
+<p>The <strong>Model Relationships</strong> page is used to define which Table Relationships will be exposed for downstream use in Navigation pages</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Relationships page to:</p>
 <ul>
-<li>define links between model sources</li>
-<li>create meaningful cross-table structures</li>
-<li>support downstream data access and display</li>
-<li>organize how related data is brought together in the model</li>
+<li>import table relationships for the model that will be exposed for downstream use</li>
+<li>disable table relationships on the model</li>
 </ul>
+<h2 id="relational-model-relationship-fields">Relational Model Relationship Fields</h2>
+<p>The following fields are used for a Relational Model Relationship record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Model</td>
+<td>int</td>
+<td>Identifies the relational model that the relationship belongs to.</td>
+<td>This links the model relationship record back to its parent relational model.</td>
+</tr>
+<tr>
+<td>Relational Relationship Id</td>
+<td>int</td>
+<td>Identifies the underlying relational table relationship used by the model.</td>
+<td>This is the table-level relationship being referenced within the model.</td>
+</tr>
+<tr>
+<td>Category Flag</td>
+<td>int</td>
+<td>Defines the category flag used for the relationship within the model.</td>
+<td>This is readonly and defined on the table relationship.</td>
+</tr>
+<tr>
+<td>Related To Relational Model</td>
+<td>int</td>
+<td>Identifies the related relational model connected to this relationship.</td>
+<td>Used when the model relationship points to or interacts with another relational model.</td>
+</tr>
+<tr>
+<td>Related To Category Flag</td>
+<td>int</td>
+<td>Defines the category flag used for the related side of the relationship.</td>
+<td>This is readonly and defined on the table relationship.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the model relationship is enabled for use.</td>
+<td>Disabled relationships are not intended for active use.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational model relationship record.</td>
+<td>This is readonly and is auto set to provide a stable unique value for importing data.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational model relationship record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational model relationship record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Model Relationship Id</td>
+<td>int</td>
+<td>Unique identifier for the relational model relationship record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <p>Examples include:</p>
 <ul>
@@ -1938,11 +2096,25 @@
 <h2 id="design-guidance">Design Guidance</h2>
 <p>When defining model relationships:</p>
 <ul>
-<li>reflect real-world business structure</li>
-<li>keep joins and links easy to understand</li>
-<li>avoid unnecessary complexity</li>
 <li>make sure each relationship supports a valid business use case</li>
 </ul>
+<h2 id="import-a-new-model-relationship-recommended">Import a new Model Relationship (Recommended)</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Models</strong></li>
+<li>Select the desired Relational Model and click on <strong>Edit+</strong></li>
+<li>In the Child Views list, select <strong>Relational Models : Sources</strong></li>
+<li>In the <strong>Relational Models : Sources</strong> section, click on <strong>Import</strong></li>
+<li>Select the desired Relationships and click on <strong>OK</strong></li>
+</ol>
+<h2 id="create-a-new-model-relationship">Create a new Model Relationship</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Models</strong></li>
+<li>Select the desired Relational Model and click on <strong>Edit+</strong></li>
+<li>In the Child Views list, select <strong>Relational Models : Sources</strong></li>
+<li>In the <strong>Relational Models : Sources</strong> section, click on <strong>Add</strong> or <strong>Inline Entry</strong></li>
+<li>Click on the <strong>+</strong> button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+</ol>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Relationships are central to the usefulness of a relational model.</li>

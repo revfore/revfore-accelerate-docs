@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#columns" class="md-skip">
+        <a href="#model-columns" class="md-skip">
           Skip to content
         </a>
       
@@ -1062,6 +1062,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-model-column-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model Column Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1074,6 +1083,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-model-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Model Column
     </span>
   </a>
   
@@ -1196,6 +1214,27 @@
   
   <span class="md-ellipsis">
     Views
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../relationalViews/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -1872,6 +1911,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-model-column-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model Column Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1884,6 +1932,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-model-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Model Column
     </span>
   </a>
   
@@ -1916,39 +1973,345 @@
   
 
 
-<h1 id="columns">Columns</h1>
+<h1 id="model-columns">Model Columns</h1>
 <p><a href="../">← Back to Relational Models Overview</a></p>
-<p>The <strong>Columns</strong> page is used to define the columns exposed by a relational model.</p>
-<p>These columns determine what data is included in the model and made available for downstream use.</p>
+<p>The <strong>Model Columns</strong> page is used to define and manage the fields that belong to a relational model.</p>
+<p>Model columns describe the fields that are exposed by the model for use in relational views</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Columns page to:</p>
 <ul>
-<li>select or define model-level columns</li>
-<li>organize the data structure presented by the model</li>
-<li>prepare the model for views, reporting, and interaction</li>
-<li>control how source data is surfaced in a reusable way</li>
+<li>add new columns to a relational model</li>
+<li>define model field names and properties</li>
+<li>expose data from one or more related tables</li>
+<li>control how data is presented and used downstream</li>
 </ul>
+<h2 id="relational-model-column-fields">Relational Model Column Fields</h2>
+<p>The following fields are used for a Relational Model Column record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Model</td>
+<td>int</td>
+<td>Identifies the relational model that the column belongs to.</td>
+<td>This links the model column record back to its parent relational model.</td>
+</tr>
+<tr>
+<td>Model Column Name</td>
+<td>nvarchar</td>
+<td>Internal name of the model column.</td>
+<td>If blank or set to 'Auto()' and a 'Relational Column' is selected, this value will auto populate from the Relational Column.  No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Model Column Display Name</td>
+<td>nvarchar</td>
+<td>User-friendly display name shown in the application.</td>
+<td>If blank or set to 'Auto()' and a 'Relational Column' is selected, this value will auto populate from the Relational Column</td>
+</tr>
+<tr>
+<td>Relational Column</td>
+<td>int</td>
+<td>Identifies the underlying relational column used by the model column.</td>
+<td>Typically used when the model column is directly based on a table column.</td>
+</tr>
+<tr>
+<td>Sequence Number</td>
+<td>int</td>
+<td>Determines the relative order of the model column.</td>
+<td>This is used to control display and processing order. If left blank on a new record, it will be auto-assigned.</td>
+</tr>
+<tr>
+<td>Model Column Expression</td>
+<td>nvarchar</td>
+<td>Defines the expression used to derive the model column value.</td>
+<td>Used when the column is based on logic or derived from one or more source fields rather than directly from a single relational column.</td>
+</tr>
+<tr>
+<td>Model Column Description</td>
+<td>nvarchar</td>
+<td>Description of the model column and its purpose.</td>
+<td>Use this to document how the column should be used.</td>
+</tr>
+<tr>
+<td>Lookup - Dynamic</td>
+<td>int</td>
+<td>Defines the dynamic lookup associated with the model column.</td>
+<td>Used when the column relies on a dynamic RFA lookup definition.</td>
+</tr>
+<tr>
+<td>Lookup - Standard Parameter</td>
+<td>nvarchar</td>
+<td>Defines a standard parameter used for lookup behavior.</td>
+<td>Used when the column relies on a standard lookup parameter.</td>
+</tr>
+<tr>
+<td>Primary Model Source</td>
+<td>int</td>
+<td>Identifies the primary model source used by the column.</td>
+<td>This is the main model source the model column is based on.</td>
+</tr>
+<tr>
+<td>Lookup Model Source</td>
+<td>int</td>
+<td>Identifies the model source used for dynamic lookups.</td>
+<td>Required when a 'Relational View' type of dynamic lookup is used.</td>
+</tr>
+<tr>
+<td>Expression Model Source 1</td>
+<td>int</td>
+<td>Identifies the first model source used in the column expression.</td>
+<td Alias1="Alias1">Is required if model column expression references</td>
+</tr>
+<tr>
+<td>Expression Model Source 2</td>
+<td>int</td>
+<td>Identifies the second model source used in the column expression.</td>
+<td Alias2="Alias2">Is required if model column expression references</td>
+</tr>
+<tr>
+<td>Expression Model Source 3</td>
+<td>int</td>
+<td>Identifies the third model source used in the column expression.</td>
+<td Alias3="Alias3">Is required if model column expression references</td>
+</tr>
+<tr>
+<td>Expression Model Source 4</td>
+<td>int</td>
+<td>Identifies the fourth model source used in the column expression.</td>
+<td Alias4="Alias4">Is required if model column expression references</td>
+</tr>
+<tr>
+<td>Expression Model Source 5</td>
+<td>int</td>
+<td>Identifies the fifth model source used in the column expression.</td>
+<td Alias5="Alias5">Is required if model column expression references</td>
+</tr>
+<tr>
+<td>Relational Column Data Type</td>
+<td>int</td>
+<td>Defines the data type of the model column.</td>
+<td>This will auto-populate from the 'Relational Column' if it exists.  Will need to set for expression columns</td>
+</tr>
+<tr>
+<td>Is Primary Key Column</td>
+<td>bit</td>
+<td>Indicates whether the model column represents the primary key column.</td>
+<td>Useful when the model needs to identify records uniquely.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the model column is enabled for use.</td>
+<td>Disabled columns are not intended for active use.</td>
+</tr>
+<tr>
+<td>Is Visible</td>
+<td>bit</td>
+<td>Indicates whether the model column is visible to users.</td>
+<td>Hidden columns may still be used for logic, filtering, or internal processing.</td>
+</tr>
+<tr>
+<td>Allow Updates</td>
+<td>bit</td>
+<td>Indicates whether users are allowed to update the column.</td>
+<td>Commonly used for editable data entry models.</td>
+</tr>
+<tr>
+<td>Data Format String</td>
+<td>nvarchar</td>
+<td>Defines the format string used to display the column value.</td>
+<td>Useful for dates, numbers, percentages, currency, and similar formatted output.</td>
+</tr>
+<tr>
+<td>Show Search</td>
+<td>bit</td>
+<td>Indicates whether a lookup column displays a search field.</td>
+<td>Is not set, the lookup column is still searchable based on the first few characters a user types</td>
+</tr>
+<tr>
+<td>Width</td>
+<td>int</td>
+<td>Defines the display width of the column.</td>
+<td>Used to control how wide the column appears in the UI.  Use -1 to enable auto-widths</td>
+</tr>
+<tr>
+<td>Sub Total Flag</td>
+<td>int</td>
+<td>Defines subtotal behavior for the column.</td>
+<td>Used when the column participates in subtotal or aggregation logic.</td>
+</tr>
+<tr>
+<td>Required Flag</td>
+<td>int</td>
+<td>Indicates whether the column is required.</td>
+<td>Useful for data entry and validation scenarios.</td>
+</tr>
+<tr>
+<td>Default Function</td>
+<td>int</td>
+<td>Defines the function used to calculate a default value.</td>
+<td>Used when a default value should be generated automatically.</td>
+</tr>
+<tr>
+<td>Default Expression</td>
+<td>nvarchar</td>
+<td>Defines the expression used to calculate the default value.</td>
+<td>Used when a static or formula-based default value is needed.</td>
+</tr>
+<tr>
+<td>Insert Function Flag</td>
+<td>int</td>
+<td>Indicates whether an insert function is used.</td>
+<td>Used to control insert-time behavior for the model column.</td>
+</tr>
+<tr>
+<td>Insert Function</td>
+<td>int</td>
+<td>Defines the function used during insert processing.</td>
+<td>Used when custom logic should run on insert.</td>
+</tr>
+<tr>
+<td>Insert Expression</td>
+<td>nvarchar</td>
+<td>Defines the expression used during insert processing.</td>
+<td>Used when insert-time values are derived through an expression.</td>
+</tr>
+<tr>
+<td>Update Function Flag</td>
+<td>int</td>
+<td>Indicates whether an update function is used.</td>
+<td>Used to control update-time behavior for the model column.</td>
+</tr>
+<tr>
+<td>Update Function</td>
+<td>int</td>
+<td>Defines the function used during update processing.</td>
+<td>Used when custom logic should run on update.</td>
+</tr>
+<tr>
+<td>Update Expression</td>
+<td>nvarchar</td>
+<td>Defines the expression used during update processing.</td>
+<td>Used when update-time values are derived through an expression.</td>
+</tr>
+<tr>
+<td>Copy Function Flag</td>
+<td>int</td>
+<td>Indicates whether a copy function is used.</td>
+<td>Used to control copy behavior for the model column.</td>
+</tr>
+<tr>
+<td>Copy Function</td>
+<td>int</td>
+<td>Defines the function used during copy processing.</td>
+<td>Used when custom logic should run during copy operations.</td>
+</tr>
+<tr>
+<td>Copy Expression</td>
+<td>nvarchar</td>
+<td>Defines the expression used during copy processing.</td>
+<td>Used when copied values are derived through an expression.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational model column record.</td>
+<td>This is readonly and is typically auto set to provide a stable unique value for importing data.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational model column record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational model column record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Model Column</td>
+<td>int</td>
+<td>Unique identifier for the relational model column record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="key-concepts">Key Concepts</h2>
-<p>Model columns typically build on data from the underlying sources.</p>
-<p>They may represent:</p>
+<p>Each model column represents a field that the relational model exposes for downstream use.</p>
+<p>Examples include:</p>
 <ul>
-<li>direct fields from source tables</li>
-<li>model-specific combinations or arrangements of source data</li>
-<li>standardized structures for downstream use</li>
+<li>Employee Name</li>
+<li>Department</li>
+<li>Role</li>
+<li>Status</li>
+<li>Cost</li>
+<li>Effective Date</li>
+<li>Description fields from related foreign key tables</li>
+<li>Derived or expression-based values used for reporting and analysis</li>
+</ul>
+<p>Model columns may come from:</p>
+<ul>
+<li>the primary table in the model</li>
+<li>related foreign key tables</li>
+<li>parent-child structures</li>
+<li>master data and transaction data combinations</li>
+<li>derived expressions used for analysis or display</li>
 </ul>
 <h2 id="design-guidance">Design Guidance</h2>
 <p>When defining model columns:</p>
 <ul>
-<li>include only the fields needed for the use case</li>
-<li>use clear and consistent naming</li>
-<li>align columns with how users will consume the model</li>
-<li>keep the structure maintainable and reusable</li>
+<li>use clear and meaningful names</li>
+<li>align columns to the business use case of the model</li>
+<li>expose only the fields needed for downstream use</li>
+<li>keep the structure flexible enough to support future growth</li>
+<li>include descriptive fields from related tables when they improve usability</li>
+<li>use a consistent naming pattern when exposing fields from multiple related tables</li>
 </ul>
+<h2 id="create-a-new-model-column">Create a new Model Column</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Models</strong></li>
+<li>Select the desired Relational Model and click on <strong>Edit+</strong></li>
+<li>In the Child Views list, select <strong>Relational Models : Columns</strong></li>
+<li>In the <strong>Relational Models : Columns</strong> section, click on <strong>Add</strong> or <strong>Inline Entry</strong></li>
+<li>Click on the <strong>+</strong> button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+</ol>
+<p>Once all columns are created, create new <a href="../relationships/">Relational Model Relationships</a></p>
+<div class="admonition note">
+<p class="admonition-title">Important Notes</p>
+<p>Model columns define the fields that will be available to downstream Relational Views.</p>
+<p>Model columns can represent fields from the primary table, related foreign key tables, and broader analytical joins depending on the model design.</p>
+<p>Lookup and display behavior is often handled at the model level rather than directly in the base relational table.</p>
+<p>All 'Relational View' lookup columns will require a Lookup Model Source and possible multiple Expression Model Sources if they use expression columns for their Display or Ext Ref Unique Column.</p>
+<p>All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.</p>
+<p>See <a href="../../../../concepts/metadataDrivenUI/actions/#general-actions">General Actions</a> for more information about adding records.</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Model columns shape how the model is understood and used.</li>
-<li>Clear column design improves reporting, views, and user experience.</li>
-<li>Model columns often become the basis for Relational Views.</li>
+<li>Model columns should be designed around the intended use of the relational model.</li>
+<li>Well-defined model columns improve data entry, reporting, and analysis.</li>
+<li>Model column design directly impacts Relational Views, forms, and the overall user experience.</li>
 </ul>
 
 

@@ -1136,6 +1136,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../columns/" class="md-nav__link">
         
   
@@ -1233,6 +1254,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-view-filter-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational View Filter Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -1245,6 +1275,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-view-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational View Filters
     </span>
   </a>
   
@@ -1872,6 +1911,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-view-filter-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational View Filter Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -1884,6 +1932,15 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-view-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational View Filters
     </span>
   </a>
   
@@ -1928,6 +1985,98 @@
 <li>make large datasets easier to work with</li>
 <li>tailor the view to a specific business context</li>
 </ul>
+<h2 id="relational-view-filter-fields">Relational View Filter Fields</h2>
+<p>The following fields are used for a Relational View Filter record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Model</td>
+<td>int</td>
+<td>Identifies the relational model associated with the filter.</td>
+<td>This links the filter to the model that supports the view.</td>
+</tr>
+<tr>
+<td>Relational View</td>
+<td>int</td>
+<td>Identifies the relational view that the filter belongs to.</td>
+<td>This links the filter record back to its parent relational view.</td>
+</tr>
+<tr>
+<td>Filter Name</td>
+<td>nvarchar</td>
+<td>Internal name of the filter.</td>
+<td>No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Filter Description</td>
+<td>nvarchar</td>
+<td>Description of the filter and its purpose.</td>
+<td>Use this to document how the filter should be used.</td>
+</tr>
+<tr>
+<td>Filter Display Name</td>
+<td>nvarchar</td>
+<td>User-friendly display name shown in the application.</td>
+<td>This is typically the label users will see.</td>
+</tr>
+<tr>
+<td>Filter Expression</td>
+<td>nvarchar</td>
+<td>Defines the expression used by the filter.</td>
+<td>Use the <strong>Edit</strong> button to open the Edit screen and then use the <strong>Expression Editor</strong> button to open the expression editor page</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the filter is enabled for use.</td>
+<td>Disabled filters are not intended for active use.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational view filter record.</td>
+<td>This is readonly and is typically auto set to provide a stable unique value for importing data.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational view filter record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational view filter record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Filter Id</td>
+<td>int</td>
+<td>Unique identifier for the relational view filter record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <p>Examples include filtering by:</p>
 <ul>
@@ -1945,6 +2094,18 @@
 <li>avoid unnecessary complexity</li>
 <li>support common reporting and workflow needs</li>
 </ul>
+<h2 id="create-a-new-relational-view-filters">Create a new Relational View Filters</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Views</strong></li>
+<li>Select the desired Relational Table and click on '<strong>Edit+</strong>'</li>
+<li>In the Child Views list, Select '<strong>Relational Views : Filters</strong>'</li>
+<li>In the '<strong>Relational Views : Filters</strong>' section, Click on '<strong>Add</strong>' or '<strong>Inline Entry</strong>' </li>
+<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+<li>Click on <strong>Edit</strong> to open the Edit page</li>
+<li>Click on <strong>Expression Editor</strong> to open the Expression Editor</li>
+<li>Add the expression and Click on <strong>OK</strong></li>
+</ol>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Filters improve usability by narrowing the data shown.</li>

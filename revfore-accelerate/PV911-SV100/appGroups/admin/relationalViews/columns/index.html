@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://docs.revfore.com/revfore-accelerate/PV911-SV100/appGroups/admin/relationalViews/columns/">
       
       
-        <link rel="prev" href="../views/">
+        <link rel="prev" href="../security/">
       
       
         <link rel="next" href="../actions/">
@@ -1133,6 +1133,27 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -1191,6 +1212,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-view-column-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational View Column Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1203,6 +1233,24 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-new-relational-view-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import new Relational View Columns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-view-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational View Column
     </span>
   </a>
   
@@ -1872,6 +1920,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-view-column-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational View Column Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1884,6 +1941,24 @@
   <a href="#design-guidance" class="md-nav__link">
     <span class="md-ellipsis">
       Design Guidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-new-relational-view-columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      Import new Relational View Columns
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-view-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational View Column
     </span>
   </a>
   
@@ -1928,6 +2003,206 @@
 <li>organize output for reporting, forms, or dashboards</li>
 <li>tailor the view to a specific use case</li>
 </ul>
+<h2 id="relational-view-column-fields">Relational View Column Fields</h2>
+<p>The following fields are used for a Relational View Column record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Model</td>
+<td>int</td>
+<td>Identifies the relational model associated with the view column.</td>
+<td>This links the view column to the model that supports the view.</td>
+</tr>
+<tr>
+<td>Relational View</td>
+<td>int</td>
+<td>Identifies the relational view that the column belongs to.</td>
+<td>This links the view column record back to its parent relational view.</td>
+</tr>
+<tr>
+<td>Column Name</td>
+<td>nvarchar</td>
+<td>Internal name of the view column.</td>
+<td>No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Column Description</td>
+<td>nvarchar</td>
+<td>Description of the view column and its purpose.</td>
+<td>Use this to document how the column should be used.</td>
+</tr>
+<tr>
+<td>Column Display Name</td>
+<td>nvarchar</td>
+<td>User-friendly display name shown in the application.</td>
+<td>This is typically the label users will see.</td>
+</tr>
+<tr>
+<td>Relational Model Column</td>
+<td>int</td>
+<td>Identifies the relational model column used by the view column.</td>
+<td>A view column is typically built on top of a model column.</td>
+</tr>
+<tr>
+<td>Sequence Number</td>
+<td>int</td>
+<td>Determines the relative order of the view column.</td>
+<td>This is typically used to control display and processing order.</td>
+</tr>
+<tr>
+<td>Column Data Type</td>
+<td>int</td>
+<td>Defines the data type of the view column.</td>
+<td>This controls how the value is interpreted and used in the view.</td>
+</tr>
+<tr>
+<td>Precision</td>
+<td>int</td>
+<td>Defines the total number of digits allowed for numeric values.</td>
+<td>Used with numeric data types such as decimal that support precision and scale.</td>
+</tr>
+<tr>
+<td>Scale</td>
+<td>int</td>
+<td>Defines the number of digits allowed to the right of the decimal place.</td>
+<td>Used with numeric data types that support decimal values.</td>
+</tr>
+<tr>
+<td>Is Primary Key</td>
+<td>bit</td>
+<td>Indicates whether the view column represents a primary key field.</td>
+<td>Useful when the view needs to uniquely identify records.</td>
+</tr>
+<tr>
+<td>Bulk Update Flag</td>
+<td>int</td>
+<td>Controls how the view column behaves during bulk update processes.</td>
+<td>Use this to manage whether and how the column participates in bulk updates.</td>
+</tr>
+<tr>
+<td>Model Lookup - Standard Parameter</td>
+<td>nvarchar</td>
+<td>Defines the standard lookup parameter inherited from the model column.</td>
+<td>Used when lookup behavior is defined at the model level.</td>
+</tr>
+<tr>
+<td>Lookup - Standard Parameter</td>
+<td>nvarchar</td>
+<td>Defines the standard lookup parameter used by the view column.</td>
+<td>Used when lookup behavior is overridden or defined at the view level.</td>
+</tr>
+<tr>
+<td>Model Lookup - Dynamic</td>
+<td>int</td>
+<td>Defines the dynamic lookup inherited from the model column.</td>
+<td>Used when dynamic lookup behavior is defined at the model level.</td>
+</tr>
+<tr>
+<td>Lookup - Dynamic</td>
+<td>int</td>
+<td>Defines the dynamic lookup used by the view column.</td>
+<td>Used when lookup behavior is overridden or defined at the view level.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the view column is enabled for use.</td>
+<td>Disabled columns are not intended for active use.</td>
+</tr>
+<tr>
+<td>Is Visible</td>
+<td>bit</td>
+<td>Indicates whether the view column is visible to users.</td>
+<td>Hidden columns may still be used for logic, filtering, or internal processing.</td>
+</tr>
+<tr>
+<td>Model Allow Updates</td>
+<td>bit</td>
+<td>Indicates whether updates are allowed at the model column level.</td>
+<td>Used to inherit or understand update behavior from the model.</td>
+</tr>
+<tr>
+<td>Allow Updates</td>
+<td>bit</td>
+<td>Indicates whether users are allowed to update the view column.</td>
+<td>Commonly used for editable data entry views.</td>
+</tr>
+<tr>
+<td>Key Display Column</td>
+<td>bit</td>
+<td>Indicates whether the column should be treated as a key display column.</td>
+<td>Useful when identifying the main descriptive field shown to users.</td>
+</tr>
+<tr>
+<td>Filter Flag</td>
+<td>int</td>
+<td>Defines filter behavior for the view column.</td>
+<td>Used to control whether and how the column participates in filtering.</td>
+</tr>
+<tr>
+<td>Width</td>
+<td>int</td>
+<td>Defines the display width of the column.</td>
+<td>Used to control how wide the column appears in the UI.</td>
+</tr>
+<tr>
+<td>Sub Total Flag</td>
+<td>int</td>
+<td>Defines subtotal behavior for the column.</td>
+<td>Used when the column participates in subtotal or aggregation logic.</td>
+</tr>
+<tr>
+<td>Group By Flag</td>
+<td>int</td>
+<td>Defines whether the column participates in group by behavior.</td>
+<td>Used when the view supports grouped or aggregated output.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational view column record.</td>
+<td>This is readonly and is typically auto set to provide a stable unique value for importing data.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational view column record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational view column record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Column Id</td>
+<td>int</td>
+<td>Unique identifier for the relational view column record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="key-concepts">Key Concepts</h2>
 <p>View columns are based on the underlying relational model and define the final output structure presented by the view.</p>
 <p>A good view should expose the right data in a clear and usable format.</p>
@@ -1939,6 +2214,24 @@
 <li>use consistent naming and ordering</li>
 <li>align the view structure with how it will be consumed</li>
 </ul>
+<h2 id="import-new-relational-view-columns">Import new Relational View Columns</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Views</strong></li>
+<li>Select the desired Relational View and click on '<strong>Edit+</strong>'</li>
+<li>In the Child Views list, Select '<strong>Relational Views : Actions</strong>'</li>
+<li>Click on the <strong>Import</strong> button</li>
+<li>Check all desired <strong>Columns</strong> from the Columns tab and click <strong>OK</strong></li>
+</ol>
+<h2 id="create-a-new-relational-view-column">Create a new Relational View Column</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Views</strong></li>
+<li>Select the desired Relational Table and click on '<strong>Edit+</strong>'</li>
+<li>In the Child Views list, Select '<strong>Relational Views : Columns</strong>'</li>
+<li>In the '<strong>Relational Views : Columns</strong>' section, Click on '<strong>Add</strong>' or '<strong>Inline Entry</strong>' </li>
+<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+</ol>
+<p>Once all columns are created, create new <a href="../actions/">Relational Actions</a></p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>View columns directly affect usability.</li>

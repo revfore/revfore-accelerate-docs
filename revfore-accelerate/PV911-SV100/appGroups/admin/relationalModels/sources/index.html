@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sources" class="md-skip">
+        <a href="#model-sources" class="md-skip">
           Skip to content
         </a>
       
@@ -1041,6 +1041,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-model-source-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model Source Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1053,6 +1062,15 @@
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-model-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Model Source
     </span>
   </a>
   
@@ -1196,6 +1214,27 @@
   
   <span class="md-ellipsis">
     Views
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../relationalViews/security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
   </span>
   
 
@@ -1872,6 +1911,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-model-source-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model Source Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1884,6 +1932,15 @@
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-model-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Model Source
     </span>
   </a>
   
@@ -1916,9 +1973,9 @@
   
 
 
-<h1 id="sources">Sources</h1>
+<h1 id="model-sources">Model Sources</h1>
 <p><a href="../">← Back to Relational Models Overview</a></p>
-<p>The <strong>Sources</strong> page is used to define the source tables and source structures used within a relational model.</p>
+<p>The <strong>Model Sources</strong> page is used to define the source tables and source structures used within a relational model.</p>
 <p>Sources establish the underlying data inputs that the model is built on.</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Sources page to:</p>
@@ -1928,6 +1985,188 @@
 <li>organize the model structure around relevant business entities</li>
 <li>prepare the model for downstream columns and relationships</li>
 </ul>
+<h2 id="relational-model-source-fields">Relational Model Source Fields</h2>
+<p>The following fields are used for a Relational Model Source record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational Model</td>
+<td>int</td>
+<td>Identifies the relational model that the source belongs to.</td>
+<td>This links the model source record back to its parent relational model.</td>
+</tr>
+<tr>
+<td>Relational Source Object</td>
+<td>int</td>
+<td>Identifies the relational source object used by the model source.</td>
+<td>This is typically the table or object being added as a source in the model.</td>
+</tr>
+<tr>
+<td>Table Relationship</td>
+<td>int</td>
+<td>Identifies the table relationship used by the model source.</td>
+<td>Highly recommended for all sources other than the first source.  Once set many of the other fields will auto populate</td>
+</tr>
+<tr>
+<td>Sequence Number</td>
+<td>int</td>
+<td>Determines the relative order of the model source.</td>
+<td>This is used to control the order in which sources are processed.  The first source should not join with another source.  All subsequent sources do need to join with another source.  This field will auto-populate if left blank</td>
+</tr>
+<tr>
+<td>Alias</td>
+<td>nvarchar</td>
+<td>Alternate short name or alias for the model source.</td>
+<td>This is used in joins and expressions to distinguish sources.  Will auto-populate if a Table Relationship is specified, specifically from from the 'Source Relational Table' 'Alias' and the 'Table Relationship' 'Join Alias Suffix'. No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Join Type</td>
+<td>int</td>
+<td>Defines the type of join used for the model source.</td>
+<td>Inner and Left Joins are the two options.  Inner joins require that the joined table has matching records.  Left joins do not have this requirement but do not perform as well.</td>
+</tr>
+<tr>
+<td>Join With Relational Model Source 1</td>
+<td>int</td>
+<td>Identifies the first model source that this source joins to.</td>
+<td>Used when defining the 1st join condition.</td>
+</tr>
+<tr>
+<td>Join Relational Column 1</td>
+<td>int</td>
+<td>Identifies the first relational column from this source used in the join.</td>
+<td>This is the source-side column for the 1st join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Column 1</td>
+<td>int</td>
+<td>Identifies the first relational column from the joined source used in the join.</td>
+<td>This is the target-side column for the 1st join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Model Source 2</td>
+<td>int</td>
+<td>Identifies the second model source that this source joins to.</td>
+<td>Used when defining an 2nd join condition.</td>
+</tr>
+<tr>
+<td>Join Relational Column 2</td>
+<td>int</td>
+<td>Identifies the second relational column from this source used in the join.</td>
+<td>This is the source-side column for the 2nd join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Column 2</td>
+<td>int</td>
+<td>Identifies the second relational column from the joined source used in the join.</td>
+<td>This is the target-side column for the 2nd join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Model Source 3</td>
+<td>int</td>
+<td>Identifies the third model source that this source joins to.</td>
+<td>Used when defining an 3rd join condition.</td>
+</tr>
+<tr>
+<td>Join Relational Column 3</td>
+<td>int</td>
+<td>Identifies the third relational column from this source used in the join.</td>
+<td>This is the source-side column for the 3rd join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Column 3</td>
+<td>int</td>
+<td>Identifies the third relational column from the joined source used in the join.</td>
+<td>This is the target-side column for the 3rd join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Model Source 4</td>
+<td>int</td>
+<td>Identifies the fourth model source that this source joins to.</td>
+<td>Used when defining an 4th join condition.</td>
+</tr>
+<tr>
+<td>Join Relational Column 4</td>
+<td>int</td>
+<td>Identifies the fourth relational column from this source used in the join.</td>
+<td>This is the source-side column for the 4th join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Column 4</td>
+<td>int</td>
+<td>Identifies the fourth relational column from the joined source used in the join.</td>
+<td>This is the target-side column for the 4th join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Model Source 5</td>
+<td>int</td>
+<td>Identifies the fifth model source that this source joins to.</td>
+<td>Used when defining an 5th join condition.</td>
+</tr>
+<tr>
+<td>Join Relational Column 5</td>
+<td>int</td>
+<td>Identifies the fifth relational column from this source used in the join.</td>
+<td>This is the source-side column for the 5th join condition.</td>
+</tr>
+<tr>
+<td>Join With Relational Column 5</td>
+<td>int</td>
+<td>Identifies the fifth relational column from the joined source used in the join.</td>
+<td>This is the target-side column for the 5th join condition.</td>
+</tr>
+<tr>
+<td>Additional Join Clause</td>
+<td>nvarchar</td>
+<td>Defines any additional SQL join logic required for the model source.</td>
+<td>Used when the relationship cannot be fully defined through the standard join fields alone.  Use the <strong>Clause</strong> button to open the expression editor page</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational model source record.</td>
+<td>This is readonly and is auto set to provide a stable unique value for importing data.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational model source record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational model source record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational Model Source</td>
+<td>int</td>
+<td>Unique identifier for the relational model source record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="key-concepts">Key Concepts</h2>
 <p>A relational model typically combines one or more source tables into a meaningful structure.</p>
 <p>Sources determine what data is available within the model and how the model is grounded in underlying relational tables.</p>
@@ -1938,6 +2177,25 @@
 <li>combining Product and Service Line tables in a planning model</li>
 <li>structuring Asset and Location data in an operational model</li>
 </ul>
+<h2 id="create-a-new-model-source">Create a new Model Source</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Models</strong></li>
+<li>Select the desired Relational Model and click on <strong>Edit+</strong></li>
+<li>In the Child Views list, select <strong>Relational Models : Sources</strong></li>
+<li>In the <strong>Relational Models : Sources</strong> section, click on <strong>Add</strong> or <strong>Inline Entry</strong></li>
+<li>Click on the <strong>+</strong> button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+</ol>
+<p>Once all sources are created, create new <a href="../columns/">Relational Model Columns</a></p>
+<div class="admonition note important notes">
+<p class="admonition-title">Note</p>
+<p>The Ext Ref Unique Code and Relational Model Source Id will be auto-assigned</p>
+<p>The first source is the primary source and should not join to another source</p>
+<p>Table Relationships are highly recommended on all sources other than the first source</p>
+<p>Many fields will auto-populate if a Table Relationship is specified.</p>
+<p>The Sequence Number will be auto-assigned if blank on a new record</p>
+<p>Sources are needed for lookup columns.  Typically only one source if the lookup pulls from columns that share a single source.  If the lookup pulls from columns from any sources, all of those sources will need to be added.  This often happens if Lookups use expression columns for their Display or Ext Ref Unique Code column.</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Sources should reflect the purpose of the model.</li>

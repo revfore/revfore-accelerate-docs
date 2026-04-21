@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../columns/">
+        <link rel="next" href="../security/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -1170,6 +1170,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-view-header-record-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational View Header Record Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1188,6 +1197,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-a-new-relational-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational View
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       Notes
@@ -1200,6 +1218,27 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1872,6 +1911,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#relational-view-header-record-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational View Header Record Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1884,6 +1932,15 @@
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-relational-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Relational View
     </span>
   </a>
   
@@ -1927,6 +1984,158 @@
 <li>enable interaction with relational data</li>
 <li>serve as the primary interface between users and the data model</li>
 </ul>
+<h2 id="relational-view-header-record-fields">Relational View Header Record Fields</h2>
+<p>The following fields are used for a Relational View header record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Relational View Name</td>
+<td>nvarchar</td>
+<td>Internal name of the relational view.</td>
+<td>This is the name of the actual SQL view in the database. No spaces or special characters are allowed.</td>
+</tr>
+<tr>
+<td>Relational View Display Name</td>
+<td>nvarchar</td>
+<td>User-friendly display name shown in the application.</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational View Description</td>
+<td>nvarchar</td>
+<td>Description of the relational view and its purpose.</td>
+<td></td>
+</tr>
+<tr>
+<td>Relational Model</td>
+<td>int</td>
+<td>Identifies the relational model that the view is based on.</td>
+<td></td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>int</td>
+<td>Schema associated with the relational model.</td>
+<td>This is readonly.</td>
+</tr>
+<tr>
+<td>Is RFA Managed</td>
+<td>bit</td>
+<td>Indicates whether the view is managed by Revfore Accelerate.</td>
+<td>If managed, the view definition is maintained in RFA and pushed to the database as a SQL view.  If not managed, the view is create directly in the database by some other method and RFA only references it.  Manage Views give you the full Relational View functionality.  Non-managed Views can only be used a Model Sources.  A good example of a non-managed view is a SQL view that is very complex and can only be created directly in SQL and is required for reporting &amp; analytics.</td>
+</tr>
+<tr>
+<td>Is Custom</td>
+<td>bit</td>
+<td>Indicates whether the view is custom.</td>
+<td>Almost all non-system views will be custom.</td>
+</tr>
+<tr>
+<td>Master View</td>
+<td>int</td>
+<td>Identifies the master view associated with this view.</td>
+<td>Used when this view participates in a master-child view structure.</td>
+</tr>
+<tr>
+<td>Parent View</td>
+<td>int</td>
+<td>Identifies the parent view associated with this view.</td>
+<td>Used when this view is part of a parent-child hierarchy.</td>
+</tr>
+<tr>
+<td>Child Level</td>
+<td>int</td>
+<td>Defines the child level of the view within a hierarchy.</td>
+<td>Used when this view is part of a parent-child hierarchy.</td>
+</tr>
+<tr>
+<td>Child Order</td>
+<td>int</td>
+<td>Defines the display or processing order of child views.</td>
+<td>Used to control the order of related child views.  This field is not used at this time.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the view is enabled for use.</td>
+<td>Disabled views are not intended for active use.</td>
+</tr>
+<tr>
+<td>Group By Enabled</td>
+<td>bit</td>
+<td>Indicates whether grouping is enabled for the view.</td>
+<td>Used when the view should support grouped or aggregated output.</td>
+</tr>
+<tr>
+<td>Distinct Enabled</td>
+<td>bit</td>
+<td>Indicates whether distinct selection is enabled for the view.</td>
+<td>Used when duplicate records should be eliminated from the view output.  This field is not used at this time.</td>
+</tr>
+<tr>
+<td>Navigate To Enabled</td>
+<td>bit</td>
+<td>Indicates whether navigation is enabled for the view.</td>
+<td>Used when users should be able to navigate from this view to related views or records.</td>
+</tr>
+<tr>
+<td>Where Clause</td>
+<td>nvarchar</td>
+<td>Defines additional where clause logic for the view.</td>
+<td>Used to restrict which records are included in the view.  Use the <strong>Clause</strong> button to open the expression editor page.</td>
+</tr>
+<tr>
+<td>Having Clause</td>
+<td>nvarchar</td>
+<td>Defines additional having clause logic for the view.</td>
+<td>Used to restrict grouped or aggregated results. Use the <strong>Clause</strong> button to open the expression editor page.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the relational view record.</td>
+<td>This is readonly and is auto set the same value as the View Name, providing a unique value for the record that is used for importing data.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the relational view record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the relational view record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Relational View Id</td>
+<td>int</td>
+<td>Unique identifier for the relational view record.</td>
+<td>If you leave blank, the system will auto assign.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul>
 <li>A view is built on top of a Relational Model</li>
@@ -1940,6 +2149,18 @@
 <li>Dashboard and page integrations  </li>
 <li>Workflow-driven data interaction  </li>
 </ul>
+<h2 id="create-a-new-relational-view">Create a new Relational View</h2>
+<ol>
+<li>Go to <strong>Admin | Relational Views</strong></li>
+<li>Click on '<strong>Add+</strong>' or '<strong>Inline Entry</strong>'</li>
+<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+<li>Create new <a href="../security/">Relational View Security</a></li>
+<li>Create new <a href="../columns/">Relational View Columns</a></li>
+<li>Create new <a href="../actions/">Relational View Actions</a></li>
+<li>Create new <a href="../filters/">Relational View Filters</a></li>
+<li>Click on the <strong>Sync</strong> button to sync the view definition with the database</li>
+</ol>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Views should be designed for clarity and usability</li>
