@@ -47,6 +47,13 @@ The following fields are used for a Form record.
 - Updating relational records
 - Guided workflows for users
 
+## Create a new Form
+
+1. Go to **Admin | Forms**
+2. Click on '**Add**' or '**Inline Entry**'
+3. Click on the '**+**' button on the top left of the grid
+4. Enter required fields and click **Save**
+
 ## Notes
 
 - Forms should be designed for ease of use

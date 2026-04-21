@@ -36,7 +36,27 @@ The following fields are used for a Lookup record.
 | Modified By | int | User who last modified the lookup record. | This is system maintained. |
 | Lookup Id | int | Unique identifier for the lookup record. | If left blank, the system will typically auto assign it. |
 
-!!!Note Important Field Notes
+## Key Concepts
+
+- Lookups provide predefined values
+- Lookups are reusable across tables and forms
+- Lookups help prevent inconsistent or invalid data entry
+
+## Typical Use Cases
+
+- Status values (Active, Inactive)
+- Categories or classifications
+- Dropdown selections in forms
+- Standardized codes and labels
+
+## Create a new Lookup
+
+1. Go to **Admin | Lookups**
+2. Click on '**Add**' or '**Inline Entry**'
+3. Click on the '**+**' button on the top left of the grid
+4. Enter required fields and click **Save**
+
+!!!Note Important Notes
     The Key/Value View Column, Display View Column, Is Enabled View Column and Ext Ref Unique Code View Column fields can auto-populate once a Relational View is selected and Saved.  
 
     The **Key/Value View Column** will be set to the 'Primary Key' column if found
@@ -54,19 +74,6 @@ The following fields are used for a Lookup record.
 
     {"0":"None","14":"Insert, Update, Copy","15":"Default, Insert, Update, Copy"}
 
-
-## Key Concepts
-
-- Lookups provide predefined values
-- Lookups are reusable across tables and forms
-- Lookups help prevent inconsistent or invalid data entry
-
-## Typical Use Cases
-
-- Status values (Active, Inactive)
-- Categories or classifications
-- Dropdown selections in forms
-- Standardized codes and labels
 
 ## Notes
 
