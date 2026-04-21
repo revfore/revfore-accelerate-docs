@@ -47,7 +47,7 @@ Using Genesis integration with Revfore Accelerate helps:
 - create more interactive and structured application experiences
 - support consistent page patterns across solutions
 
-## Steps: Add a Relational View to a Genesis Page
+## Add a Relational View to a Genesis Page
 
 !!! example "Add a Revfore Accelerate Relational View"
     1. Go to your desired **Genesis Instance Designer**.
