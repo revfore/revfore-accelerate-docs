@@ -1175,6 +1175,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tips-for-lookup-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Lookup Views
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1919,6 +1928,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tips-for-lookup-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tips for Lookup Views
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1940,7 +1958,7 @@
 <h1 id="relational-views">Relational Views</h1>
 <p><a href="./">← Back to Admin</a></p>
 <p>Relational Views provide reusable, user-facing representations of relational data in Revfore Accelerate.</p>
-<p>Views leverage <strong>Relational Models</strong> as their foundation. A single relational model can support many relational views, each designed for a different use case such as data entry, reporting, analysis, or navigation.</p>
+<p>Views leverage <strong>Relational Models</strong> as their foundation. A single relational model can support many relational views, each designed for a different use case such as data creation/entry, lookup or reporting/analysis.</p>
 <h2 id="overview">Overview</h2>
 <p>Use Relational Views to:</p>
 <ul>
@@ -1950,6 +1968,7 @@
 <li>define which actions can be taken on the view data</li>
 <li>apply filters to the view data</li>
 <li>integrate relational data into dashboards, forms, and pages</li>
+<li>populate a lookup</li>
 </ul>
 <p>Each view definition consists of:</p>
 <ul>
@@ -1964,7 +1983,7 @@
 <li>A single relational model can support multiple views.</li>
 <li>Views allow you to expose only the subset of model columns needed for a specific use case.</li>
 <li>Views define how data is displayed, accessed, and interacted with.</li>
-<li>Views can be used in forms, dashboards, navigation pages, and other user-facing experiences.</li>
+<li>Views can be used in forms, lookups, dashboards, navigation pages, and other user-facing experiences.</li>
 </ul>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
@@ -1981,6 +2000,19 @@
 <li>Keep view definitions focused and maintainable.</li>
 <li>Use multiple targeted views from the same model rather than trying to make one view do everything.</li>
 <li>Views are often the primary way users interact with relational data.</li>
+<li>Data entry views typically get a suffix of '_mc' for 'managed common or creation'.</li>
+<li>Lookup views typically get assigned a suffix of '_ml' for 'managed lookup'.</li>
+<li>Reporting views typically get assigned a suffix of '_mr' for 'managed reporting'.</li>
+</ul>
+<h2 id="tips-for-lookup-views">Tips for Lookup Views</h2>
+<ul>
+<li>Create separate 'Relational Views' for lookup definitions and use the suffix of '_ml' vs '_mc'. Don't use the same 'Relational View' for a lookup as you do for data creation/entry.</li>
+<li>Only add the necessary columns you will need for lookups to reduce the number of joins needed to be done in the SQL View</li>
+<li>The following types of columns are required: Primary key, Name or Display Name, Ext Ref Unique Code</li>
+<li>The following types of columns are helpful: Is Enabled</li>
+<li>Don't add any actions</li>
+<li>Add a 'Where Clause' to the lookup view if you need it to be filtered</li>
+<li>Create new <a href="../lookups/">Lookup</a></li>
 </ul>
 
 
