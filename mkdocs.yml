@@ -21,11 +21,13 @@ nav:
       - Relational Tables: concepts/tables.md
       - Relational Models: concepts/models.md
       - Relational Views: concepts/views.md
+      - Metadata-Driven UI: concepts/metadataDrivenUI.md
   - Application Groups:
       - Config:
           - Overview: appGroups/config/index.md
           - Manage License Keys: appGroups/config/manage-license-key.md   
           - Setup & Upgrade: appGroups/config/setup-upgrade.md
+          - Create Instance: appGroups/config/createInstance.md          
           - Uninstall: appGroups/config/uninstall.md
           - Run Maintenance Scripts: appGroups/config/run-maintenance-scripts.md
           - Other: appGroups/config/other.md  
@@ -53,10 +55,21 @@ nav:
           - Forms: appGroups/admin/forms.md
       - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
-  - Integration: 
-      - Overview: integration/index.md
-      - Content Item Layouts: integration/contentItemLayouts.md
-      - Content Sub Item Settings: integration/contentSubItemSettings.md
+  - Integrations: 
+      - Genesis Page:
+          - Overview: integrations/genesis/index.md
+          - Content Item Layouts: integrations/genesis/contentItemLayouts.md
+          - Content Sub Item Settings: integrations/genesis/contentSubItemSettings.md
+      - Custom Page:
+          - Overview: integrations/customPage/index.md
+          - Content Item Layouts: integrations/customPage/contentItemLayouts.md
+          - Content Sub Item Settings: integrations/customPage/contentSubItemSettings.md     
+      - Partner Solution:          
+          - Overview: integrations/partnerSolution/index.md      
+      - Excel:
+          - Overview: integrations/excel/index.md
+      - REST APIs:
+          - Overview: integrations/restAPIs/index.md
 
 plugins:
   - search
