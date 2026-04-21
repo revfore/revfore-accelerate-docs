@@ -1,6 +1,6 @@
 # Dynamic Grid Content Sub Item
 
-[← Back to Content Sub Items](contentSubItem.md)
+[← Back to Content Sub Items](index.md)
 
 A **Dynamic Grid** Content Sub Item is used to render a Relational View in a standard grid experience within a Content Item layout.
 
@@ -113,7 +113,7 @@ Examples of actions may include:
 - Navigate
 - Refresh
 
-See [Actions](actions.md) for more information about standard and custom actions.
+See [Actions](../actions.md) for more information about standard and custom actions.
 
 ## Dependents Tab
 

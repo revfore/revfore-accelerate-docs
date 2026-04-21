@@ -22,7 +22,7 @@ Use Content Sub Items to:
 
 Content Sub Items can be configured with content types such as:
 
-- dynamic grid
+- [dynamic grid](dynamicGrid.md)
 - list
 - pivot grid
 - summary card
