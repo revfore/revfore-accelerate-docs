@@ -1,8 +1,8 @@
-# Actions
+# View Actions
 
 [← Back to Relational Views Overview](index.md)
 
-The **Actions** page is used to define the actions available within a Relational View.
+The **View Actions** page is used to define the actions available within a Relational View.
 
 Actions allow users to interact with view data in meaningful ways.
 

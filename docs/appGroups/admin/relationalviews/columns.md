@@ -1,8 +1,8 @@
-# Columns
+# View Columns
 
 [← Back to Relational Views Overview](index.md)
 
-The **Columns** page is used to define which columns appear in a Relational View and how they are presented.
+The **View Columns** page is used to define which columns appear in a Relational View and how they are presented.
 
 These columns determine the structure of the data users see and interact with.
 

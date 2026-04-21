@@ -1,8 +1,8 @@
-# Filters
+# View Filters
 
 [← Back to Relational Views Overview](index.md)
 
-The **Filters** page is used to define how data is filtered within a Relational View.
+The **View Filters** page is used to define how data is filtered within a Relational View.
 
 Filters help users focus on the most relevant subset of data.
 
