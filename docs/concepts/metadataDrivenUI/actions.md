@@ -38,7 +38,7 @@ The following actions may be available on a view.
 | Save | Saves pending changes. | Typically used after add, edit and inline entry. |
 | File Export | Allows a user to export all the view records to a OneStream spreadsheet or to Excel. | Useful for review, offline analysis, or sharing data. |
 | File Import | Allows a user to select an Excel file and import the data into OneStream. | Useful for loading or updating larger sets of records. |
-| Navigate | OPens a page showing a tree view of related views that can be navigated to. Users can also navigate within the current view by selecting columns to filter by. | Useful for moving across related data structures and drilling into related records; in addition, to filtering within a views based on the value of a column of all selected records |
+| Navigate | Opens a page showing a tree view of related views that can be navigated to. Users can also navigate within the current view by selecting columns to filter by. | Useful for moving across related data structures and drilling into related records; in addition, to filtering within a views based on the value of a column of all selected records |
 | Refresh | Refreshes the current view. | Useful for reloading the latest data after updates or navigation. |
 
 ## Custom Actions

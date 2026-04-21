@@ -21,7 +21,7 @@ The following fields are used for a Relational View Filter record.
 
 | Field | Data Type | Purpose | Notes |
 |---|---|---|---|
-| Relational Model | int | Identifies the relational model associated with the filter. | This links the filter to the model that supports the view. |
+| Relational Model | int | Identifies the relational model associated with the filter. | This is readonly and can be ignored when creating new records |
 | Relational View | int | Identifies the relational view that the filter belongs to. | This links the filter record back to its parent relational view. |
 | Filter Name | nvarchar | Internal name of the filter. | No spaces or special characters are allowed. |
 | Filter Description | nvarchar | Description of the filter and its purpose. | Use this to document how the filter should be used. |

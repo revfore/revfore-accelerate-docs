@@ -20,12 +20,12 @@ The following fields are used for a Relational View header record.
 | Field | Data Type | Purpose | Notes |
 |---|---|---|---|
 | Relational View Name | nvarchar | Internal name of the relational view. | This is the name of the actual SQL view in the database. No spaces or special characters are allowed. |
-| Relational View Display Name | nvarchar | User-friendly display name shown in the application. | |
-| Relational View Description | nvarchar | Description of the relational view and its purpose. | |
+| Relational View Display Name | nvarchar | User-friendly display name shown in the application. | This will be auto-set if a Relational Model is selected and this field is blank or set to 'Auto()'  |
+| Relational View Description | nvarchar | Description of the relational view and its purpose. | This will be auto-set if a Relational Model is selected and this field is blank or set to 'Auto()'|
 | Relational Model | int | Identifies the relational model that the view is based on. | |
-| Schema | int | Schema associated with the relational model. | This is readonly. |
-| Is RFA Managed | bit | Indicates whether the view is managed by Revfore Accelerate. | If managed, the view definition is maintained in RFA and pushed to the database as a SQL view.  If not managed, the view is create directly in the database by some other method and RFA only references it.  Manage Views give you the full Relational View functionality.  Non-managed Views can only be used a Model Sources.  A good example of a non-managed view is a SQL view that is very complex and can only be created directly in SQL and is required for reporting & analytics. |
-| Is Custom | bit | Indicates whether the view is custom. | Almost all non-system views will be custom. |
+| Schema | int | Schema associated with the relational model. | This will be auto-set if a Relational Model is selected and this field is blank or set to 'Auto()'|
+| Is RFA Managed | bit | Indicates whether the view is managed by Revfore Accelerate. |  This will be auto-set if a Relational Model is selected.  See Important Field Notes below|
+| Is Custom | bit | Indicates whether the view is custom. | Almost all non-system views will be custom.  This will be auto-set if a Relational Model is selected.|
 | Master View | int | Identifies the master view associated with this view. | Used when this view participates in a master-child view structure. |
 | Parent View | int | Identifies the parent view associated with this view. | Used when this view is part of a parent-child hierarchy. |
 | Child Level | int | Defines the child level of the view within a hierarchy. | Used when this view is part of a parent-child hierarchy. |
@@ -42,6 +42,9 @@ The following fields are used for a Relational View header record.
 | Created By | int | User who created the relational view record. | This is system maintained. |
 | Modified By | int | User who last modified the relational view record. | This is system maintained. |
 | Relational View Id | int | Unique identifier for the relational view record. | If you leave blank, the system will auto assign. |
+
+!!!Note Important Field Notes
+    **Is RFA Managed** - If Managed, the view definition is maintained in RFA and pushed to the database as a SQL view.  If not managed, the view is created directly in the database by some other method and RFA only references it.  Managed Views give you the full Relational View functionality.  Non-managed Views can only be used as Model Sources.  A good example of a non-managed view is a SQL view that is very complex and can only be created directly in SQL and is required for reporting & analytics.
 
 ## Key Concepts
 
@@ -67,6 +70,13 @@ The following fields are used for a Relational View header record.
 7. Create new [Relational View Actions](actions.md)
 8. Create new [Relational View Filters](filters.md)
 9. Click on the **Sync** button to sync the view definition with the database
+
+!!!Note Important Notes
+    The Ext Ref Unique Code and Relational View Id will be auto-assigned
+
+    The Name, Display Name, Description, Schema, Is RFA Managed and Is Custom fields will auto-populate if a Relational Model is selected and Saved.
+    
+    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 
