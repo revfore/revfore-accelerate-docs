@@ -92,7 +92,7 @@ Once all columns are created, create new [Relational Indexes](indexes.md)
 
     Lookup values do not need to be specified here.  They will need to be specified on the Relational Model.
 
-    Importing from excel and spreadsheet require an [XRefUniqueCode](#ext-ref-unique-code-column) column defined as a column in the Relational Table or as an expression column in the Relational Model
+    If you plan to use this table as a source for a 'Relational View' lookup or as source for a 'Relational View' that supports importing from excel and spreadsheets, an [XRefUniqueCode](#ext-ref-unique-code-column) column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.
 
     See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
@@ -112,6 +112,7 @@ What is an 'Ext Ref Unique Code' column?
 - Can be set externally before a record is created which can be helpful when needing to match a unique value in an external system and link data before it is saved.
 - Can be changed at any time 
 - Is not used in foreign keys relationships
+- Is required for views that will be used in 'Relational View' lookups
 - Is required for importing data
 - Can be a table column or an expression model column.  
 - if it is a table column, it should have a unique index on it to ensure that it is always unique.  You can set it to default to a New Guid (Get_GuidNew) to ensure its uniqueness as new records are created and then change it later if needed.

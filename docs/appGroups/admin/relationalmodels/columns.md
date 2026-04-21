@@ -110,7 +110,7 @@ When defining model columns:
 
 Once all columns are created, create new [Relational Model Relationships](relationships.md)
 
-!!! note "Important Notes"
+!!! note Important Notes
     Model columns define the fields that will be available to downstream Relational Views.
 
     Model columns can represent fields from the primary table, related foreign key tables, and broader analytical joins depending on the model design.
@@ -121,6 +121,8 @@ Once all columns are created, create new [Relational Model Relationships](relati
 
     All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.
 
+    If you plan to use this model as a source for a 'Relational View' lookup or as source for a 'Relational View' that supports importing from excel and spreadsheets, an [XRefUniqueCode](#ext-ref-unique-code-column) column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.  The Model Column Name preferably ends with '_XRefUniqueCode'.  It not, the Model Column Name needs to contain 'XRefUniqueCode'.
+
     See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records.
 
 ## Notes
@@ -129,3 +131,18 @@ Once all columns are created, create new [Relational Model Relationships](relati
 - Well-defined model columns improve data entry, reporting, and analysis.
 - Model column design directly impacts Relational Views, forms, and the overall user experience.
 
+---
+## Other
+
+## Ext Ref Unique Code column
+
+What is an 'Ext Ref Unique Code' column?
+- Used to uniquely identify a record
+- Can be set externally before a record is created which can be helpful when needing to match a unique value in an external system and link data before it is saved.
+- Can be changed at any time 
+- Is not used in foreign keys relationships
+- Is required for views that will be used in 'Relational View' lookups
+- Is required for importing data
+- Can be a table column or an expression model column.  
+- if it is a table column, it should have a unique index on it to ensure that it is always unique.  You can set it to default to a New Guid (Get_GuidNew) to ensure its uniqueness as new records are created and then change it later if needed.
+- If it is an expression model column, it is derived from other columns, often more than one, and must resolve to a unique record value.

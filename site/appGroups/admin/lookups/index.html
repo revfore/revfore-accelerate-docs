@@ -1281,6 +1281,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lookup-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lookup Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1891,6 +1900,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#lookup-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lookup Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1938,7 +1956,7 @@
 <h1 id="lookups">Lookups</h1>
 <p><a href="../">← Back to Admin</a></p>
 <p>Lookups are used to define <strong>standardized values and controlled lists</strong> used throughout the solution.</p>
-<p>They help ensure consistency and improve data quality.</p>
+<p>They help ensure consistency and improve data quality. Two types of lookups are supported.  The first type is a 'Relational View' type that leverages a relational view to populate the lookup.  The second type is a 'Delimited List' type that leverages a json object to populate the lookup.</p>
 <h2 id="overview">Overview</h2>
 <p>Use Lookups to:</p>
 <ul>
@@ -1946,6 +1964,122 @@
 <li>standardize input values across tables and forms</li>
 <li>improve data consistency and governance</li>
 </ul>
+<h2 id="lookup-fields">Lookup Fields</h2>
+<p>The following fields are used for a Lookup record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lookup Name</td>
+<td>nvarchar</td>
+<td>Name of the lookup.</td>
+<td>Spaces are allowed.</td>
+</tr>
+<tr>
+<td>Lookup Type</td>
+<td>int</td>
+<td>Defines the type of lookup. Relational View or Delimited List.</td>
+<td>Used to determine how the lookup is structured and resolved.</td>
+</tr>
+<tr>
+<td>Relational View</td>
+<td>int</td>
+<td>Identifies the relational view associated with the lookup.</td>
+<td>Required when lookup type is 'Relational View'.</td>
+</tr>
+<tr>
+<td>Key/Value View Column</td>
+<td>int</td>
+<td>Identifies the view column that provides the key or value stored by the lookup.</td>
+<td>This is the underlying value used by the application.  Typically the Primary Key Column. Required when lookup type is 'Relational View' and can auto-populate.</td>
+</tr>
+<tr>
+<td>Display View Column</td>
+<td>int</td>
+<td>Identifies the view column that provides the display value for the lookup.</td>
+<td>This is the user-friendly value shown in the application. Required when lookup type is 'Relational View' and can auto-populate.</td>
+</tr>
+<tr>
+<td>Is Enabled View Column</td>
+<td>int</td>
+<td>Identifies the view column that provides whether or not records are enabled.</td>
+<td>Used when the lookup values support enabled or disabled states.  Can auto-populate</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code View Column</td>
+<td>int</td>
+<td>Identifies the view column that provides the external reference unique code.</td>
+<td>Used when the lookup is tied to a stable unique external reference value. Required when lookup type is 'Relational View' and can auto-populate.</td>
+</tr>
+<tr>
+<td>Delimited List Json Expression</td>
+<td>nvarchar</td>
+<td>Defines the JSON expression used for a delimited list lookup.</td>
+<td>Required when the lookup type is 'Delimited List'.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the lookup is enabled for use.</td>
+<td>Disabled lookups are not intended for active use.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the lookup record.</td>
+<td>This will default to a Guid but can be changed.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the lookup record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the lookup record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Lookup Id</td>
+<td>int</td>
+<td>Unique identifier for the lookup record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note important field notes">
+<p class="admonition-title">Note</p>
+<p>The Key/Value View Column, Display View Column, Is Enabled View Column and Ext Ref Unique Code View Column fields can auto-populate once a Relational View is selected and Saved.  </p>
+<p>The <strong>Key/Value View Column</strong> will be set to the 'Primary Key' column if found</p>
+<p>The <strong>Display View Column</strong> will be set to the first column set as a 'Key Display Column; if not found, it will then look for the first column with 'Name' in the name; if not found, it will look for the first column with 'DisplayName'  in the name.</p>
+<p>The <strong>Is Enabled View Column</strong> will be set to the 'Primary Key' column if found</p>
+<p>The <strong>Ext Ref Unique Code View Column</strong> will be set to the 'Ext Ref Unique Code' column if found</p>
+<p>The <strong>Delimited List Json Expression</strong> column expects a json object that has the Key first and the Display text second. 
+Here are two examples:</p>
+<p>{"0":" ","1":"Sum","2":"Min","4":"Max","8":"Count","16":"Avg"}</p>
+<p>{"0":"None","14":"Insert, Update, Copy","15":"Default, Insert, Update, Copy"}</p>
+</div>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul>
 <li>Lookups provide predefined values</li>
