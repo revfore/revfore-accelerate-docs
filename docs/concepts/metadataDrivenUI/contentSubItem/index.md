@@ -1,8 +1,8 @@
 # Content Sub Items
 
-[← Metadata-Driver Overview](index.md)
-[← Genesis Integration](../../integrations/genesis/index.md)
-[← Custom Dashboard Integration](../../integrations/customDashboard/index.md)
+[← Metadata-Driver Overview](../index.md)
+[← Genesis Integration](../../../integrations/genesis/index.md)
+[← Custom Dashboard Integration](../../../integrations/customDashboard/index.md)
 
 A **Content Sub Item** is the configured content placed into a section or frame within a Content Item.
 
@@ -82,5 +82,5 @@ Using Content Sub Items helps:
 
 ## Related Concepts
 
-- [Genesis Integration](../../integrations/genesis/index.md)
-- [Content Items](contentItem.md)
+- [Genesis Integration](../../../integrations/genesis/index.md)
+- [Content Items](../contentItem.md)

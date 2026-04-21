@@ -64,7 +64,7 @@ This makes them well suited for both day-to-day record maintenance and more guid
 
 Revfore Accelerate also supports placing two views on the same page in different layout configurations.
 
-This is accomplished by assigning multiple [Content Sub Items](contentSubItem.md) to a single [Content Item](contentSubItem/index.md).
+This is accomplished by assigning multiple [Content Sub Items](contentSubItem/index.md) to a single [Content Item](contentItem.md).
 
 This allows one view to interact with the other by:
 
