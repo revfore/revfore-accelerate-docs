@@ -1939,34 +1939,48 @@
 
 <h1 id="relational-views">Relational Views</h1>
 <p><a href="./">← Back to Admin</a></p>
-<p>Relational Views provide <strong>reusable, queryable representations</strong> of your relational data.</p>
-<p>They allow you to combine and present data from multiple tables in a structured format.</p>
+<p>Relational Views provide reusable, user-facing representations of relational data in Revfore Accelerate.</p>
+<p>Views leverage <strong>Relational Models</strong> as their foundation. A single relational model can support many relational views, each designed for a different use case such as data entry, reporting, analysis, or navigation.</p>
 <h2 id="overview">Overview</h2>
 <p>Use Relational Views to:</p>
 <ul>
-<li>create reusable data outputs</li>
-<li>combine data from multiple tables</li>
-<li>expose data for reporting and application use</li>
-<li>integrate data into dashboards and pages</li>
+<li>expose model data for user interaction</li>
+<li>create reusable outputs for reporting and application use</li>
+<li>present a focused subset of model columns</li>
+<li>define which actions can be taken on the view data</li>
+<li>apply filters to the view data</li>
+<li>integrate relational data into dashboards, forms, and pages</li>
+</ul>
+<p>Each view definition consists of:</p>
+<ul>
+<li><a href="views/">Views</a> – name, schema, and other view-level settings</li>
+<li><a href="columns/">Columns</a> – the subset of model columns exposed in the view</li>
+<li><a href="actions/">Actions</a> – actions that can be taken on the view data</li>
+<li><a href="filters/">Filters</a> – filters that can be applied to the view data</li>
 </ul>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul>
-<li>Views are built on top of Relational Models</li>
-<li>Views define how data is displayed and accessed</li>
-<li>Views can be used in forms, dashboards, and navigation pages</li>
+<li>Views are built on top of Relational Models.</li>
+<li>A single relational model can support multiple views.</li>
+<li>Views allow you to expose only the subset of model columns needed for a specific use case.</li>
+<li>Views define how data is displayed, accessed, and interacted with.</li>
+<li>Views can be used in forms, dashboards, navigation pages, and other user-facing experiences.</li>
 </ul>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
+<li>Data entry views</li>
 <li>Reporting views</li>
+<li>Analysis views</li>
 <li>Planning data outputs</li>
 <li>Data integration into Genesis pages</li>
 <li>User-facing data displays</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Views should be designed for reuse</li>
-<li>Keep logic clear and maintainable</li>
-<li>Views are often the primary way users interact with relational data</li>
+<li>Views should be designed around a specific user experience or reporting need.</li>
+<li>Keep view definitions focused and maintainable.</li>
+<li>Use multiple targeted views from the same model rather than trying to make one view do everything.</li>
+<li>Views are often the primary way users interact with relational data.</li>
 </ul>
 
 

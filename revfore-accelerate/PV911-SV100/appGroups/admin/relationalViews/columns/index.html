@@ -2019,7 +2019,7 @@
 <td>Relational Model</td>
 <td>int</td>
 <td>Identifies the relational model associated with the view column.</td>
-<td>This links the view column to the model that supports the view.</td>
+<td>This is readonly and can be ignored when creating new records</td>
 </tr>
 <tr>
 <td>Relational View</td>
@@ -2031,19 +2031,19 @@
 <td>Column Name</td>
 <td>nvarchar</td>
 <td>Internal name of the view column.</td>
-<td>No spaces or special characters are allowed.</td>
-</tr>
-<tr>
-<td>Column Description</td>
-<td>nvarchar</td>
-<td>Description of the view column and its purpose.</td>
-<td>Use this to document how the column should be used.</td>
+<td>No spaces or special characters are allowed.  Can auto-populate. See Important Field Notes below.</td>
 </tr>
 <tr>
 <td>Column Display Name</td>
 <td>nvarchar</td>
 <td>User-friendly display name shown in the application.</td>
-<td>This is typically the label users will see.</td>
+<td>This is typically the label users will see.  Can auto-populate. See Important Field Notes below.</td>
+</tr>
+<tr>
+<td>Column Description</td>
+<td>nvarchar</td>
+<td>Description of the view column and its purpose.</td>
+<td>Use this to document how the column should be used.  Can auto-populate. See Important Field Notes below.</td>
 </tr>
 <tr>
 <td>Relational Model Column</td>
@@ -2055,7 +2055,7 @@
 <td>Sequence Number</td>
 <td>int</td>
 <td>Determines the relative order of the view column.</td>
-<td>This is typically used to control display and processing order.</td>
+<td>This is used to control display and processing order.  Will auto-populate on new records.</td>
 </tr>
 <tr>
 <td>Column Data Type</td>
@@ -2115,31 +2115,31 @@
 <td>Is Enabled</td>
 <td>bit</td>
 <td>Indicates whether the view column is enabled for use.</td>
-<td>Disabled columns are not intended for active use.</td>
+<td>Can auto-populate. See Important Field Notes below.</td>
 </tr>
 <tr>
 <td>Is Visible</td>
 <td>bit</td>
 <td>Indicates whether the view column is visible to users.</td>
-<td>Hidden columns may still be used for logic, filtering, or internal processing.</td>
+<td>Hidden columns may still be used for logic, filtering, or internal processing.  Can auto-populate. See Important Field Notes below.</td>
 </tr>
 <tr>
 <td>Model Allow Updates</td>
 <td>bit</td>
 <td>Indicates whether updates are allowed at the model column level.</td>
-<td>Used to inherit or understand update behavior from the model.</td>
+<td>Used to inherit or understand update behavior from the model.  This is Readonly.</td>
 </tr>
 <tr>
 <td>Allow Updates</td>
 <td>bit</td>
 <td>Indicates whether users are allowed to update the view column.</td>
-<td>Commonly used for editable data entry views.</td>
+<td>Commonly used for editable data entry views.  Can auto-populate. See Important Field Notes below.</td>
 </tr>
 <tr>
 <td>Key Display Column</td>
 <td>bit</td>
 <td>Indicates whether the column should be treated as a key display column.</td>
-<td>Useful when identifying the main descriptive field shown to users.</td>
+<td>Certain lists will need to know which columns to shown to label the record.  At least once column should be marked as a Key Display Column.</td>
 </tr>
 <tr>
 <td>Filter Flag</td>
@@ -2163,7 +2163,7 @@
 <td>Group By Flag</td>
 <td>int</td>
 <td>Defines whether the column participates in group by behavior.</td>
-<td>Used when the view supports grouped or aggregated output.</td>
+<td>Used when the View's 'Group By Enabled' field is On.</td>
 </tr>
 <tr>
 <td>Ext Ref Unique Code</td>
@@ -2203,6 +2203,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition note important field notes">
+<p class="admonition-title">Note</p>
+<p>The Name, Display Name, Column Data Type, Is Enabled, Allow Updates and Is Visible fields will auto-populate once a Relational Model Column is selected and Saved.</p>
+</div>
 <h2 id="key-concepts">Key Concepts</h2>
 <p>View columns are based on the underlying relational model and define the final output structure presented by the view.</p>
 <p>A good view should expose the right data in a clear and usable format.</p>
@@ -2232,6 +2236,10 @@
 <li>Enter required fields and click <strong>Save</strong></li>
 </ol>
 <p>Once all columns are created, create new <a href="../actions/">Relational Actions</a></p>
+<div class="admonition note important notes">
+<p class="admonition-title">Note</p>
+<p>The Name, Display Name, Column Data Type, Is Enabled, Allow Updates and Is Visible fields will auto-populate once a Relational Model Column is selected and Saved.</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>View columns directly affect usability.</li>
