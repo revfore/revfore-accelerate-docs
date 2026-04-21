@@ -64,9 +64,8 @@ General actions can be added.
 1. Go to **Admin | Relational Views**
 2. Select the desired Relational View and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Actions**'
-4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Inline Entry**' 
-5. Click on the **Import** button
-6. Check all desired **Actions** from the Actions tab and click **OK**
+4. Click on the **Import** button
+5. Check all desired **Actions** from the Actions tab and click **OK**
 
 See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information
 
@@ -88,6 +87,8 @@ Custom actions can also be added.
 12. Save assembly
 
 This allows developers to extend the standard action set with solution-specific functionality.
+
+Once all actions are created, create new [Relational Filters](filters.md)
 
 ## Notes
 

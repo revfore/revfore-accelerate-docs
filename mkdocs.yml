@@ -49,6 +49,7 @@ nav:
           - Relational Views:
               - Overview: appGroups/admin/relationalViews/index.md
               - Views: appGroups/admin/relationalViews/views.md              
+              - Security: appGroups/admin/relationalViews/security.md                            
               - Columns: appGroups/admin/relationalViews/columns.md
               - Actions: appGroups/admin/relationalViews/actions.md
               - Filters: appGroups/admin/relationalViews/filters.md

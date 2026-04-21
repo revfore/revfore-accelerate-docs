@@ -13,11 +13,20 @@ Use Relational Models to:
 - define relationships between tables
 - organize data into a cohesive structure
 - enable meaningful data interaction across entities
+- create expression columns 
+- manage column attributes such as required flags, default values and lookup definitions
+
+Each model definition consists of:
+
+- [Models](models.md) – name, relational table and other model-level settings
+- [Sources](sources.md) – a list of relational tables and views that are the sources for the model
+- [Columns](columns.md) – a list of relational table columns, expression columns and related attributes
+- [Relationships](relationships.md) – relation table relationships that are enabled for the model
 
 ## Key Concepts
 
-- Models connect tables using defined relationships
-- Relationships determine how data flows between tables
+- Models connect tables and views using defined relationships
+- Sources determine tables and views that will be used as sources and how they are connected
 - Models provide the structure used by Relational Views
 
 ## Typical Use Cases

@@ -76,7 +76,8 @@ When defining columns:
 4. In the '**Relational Tables : Columns**' section, Click on '**Add**' or '**Inline Entry**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
-7. Create new [Relational Index](indexes.md)
+
+Once all columns are created, create new [Relational Indexes](indexes.md)
 
 !!!Note Important Notes
     The Ext Ref Unique Code and Relational Column Id will be auto-assigned
