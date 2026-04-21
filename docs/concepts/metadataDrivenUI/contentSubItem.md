@@ -82,5 +82,5 @@ Using Content Sub Items helps:
 
 ## Related Concepts
 
-- [Genesis Integration](genesisIntegration.md)
+- [Genesis Integration](../../integrations/genesis/index.md)
 - [Content Items](contentItem.md)
