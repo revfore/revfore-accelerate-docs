@@ -4,6 +4,10 @@ Excel integration support is planned for a future release of Revfore Accelerate.
 
 This functionality is intended to make it easier for users to work with relational data in a familiar spreadsheet environment while still leveraging the governed relational structures defined in Revfore Accelerate.
 
+
+!!! note "Forward-Looking Information"
+    This page describes planned future functionality. These plans are provided for informational purposes only and are subject to change. They should not be relied upon as a commitment, promise, or obligation to deliver any specific feature, functionality, or timeline.
+
 ## Coming Soon
 
 Future Excel integration functionality is expected to allow users to extract any Relational View into Excel and work with that data in a rich, spreadsheet-based experience.

@@ -1308,6 +1308,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-a-new-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Lookup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       Notes
@@ -1927,6 +1936,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-a-new-lookup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a new Lookup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       Notes
@@ -2068,18 +2086,6 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note important field notes">
-<p class="admonition-title">Note</p>
-<p>The Key/Value View Column, Display View Column, Is Enabled View Column and Ext Ref Unique Code View Column fields can auto-populate once a Relational View is selected and Saved.  </p>
-<p>The <strong>Key/Value View Column</strong> will be set to the 'Primary Key' column if found</p>
-<p>The <strong>Display View Column</strong> will be set to the first column set as a 'Key Display Column; if not found, it will then look for the first column with 'Name' in the name; if not found, it will look for the first column with 'DisplayName'  in the name.</p>
-<p>The <strong>Is Enabled View Column</strong> will be set to the 'Primary Key' column if found</p>
-<p>The <strong>Ext Ref Unique Code View Column</strong> will be set to the 'Ext Ref Unique Code' column if found</p>
-<p>The <strong>Delimited List Json Expression</strong> column expects a json object that has the Key first and the Display text second. 
-Here are two examples:</p>
-<p>{"0":" ","1":"Sum","2":"Min","4":"Max","8":"Count","16":"Avg"}</p>
-<p>{"0":"None","14":"Insert, Update, Copy","15":"Default, Insert, Update, Copy"}</p>
-</div>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul>
 <li>Lookups provide predefined values</li>
@@ -2093,6 +2099,25 @@ Here are two examples:</p>
 <li>Dropdown selections in forms</li>
 <li>Standardized codes and labels</li>
 </ul>
+<h2 id="create-a-new-lookup">Create a new Lookup</h2>
+<ol>
+<li>Go to <strong>Admin | Lookups</strong></li>
+<li>Click on '<strong>Add</strong>' or '<strong>Inline Entry</strong>'</li>
+<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
+<li>Enter required fields and click <strong>Save</strong></li>
+</ol>
+<div class="admonition note important notes">
+<p class="admonition-title">Note</p>
+<p>The Key/Value View Column, Display View Column, Is Enabled View Column and Ext Ref Unique Code View Column fields can auto-populate once a Relational View is selected and Saved.  </p>
+<p>The <strong>Key/Value View Column</strong> will be set to the 'Primary Key' column if found</p>
+<p>The <strong>Display View Column</strong> will be set to the first column set as a 'Key Display Column; if not found, it will then look for the first column with 'Name' in the name; if not found, it will look for the first column with 'DisplayName'  in the name.</p>
+<p>The <strong>Is Enabled View Column</strong> will be set to the 'Primary Key' column if found</p>
+<p>The <strong>Ext Ref Unique Code View Column</strong> will be set to the 'Ext Ref Unique Code' column if found</p>
+<p>The <strong>Delimited List Json Expression</strong> column expects a json object that has the Key first and the Display text second. 
+Here are two examples:</p>
+<p>{"0":" ","1":"Sum","2":"Min","4":"Max","8":"Count","16":"Avg"}</p>
+<p>{"0":"None","14":"Insert, Update, Copy","15":"Default, Insert, Update, Copy"}</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Use Lookups wherever consistent values are required</li>

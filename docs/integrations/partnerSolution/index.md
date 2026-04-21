@@ -13,18 +13,8 @@ Partner solution integration is typically accomplished through the following pro
 - Execute a partner and reseller agreement with Revfore.
 - Engage directly with the Revfore partner team for enablement, guidance, and hands-on support.
 - Use the existing Revfore Accelerate workspace as the starting point for the solution.
-- Update core solution settings such as:
-  - workspace name
-  - solution name
-  - solution prefix
-  - database schema names
-- Use the embedded Revfore Accelerate and Genesis capabilities to create and manage solution-specific:
-  - relational tables
-  - relational models
-  - relational views
-  - forms
-  - navigation groups
-  - pages
+- Update core solution settings such as workspace name, solution name, solution prefix and database schema names
+- Use the embedded Revfore Accelerate and Genesis capabilities to create and manage solution-specific relational tables, models, views, forms, navigation groups and pages.
 - Export the required setup definitions and embed them into the solution installation and setup process.
 - Add any additional Maintenance Units and custom assembly files required by the solution.
 - Package the final solution into a new solution zip file.
