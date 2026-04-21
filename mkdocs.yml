@@ -21,13 +21,14 @@ nav:
       - Relational Tables: concepts/tables.md
       - Relational Models: concepts/models.md
       - Relational Views: concepts/views.md
-      - Metadata-Driven UI: concepts/metadataDrivenUI.md
+      - Metadata-Driven UI:
+          - Overview: concepts/metadataDrivenUI/index.md
+          - Actions: concepts/metadataDrivenUI/index.md
   - Application Groups:
       - Config:
           - Overview: appGroups/config/index.md
           - Manage License Keys: appGroups/config/manage-license-key.md   
-          - Setup & Upgrade: appGroups/config/setup-upgrade.md
-          - Create Instance: appGroups/config/createInstance.md          
+          - Setup & Upgrade: appGroups/config/setup-upgrade.md      
           - Uninstall: appGroups/config/uninstall.md
           - Run Maintenance Scripts: appGroups/config/run-maintenance-scripts.md
           - Other: appGroups/config/other.md  

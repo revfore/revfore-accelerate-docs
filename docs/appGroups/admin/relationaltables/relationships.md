@@ -71,7 +71,7 @@ When defining relationships:
 
     The Relational Relationship Name will be auto-assigned if blank or has the value 'Auto()' in it
     
-    See [Adding New Records](addingNewRecords.md) for general information about adding records
+    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 

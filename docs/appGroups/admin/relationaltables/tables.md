@@ -63,7 +63,7 @@ Use relational tables to define business entities and objects such as:
 !!!Note Important Notes
     The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned
     
-    See [Adding New Records](addingNewRecords.md) for general information about adding records
+    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 

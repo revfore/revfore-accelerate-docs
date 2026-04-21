@@ -47,7 +47,6 @@ Custom actions can also be added.
 
 See [Custom Actions](../../appGroups/admin/relationalViews/actions.md#custom-actions)
 
-
 This allows developers to extend the standard action set with solution-specific functionality.
 
 ## Common Usage Patterns
