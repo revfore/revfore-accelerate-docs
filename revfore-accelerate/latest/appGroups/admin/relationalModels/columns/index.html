@@ -1106,6 +1106,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ext-ref-unique-code-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ext Ref Unique Code column
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1955,6 +1973,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#other" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ext-ref-unique-code-column" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ext Ref Unique Code column
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2298,13 +2334,14 @@
 <li>Enter required fields and click <strong>Save</strong></li>
 </ol>
 <p>Once all columns are created, create new <a href="../relationships/">Relational Model Relationships</a></p>
-<div class="admonition note">
-<p class="admonition-title">Important Notes</p>
+<div class="admonition note important notes">
+<p class="admonition-title">Note</p>
 <p>Model columns define the fields that will be available to downstream Relational Views.</p>
 <p>Model columns can represent fields from the primary table, related foreign key tables, and broader analytical joins depending on the model design.</p>
 <p>Lookup and display behavior is often handled at the model level rather than directly in the base relational table.</p>
 <p>All 'Relational View' lookup columns will require a Lookup Model Source and possible multiple Expression Model Sources if they use expression columns for their Display or Ext Ref Unique Column.</p>
 <p>All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.</p>
+<p>If you plan to use this model as a source for a 'Relational View' lookup or as source for a 'Relational View' that supports importing from excel and spreadsheets, an <a href="#ext-ref-unique-code-column">XRefUniqueCode</a> column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.  The Model Column Name preferably ends with '_XRefUniqueCode'.  It not, the Model Column Name needs to contain 'XRefUniqueCode'.</p>
 <p>See <a href="../../../../concepts/metadataDrivenUI/actions/#general-actions">General Actions</a> for more information about adding records.</p>
 </div>
 <h2 id="notes">Notes</h2>
@@ -2313,6 +2350,19 @@
 <li>Well-defined model columns improve data entry, reporting, and analysis.</li>
 <li>Model column design directly impacts Relational Views, forms, and the overall user experience.</li>
 </ul>
+<hr />
+<h2 id="other">Other</h2>
+<h2 id="ext-ref-unique-code-column">Ext Ref Unique Code column</h2>
+<p>What is an 'Ext Ref Unique Code' column?
+- Used to uniquely identify a record
+- Can be set externally before a record is created which can be helpful when needing to match a unique value in an external system and link data before it is saved.
+- Can be changed at any time 
+- Is not used in foreign keys relationships
+- Is required for views that will be used in 'Relational View' lookups
+- Is required for importing data
+- Can be a table column or an expression model column.<br />
+- if it is a table column, it should have a unique index on it to ensure that it is always unique.  You can set it to default to a New Guid (Get_GuidNew) to ensure its uniqueness as new records are created and then change it later if needed.
+- If it is an expression model column, it is derived from other columns, often more than one, and must resolve to a unique record value.</p>
 
 
 
