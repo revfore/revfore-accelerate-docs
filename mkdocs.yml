@@ -23,7 +23,7 @@ nav:
       - Relational Views: concepts/views.md
       - Metadata-Driven UI:
           - Overview: concepts/metadataDrivenUI/index.md
-          - Actions: concepts/metadataDrivenUI/index.md
+          - Actions: concepts/metadataDrivenUI/actions.md
   - Application Groups:
       - Config:
           - Overview: appGroups/config/index.md
