@@ -1302,6 +1302,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#form-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Form Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1891,6 +1900,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#form-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Form Fields
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -1939,6 +1957,7 @@
 <p><a href="../">← Back to Admin</a></p>
 <p>Forms provide <strong>user-facing interfaces</strong> for entering, editing, and managing data.</p>
 <p>They allow users to interact with relational data in a structured and intuitive way.</p>
+<p>Custom forms can be selected on <a href="../relationalViews/actions/">Custom View Actions</a> and custom code can be added to a custom assembly file to handle custom logic.</p>
 <h2 id="overview">Overview</h2>
 <p>Use Forms to:</p>
 <ul>
@@ -1947,6 +1966,80 @@
 <li>create guided data entry experiences</li>
 <li>interact with Relational Tables and Views</li>
 </ul>
+<h2 id="form-fields">Form Fields</h2>
+<p>The following fields are used for a Form record.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Form Name</td>
+<td>nvarchar</td>
+<td>Name of the form.</td>
+<td>Spaces are allowed.  This typically matches a dashboard name selected in the 'Dashboard - OneStream' field.</td>
+</tr>
+<tr>
+<td>Form Description</td>
+<td>nvarchar</td>
+<td>Description of the form and its purpose.</td>
+<td>Use this to document how the form should be used.</td>
+</tr>
+<tr>
+<td>Form Type</td>
+<td>int</td>
+<td>Defines the type of form.</td>
+<td>Use the 'Dashboard' type.  It is the only one supported right now</td>
+</tr>
+<tr>
+<td>Dashboard - OneStream</td>
+<td>nvarchar</td>
+<td>Identifies the associated OneStream dashboard.</td>
+<td>Used when the form is tied to a OneStream dashboard-based experience.</td>
+</tr>
+<tr>
+<td>Ext Ref Unique Code</td>
+<td>nvarchar</td>
+<td>Unique value for the form record.</td>
+<td>This is auto set to Form Name to provide a stable unique value for importing data. Can be changed.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the form record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the form record.</td>
+<td>This is system maintained.</td>
+</tr>
+<tr>
+<td>Form</td>
+<td>int</td>
+<td>Unique identifier for the form record.</td>
+<td>If left blank, the system will typically auto assign it.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul>
 <li>Forms are built on top of Relational Tables and Views</li>
