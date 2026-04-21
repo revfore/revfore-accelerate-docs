@@ -24,6 +24,8 @@ nav:
       - Metadata-Driven UI:
           - Overview: concepts/metadataDrivenUI/index.md
           - Actions: concepts/metadataDrivenUI/actions.md
+          - Content Item: concepts/metadataDrivenUI/contentItem.md
+          - Content Sub Item: concepts/metadataDrivenUI/contentSubItem.md
   - Application Groups:
       - Config:
           - Overview: appGroups/config/index.md
@@ -58,14 +60,10 @@ nav:
       - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
   - Integrations: 
-      - Genesis Page:
+      - Genesis:
           - Overview: integrations/genesis/index.md
-          - Content Item Layouts: integrations/genesis/contentItemLayouts.md
-          - Content Sub Item Settings: integrations/genesis/contentSubItemSettings.md
-      - Custom Page:
-          - Overview: integrations/customPage/index.md
-          - Content Item Layouts: integrations/customPage/contentItemLayouts.md
-          - Content Sub Item Settings: integrations/customPage/contentSubItemSettings.md     
+      - Custom Dashboard:
+          - Overview: integrations/customDashboard/index.md
       - Partner Solution:          
           - Overview: integrations/partnerSolution/index.md      
       - Excel:

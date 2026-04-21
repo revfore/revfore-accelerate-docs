@@ -24,30 +24,7 @@ You can add a Revfore Accelerate Relational View to any page in any Genesis inst
 
 This allows you to surface relational data directly within your application’s navigation.
 
----
-
-## Steps: Add a Relational View to a Genesis Page
-
-!!! example "Add a Revfore Accelerate Relational View"
-    1. Go to your desired **Genesis Instance Designer**.
-
-    2. Add a page to any **Navigation Group**.
-
-    3. Select **"Link an Existing Content Item from a Shared Workspace"**.
-
-    4. Select the **"Revfore Accelerate (RFA)"** workspace.
-
-    5. In the filter field, type: `ContentItem`
-
-    6. Select one of the following dashboards:
-
-       - `XCP_RfaConItm100_Set1000` – Single Content Sub Item  
-       - `XCP_RfaConItm101_Set1000` – Two Vertical Content Sub Items  
-       - `XCP_RfaConItm102_Set1000` – Two Horizontal Content Sub Items  
-
-    7. Select the **Content** tab.
-
-    8. Click **Configure** to set up the desired Relational View.
+[Add a Relational View to a Genesis Page](../../integrations/genesis/index.md#add-a-relational-view-to-a-genesis-page)
 
 ---
 
