@@ -33,7 +33,7 @@ Revfore Accelerate currently supports **three Content Item layouts**, with many 
 
 Each Content Item contains one or more sections or frames.
 
-Each section or frame is assigned a [Content Sub Item](contentSubItem.md), which determines what is actually rendered inside that portion of the page.
+Each section or frame is assigned a [Content Sub Item](contentSubItem/index.md), which determines what is actually rendered inside that portion of the page.
 
 This means the Content Item controls the layout, while the Content Sub Items control the content and behavior inside the layout.
 
@@ -64,4 +64,4 @@ Using Content Items helps:
 ## Related Concepts
 
 - [Genesis Integration](../../integrations/genesis/index.md)
-- [Content Sub Items](contentSubItem.md)
+- [Content Sub Items](contentSubItem/index.md)

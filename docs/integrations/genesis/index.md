@@ -14,7 +14,7 @@ Genesis integration allows you to:
 - combine multiple relational views and UI components on the same page
 - manage how content areas interact with one another
 
-A key part of this approach is the use of [Content Items](../../concepts/metadataDrivenUI/contentItem.md) and [Content Sub Items](../../concepts/metadataDrivenUI/contentSubItem.md).
+A key part of this approach is the use of [Content Items](../../concepts/metadataDrivenUI/contentItem.md) and [Content Sub Items](../../concepts/metadataDrivenUI/contentSubItem/index.md).
 
 ## How Genesis and Revfore Accelerate Work Together
 
@@ -75,4 +75,4 @@ Using Genesis integration with Revfore Accelerate helps:
 ## Related Concepts
 
 - [Content Items](../../concepts/metadataDrivenUI/contentItem.md)
-- [Content Sub Items](../../concepts/metadataDrivenUI/contentSubItem.md)
+- [Content Sub Items](../../concepts/metadataDrivenUI/contentSubItem/index.md)

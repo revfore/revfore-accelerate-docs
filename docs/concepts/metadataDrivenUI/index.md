@@ -26,7 +26,7 @@ Those views can then be rendered in a variety of user interface formats, includi
 
 Because the underlying Relational View is reusable, the same view can support different presentation styles depending on the business use case.
 
-In Genesis-integrated experiences, these layouts are organized through [Content Items](contentItem.md) and [Content Sub Items](contentSubItem.md):
+In Genesis-integrated experiences, these layouts are organized through [Content Items](contentItem.md) and [Content Sub Items](contentSubItem/index.md):
 
 - a **Content Item** defines the overall page layout
 - a **Content Sub Item** defines the content rendered within each section or frame of that layout
@@ -64,7 +64,7 @@ This makes them well suited for both day-to-day record maintenance and more guid
 
 Revfore Accelerate also supports placing two views on the same page in different layout configurations.
 
-This is accomplished by assigning multiple [Content Sub Items](contentSubItem.md) to a single [Content Item](contentItem.md).
+This is accomplished by assigning multiple [Content Sub Items](contentSubItem.md) to a single [Content Item](contentSubItem/index.md).
 
 This allows one view to interact with the other by:
 
@@ -85,7 +85,7 @@ By linking metadata-driven pages into Genesis navigation, solution builders can 
 Within this model:
 
 - [Content Items](contentItem.md) define the page layout that is linked to Genesis
-- [Content Sub Items](contentSubItem.md) define the views, cards, grids, and other content rendered inside that layout
+- [Content Sub Items](contentSubItem/index.md) define the views, cards, grids, and other content rendered inside that layout
 
 See [Genesis Integration](../../integrations/genesis/index.md) for more information.
 
@@ -96,7 +96,7 @@ Pages that include these metadata-driven views can be linked to any custom dashb
 Within this model:
 
 - [Content Items](contentItem.md) define the page layout that will be linked
-- [Content Sub Items](contentSubItem.md) define the views, cards, grids, and other content rendered inside that layout
+- [Content Sub Items](contentSubItem/index.md) define the views, cards, grids, and other content rendered inside that layout
 
 See [Custom Dashboard Integration](../../integrations/customDashboard/index.md) for more information.
 

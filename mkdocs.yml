@@ -25,7 +25,13 @@ nav:
           - Overview: concepts/metadataDrivenUI/index.md
           - Actions: concepts/metadataDrivenUI/actions.md
           - Content Item: concepts/metadataDrivenUI/contentItem.md
-          - Content Sub Item: concepts/metadataDrivenUI/contentSubItem.md
+          - Content Sub Item:
+              - Overview: concepts/metadataDrivenUI/contentSubItem/index.md          
+              - Custom Adapter Dashboard: concepts/metadataDrivenUI/contentSubItem/customAdapterDashboard.md
+              - Dyanamic Grid: concepts/metadataDrivenUI/contentSubItem/dynamicGrid.md                   
+              - List: concepts/metadataDrivenUI/contentSubItem/list.md
+              - Pivot Grid: concepts/metadataDrivenUI/contentSubItem/pivotGrid.md
+              - Summary Card: concepts/metadataDrivenUI/contentSubItem/summaryCard.md                            
   - Application Groups:
       - Config:
           - Overview: appGroups/config/index.md
