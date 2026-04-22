@@ -74,12 +74,12 @@ For included columns, you can configure:
 - display name overrides
 - visibility
 - allow updates
-- summary type
-- summary name
+- summary type (Sum, Min, Max, Count, Avg)
+- summary name (This will override the display name)
 - order by columns and direction
 - column width
-- default values
-- format strings
+- default value
+- data format (i.e. N1, P1, MM/DD/YYYY)
 
 ### Summary Types
 

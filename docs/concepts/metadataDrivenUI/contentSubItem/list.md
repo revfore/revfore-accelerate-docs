@@ -73,9 +73,9 @@ For included columns, you can configure:
 
 - display name overrides
 - visibility
-- leading string
-- trailing string
-- format strings
+- leading string (i.e. (, |, [))
+- trailing string (i.e. ), |, ])
+- data format (i.e. N1, P1, MM/DD/YYYY)
 
 All visible columns will be concatenated into one string.  A " - " is the default delimiter if a leading or trailing string is not found.
 
