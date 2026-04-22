@@ -77,6 +77,9 @@ nav:
       - REST APIs:
           - Overview: integrations/restAPIs/index.md
 
+not_in_nav: |
+  misc/*.md
+  
 plugins:
   - search
   - mike:
