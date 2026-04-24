@@ -48,8 +48,8 @@ When defining model relationships:
 
 1. Go to **Admin | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
-3. In the Child Views list, select **Relational Models : Sources**
-4. In the **Relational Models : Sources** section, click on **Import**
+3. In the Child Views list, select **Relational Models : Relationships**
+4. In the **Relational Models : Relationships** section, click on **Import**
 5. Select the desired Relationships and click on **OK**
 
 

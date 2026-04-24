@@ -23,8 +23,8 @@ The following fields are used for a Relational Model header record.
 
 | Field | Data Type | Purpose | Notes |
 |---|---|---|---|
-| Relational Model Name | nvarchar | Internal name of the relational model. | No spaces or special characters are allowed. |
-| Relational Model Display Name | nvarchar | User-friendly display name shown in the application. | |
+| Relational Model Name | nvarchar | Internal name of the relational model. | No spaces or special characters are allowed.  If blank or set to 'Auto()' and a 'Relational Table' is selected, this value will auto populate from the Relational Column. |
+| Relational Model Display Name | nvarchar | User-friendly display name shown in the application. | If blank or set to 'Auto()' and a 'Relational Table' is selected, this value will auto populate from the Relational Column. |
 | Relational Model Description | nvarchar | Description of the relational model and its purpose. | |
 | Relational Table | int | Identifies the primary relational table associated with the model. | This is typically the main business entity or object that the model is centered on. |
 | Is Custom | bit | Indicates whether the model is custom. | Almost all non-system models will be custom. |

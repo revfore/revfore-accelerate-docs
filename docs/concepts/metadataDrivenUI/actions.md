@@ -41,6 +41,11 @@ The following general actions can be added to most views.
 | Navigate | Opens a page showing a tree view of related views that can be navigated to. Users can also navigate within the current view by selecting columns to filter by. | Useful for moving across related data structures and drilling into related records; in addition, to filtering within a views based on the value of a column of all selected records |
 | Refresh | Refreshes the current view. | Useful for reloading the latest data after updates or navigation. |
 
+!!!Note Important Note
+    When using the Add+ action, be sure to select any new records that you add before you attempt to add any children records.
+
+    When using the Spreadsheet action, be sure to save any changes, using the spreadsheet ribbon, before you click on Import.
+
 ## Custom Actions
 
 Custom actions can also be added.

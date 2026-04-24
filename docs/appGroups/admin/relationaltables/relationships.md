@@ -29,7 +29,7 @@ The following fields are used for a Relational Table Relationship record.
 | Relational Column 1 | int | Defines the primary column in the source table used for the relationship. | This is typically the source column that joins to the related table. |
 | Category Flag | int | Defines the category flag associated with the source side of the relationship. | These are used to organize the relationships for end-users |
 | Related To Table | int | Identifies the related table on the other side of the relationship. | This is the table that the source table points to or navigates to. |
-| Related To Column 1 | int | Defines the primary column in the related table used for the relationship. | This is the target column that the source column joins to. |
+| Related To Column 1 | int | Defines the primary column in the related table used for the relationship. | This is the target column that the source column joins to.  Will auto-populate to the primary key of the Related To Table if blank |
 | Related To Category Flag | int | Defines the category flag associated with the related side of the relationship. | These are used to organize the relationships for end-users |
 | Display Name Flag | int | Identifies the display name behavior for the relationship. | Used to control how related records are labeled or presented in the application. |
 | Ext Ref Unique Code | nvarchar | Unique value for the relational relationship record. | This is readonly and will be auto set the Table Name & Relationship Name providing a unique value for the record that is used for importing data |
@@ -70,6 +70,8 @@ When defining relationships:
     The Ext Ref Unique Code and Relational Relationship Id will be auto-assigned
 
     The Relational Relationship Name will be auto-assigned if blank or has the value 'Auto()' in it
+
+    The Related To Column 1 will auto-populate to the primary key of the Related To Table if blank.
     
     See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

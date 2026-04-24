@@ -24,7 +24,7 @@ The following fields are used for a Relational Model Column record.
 | Relational Model | int | Identifies the relational model that the column belongs to. | This links the model column record back to its parent relational model. |
 | Model Column Name | nvarchar | Internal name of the model column. | If blank or set to 'Auto()' and a 'Relational Column' is selected, this value will auto populate from the Relational Column.  No spaces or special characters are allowed. |
 | Model Column Display Name | nvarchar | User-friendly display name shown in the application. | If blank or set to 'Auto()' and a 'Relational Column' is selected, this value will auto populate from the Relational Column |
-| Relational Column | int | Identifies the underlying relational column used by the model column. | Typically used when the model column is directly based on a table column. |
+| Relational Column | int | Identifies the underlying relational column used by the model column. | Typically used when the model column is directly based on a table column.  If the lookup is blank, you are likely missing Model Sources |
 | Sequence Number | int | Determines the relative order of the model column. | This is used to control display and processing order. If left blank on a new record, it will be auto-assigned. |
 | Model Column Expression | nvarchar | Defines the expression used to derive the model column value. | Used when the column is based on logic or derived from one or more source fields rather than directly from a single relational column. |
 | Model Column Description | nvarchar | Description of the model column and its purpose. | Use this to document how the column should be used. |
@@ -56,7 +56,7 @@ The following fields are used for a Relational Model Column record.
 | Update Function | int | Defines the function used during update processing. | Used when custom logic should run on update. |
 | Update Expression | nvarchar | Defines the expression used during update processing. | Used when update-time values are derived through an expression. |
 | Copy Function Flag | int | Indicates whether a copy function is used. | Used to control copy behavior for the model column. |
-| Copy Function | int | Defines the function used during copy processing. | Used when custom logic should run during copy operations. |
+| Copy Function | int | Defines the function used during copy processing. | Used when custom logic should run during copy operations. |  
 | Copy Expression | nvarchar | Defines the expression used during copy processing. | Used when copied values are derived through an expression. |
 | Ext Ref Unique Code | nvarchar | Unique value for the relational model column record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
@@ -122,6 +122,8 @@ Once all columns are created, create new [Relational Model Relationships](relati
     All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.
 
     If you plan to use this model as a source for a 'Relational View' lookup or as a source for a 'Relational View' that supports importing from excel, spreadsheets or API, an [XRefUniqueCode](#ext-ref-unique-code-column) column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.  Define it in the Relational Table if you have an external system value, such as an external system primary key value, that needs to be stored in it for integration purposes.  The Model Column Name preferably ends with '_XRefUniqueCode'.  If not, the Model Column Name needs to contain 'XRefUniqueCode'.
+
+    For columns that are required to be unique, Use Always as the Copy Function Flag, Get_ColumnValues as the Copy Function and {MyColumnName()}{Copy()} as the Copy Expression
 
     See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records.
 

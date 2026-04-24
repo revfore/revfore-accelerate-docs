@@ -33,7 +33,7 @@ The following settings are available for a Custom Adapter Dashboard Content Sub 
 | Setting | Purpose | Notes |
 |---|---|---|
 | Top Dashboard Name | Defines the outer dashboard for the Content Sub Item. | This will auto populate from the content type but can be overridden with a custom dashboard. |
-| Body Dashboard Name | Defines the inner dashboard that holds only the Custom Adapter Dashboard. | **This will need to be the name of the custom dashboard that holds an adapter based component.  See Important Field Notes below** |
+| Body Dashboard Name | Defines the inner dashboard that holds only the Custom Adapter Dashboard. | **This will need to be the name of the custom dashboard that holds an adapter based component.  See 'Create Custom Adapter Dashboard' below** |
 | Relational View | Selects the Relational View used by the Content Sub Item. | This is chosen from a dropdown of available Relational Views. |
 | Edit Relational View | Opens the Relational View Edit+ page. | Allows you to edit the parent and child views of the selected Relational View. |
 | Edit Relational Model | Opens the Relational Model Edit+ page. | Allows you to edit the parent and child views of the selected Relational Model. |
@@ -47,16 +47,21 @@ The following settings are available for a Custom Adapter Dashboard Content Sub 
 | Show Filter Bar | Controls whether the filter bar is shown. | Not applicable to Custom Adapter Dashboards |
 | Show Inline Entry | Controls whether the Inline Entry option is available. | Not applicable for Custom Adapter Dashboards |
 
-!!!Note Important Field Notes
-    You will need to create a custom dashboard that has an adapter based component on it such as a BI Viewer component.  
-    On the adapter use the following values
-    Command Type: Method
-    Method Type: BusinessRule
-    Method Query: {Workspace.Current.meta_os.HelperQueries}{GetViewObjectRecords}{LinkedPageRef = EnterLinkedPageRefHere}
-    Results Table Name: ViewObjectRecords
+## Create Custom Adapter Dashboard
 
-    You can find the Linked Page Ref on the header of the Configure page and the Configure Content Sub Item page.  It is in brackets and should look something like 'Admin_NavGroup_Page_Set1000'
-    The Linked Page Ref will point the adapter to all the Content Sub Item settings
+Create a custom dashboard that has an **adapter based component** on it, such as a BI Viewer component.  
+Create it in a **custom maintenance unit** in the same Revfore Accelerate workspace as the Relational View.  
+Use the **XCP_xRfaConSubItm_CstmAdptrDshbrds** maintenance unit or create new one.  Just make sure it starts with **XCP_x**.
+
+On the **adapter** use the following values
+- Command Type: Method
+- Method Type: BusinessRule
+- Method Query: {Workspace.Current.rfa_shared_os.HelperQueries}{GetViewObjectRecords}{LinkedPageRef = **Home_CapExRequestHub_Overview_Set1000**, ContentSubItemNumber = **1**, SolutionCode = Rfa, ModuleCode = SharedRel}
+- Results Table Name: RelationalViewRecords
+
+In the Method Query you will need to change the **LinkedPageRef** and **ContentSubItemNumber** values
+You can find the **Linked Page Ref** and the **Content Sub Item Number** on the header of the Configure Content Sub Item page.  
+The **Linked Page Ref** and the **Content Sub Item Number** will point the adapter to all the Content Sub Item settings
 
 ## Column Tab
 
