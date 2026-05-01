@@ -74,9 +74,11 @@ For included columns, you can configure:
 - display name overrides
 - visibility
 - allow updates
-- summary type (Sum, Min, Max, Count, Avg)
-- summary name (This will override the display name)
+- summary type (i.e. Sum, Min, Max, Count, Avg)
+- summary name
 - order by columns and direction
+- lookup primary key filter (i.e. {"Include":"1,2"} or {"Exclude":"1,2"})
+- filter flag
 - column width
 - default value
 - data format (i.e. N1, P1, MM/DD/YYYY)

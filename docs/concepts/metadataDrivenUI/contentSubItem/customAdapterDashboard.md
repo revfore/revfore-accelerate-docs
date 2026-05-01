@@ -55,8 +55,11 @@ Use the **XCP_xRfaConSubItm_CstmAdptrDshbrds** maintenance unit or create new on
 
 On the **adapter** use the following values
 - Command Type: Method
+  
 - Method Type: BusinessRule
+  
 - Method Query: {Workspace.Current.rfa_shared_os.HelperQueries}{GetViewObjectRecords}{LinkedPageRef = **Home_CapExRequestHub_Overview_Set1000**, ContentSubItemNumber = **1**, SolutionCode = Rfa, ModuleCode = SharedRel}
+  
 - Results Table Name: RelationalViewRecords
 
 In the Method Query you will need to change the **LinkedPageRef** and **ContentSubItemNumber** values

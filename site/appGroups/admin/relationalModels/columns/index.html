@@ -2163,7 +2163,7 @@
 <td>Relational Column</td>
 <td>int</td>
 <td>Identifies the underlying relational column used by the model column.</td>
-<td>Typically used when the model column is directly based on a table column.</td>
+<td>Typically used when the model column is directly based on a table column.  If the lookup is blank, you are likely missing Model Sources</td>
 </tr>
 <tr>
 <td>Sequence Number</td>
@@ -2450,6 +2450,7 @@
 <p>All 'Relational View' lookup columns will require a Lookup Model Source and possible multiple Expression Model Sources if they use expression columns for their Display or Ext Ref Unique Column.</p>
 <p>All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.</p>
 <p>If you plan to use this model as a source for a 'Relational View' lookup or as a source for a 'Relational View' that supports importing from excel, spreadsheets or API, an <a href="#ext-ref-unique-code-column">XRefUniqueCode</a> column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.  Define it in the Relational Table if you have an external system value, such as an external system primary key value, that needs to be stored in it for integration purposes.  The Model Column Name preferably ends with '_XRefUniqueCode'.  If not, the Model Column Name needs to contain 'XRefUniqueCode'.</p>
+<p>For columns that are required to be unique, Use Always as the Copy Function Flag, Get_ColumnValues as the Copy Function and {MyColumnName()}{Copy()} as the Copy Expression</p>
 <p>See <a href="../../../../concepts/metadataDrivenUI/actions/#general-actions">General Actions</a> for more information about adding records.</p>
 </div>
 <h2 id="notes">Notes</h2>

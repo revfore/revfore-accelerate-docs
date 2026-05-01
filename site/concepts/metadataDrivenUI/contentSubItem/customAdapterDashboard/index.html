@@ -625,6 +625,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-custom-adapter-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Custom Adapter Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#column-tab" class="md-nav__link">
     <span class="md-ellipsis">
       Column Tab
@@ -2088,6 +2097,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#create-custom-adapter-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Custom Adapter Dashboard
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#column-tab" class="md-nav__link">
     <span class="md-ellipsis">
       Column Tab
@@ -2223,7 +2241,7 @@
 <tr>
 <td>Body Dashboard Name</td>
 <td>Defines the inner dashboard that holds only the Custom Adapter Dashboard.</td>
-<td><strong>This will need to be the name of the custom dashboard that holds an adapter based component.  See Important Field Notes below</strong></td>
+<td><strong>This will need to be the name of the custom dashboard that holds an adapter based component.  See 'Create Custom Adapter Dashboard' below</strong></td>
 </tr>
 <tr>
 <td>Relational View</td>
@@ -2287,17 +2305,18 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note important field notes">
-<p class="admonition-title">Note</p>
-<p>You will need to create a custom dashboard that has an adapter based component on it such as a BI Viewer component.<br />
-On the adapter use the following values
-Command Type: Method
-Method Type: BusinessRule
-Method Query: {Workspace.Current.meta_os.HelperQueries}{GetViewObjectRecords}{LinkedPageRef = EnterLinkedPageRefHere}
-Results Table Name: ViewObjectRecords</p>
-<p>You can find the Linked Page Ref on the header of the Configure page and the Configure Content Sub Item page.  It is in brackets and should look something like 'Admin_NavGroup_Page_Set1000'
-The Linked Page Ref will point the adapter to all the Content Sub Item settings</p>
-</div>
+<h2 id="create-custom-adapter-dashboard">Create Custom Adapter Dashboard</h2>
+<p>Create a custom dashboard that has an <strong>adapter based component</strong> on it, such as a BI Viewer component.<br />
+Create it in a <strong>custom maintenance unit</strong> in the same Revfore Accelerate workspace as the Relational View.<br />
+Use the <strong>XCP_xRfaConSubItm_CstmAdptrDshbrds</strong> maintenance unit or create new one.  Just make sure it starts with <strong>XCP_x</strong>.</p>
+<p>On the <strong>adapter</strong> use the following values
+- Command Type: Method
+- Method Type: BusinessRule
+- Method Query: {Workspace.Current.rfa_shared_os.HelperQueries}{GetViewObjectRecords}{LinkedPageRef = <strong>Home_CapExRequestHub_Overview_Set1000</strong>, ContentSubItemNumber = <strong>1</strong>, SolutionCode = Rfa, ModuleCode = SharedRel}
+- Results Table Name: RelationalViewRecords</p>
+<p>In the Method Query you will need to change the <strong>LinkedPageRef</strong> and <strong>ContentSubItemNumber</strong> values
+You can find the <strong>Linked Page Ref</strong> and the <strong>Content Sub Item Number</strong> on the header of the Configure Content Sub Item page.<br />
+The <strong>Linked Page Ref</strong> and the <strong>Content Sub Item Number</strong> will point the adapter to all the Content Sub Item settings</p>
 <h2 id="column-tab">Column Tab</h2>
 <p>The <strong>Column</strong> tab is used to control which columns appear in the Custom Adapter Dashboard and how they behave.</p>
 <h3 id="included-and-excluded-columns">Included and Excluded Columns</h3>

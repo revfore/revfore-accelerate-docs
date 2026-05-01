@@ -19,55 +19,86 @@ The user installing the solution will need to be part of the Administrator secur
 
 ## 🛠️ Installation Steps
 
-### Step 1: Import Solution Package
+### Step 1: Set your OneStream Customer Name and Request a Starter License Key
 
+- Go to the Solution Exchange at https://solutionexchange.onestream.com/
+- Locate and Select the Revfore Accelerate Solution
+- Click on **Download** and then **Request a key**
+- Take note of the **Customer Name** value on the Request Information Page.  
+- Open OneStream and go to `Application → Application Properties`
+- Ensure the value in the **Company Name** field matches your company name in the Solution Exchange Request Information page
+- Go back to Solution Exchange Request Information page the fill out all the fields, click **Accept** and **Submit**
+- Once you have received your **Starter key**, go to Step 2
+
+!!!
+    The solution supports a **Starter License Key** that provides **Only Designer** access and a **Full License Key** that provides **Both Designer and Navigation** access.
+    A **Starter License Key** can be generated prior to the installation of the solution with just the application Customer Name found at (Application -> Application Properties -> Customer Name)
+    **The Customer Reference Code** which is found on the **Manage License Key** page is required to obtain a **Full License Key** Please provide this code to OneStream when requesting your **Full License Key**.
+---
+
+### Step 2: Import Solution Package
+
+- Go to the Solution Exchange at https://solutionexchange.onestream.com/
+- Locate and Select the Revfore Accelerate Solution
+- Click on Download and Enter you Starter Key 
 - Download the Revfore Accelerate solution package from the OneStream Solution Exchange
-- Import it into your OneStream application by going to Application -> Tools -> Load/Extract and loading the zip file.
+- Import it into your OneStream application by going to `Application -> Tools -> Load/Extract` and loading the zip file.
 
 ---
 
-### Step 2: Request and Install Starter License Key
+### Step 3: Launch Revfore Accelerate Designer
 
-- Request a **Starter License Key** from OneStream which will allow you to use the Designer pages
-- Provide your **Customer Name**, located in:
-  - `Application → Application Properties`
-- Once received:
-  - Paste the key into the **License Key** field
+- Go to `OnePlace → Dashboards → Revfore Accelerate Designer (RFA) → Revfore Accelerate Designer`
+- The **Manage License Key** page should appear
+
+---
+
+### Step 3: Enter a Starter License Key
+
+  - Paste the **Starter Key** into the **License Key** field
   - Click **Validate**
+  - Click **Launch Solution**
+  - The **Setup Solution** page should appear
+
+!!!
+    If you already have a **Full License Key**, enter it instead of the Starter License Key
+---
+
+### Step 4: Setup Database
+
+- Click **Setup Database**
+  - You will need to be part of the **Administrators** security group to run this step.
+  - This step initializes the solution by:
+    - Creating all required relational tables
+    - Creating views and supporting objects
+    - Seeding base configuration data
 
 ---
 
-### Step 3: Setup Database
+### Step 5: Request/Enter a Full License Key, if you only have a Starter License Key
 
-- This step initializes the solution by:
-  - Creating all required relational tables
-  - Creating views and supporting objects
-  - Seeding base configuration data
-
----
-
-### Step 4: Launch Solution
-
-- If not already there, Open the Revfore Accelerate Designer dashboard
-- Select **Admin** from the main menu:
-  - Begin building your own relational solution by creating new tables, models, and views
-  - Note: You will need a Full license key before you can use the Views in the end-user Navigation pages
-
----
-
-### Step 5: Request and Install Full License Key
-
-- A **Full License Key** is required for full functionality including the Navigation pages
-- To request:
-  - Navigate to:  
-    `Config → Manage License Key`
+- Click **Request a Full License Key**
   - Copy the **Customer Reference Code**
   - Send it to OneStream to request a Full License Key
+  - Proceed to next step if you have to wait for a Full License Key.  If not, enter the Full License Key and click **Validate**
 
-- Once received:
-  - Paste the key into the **License Key** field
-  - Click **Validate**
-  - You can now use any of the Relational Views in the end-user Navigation pages
+!!!
+    Once you receive the **Full License Key**, return to this page found at Config -> Manage License Keys
+    - Paste the key into the **License Key** field
+    - Click **Validate**
+    - You can now use any of the Relational Views in the end-user Navigation pages
+
+---
+
+### Step 6: Launch Solution
+
+- Click on **Launch Solution**
+- Select **Admin** from the main menu:
+  - Begin building your own relational solution by creating new tables, models, and views
+
+!!!
+    You will need a Full license key before you can use the Views in the end-user Navigation pages
+
 
 ---
 
