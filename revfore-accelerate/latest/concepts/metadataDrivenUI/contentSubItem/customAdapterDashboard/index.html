@@ -2310,10 +2310,18 @@
 Create it in a <strong>custom maintenance unit</strong> in the same Revfore Accelerate workspace as the Relational View.<br />
 Use the <strong>XCP_xRfaConSubItm_CstmAdptrDshbrds</strong> maintenance unit or create new one.  Just make sure it starts with <strong>XCP_x</strong>.</p>
 <p>On the <strong>adapter</strong> use the following values
-- Command Type: Method
-- Method Type: BusinessRule
-- Method Query: {Workspace.Current.rfa_shared_os.HelperQueries}{GetViewObjectRecords}{LinkedPageRef = <strong>Home_CapExRequestHub_Overview_Set1000</strong>, ContentSubItemNumber = <strong>1</strong>, SolutionCode = Rfa, ModuleCode = SharedRel}
-- Results Table Name: RelationalViewRecords</p>
+- Command Type: Method</p>
+<ul>
+<li>
+<p>Method Type: BusinessRule</p>
+</li>
+<li>
+<p>Method Query: {Workspace.Current.rfa_shared_os.HelperQueries}{GetViewObjectRecords}{LinkedPageRef = <strong>Home_CapExRequestHub_Overview_Set1000</strong>, ContentSubItemNumber = <strong>1</strong>, SolutionCode = Rfa, ModuleCode = SharedRel}</p>
+</li>
+<li>
+<p>Results Table Name: RelationalViewRecords</p>
+</li>
+</ul>
 <p>In the Method Query you will need to change the <strong>LinkedPageRef</strong> and <strong>ContentSubItemNumber</strong> values
 You can find the <strong>Linked Page Ref</strong> and the <strong>Content Sub Item Number</strong> on the header of the Configure Content Sub Item page.<br />
 The <strong>Linked Page Ref</strong> and the <strong>Content Sub Item Number</strong> will point the adapter to all the Content Sub Item settings</p>
