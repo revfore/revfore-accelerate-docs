@@ -4,7 +4,7 @@
 
 The **Setup & Upgrade** section is used to install Revfore Accelerate for the first time and to upgrade it later to a newer version.
 
-The available options change depending on whether the database has already been set up or not.
+The available options change depending on whether the database has already been set up or not and the stage of the upgrade process.
 
 ## Overview
 
@@ -34,7 +34,12 @@ This includes items such as:
 
 This step prepares the environment for the solution to run.
 
-### Step 2: Launch Solution
+### Step 2: Request a Full License Key
+
+Use this step to copy the **Customer Reference Code** from the **Manage License Key** page and send it to OneStream to request a Full License Key
+
+
+### Step 3: Launch Solution
 
 After the database setup is complete, the solution is ready to use.
 
@@ -50,57 +55,77 @@ At that point, users will typically go to the **Admin** application group to beg
 
 When upgrading Revfore Accelerate, both the application components and the database may need to be updated.
 
-### Step 1: Create Upgrade File, Uninstall, and Load
+Here are the options
+- Upgrade All (Genesis & Core RFA & Custom RFA)
+- Upgrade Only Core RFA & Custom RFA
+- Upgrade Only Core RFA
 
-To upgrade Revfore Accelerate, you must must create an upgrade file from a full install package.
+---
+## Upgrade All (Genesis & Core RFA & Custom RFA)
+
+You will need to download the full install zip file for the desired version from the OneStream Solution Exchange and use it for the upgrade
+
+### Step 1: Uninstall All Maintenance Units
+
+This will remove all maintenance units including Genesis, Core RFA and Custom RFA maintenance units.
+
+### Step 2: Load File
+
+This is a manual step.  You will need to manually load the full install package zip file through the Application tab | Tools | Load/Extract process
+
+- Download the desired version of Revfore Accelerate from the **OneStream Solution Exchange**
+- Load the full install package zip file through the **Application tab | Tools | Load/Extract** process in OneStream
+
+After you have loaded the file, relaunch the application and finalize the upgrade.  See **Upgrade - Finalize** below.
+
+---
+## Upgrade Only Core RFA & Custom RFA | Upgrade Only Core RFA
+
+To upgrade only a subset of the maintenance units, you must must create an upgrade file from a full install package.
+
+You will need to download the full install zip file for the desired version from the OneStream Solution Exchange, unzip it and select the ApplicationWorkspaces.xml, which will then create an upgrade file.
+
+!!!!Note: The Genesis maintenance units will be ignored.  If you want to upgrade to a newer version of Genesis, please go to the Revfore Accelerate Designer page, click on the Settings button on the top right, then Instance Management and finally the Upgrade tab.
+
+### Step 1: Select & Create Xml File
 
 >Step 1a: Download and Unzip the Revfore Accelerate full install zip file
 
 - Download the desired version of Revfore Accelerate from the **OneStream Solution Exchange**
 - Unzip it and extract the `ApplicationWorkspaces.xml` file
 
->Step 1b: Choose which RFA maintenance units you want to upgrade
-
-You have the option of
-
-- both **Core** and **Custom** RFA maintenance units, or
-- only the **Core** RFA maintenance units
-
-Leave the checkbox checked if you want **both** upgraded.  Uncheck it if you only want to upgrade the **Core** RFA maintenance units
-
-!!!Note
-
-    The **Genesis maintenance units** are always ignored during a Revfore Accelerate upgrade.
-
-    If you want to upgrade the Genesis maintenance units, go to the **Revfore Accelerate Designer** page and then navigate to:
-
-    1. **Settings**
-    2. **Instance Management**
-    3. **Upgrade**
-
->Step 1c: Create the upgrade file
+>Step 1b: Create the upgrade file
 
 - Click on **Select & Create Xml File**
 - Select the `ApplicationWorkspaces.xml` file you extracted
 - This will create an upgrade xml file and save it to your OneStream file explorer.  The path should be provided.
+- Go to the OneStream File Explorer, by clicking on the File Explorer at the top left of you OneStream application
+- Locate the file and download it to a local folder
 
->Step 1d: Uninstall RFA Maintenance Units
+### Step 2: Uninstall RFA Maintenance Units
 
 - Click on **Uninstall RFA Maintenance Units**
 - This will uninstall the RFA Maintenance Units you chose to remove
 
->Step 1e: Download the upgrade xml file and load it
+### Step 3: Load File
 
-- Take note of the provided path and file name for the new upgrade xml file
-- Go to the OneStream File Explorer, by clicking on the File Explorer at the top left of you OneStream application
-- Locate the file and download it to a local folder
-- Load the upgrade xml file through the **Application tab | Tools | Load/Extract** process in OneStream
+This is a manual step.  You will need to manually load the new upgrade .xml file that was just created through the Application tab | Tools | Load/Extract process
 
-### Step 2: Upgrade Database
+- Load the upgrade .xml file through the **Application tab | Tools | Load/Extract** process in OneStream
 
->Click on **Upgrade Database** to apply any database changes required for the upgraded version.
+After you have loaded the file, relaunch the application and finalize the upgrade.  See **Upgrade - Finalize** below.
 
-- This step updates the database structures as needed to align with the new application version.
+---
+## Upgrade - Finalize
+
+### Step 1: Finalize Upgrade
+
+>Click on **Finalize Upgrade** to apply any database changes required for the upgraded version, refresh all Relational Views and to relink Forms and Users
+
+### Step 2: Launch Solution
+
+After the database upgrade is finalized, the solution is ready to use.
+
 
 ## Notes
 

@@ -21,13 +21,13 @@ The user installing the solution will need to be part of the Administrator secur
 
 ### Step 1: Set your OneStream Customer Name and Request a Starter License Key
 
-- Go to the Solution Exchange at https://solutionexchange.onestream.com/
+- Go to the Solution Exchange at [OneStream Solution Exchange](https://solutionexchange.onestream.com/)
 - Locate and Select the Revfore Accelerate Solution
 - Click on **Download** and then **Request a key**
 - Take note of the **Customer Name** value on the Request Information Page.  
 - Open OneStream and go to `Application → Application Properties`
-- Ensure the value in the **Company Name** field matches your company name in the Solution Exchange Request Information page
-- Go back to Solution Exchange Request Information page the fill out all the fields, click **Accept** and **Submit**
+- Ensure the value in the **Company Name** field matches your company name on the Solution Exchange Request Information page
+- Go back to Solution Exchange Request Information page, populate all the fields, click **Accept** and **Submit**
 - Once you have received your **Starter key**, go to Step 2
 
 !!!
@@ -46,14 +46,14 @@ The user installing the solution will need to be part of the Administrator secur
 
 ---
 
-### Step 3: Launch Revfore Accelerate Designer
+### Step 3: Launch Revfore Accelerate Navigation
 
-- Go to `OnePlace → Dashboards → Revfore Accelerate Designer (RFA) → Revfore Accelerate Designer`
+- Go to `OnePlace → Dashboards → Revfore Accelerate Navigation (RFA) → Revfore Accelerate Navigation`
 - The **Manage License Key** page should appear
 
 ---
 
-### Step 3: Enter a Starter License Key
+### Step 4: Enter a Starter License Key
 
   - Paste the **Starter Key** into the **License Key** field
   - Click **Validate**
@@ -64,7 +64,7 @@ The user installing the solution will need to be part of the Administrator secur
     If you already have a **Full License Key**, enter it instead of the Starter License Key
 ---
 
-### Step 4: Setup Database
+### Step 5: Setup Database
 
 - Click **Setup Database**
   - You will need to be part of the **Administrators** security group to run this step.
@@ -75,12 +75,13 @@ The user installing the solution will need to be part of the Administrator secur
 
 ---
 
-### Step 5: Request/Enter a Full License Key, if you only have a Starter License Key
+### Step 6: Request/Enter a Full License Key, if your Starter License Key is active
 
 - Click **Request a Full License Key**
   - Copy the **Customer Reference Code**
   - Send it to OneStream to request a Full License Key
   - Proceed to next step if you have to wait for a Full License Key.  If not, enter the Full License Key and click **Validate**
+  - Close page
 
 !!!
     Once you receive the **Full License Key**, return to this page found at Config -> Manage License Keys
@@ -90,7 +91,7 @@ The user installing the solution will need to be part of the Administrator secur
 
 ---
 
-### Step 6: Launch Solution
+### Step 7: Launch Solution
 
 - Click on **Launch Solution**
 - Select **Admin** from the main menu:

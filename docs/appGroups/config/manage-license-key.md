@@ -11,7 +11,7 @@ Revfore Accelerate supports two types of license keys:
 - **Starter**
 - **Full**
 
-Both license types allow access to the designer experience, but they differ in how they are requested and what areas of the solution they unlock.
+Both license types allow access to the designer experience, but the **Starter** license key does not allow access to the Navigation pages.
 
 ## Customer Reference Code
 
