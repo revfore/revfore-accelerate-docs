@@ -38,6 +38,10 @@ This step prepares the environment for the solution to run.
 
 Use this step to copy the **Customer Reference Code** from the **Manage License Key** page and send it to OneStream to request a Full License Key
 
+!!!
+    Once you receive the **Full License Key**, Go to the Config -> Manage License Keys page
+    - Paste the key into the **License Key** field
+    - Click **Validate**
 
 ### Step 3: Launch Solution
 
@@ -117,6 +121,11 @@ After you have loaded the file, relaunch the application and finalize the upgrad
 
 ---
 ## Upgrade - Finalize
+
+After relaunching the solution, you will first be prompted to re-enter your Full License Key
+- Re-enter **Full License Key**
+- Click **Validate** and **Launch Solution**
+- The **Finalize Upgrade** page should appear
 
 ### Step 1: Finalize Upgrade
 
