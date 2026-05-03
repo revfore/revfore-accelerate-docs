@@ -29,9 +29,15 @@ Each view is designed around a specific user experience or reporting need.
 
 Relational Views can support different types of use cases depending on the type of model they are built on.
 
-### Data Entry and Maintenance Views
+The standard types of views are:
+- Data Entry (_mE)
+- Lookup (_mL)
+- Summary (_mS)
+- General (_mG)
 
-Some views are built on models centered around a **single primary table** along with related foreign key tables.
+### Data Entry Views (_mE)
+
+Data entry views are built on models centered around a **single primary table** along with related foreign key tables.
 
 These views are commonly used for:
 
@@ -47,9 +53,29 @@ Examples include:
 
 These views are typically focused on a primary entity and are often used in editable or user-managed experiences.
 
-### Read-Only Analysis and Reporting Views
+These require a Primary Key, Name and Ext Ref Unique Code column
 
-Other views are built on broader read-only models that join multiple related tables.
+These require Actions to be defined
+
+### Lookup Views (_mL)
+
+Lookup views are used exclusively on Lookup records are of type 'Relational View'
+
+These require a Primary Key, Name and Ext Ref Unique Code column
+
+These do not require Actions
+
+
+### Summary Views (_mS)
+
+Summary views use SQL Group by functionality to summarize values with Min, Max, Sum, Count and Avg aggregate functions.  These can used as Model Sources, allowing the summarized values to be included on Relational Views
+
+These require a Primary Key column, at least one column that is Group By Enabled, and at least one column that has a Summary Flag assigned to it.
+
+These do not require Actions
+
+### General Views (_mS)
+General views are built on broader read-only models that join multiple related tables.
 
 These are commonly used for:
 
@@ -71,6 +97,10 @@ Examples include:
 - an organizational rollup analysis view
 
 These views are generally designed for user consumption and analysis rather than direct maintenance of the underlying records.
+
+These views only require a Primary Key column
+
+These do not require Actions
 
 * * *
 
@@ -94,7 +124,7 @@ Examples of view columns:
 
 ### Actions
 
-Actions define the interactions available from the view.
+Actions define the interactions available from the view.  Primary used only on Data Entry views.
 
 Examples of actions:
 
