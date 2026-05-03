@@ -410,18 +410,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data-entry-and-maintenance-views" class="md-nav__link">
+  <a href="#data-entry-views-_me" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Entry and Maintenance Views
+      Data Entry Views (_mE)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#read-only-analysis-and-reporting-views" class="md-nav__link">
+  <a href="#lookup-views-_ml" class="md-nav__link">
     <span class="md-ellipsis">
-      Read-Only Analysis and Reporting Views
+      Lookup Views (_mL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-views-_ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Views (_mS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-views-_ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Views (_mS)
     </span>
   </a>
   
@@ -2169,18 +2187,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#data-entry-and-maintenance-views" class="md-nav__link">
+  <a href="#data-entry-views-_me" class="md-nav__link">
     <span class="md-ellipsis">
-      Data Entry and Maintenance Views
+      Data Entry Views (_mE)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#read-only-analysis-and-reporting-views" class="md-nav__link">
+  <a href="#lookup-views-_ml" class="md-nav__link">
     <span class="md-ellipsis">
-      Read-Only Analysis and Reporting Views
+      Lookup Views (_mL)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary-views-_ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Summary Views (_mS)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#general-views-_ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Views (_mS)
     </span>
   </a>
   
@@ -2405,8 +2441,13 @@
 <hr />
 <h2 id="types-of-relational-views">Types of Relational Views</h2>
 <p>Relational Views can support different types of use cases depending on the type of model they are built on.</p>
-<h3 id="data-entry-and-maintenance-views">Data Entry and Maintenance Views</h3>
-<p>Some views are built on models centered around a <strong>single primary table</strong> along with related foreign key tables.</p>
+<p>The standard types of views are:
+- Data Entry (_mE)
+- Lookup (_mL)
+- Summary (_mS)
+- General (_mG)</p>
+<h3 id="data-entry-views-_me">Data Entry Views (_mE)</h3>
+<p>Data entry views are built on models centered around a <strong>single primary table</strong> along with related foreign key tables.</p>
 <p>These views are commonly used for:</p>
 <ul>
 <li>data entry</li>
@@ -2420,8 +2461,18 @@
 <li>an Asset view that allows users to manage asset setup data while showing related type or location details</li>
 </ul>
 <p>These views are typically focused on a primary entity and are often used in editable or user-managed experiences.</p>
-<h3 id="read-only-analysis-and-reporting-views">Read-Only Analysis and Reporting Views</h3>
-<p>Other views are built on broader read-only models that join multiple related tables.</p>
+<p>These require a Primary Key, Name and Ext Ref Unique Code column</p>
+<p>These require Actions to be defined</p>
+<h3 id="lookup-views-_ml">Lookup Views (_mL)</h3>
+<p>Lookup views are used exclusively on Lookup records are of type 'Relational View'</p>
+<p>These require a Primary Key, Name and Ext Ref Unique Code column</p>
+<p>These do not require Actions</p>
+<h3 id="summary-views-_ms">Summary Views (_mS)</h3>
+<p>Summary views use SQL Group by functionality to summarize values with Min, Max, Sum, Count and Avg aggregate functions.  These can used as Model Sources, allowing the summarized values to be included on Relational Views</p>
+<p>These require a Primary Key column, at least one column that is Group By Enabled, and at least one column that has a Summary Flag assigned to it.</p>
+<p>These do not require Actions</p>
+<h3 id="general-views-_ms">General Views (_mS)</h3>
+<p>General views are built on broader read-only models that join multiple related tables.</p>
 <p>These are commonly used for:</p>
 <ul>
 <li>reporting</li>
@@ -2442,6 +2493,8 @@
 <li>an organizational rollup analysis view</li>
 </ul>
 <p>These views are generally designed for user consumption and analysis rather than direct maintenance of the underlying records.</p>
+<p>These views only require a Primary Key column</p>
+<p>These do not require Actions</p>
 <hr />
 <h2 id="view-structure">View Structure</h2>
 <p>A Relational View consists of:</p>
@@ -2457,7 +2510,7 @@
 </ul>
 <hr />
 <h3 id="actions">Actions</h3>
-<p>Actions define the interactions available from the view.</p>
+<p>Actions define the interactions available from the view.  Primary used only on Data Entry views.</p>
 <p>Examples of actions:</p>
 <ul>
 <li>Add / Edit / Copy / Delete</li>
