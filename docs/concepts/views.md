@@ -30,6 +30,7 @@ Each view is designed around a specific user experience or reporting need.
 Relational Views can support different types of use cases depending on the type of model they are built on.
 
 The standard types of views are:
+
 - Data Entry (_mE)
 - Lookup (_mL)
 - Summary (_mS)
@@ -261,7 +262,7 @@ You might create a view that:
 
 This view also creates a SQL view representing that same structure in the database.
 
-### Example 2: Read-Only Analysis View
+### Example 2: General View
 
 You have a reporting model based on:
 

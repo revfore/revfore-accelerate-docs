@@ -117,7 +117,7 @@ Once all columns are created, create new [Relational Model Relationships](relati
 
     Lookup and display behavior is often handled at the model level rather than directly in the base relational table.
 
-    All 'Relational View' lookup columns will require a Lookup Model Source and possible multiple Expression Model Sources if they use expression columns for their Display or Ext Ref Unique Column.
+    All 'Relational View' lookup columns will require a Lookup Model Source and possibly multiple Expression Model Sources if the lookup records use expression columns for their Display or Ext Ref Unique Column.
 
     All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.
 
