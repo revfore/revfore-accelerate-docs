@@ -48,7 +48,7 @@ The following settings are available for a Dynamic Grid Content Sub Item.
 | Auto Populate | Controls whether the grid automatically loads records when opened. | If not checked, users must click Refresh or apply a filter. |
 | Show Title Bar | Controls whether the title bar is shown. | |
 | Show Filter Bar | Controls whether the filter bar is shown. | The filter bar includes filters and the Inline Entry checkbox. |
-| Show Inline Entry | Controls whether the Inline Entry option is available. | Used to allow inline add/edit behavior in the grid. |
+| Show Inline Entry | Controls whether the **Enable Inline Adding & Editing** option is available. | Used to allow inline add/edit behavior in the grid. |
 
 ## Column Tab
 
@@ -107,7 +107,6 @@ Examples of actions may include:
 - Edit
 - Copy
 - Delete
-- Inline Entry
 - Spreadsheet
 - Bulk Update
 - File Export

@@ -67,9 +67,11 @@ When working with indexes:
 1. Go to **Admin | Relational Tables**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Tables : Indexes**'
-4. In the '**Relational Tables : Indexes**' section, Click on '**Add**' or '**Inline Entry**' 
+4. In the '**Relational Tables : Indexes**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 Once all indexes are created, create new [Table Relationships](relationships.md)
 

@@ -45,7 +45,7 @@ The following settings are available for a Custom Adapter Dashboard Content Sub 
 | Auto Populate | Controls whether the Custom Adapter Dashboard automatically loads records when opened. | Not applicable for Custom Adapter Dashboards at this time. |
 | Show Title Bar | Controls whether the title bar is shown. | |
 | Show Filter Bar | Controls whether the filter bar is shown. | Not applicable to Custom Adapter Dashboards |
-| Show Inline Entry | Controls whether the Inline Entry option is available. | Not applicable for Custom Adapter Dashboards |
+| Show Inline Entry | Controls whether the Enable **Inline Adding & Editing** option is available. | Not applicable for Custom Adapter Dashboards |
 
 ## Create Custom Adapter Dashboard
 

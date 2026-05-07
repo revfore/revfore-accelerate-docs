@@ -45,7 +45,7 @@ The following settings are available for a Summary Cards Content Sub Item.
 | Auto Populate | Controls whether the summary cards automatically loads records when opened. | Not applicable for Summary Cards at this time. |
 | Show Title Bar | Controls whether the title bar is shown. | |
 | Show Filter Bar | Controls whether the filter bar is shown. | Not applicable to Summary Cards |
-| Show Inline Entry | Controls whether the Inline Entry option is available. | Not applicable for Summary Cards |
+| Show Inline Entry | Controls whether the **Enable Inline Adding & Editing** option is available. | Not applicable for Summary Cards |
 
 ## Column Tab
 

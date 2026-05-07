@@ -26,7 +26,7 @@ The following general actions can be added to most views.
 
 | Action | Description | Notes |
 |---|---|---|
-| Inline Entry | A checkbox-based action that switches the current grid into add/edit mode, allowing the user to click a **+** button to add new records and edit selected existing records directly in the grid. | Records that need to be edited must be selected before the checkbox is checked. |
+| Enable Inline Adding & Editing | A checkbox-based action that switches the current grid into add/edit mode, allowing the user to click a **+** button to add new records and edit selected existing records directly in the grid. | Records that need to be edited must be selected before the checkbox is checked. |
 | Add | Opens a page with an empty grid that you can add records to. | Typically used to create new records. |
 | Add+ | Opens a Parent/Children add page. | Useful when users need to enter related records together in a single experience.  Add only to Parent records. |
 | Edit | Opens a page with an editable grid populated with the selected records. | Used to update existing records. |
@@ -35,7 +35,7 @@ The following general actions can be added to most views.
 | Spreadsheet | Puts all the data in the view into a spreadsheet component that allows users to add and edit rows in an Excel-like fashion. | Useful for high-volume review and maintenance. |
 | Bulk Update | Takes the selected records and allows users to update one or more fields across all selected records. | Useful for applying the same change across many records. |
 | Delete | Deletes the selected records. | Use with care, especially for production data. |
-| Save | Saves pending changes. | Typically used after add, edit and inline entry. |
+| Save | Saves pending changes. | Typically used after data is added or changed. |
 | File Export | Allows a user to export all the view records to a OneStream spreadsheet or to Excel. | Useful for review, offline analysis, or sharing data. |
 | File Import | Allows a user to select an Excel file and import the data into OneStream. | Useful for loading or updating larger sets of records. |
 | Navigate | Opens a page showing a tree view of related views that can be navigated to. Users can also navigate within the current view by selecting columns to filter by. | Useful for moving across related data structures and drilling into related records; in addition, to filtering within a views based on the value of a column of all selected records |
@@ -66,7 +66,6 @@ These actions are commonly used to create, update, or remove records:
 - Add+
 - Edit
 - Edit+
-- Inline Entry
 - Copy
 - Delete
 - Save
@@ -91,6 +90,4 @@ These actions are commonly used when reviewing or moving through related data:
 
 - Not every view will use every action.
 - Actions should be configured based on the intended use case of the view.
-- Data entry and maintenance views may use more interactive actions such as Add, Edit, Inline Entry, Spreadsheet, and Bulk Update.
-- Read-only reporting or analysis views may rely more on actions such as Navigate, Refresh, and File Export.
 - Custom actions can be added when standard actions do not fully meet the use case.

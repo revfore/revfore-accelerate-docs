@@ -52,13 +52,15 @@ Use relational tables to define business entities and objects such as:
 ## Create a new Relational Table
 
 1. Go to **Admin | Relational Tables**
-2. Click on '**Add+**' or '**Inline Entry**'
+2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create new [Relational Columns](columns.md)
 6. Create new [Relational Index](indexes.md)
 7. Create new [Table Relationships](relationships.md)
 8. Click on the **Sync** button to sync the table definition with the database
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
     The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned

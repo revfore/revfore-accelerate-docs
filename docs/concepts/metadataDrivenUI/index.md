@@ -54,7 +54,7 @@ See [Actions](actions.md) for more information.
 
 In addition, standard grids support:
 
-- inline entry
+- inline adding & editing
 - dropdowns
 - interactive user maintenance of relational data
 

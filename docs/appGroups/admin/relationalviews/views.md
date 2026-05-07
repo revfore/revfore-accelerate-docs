@@ -62,7 +62,7 @@ The following fields are used for a Relational View header record.
 ## Create a new Relational View
 
 1. Go to **Admin | Relational Views**
-2. Click on '**Add+**' or '**Inline Entry**'
+2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create new [Relational View Security](security.md)
@@ -70,6 +70,8 @@ The following fields are used for a Relational View header record.
 7. Create new [Relational View Actions](actions.md)
 8. Create new [Relational View Filters](filters.md)
 9. Click on the **Sync** button to sync the view definition with the database
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
     The Ext Ref Unique Code and Relational View Id will be auto-assigned

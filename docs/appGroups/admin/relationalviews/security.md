@@ -55,8 +55,10 @@ When defining security:
 1. Go to **Admin | Relational Views**
 2. Select the **Security** page
 3. Select the desired Relational View
-4. Click on '**Edit**' or '**Inline Entry**' 
+4. Click on '**Edit**' or '**Enable Inline Adding & Editing**' 
 5. Make any needed changes and click **Save**
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 ## Notes
 

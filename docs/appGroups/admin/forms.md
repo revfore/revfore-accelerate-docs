@@ -50,9 +50,11 @@ The following fields are used for a Form record.
 ## Create a new Form
 
 1. Go to **Admin | Forms**
-2. Click on '**Add**' or '**Inline Entry**'
+2. Click on '**Add**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 ## Notes
 

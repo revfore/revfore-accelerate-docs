@@ -52,9 +52,11 @@ The following fields are used for a Lookup record.
 ## Create a new Lookup
 
 1. Go to **Admin | Lookups**
-2. Click on '**Add**' or '**Inline Entry**'
+2. Click on '**Add**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
     The Key/Value View Column, Display View Column, Is Enabled View Column and Ext Ref Unique Code View Column fields can auto-populate once a Relational View is selected and Saved.  

@@ -76,7 +76,7 @@ Custom actions can also be added.
 1. Go to **Admin | Relational Views**
 2. Select the desired Relational View and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Actions**'
-4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Inline Entry**' 
+4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields, select **Custom** for the **Business Rule Flag** column and click **Save**
 7. Go to **Application | Presentation | Workspaces** and select the **Revfore Accelerate (RFA)** workspace
@@ -85,6 +85,8 @@ Custom actions can also be added.
 10. Find the **HandleForwardedActionClick** method
 11. Add custom code.  See [Sample Custom Code](#sample-custom-code).
 12. Save assembly
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 This allows developers to extend the standard action set with solution-specific functionality.
 

@@ -69,9 +69,11 @@ Examples include:
 1. Go to **Admin | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
 3. In the Child Views list, select **Relational Models : Sources**
-4. In the **Relational Models : Sources** section, click on **Add** or **Inline Entry**
+4. In the **Relational Models : Sources** section, click on **Add** or **Enable Inline Adding & Editing**
 5. Click on the **+** button on the top left of the grid
 6. Enter required fields and click **Save**
+
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 Once all sources are created, create new [Relational Model Columns](columns.md)
 

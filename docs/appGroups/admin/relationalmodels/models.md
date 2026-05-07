@@ -49,12 +49,14 @@ Use relational models to define data structures such as:
 ## Create a new Relational Model
 
 1. Go to **Admin | Relational Models**
-2. Click on **Add+** or **Inline Entry**
+2. Click on **Add+** or **Enable Inline Adding & Editing**
 3. Click on the **+** button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create new [Model Sources](sources.md)
 6. Create new [Model Columns](columns.md)
 7. Create new [Model Relationships](relationships.md)
+   
+**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
 
 !!! note "Important Notes"
     The Ext Ref Unique Code and Relational Model Id will be auto-assigned.

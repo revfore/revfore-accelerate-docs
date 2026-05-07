@@ -13,7 +13,7 @@ Revfore Accelerate requires:
 
 ### Security Requirements
 
-The user installing the solution will need to be part of the Administrator security group.
+The user installing the solution will need be part of a group that has 'Table Creation Group for Ancillary Tables' security role.
 
 ---
 
@@ -46,9 +46,9 @@ The user installing the solution will need to be part of the Administrator secur
 
 ---
 
-### Step 3: Launch Revfore Accelerate Navigation
+### Step 3: Launch Revfore Accelerate Designer
 
-- Go to `OnePlace → Dashboards → Revfore Accelerate Navigation (RFA) → Revfore Accelerate Navigation`
+- Go to `OnePlace → Dashboards → Revfore Accelerate Designer (RFA) → Revfore Accelerate Designer`
 - The **Manage License Key** page should appear
 
 ---
@@ -84,7 +84,9 @@ The user installing the solution will need to be part of the Administrator secur
   - Close page
 
 !!!
-    Once you receive the **Full License Key**, return to this page found at Config -> Manage License Keys
+    Once you receive the **Full License Key**, return to this page and enter the key.
+    - Select **Config** from the main menu
+    - Select **Manage License Keys**
     - Paste the key into the **License Key** field
     - Click **Validate**
     - You can now use any of the Relational Views in the end-user Navigation pages
