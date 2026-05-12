@@ -67,7 +67,7 @@ The user installing the solution will need be part of a group that has 'Table Cr
 ### Step 5: Setup Database
 
 - Click **Setup Database**
-  - You will need to be part of the **Administrators** security group to run this step.
+  - The user installing the solution will need be part of a group that has **Table Creation Group for Ancillary Tables** security role.
   - This step initializes the solution by:
     - Creating all required relational tables
     - Creating views and supporting objects
