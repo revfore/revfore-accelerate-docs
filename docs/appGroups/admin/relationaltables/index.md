@@ -2,7 +2,7 @@
 
 [← Back to Admin](index.md)
 
-Relational Tables are the **foundation of the Revfore Accelerate data model**.
+Relational Tables are the **foundation of the Revfore Framework data model**.
 
 They define the core business entities and store data at its natural level of detail.
 

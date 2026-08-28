@@ -79,7 +79,7 @@ Custom actions can also be added.
 4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields, select **Custom** for the **Business Rule Flag** column and click **Save**
-7. Go to **Application | Presentation | Workspaces** and select the **Revfore Accelerate (RFA)** workspace
+7. Go to **Application | Presentation | Workspaces** and select the **Revfore Framework (RFA)** workspace
 8. Find the ***XCP_xRfaDlg_ActnCustom** maintenance unit
 9. Find the **SolutionHelper.cs** file in the **rfa_actnCustom_os** assembly
 10. Find the **HandleForwardedActionClick** method

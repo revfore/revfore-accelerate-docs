@@ -2,11 +2,11 @@
 
 [← Back to Config Summary](index.md)
 
-The **Manage License Key** section is used to retrieve the customer reference code, enter license keys, and validate the current license status for Revfore Accelerate.
+The **Manage License Key** section is used to retrieve the customer reference code, enter license keys, and validate the current license status for Revfore Framework.
 
 ## Overview
 
-Revfore Accelerate supports two types of license keys:
+Revfore Framework supports two types of license keys:
 
 - **Starter**
 - **Full**
@@ -23,17 +23,17 @@ It consists of two parts:
 
 NOTE: A 'Starter' key can be generated from just the Customer Name.
 
-This code is used to generate a **Full license key** and is only available after Revfore Accelerate has been installed.
+This code is used to generate a **Full license key** and is only available after Revfore Framework has been installed.
 
 ## Starter License Keys
 
-A **Starter** license key can be requested before Revfore Accelerate is installed.
+A **Starter** license key can be requested before Revfore Framework is installed.
 
 It only requires the **customer name**, which can be found on the **Application Properties** page in OneStream.
 
 ### Starter Key Benefits
 
-Starter keys allow users to begin using Revfore Accelerate immediately rather than waiting for a Full license key.
+Starter keys allow users to begin using Revfore Framework immediately rather than waiting for a Full license key.
 
 With a Starter key, users can access the designer pages and work with:
 

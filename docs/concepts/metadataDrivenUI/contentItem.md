@@ -27,7 +27,7 @@ For example, a Content Item may define a layout with:
 - two vertically stacked sections
 - two horizontally arranged sections
 
-Revfore Accelerate currently supports **three Content Item layouts**, with many more planned for future release.
+Revfore Framework currently supports **three Content Item layouts**, with many more planned for future release.
 
 ## Content Frames and Sections
 

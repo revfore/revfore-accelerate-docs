@@ -36,7 +36,7 @@ Forms and Users are linked using both:
 
 This process takes the names and updates the unique IDs.
 
-Revfore Accelerate normally uses the unique IDs, so these records need to be relinked after an install or upgrade.
+Revfore Framework normally uses the unique IDs, so these records need to be relinked after an install or upgrade.
 
 #### When to Use
 
@@ -50,4 +50,4 @@ Use this action when:
 
 - This process should automatically run, but it can also be run manually here if needed.
 - It is safe to run anytime.
-- Revfore Accelerate automatically creates user records when it encounters a new user login.
+- Revfore Framework automatically creates user records when it encounters a new user login.

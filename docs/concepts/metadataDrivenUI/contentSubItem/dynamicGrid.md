@@ -161,4 +161,4 @@ When configuring a Dynamic Grid Content Sub Item:
 - A Dynamic Grid Content Sub Item is a page-specific configuration layer on top of a Relational View.
 - The same Relational View can be reused across multiple Content Sub Items and configured differently.
 - Column, action, and dependent settings allow each grid to be tailored for a specific page.
-- Dynamic grids are one of the most flexible and commonly used Content Sub Item types in Revfore Accelerate.
+- Dynamic grids are one of the most flexible and commonly used Content Sub Item types in Revfore Framework.

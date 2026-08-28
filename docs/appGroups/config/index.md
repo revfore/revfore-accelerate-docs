@@ -1,6 +1,6 @@
 # Config
 
-The **Config** application group is used for **non-daily administrative and system-level tasks** in Revfore Accelerate.
+The **Config** application group is used for **non-daily administrative and system-level tasks** in Revfore Framework.
 
 Where the **Admin** application group is focused on routine daily administration, the **Config** application group is intended for setup, upgrades, licensing, maintenance, and other less frequent actions that help install, maintain, or troubleshoot the solution.
 
@@ -18,7 +18,7 @@ The Config application group includes the following sections:
 
 Use the Config application group when you need to:
 
-- set up Revfore Accelerate for the first time
+- set up Revfore Framework for the first time
 - upgrade to a newer version
 - manage Starter or Full license keys
 - uninstall some or all of the solution

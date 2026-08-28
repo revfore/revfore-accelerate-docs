@@ -1,6 +1,6 @@
 # Relational Models
 
-Relational Models organize and connect relational data structures in Revfore Accelerate.
+Relational Models organize and connect relational data structures in Revfore Framework.
 
 They define how data from one or more relational tables is brought together into a meaningful structure for data entry, reporting, analysis, and application use.
 
@@ -106,9 +106,9 @@ Model Relationships define which Table Relationships will be exposed for downstr
 
 * * *
 
-## ⚙️ How Relational Models Work in Revfore Accelerate
+## ⚙️ How Relational Models Work in Revfore Framework
 
-Relational Models in Revfore Accelerate are:
+Relational Models in Revfore Framework are:
 
 - defined through metadata
 - built from one or more relational tables

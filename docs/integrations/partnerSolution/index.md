@@ -1,10 +1,10 @@
 # Partner Solution Integration
 
-Revfore Accelerate enables OneStream partners to bring relationally driven solutions to market faster, more efficiently, and with less development overhead.
+Revfore Framework enables OneStream partners to bring relationally driven solutions to market faster, more efficiently, and with less development overhead.
 
-For partner solutions that require a meaningful number of relational tables, models, views, forms, and navigation components, Revfore Accelerate provides a proven foundation that can significantly reduce build time, lower delivery cost, and simplify long-term maintenance.
+For partner solutions that require a meaningful number of relational tables, models, views, forms, and navigation components, Revfore Framework provides a proven foundation that can significantly reduce build time, lower delivery cost, and simplify long-term maintenance.
 
-Instead of repeatedly building core relational infrastructure from scratch, partners can leverage Revfore Accelerate as an accelerator for solution development and focus more of their effort on industry-specific functionality, user experience, and customer value.
+Instead of repeatedly building core relational infrastructure from scratch, partners can leverage Revfore Framework as an accelerator for solution development and focus more of their effort on industry-specific functionality, user experience, and customer value.
 
 ## How It Works
 
@@ -12,17 +12,17 @@ Partner solution integration is typically accomplished through the following pro
 
 - Execute a partner and reseller agreement with Revfore.
 - Engage directly with the Revfore partner team for enablement, guidance, and hands-on support.
-- Use the existing Revfore Accelerate workspace as the starting point for the solution.
+- Use the existing Revfore Framework workspace as the starting point for the solution.
 - Update core solution settings such as workspace name, solution name, solution prefix and database schema names
-- Use the embedded Revfore Accelerate and Genesis capabilities to create and manage solution-specific relational tables, models, views, forms, navigation groups and pages.
+- Use the embedded Revfore Framework and Genesis capabilities to create and manage solution-specific relational tables, models, views, forms, navigation groups and pages.
 - Export the required setup definitions and embed them into the solution installation and setup process.
 - Add any additional Maintenance Units and custom assembly files required by the solution.
 - Package the final solution into a new solution zip file.
 - Coordinate with OneStream to prepare and release the finished solution.
 
-## Why Partners Use Revfore Accelerate
+## Why Partners Use Revfore Framework
 
-Revfore Accelerate helps partners:
+Revfore Framework helps partners:
 
 - reduce development time for relationally driven OneStream solutions
 - lower the cost of building and maintaining complex relational frameworks
@@ -33,7 +33,7 @@ Revfore Accelerate helps partners:
 
 ## Ideal Use Cases
 
-Revfore Accelerate is especially well suited for partner solutions that need:
+Revfore Framework is especially well suited for partner solutions that need:
 
 - a significant number of relational tables and views
 - governed metadata-driven configuration

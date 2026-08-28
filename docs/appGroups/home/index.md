@@ -2,7 +2,7 @@
 
 The **Home Application Group** is used to create and manage **custom navigation groups and pages** within a Genesis workspace.
 
-It provides a flexible way to build user-facing navigation and integrate Relational Views created in Revfore Accelerate.
+It provides a flexible way to build user-facing navigation and integrate Relational Views created in Revfore Framework.
 
 ## Overview
 
@@ -20,7 +20,7 @@ You can also add custom navigation groups and pages to **any Genesis workspace**
 
 ## Integrating Relational Views into Genesis Pages
 
-You can add a Revfore Accelerate Relational View to any page in any Genesis instance.
+You can add a Revfore Framework Relational View to any page in any Genesis instance.
 
 This allows you to surface relational data directly within your application’s navigation.
 
@@ -32,7 +32,7 @@ This allows you to surface relational data directly within your application’s 
 
 - These dashboards are prebuilt to host Relational Views within Genesis pages.
 - The layout you choose determines how the content is displayed (single, vertical split, or horizontal split).
-- Relational Views must already be defined in Revfore Accelerate before they can be configured in a page.
+- Relational Views must already be defined in Revfore Framework before they can be configured in a page.
 
 ---
 

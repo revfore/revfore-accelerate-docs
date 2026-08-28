@@ -50,7 +50,7 @@ The following settings are available for a Custom Adapter Dashboard Content Sub 
 ## Create Custom Adapter Dashboard
 
 Create a custom dashboard that has an **adapter based component** on it, such as a BI Viewer component.  
-Create it in a **custom maintenance unit** in the same Revfore Accelerate workspace as the Relational View.  
+Create it in a **custom maintenance unit** in the same Revfore Framework workspace as the Relational View.  
 
 !!!Note.  Use the **XCP_xRfaConSubItm_CstmAdptrDshbrds** maintenance unit or create a new one.  Just make sure it starts with **XCP_x**.  In it you will find a sample adapter and dashboard.
 

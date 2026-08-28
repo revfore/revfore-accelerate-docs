@@ -1,15 +1,15 @@
 ![alt text](REVFORE_S2-01b.png){ width="500" }
-# Revfore Accelerate
+# Revfore Framework
 
 **A no-code relational framework for OneStream that helps developers and administrators build, manage, and surface relational data solutions faster.**
 
-Revfore Accelerate simplifies how relational tables, relationships, views, and governed user interfaces are created within OneStream. Instead of building everything from scratch with custom SQL, dashboards, and workflows, teams can use Revfore Accelerate to deliver relational data solutions more quickly and consistently.
+Revfore Framework simplifies how relational tables, relationships, views, and governed user interfaces are created within OneStream. Instead of building everything from scratch with custom SQL, dashboards, and workflows, teams can use Revfore Framework to deliver relational data solutions more quickly and consistently.
 
 ---
 
-## What is Revfore Accelerate?
+## What is Revfore Framework?
 
-Revfore Accelerate is designed for OneStream solution development that depends on relational data. It provides a configurable framework for defining and managing:
+Revfore Framework is designed for OneStream solution development that depends on relational data. It provides a configurable framework for defining and managing:
 
 - Relational tables
 - Relational models
@@ -22,9 +22,9 @@ This makes it easier to support operational planning, workflow-driven applicatio
 
 ---
 
-## Why use Revfore Accelerate?
+## Why use Revfore Framework?
 
-Revfore Accelerate helps teams:
+Revfore Framework helps teams:
 
 - Reduce custom development effort
 - Standardize relational solution design
@@ -37,7 +37,7 @@ Revfore Accelerate helps teams:
 
 ## Common use cases
 
-Revfore Accelerate can support a wide range of solutions, including:
+Revfore Framework can support a wide range of solutions, including:
 
 - Operational planning applications
 - Detailed financial planning
@@ -109,8 +109,8 @@ Suggested sections for this site:
 
 ---
 
-## Revfore Accelerate at a glance
+## Revfore Framework at a glance
 
-Revfore Accelerate helps organizations extend OneStream with a faster, more governed approach to relational solution development — making it easier to deliver applications that are flexible, maintainable, and scalable.
+Revfore Framework helps organizations extend OneStream with a faster, more governed approach to relational solution development — making it easier to deliver applications that are flexible, maintainable, and scalable.
 
 ---

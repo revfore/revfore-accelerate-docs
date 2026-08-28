@@ -2,7 +2,7 @@
 
 [← Back to Config Summary](index.md)
 
-The **Uninstall** section is used to remove some or all of Revfore Accelerate.
+The **Uninstall** section is used to remove some or all of Revfore Framework.
 
 There are two uninstall options, depending on whether you want to remove only the application components or completely remove the entire solution.
 

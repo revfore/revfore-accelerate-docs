@@ -1,8 +1,8 @@
 # Genesis Integration
 
-Revfore Accelerate supports integration with **Genesis** to make it easier to build structured, menu-driven solutions that expose relational data through configurable page layouts.
+Revfore Framework supports integration with **Genesis** to make it easier to build structured, menu-driven solutions that expose relational data through configurable page layouts.
 
-By combining Revfore Accelerate with Genesis, solution builders can create reusable application pages without having to custom build each page from scratch.
+By combining Revfore Framework with Genesis, solution builders can create reusable application pages without having to custom build each page from scratch.
 
 ## Overview
 
@@ -16,9 +16,9 @@ Genesis integration allows you to:
 
 A key part of this approach is the use of [Content Items](../../concepts/metadataDrivenUI/contentItem.md) and [Content Sub Items](../../concepts/metadataDrivenUI/contentSubItem/index.md).
 
-## How Genesis and Revfore Accelerate Work Together
+## How Genesis and Revfore Framework Work Together
 
-Genesis provides the broader page and navigation framework, while Revfore Accelerate provides the relational structures and metadata-driven content that can be rendered within that framework.
+Genesis provides the broader page and navigation framework, while Revfore Framework provides the relational structures and metadata-driven content that can be rendered within that framework.
 
 Together, they make it possible to create flexible application experiences that are:
 
@@ -39,7 +39,7 @@ Examples of Genesis integration use cases include:
 
 ## Benefits
 
-Using Genesis integration with Revfore Accelerate helps:
+Using Genesis integration with Revfore Framework helps:
 
 - accelerate page and solution development
 - reduce custom UI development effort
@@ -49,14 +49,14 @@ Using Genesis integration with Revfore Accelerate helps:
 
 ## Add a Relational View to a Genesis Page
 
-!!! example "Add a Revfore Accelerate Relational View"
+!!! example "Add a Revfore Framework Relational View"
     1. Go to your desired **Genesis Instance Designer**.
 
     2. Add a page to any **Navigation Group**.
 
     3. Select **"Link an Existing Content Item from a Shared Workspace"**.
 
-    4. Select the **"Revfore Accelerate (RFA)"** workspace.
+    4. Select the **"Revfore Framework (RFA)"** workspace.
 
     5. In the filter field, type: `ContentItem`
 

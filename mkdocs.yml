@@ -1,6 +1,6 @@
-site_name: Revfore Accelerate Docs
-site_description: Documentation for Revfore Accelerate
-site_url: https://docs.revfore.com/revfore-accelerate/
+site_name: Revfore Framework Docs
+site_description: Documentation for Revfore Framework
+site_url: https://docs.revfore.com/revfore-framework/
 
 theme:
   name: material
@@ -81,7 +81,7 @@ not_in_nav: |
 plugins:
   - search
   - mike:
-      deploy_prefix: revfore-accelerate
+      deploy_prefix: revfore-framework
       alias_type: copy
 
 extra:

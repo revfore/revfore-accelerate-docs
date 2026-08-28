@@ -1,14 +1,14 @@
 # Metadata-Driven UI
 
-Revfore Accelerate uses a **metadata-driven UI** approach to expose relational data in flexible, reusable, and user-friendly ways.
+Revfore Framework uses a **metadata-driven UI** approach to expose relational data in flexible, reusable, and user-friendly ways.
 
-Instead of hard-coding separate user experiences for each use case, Revfore Accelerate allows relational structures to be defined once and then rendered in different formats depending on the needs of the solution.
+Instead of hard-coding separate user experiences for each use case, Revfore Framework allows relational structures to be defined once and then rendered in different formats depending on the needs of the solution.
 
 ## What is Metadata-Driven UI?
 
 A metadata-driven UI is an interface that is configured through metadata rather than custom development for every page or interaction.
 
-In Revfore Accelerate, this means that Relational Views can be reused across multiple pages and rendered in different user interface formats without redefining the underlying data structure.
+In Revfore Framework, this means that Relational Views can be reused across multiple pages and rendered in different user interface formats without redefining the underlying data structure.
 
 This approach helps accelerate solution development, improve consistency, and reduce the effort required to maintain user-facing experiences over time.
 
@@ -37,7 +37,7 @@ These same Content Items and Content Sub Items can also be used on fully custom 
 
 ## Dynamic Grids
 
-Dynamic grids are one of the primary metadata-driven UI components in Revfore Accelerate.
+Dynamic grids are one of the primary metadata-driven UI components in Revfore Framework.
 
 They support a broad set of standard actions, including:
 
@@ -62,7 +62,7 @@ This makes them well suited for both day-to-day record maintenance and more guid
 
 ## Multi-View Page Layouts
 
-Revfore Accelerate also supports placing two views on the same page in different layout configurations.
+Revfore Framework also supports placing two views on the same page in different layout configurations.
 
 This is accomplished by assigning multiple [Content Sub Items](contentSubItem/index.md) to a single [Content Item](contentItem.md).
 
@@ -125,7 +125,7 @@ Examples of metadata-driven UI use cases include:
 
 ## Notes
 
-- Relational Views are the foundation of metadata-driven UI experiences in Revfore Accelerate.
+- Relational Views are the foundation of metadata-driven UI experiences in Revfore Framework.
 - The same view can be reused across multiple pages and rendered in different formats.
 - Page-level filters allow views to be reused without duplicating view definitions.
 - Standard grids provide a rich set of built-in actions and interaction capabilities.

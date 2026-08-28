@@ -1,6 +1,6 @@
 # Admin
 
-The **Admin** application group is used for **day-to-day administration** of relational data structures in Revfore Accelerate.
+The **Admin** application group is used for **day-to-day administration** of relational data structures in Revfore Framework.
 
 This is where users define, manage, and maintain the core components that power relational planning and operational workflows.
 

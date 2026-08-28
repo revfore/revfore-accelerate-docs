@@ -2,7 +2,7 @@
 
 [← Back to Admin](index.md)
 
-Relational Views provide reusable, user-facing representations of relational data in Revfore Accelerate.
+Relational Views provide reusable, user-facing representations of relational data in Revfore Framework.
 
 Views leverage **Relational Models** as their foundation. A single relational model can support many relational views, each designed for a different use case such as data creation/entry, lookup or reporting/analysis.
 

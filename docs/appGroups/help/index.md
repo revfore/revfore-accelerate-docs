@@ -1,6 +1,6 @@
 # Help
 
-The **Help** application group provides quick access to documentation and support resources for Revfore Accelerate.
+The **Help** application group provides quick access to documentation and support resources for Revfore Framework.
 
 Use this application group when you need to review product documentation or contact the Revfore support team.
 
@@ -15,7 +15,7 @@ The Help application group includes the following pages:
 
 ## Documentation
 
-The **Documentation** page provides an embedded web browser experience that links directly to the Revfore Accelerate documentation hosted online.
+The **Documentation** page provides an embedded web browser experience that links directly to the Revfore Framework documentation hosted online.
 
 This allows users to review the latest available documentation without leaving the solution.
 
@@ -39,7 +39,7 @@ Use the Documentation page to:
 
 The **Contact Support** page provides access to a web page where users can contact the Revfore support team.
 
-Use this page when you need help with issues, questions, troubleshooting, or guidance related to Revfore Accelerate.
+Use this page when you need help with issues, questions, troubleshooting, or guidance related to Revfore Framework.
 
 ### Typical Uses
 

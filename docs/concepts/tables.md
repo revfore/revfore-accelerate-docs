@@ -4,7 +4,7 @@ title: Tables
 
 # Tables
 
-Tables are the **foundation of all relational data structures** in Revfore Accelerate.
+Tables are the **foundation of all relational data structures** in Revfore Framework.
 
 They define how your business data is stored, organized, and managed.
 
@@ -54,9 +54,9 @@ Example:
 
 ---
 
-## ⚙️ How Tables Work in Revfore Accelerate
+## ⚙️ How Tables Work in Revfore Framework
 
-Tables in Revfore Accelerate are:
+Tables in Revfore Framework are:
 
 - **Defined through metadata** (no SQL required)
 - **Editable through a common UI**

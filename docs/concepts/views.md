@@ -1,6 +1,6 @@
 # Relational Views
 
-Relational Views define how relational model data is exposed for user interaction, reporting, and analysis in Revfore Accelerate.
+Relational Views define how relational model data is exposed for user interaction, reporting, and analysis in Revfore Framework.
 
 They are built on top of Relational Models and are used to create reusable **SQL views** in the database that can then be consumed by the application.
 
@@ -149,9 +149,9 @@ Examples of filters:
 
 * * *
 
-## ⚙️ How Relational Views Work in Revfore Accelerate
+## ⚙️ How Relational Views Work in Revfore Framework
 
-Relational Views in Revfore Accelerate are:
+Relational Views in Revfore Framework are:
 
 - defined through metadata
 - built on top of Relational Models
@@ -165,7 +165,7 @@ Once a Relational View is configured, its definition can be synced so that the c
 
 ## Views and SQL Views
 
-A key concept in Revfore Accelerate is that a Relational View is not just an application definition. It also drives the creation of a corresponding **SQL view**.
+A key concept in Revfore Framework is that a Relational View is not just an application definition. It also drives the creation of a corresponding **SQL view**.
 
 This provides several benefits:
 

@@ -1,8 +1,8 @@
 # REST API Integrations
 
-REST API integration support is planned for a future release of Revfore Accelerate.
+REST API integration support is planned for a future release of Revfore Framework.
 
-This functionality is intended to make it easier to integrate external systems, automate data movement, and support programmatic access to relational data managed through Revfore Accelerate.
+This functionality is intended to make it easier to integrate external systems, automate data movement, and support programmatic access to relational data managed through Revfore Framework.
 
 !!! note "Forward-Looking Information"
     This page describes planned future functionality. These plans are provided for informational purposes only and are subject to change. They should not be relied upon as a commitment, promise, or obligation to deliver any specific feature, functionality, or timeline.
@@ -27,7 +27,7 @@ Planned REST API integration capabilities include:
 
 REST API support is expected to help customers and partners:
 
-- integrate Revfore Accelerate with external systems
+- integrate Revfore Framework with external systems
 - automate relational data maintenance
 - reduce the need for manual data entry in some use cases
 - support broader system interoperability
@@ -45,7 +45,7 @@ The planned approach is to build on top of existing Relational Views.
 
 This means that the same relational structures already used for reporting, data entry, and navigation will also be able to serve as governed integration endpoints.
 
-By leveraging Relational Views, REST API integrations are expected to align with the same metadata-driven framework used throughout Revfore Accelerate.
+By leveraging Relational Views, REST API integrations are expected to align with the same metadata-driven framework used throughout Revfore Framework.
 
 ## Typical Future Use Cases
 

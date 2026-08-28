@@ -2,17 +2,17 @@
 title: Getting Started
 ---
 
-# Getting Started with Revfore Accelerate
+# Getting Started with Revfore Framework
 
-Welcome to Revfore Accelerate.
+Welcome to Revfore Framework.
 
 This guide will help you understand the core concepts and get up and running with building relational data solutions inside OneStream.
 
 ---
 
-## 🚀 What is Revfore Accelerate?
+## 🚀 What is Revfore Framework?
 
-Revfore Accelerate is a **no-code relational framework** that allows you to:
+Revfore Framework is a **no-code relational framework** that allows you to:
 
 - Create relational tables along with their relationships to other tables
 - Create relational models that source data from any number of relational tables
@@ -27,7 +27,7 @@ All without writing SQL.
 
 Before getting started, make sure your environment is ready:
 
-👉 Follow the [Setup And Installation](setup/setup.md) to install and configure Revfore Accelerate.
+👉 Follow the [Setup And Installation](setup/setup.md) to install and configure Revfore Framework.
 
 ---
 

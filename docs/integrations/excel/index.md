@@ -1,8 +1,8 @@
 # Excel Integration
 
-Excel integration support is planned for a future release of Revfore Accelerate.
+Excel integration support is planned for a future release of Revfore Framework.
 
-This functionality is intended to make it easier for users to work with relational data in a familiar spreadsheet environment while still leveraging the governed relational structures defined in Revfore Accelerate.
+This functionality is intended to make it easier for users to work with relational data in a familiar spreadsheet environment while still leveraging the governed relational structures defined in Revfore Framework.
 
 
 !!! note "Forward-Looking Information"
@@ -42,16 +42,16 @@ Excel integration is expected to help customers and partners:
 - support decentralized data entry and maintenance
 - reduce friction for users who prefer spreadsheet-based workflows
 - allow users to work offline when needed
-- leverage the same governed relational structures already defined in Revfore Accelerate
+- leverage the same governed relational structures already defined in Revfore Framework
 - avoid rebuilding separate Excel-specific data models
 
 ## Design Approach
 
-The planned approach is to build on top of the existing Relational Models and Relational Views already defined in Revfore Accelerate.
+The planned approach is to build on top of the existing Relational Models and Relational Views already defined in Revfore Framework.
 
 This means that the same structures used for application pages, reporting, and workflows will also be able to support Excel-based interaction.
 
-By leveraging existing relational definitions, Excel integration is expected to remain aligned with the same metadata-driven framework used throughout Revfore Accelerate.
+By leveraging existing relational definitions, Excel integration is expected to remain aligned with the same metadata-driven framework used throughout Revfore Framework.
 
 ## Typical Future Use Cases
 
@@ -68,4 +68,4 @@ Examples of future Excel integration use cases include:
 - Excel integration support is planned for a future release.
 - This functionality is not yet available.
 - Details may evolve as the feature is finalized.
-- The goal is to provide a rich Excel experience without duplicating relational structures outside of Revfore Accelerate.
+- The goal is to provide a rich Excel experience without duplicating relational structures outside of Revfore Framework.

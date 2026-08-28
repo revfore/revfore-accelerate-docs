@@ -2,7 +2,7 @@
 
 [← Back to Config Summary](index.md)
 
-The **Setup & Upgrade** section is used to install Revfore Accelerate for the first time and to upgrade it later to a newer version.
+The **Setup & Upgrade** section is used to install Revfore Framework for the first time and to upgrade it later to a newer version.
 
 The available options change depending on whether the database has already been set up or not and the stage of the upgrade process.
 
@@ -22,7 +22,7 @@ Use this section to:
 
 ### Step 1: Setup Database
 
-Use **Setup Database** to create the initial database structures required by Revfore Accelerate.
+Use **Setup Database** to create the initial database structures required by Revfore Framework.
 
 This includes items such as:
 
@@ -57,7 +57,7 @@ At that point, users will typically go to the **Admin** application group to beg
 
 ## Upgrade
 
-When upgrading Revfore Accelerate, both the application components and the database may need to be updated.
+When upgrading Revfore Framework, both the application components and the database may need to be updated.
 
 Here are the options
 - Upgrade All (Genesis & Core RFA & Custom RFA)
@@ -77,7 +77,7 @@ This will remove all maintenance units including Genesis, Core RFA and Custom RF
 
 This is a manual step.  You will need to manually load the full install package zip file through the Application tab | Tools | Load/Extract process
 
-- Download the desired version of Revfore Accelerate from the **OneStream Solution Exchange**
+- Download the desired version of Revfore Framework from the **OneStream Solution Exchange**
 - Load the full install package zip file through the **Application tab | Tools | Load/Extract** process in OneStream
 
 After you have loaded the file, relaunch the application and finalize the upgrade.  See **Upgrade - Finalize** below.
@@ -89,13 +89,13 @@ To upgrade only a subset of the maintenance units, you must must create an upgra
 
 You will need to download the full install zip file for the desired version from the OneStream Solution Exchange, unzip it and select the ApplicationWorkspaces.xml, which will then create an upgrade file.
 
-!!!!Note: The Genesis maintenance units will be ignored.  If you want to upgrade to a newer version of Genesis, please go to the Revfore Accelerate Designer page, click on the Settings button on the top right, then Instance Management and finally the Upgrade tab.
+!!!!Note: The Genesis maintenance units will be ignored.  If you want to upgrade to a newer version of Genesis, please go to the Revfore Framework Designer page, click on the Settings button on the top right, then Instance Management and finally the Upgrade tab.
 
 ### Step 1: Select & Create Xml File
 
->Step 1a: Download and Unzip the Revfore Accelerate full install zip file
+>Step 1a: Download and Unzip the Revfore Framework full install zip file
 
-- Download the desired version of Revfore Accelerate from the **OneStream Solution Exchange**
+- Download the desired version of Revfore Framework from the **OneStream Solution Exchange**
 - Unzip it and extract the `ApplicationWorkspaces.xml` file
 
 >Step 1b: Create the upgrade file
@@ -138,6 +138,6 @@ After the database upgrade is finalized, the solution is ready to use.
 
 ## Notes
 
-- The Setup & Upgrade section is the primary place to install and upgrade Revfore Accelerate.
+- The Setup & Upgrade section is the primary place to install and upgrade Revfore Framework.
 - In most upgrade scenarios, this section should be used instead of manually uninstalling maintenance units.
 - Available actions may vary depending on the current database state and version.

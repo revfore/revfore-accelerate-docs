@@ -1,12 +1,12 @@
 # Setup and Installation
 
-This guide walks you through installing and configuring Revfore Accelerate in your OneStream environment.
+This guide walks you through installing and configuring Revfore Framework in your OneStream environment.
 
 ---
 
 ## 📦 Dependencies
 
-Revfore Accelerate requires:
+Revfore Framework requires:
 
 - OneStream **version 9.1.1 or later**
 - A standard OneStream installation (no additional external dependencies required)
@@ -22,7 +22,7 @@ The user installing the solution will need be part of a group that has 'Table Cr
 ### Step 1: Set your OneStream Customer Name and Request a Starter License Key
 
 - Go to the Solution Exchange at [OneStream Solution Exchange](https://solutionexchange.onestream.com/)
-- Locate and Select the Revfore Accelerate Solution
+- Locate and Select the Revfore Framework Solution
 - Click on **Download** and then **Request a key**
 - Take note of the **Customer Name** value on the Request Information Page.  
 - Open OneStream and go to `Application → Application Properties`
@@ -39,16 +39,16 @@ The user installing the solution will need be part of a group that has 'Table Cr
 ### Step 2: Import Solution Package
 
 - Go to the Solution Exchange at https://solutionexchange.onestream.com/
-- Locate and Select the Revfore Accelerate Solution
+- Locate and Select the Revfore Framework Solution
 - Click on Download and Enter you Starter Key 
-- Download the Revfore Accelerate solution package from the OneStream Solution Exchange
+- Download the Revfore Framework solution package from the OneStream Solution Exchange
 - Import it into your OneStream application by going to `Application -> Tools -> Load/Extract` and loading the zip file.
 
 ---
 
-### Step 3: Launch Revfore Accelerate Designer
+### Step 3: Launch Revfore Framework Designer
 
-- Go to `OnePlace → Dashboards → Revfore Accelerate Designer (RFA) → Revfore Accelerate Designer`
+- Go to `OnePlace → Dashboards → Revfore Framework Designer (RFA) → Revfore Framework Designer`
 - The **Manage License Key** page should appear
 
 ---
