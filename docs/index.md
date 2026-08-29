@@ -32,7 +32,7 @@ Revfore Framework helps teams:
 - Surface data in governed, reusable interfaces
 - Support both administrators and end users with consistent experiences
 - Extend OneStream for planning, workflows, and custom business processes
-Prepare solutions for agentic AI
+- Prepare solutions for agentic AI
 
 
 ---
@@ -47,9 +47,8 @@ Revfore Framework can support a wide range of solutions, including:
 - Workflow-based data collection
 - Custom administrative applications
 - Browser-based and dashboard-driven relational interfaces
- -revenue recognition solutions
- -GL Journal entry solutions
- -
+- Revenue recognition solutions
+- GL journal entry solutions
 
 ---
 
@@ -59,7 +58,7 @@ Revfore Framework can support a wide range of solutions, including:
 Create and manage relational tables, fields, and relationships through a configurable framework.
 
 ### Relational Models
-Unify data across tables with lookups, defaults, required fields, and calculated columns
+Unify data across tables with lookups, defaults, required fields, and calculated columns.
 
 ### Relational Views
 Define relational views that can be used across dashboards, editable lists, and other user experiences.
@@ -67,10 +66,11 @@ Define relational views that can be used across dashboards, editable lists, and 
 ### Governed user interfaces
 Surface relational data in standardized, governed screens for both setup and end-user processes.
 
-### Standardarized solution development
-Increase speed, reduce custom architure and code, less maintenance, better security
+### Standardized solution development
+Increase delivery speed while reducing custom architecture and code, so solutions are easier to maintain and easier to secure.
 
-###Agentic detail
+### Agentic AI readiness
+Because tables, models, and views are defined as metadata rather than hand-written SQL and screens, a solution's structure can be generated, reviewed, and validated as files — which is what makes AI-assisted design practical rather than approximate.
 
 ---
 
@@ -88,19 +88,15 @@ This documentation is intended for:
 
 ## Getting started
 
-Use the navigation menu to explore the documentation. A typical path might include:
+New to Revfore Framework? Start with [Getting Started](getting-started.md), then work through the documentation in this order:
 
-1. Overview of the platform
-2. Core concepts and architecture
-3. Configuration and setup
-4. Managing tables, relationships, and views
-5. Building end-user experiences
-6. Deployment and administration
+1. [Setup & Installation](setup/setup.md) — install and configure Revfore Framework
+2. [Core Concepts](concepts/tables.md) — relational tables, models, views, and the metadata-driven UI
+3. [Application Groups](appGroups/admin/index.md) — the Admin, Config, Home and Help screens used day to day
+4. [Integrations](integrations/genesis/index.md) — Genesis, Excel, REST APIs, and partner solutions
 
 ---
 
 ## Revfore Framework at a glance
 
 Revfore Framework helps organizations extend OneStream with a faster, more governed approach to relational solution development — making it easier to deliver applications that are flexible, maintainable, and scalable.
-
----

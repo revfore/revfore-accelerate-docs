@@ -35,10 +35,11 @@ Before getting started, make sure your environment is ready:
 
 Before you begin, it’s helpful to understand a few key ideas:
 
-###Claude assisted design and file creation
+### Claude-assisted design and file creation
+Requirements are turned into the files a solution is built from — the JSON that defines its tables, models and views, the JSON that seeds its reference data, and the C# that implements its business logic. You review and adjust those files rather than writing them from scratch.
 
-###Database Tables & Views
-??
+### Database Tables & Views
+The physical objects in the database, as opposed to the definitions below that describe them. A definition is what you edit; syncing it creates or updates the real table or view. Both are visible in the application, so the two can be compared when they drift apart.
 
 ### Relational Table Definitions
 Structured datasets that store your business data and define how that data links together through relationships  
@@ -59,27 +60,27 @@ Core structures are defined in metadata, enabling consistent, automatically gene
 
 Here’s the typical process for building a solution:
 
-1  **Gather requirements
+1. **Gather requirements**
 
-1. **Use Claude to review the requirements, design and create json schem, json data and code assembly files
+2. **Use Claude to review the requirements, then design and create the JSON schema, JSON data, and code assembly files**
 
-2. **Import the json schema files
+3. **Import the JSON schema files**
    - This will create all your table, model and view definitions
 
-3. **Review and Sync table and view definitions
+4. **Review and sync the table and view definitions**
    - This will create the database tables and views
 
-4. **Import json data files for supporting tables
-   - Now that the database tables and view are created, data can be imported into them.
+5. **Import the JSON data files for supporting tables**
+   - Now that the database tables and views are created, data can be imported into them
 
-5. **Add code assembly files
-   - This will put in place all the logic that needs to run when data is entered, submitted, etc.
+6. **Add the code assembly files**
+   - This will put in place all the logic that needs to run when data is entered, submitted, and so on
 
-6. **Add new Genesis navigation groups and pages
+7. **Add new Genesis navigation groups and pages**
 
-7. **Link Revfore to Genesis pages and configure the presentation
+8. **Link Revfore to the Genesis pages and configure the presentation**
 
-8. **Start using the solution
+9. **Start using the solution**
 
 ---
 
@@ -87,10 +88,12 @@ Here’s the typical process for building a solution:
 
 A common starting point:
 
-> Open Claude and start prompting to help you build a simple solution that handles a particular use-case
+> Open Claude and start prompting to help you build a simple solution that handles a particular use case
 
 Example:
-???
+
+> "I need to capture rate changes by product and effective date, with an approver on each change. "
+> "Design the tables, models and views for that and generate the import JSON."
 
 ---
 
