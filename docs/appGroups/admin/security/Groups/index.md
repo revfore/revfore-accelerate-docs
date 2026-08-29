@@ -49,6 +49,19 @@ Two relationships sit alongside the group record, both maintained in OneStream:
 
 Access through a nested hierarchy is resolved automatically: a user who is a member of a parent group has the access of its child groups, without needing to be added to each one.
 
+## What the sync brings across
+
+Sync pulls in the **group hierarchy** as well as the groups themselves, and flattens it so access can be checked with a simple join rather than by walking the hierarchy.
+
+Both are visible on the **View+** screen:
+
+| View | Holds | Shape |
+|---|---|---|
+| **Security Groups : Relationships** | The direct parent/child edges between groups. | One row per edge, as configured in OneStream. |
+| **Security Groups : Relationships By Row** | Every ancestor/descendant pair, at any depth. | Flattened vertically: one row per pair, so nesting is already resolved. |
+
+The **By Row** view is the one to join against when checking what a group reaches, and together with [Users : Security Groups By Row](../Users/index.md#what-the-sync-brings-across) it is what makes row-level user security straightforward - a view can be filtered per user with a simple join, because inherited access is already resolved into rows.
+
 ## Where Security Groups are Used
 
 A security group is selected when configuring:
