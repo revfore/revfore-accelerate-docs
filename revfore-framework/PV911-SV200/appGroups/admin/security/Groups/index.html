@@ -2556,6 +2556,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-the-sync-brings-across" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the sync brings across
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#where-security-groups-are-used" class="md-nav__link">
     <span class="md-ellipsis">
       Where Security Groups are Used
@@ -3162,6 +3171,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-the-sync-brings-across" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the sync brings across
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#where-security-groups-are-used" class="md-nav__link">
     <span class="md-ellipsis">
       Where Security Groups are Used
@@ -3315,6 +3333,31 @@
 <li><strong>User membership</strong> – users are assigned to groups, which is what actually grants them access.</li>
 </ul>
 <p>Access through a nested hierarchy is resolved automatically: a user who is a member of a parent group has the access of its child groups, without needing to be added to each one.</p>
+<h2 id="what-the-sync-brings-across">What the sync brings across</h2>
+<p>Sync pulls in the <strong>group hierarchy</strong> as well as the groups themselves, and flattens it so access can be checked with a simple join rather than by walking the hierarchy.</p>
+<p>Both are visible on the <strong>View+</strong> screen:</p>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>Holds</th>
+<th>Shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Security Groups : Relationships</strong></td>
+<td>The direct parent/child edges between groups.</td>
+<td>One row per edge, as configured in OneStream.</td>
+</tr>
+<tr>
+<td><strong>Security Groups : Relationships By Row</strong></td>
+<td>Every ancestor/descendant pair, at any depth.</td>
+<td>Flattened vertically: one row per pair, so nesting is already resolved.</td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>By Row</strong> view is the one to join against when checking what a group reaches, and together with <a href="../Users/#what-the-sync-brings-across">Users : Security Groups By Row</a> it is what makes row-level user security straightforward - a view can be filtered per user with a simple join, because inherited access is already resolved into rows.</p>
 <h2 id="where-security-groups-are-used">Where Security Groups are Used</h2>
 <p>A security group is selected when configuring:</p>
 <ul>

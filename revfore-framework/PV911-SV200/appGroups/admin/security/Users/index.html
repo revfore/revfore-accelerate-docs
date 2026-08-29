@@ -2517,6 +2517,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-the-sync-brings-across" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the sync brings across
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#user-record-fields" class="md-nav__link">
     <span class="md-ellipsis">
       User Record Fields
@@ -3135,6 +3144,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#what-the-sync-brings-across" class="md-nav__link">
+    <span class="md-ellipsis">
+      What the sync brings across
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#user-record-fields" class="md-nav__link">
     <span class="md-ellipsis">
       User Record Fields
@@ -3223,6 +3241,31 @@
 </tr>
 </tbody>
 </table>
+<h2 id="what-the-sync-brings-across">What the sync brings across</h2>
+<p>Sync does more than list users. It also pulls in each user's <strong>security group assignments</strong>, and flattens them so access can be checked with a simple join rather than by walking the group hierarchy.</p>
+<p>Both are visible on the <strong>View+</strong> screen:</p>
+<table>
+<thead>
+<tr>
+<th>View</th>
+<th>Holds</th>
+<th>Shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Users : Security Groups</strong></td>
+<td>The groups a user is assigned to directly.</td>
+<td>One row per direct assignment, as configured in OneStream.</td>
+</tr>
+<tr>
+<td><strong>Users : Security Groups By Row</strong></td>
+<td>Every group a user has access through — direct assignments <strong>and</strong> those inherited through the group hierarchy.</td>
+<td>Flattened vertically: one row per user and group, at any depth.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>This is what makes row-level user security straightforward.</strong> Because inheritance is already resolved into rows, a view can be filtered per user with a simple join to the By Row view — no recursion through parent groups, and no working out inherited access at query time. A user sees only the rows their groups grant them.</p>
 <h2 id="user-record-fields">User Record Fields</h2>
 <p>The following fields are shown for a User record. All are populated from OneStream.</p>
 <table>
