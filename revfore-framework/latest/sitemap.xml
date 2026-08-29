@@ -41,23 +41,67 @@
          <lastmod>2026-08-29</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/modelDefinitions/</loc>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalModels/</loc>
          <lastmod>2026-08-29</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/modelDefinitions/columns/</loc>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalModels/columns/</loc>
          <lastmod>2026-08-29</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/modelDefinitions/models/</loc>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalModels/models/</loc>
          <lastmod>2026-08-29</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/modelDefinitions/relationships/</loc>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalModels/relationships/</loc>
          <lastmod>2026-08-29</lastmod>
     </url>
     <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/modelDefinitions/sources/</loc>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalModels/sources/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalTables/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalTables/columns/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalTables/indexes/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalTables/relationships/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalTables/tables/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalViews/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalViews/actions/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalViews/columns/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalViews/filters/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalViews/security/</loc>
+         <lastmod>2026-08-29</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/relationalViews/views/</loc>
          <lastmod>2026-08-29</lastmod>
     </url>
     <url>
@@ -78,50 +122,6 @@
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/supporting/standardColumns/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/tableDefinitions/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/tableDefinitions/columns/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/tableDefinitions/indexes/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/tableDefinitions/relationships/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/tableDefinitions/tables/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/viewDefinitions/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/viewDefinitions/actions/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/viewDefinitions/columns/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/viewDefinitions/filters/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/viewDefinitions/security/</loc>
-         <lastmod>2026-08-29</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.revfore.com/revfore-framework/PV911-SV200/appGroups/admin/relational/viewDefinitions/views/</loc>
          <lastmod>2026-08-29</lastmod>
     </url>
     <url>
