@@ -1,12 +1,12 @@
 # Forms
 
-[← Back to Admin](index.md)
+[← Back to Relational Supporting Overview](index.md)
 
 Forms provide **user-facing interfaces** for entering, editing, and managing data.
 
 They allow users to interact with relational data in a structured and intuitive way.
 
-Custom forms can be selected on [Custom View Actions](../admin/relationalViews/actions.md) and custom code can be added to a custom assembly file to handle custom logic.
+Custom forms can be selected on [Custom View Actions](../viewDefinitions/actions.md) and custom code can be added to a custom assembly file to handle custom logic.
 
 ## Overview
 

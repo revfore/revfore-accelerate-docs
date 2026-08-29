@@ -50,7 +50,7 @@ The following general actions can be added to most views.
 
 Custom actions can also be added.
 
-See [Custom Actions](../../appGroups/admin/relationalViews/actions.md#custom-actions)
+See [Custom Actions](../../appGroups/admin/relational/viewDefinitions/actions.md#custom-actions)
 
 This allows developers to extend the standard action set with solution-specific functionality.
 

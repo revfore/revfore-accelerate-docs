@@ -227,6 +227,6 @@ This allows users to review and analyze related data across master and transacti
 * * *
 
 ## Next Steps
-- Learn about [Relational Models](../appGroups/admin/relationalModels/index.md)
+- Learn about [Relational Models](../appGroups/admin/relational/modelDefinitions/index.md)
 - Learn about [Relational Views](views.md)
 - Review your table and relationship definitions before building more advanced views

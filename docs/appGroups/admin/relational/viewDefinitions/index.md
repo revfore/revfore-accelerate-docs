@@ -60,4 +60,4 @@ Each view definition consists of:
 - The following types of columns are helpful: Is Enabled
 - Don't add any actions
 - Add a 'Where Clause' to the lookup view if you need it to be filtered
-- Create new [Lookup](../lookups.md)
+- Create new [Lookup](../supporting/lookups.md)

@@ -1,6 +1,6 @@
 # Lookups
 
-[← Back to Admin](index.md)
+[← Back to Relational Supporting Overview](index.md)
 
 Lookups are used to define **standardized values and controlled lists** used throughout the solution.
 

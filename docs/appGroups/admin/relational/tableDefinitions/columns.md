@@ -96,7 +96,7 @@ Once all columns are created, create new [Relational Indexes](indexes.md)
 
     If you plan to use this model as a source for a 'Relational View' lookup or as a source for a 'Relational View' that supports importing from excel, spreadsheets or API, an [XRefUniqueCode](#ext-ref-unique-code-column) column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.  Define it in the Relational Table if you have an external system value, such as an external system primary key value, that needs to be stored in it for integration purposes.
 
-    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
+    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 

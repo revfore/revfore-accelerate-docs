@@ -80,7 +80,7 @@ Once all indexes are created, create new [Table Relationships](relationships.md)
 
     The Relational Index Name will be auto-assigned if blank or has the value 'Auto()' in it
 
-    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
+    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 

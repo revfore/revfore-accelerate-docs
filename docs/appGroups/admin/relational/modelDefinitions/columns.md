@@ -127,7 +127,7 @@ Once all columns are created, create new [Relational Model Relationships](relati
 
     For columns that are required to be unique, Use Always as the Copy Function Flag, Get_ColumnValues as the Copy Function and {MyColumnName()}{Copy()} as the Copy Expression
 
-    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records.
+    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records.
 
 ## Notes
 

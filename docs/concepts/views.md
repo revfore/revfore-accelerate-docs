@@ -292,7 +292,7 @@ This view also creates a SQL view that can be used for reporting and technical i
 * * *
 
 ## Next Steps
-- Learn about [Relational Views](../appGroups/admin/relationalViews/index.md)
+- Learn about [Relational Views](../appGroups/admin/relational/viewDefinitions/index.md)
 - Review your relational model to make sure it supports the intended view
 - Configure columns, actions, and filters based on the desired user experience
 - Sync the view definition to create or update the corresponding SQL view

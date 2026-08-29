@@ -41,26 +41,61 @@ nav:
       - Admin:
           - Overview: appGroups/admin/index.md
           - Relational Tables:
-              - Overview: appGroups/admin/relationalTables/index.md
-              - Tables: appGroups/admin/relationalTables/tables.md
-              - Columns: appGroups/admin/relationalTables/columns.md
-              - Indexes: appGroups/admin/relationalTables/indexes.md
-              - Relationships: appGroups/admin/relationalTables/relationships.md
+              - Overview: appGroups/admin/relational/tableDefinitions/index.md
+              - Tables: appGroups/admin/relational/tableDefinitions/tables.md
+              - Columns: appGroups/admin/relational/tableDefinitions/columns.md
+              - Indexes: appGroups/admin/relational/tableDefinitions/indexes.md
+              - Relationships: appGroups/admin/relational/tableDefinitions/relationships.md
           - Relational Models:
-              - Overview: appGroups/admin/relationalModels/index.md
-              - Models: appGroups/admin/relationalModels/models.md              
-              - Sources: appGroups/admin/relationalModels/sources.md
-              - Columns: appGroups/admin/relationalModels/columns.md
-              - Relationships: appGroups/admin/relationalModels/relationships.md
+              - Overview: appGroups/admin/relational/modelDefinitions/index.md
+              - Models: appGroups/admin/relational/modelDefinitions/models.md              
+              - Sources: appGroups/admin/relational/modelDefinitions/sources.md
+              - Columns: appGroups/admin/relational/modelDefinitions/columns.md
+              - Relationships: appGroups/admin/relational/modelDefinitions/relationships.md
           - Relational Views:
-              - Overview: appGroups/admin/relationalViews/index.md
-              - Views: appGroups/admin/relationalViews/views.md              
-              - Security: appGroups/admin/relationalViews/security.md                            
-              - Columns: appGroups/admin/relationalViews/columns.md
-              - Actions: appGroups/admin/relationalViews/actions.md
-              - Filters: appGroups/admin/relationalViews/filters.md
-          - Lookups: appGroups/admin/lookups.md
-          - Forms: appGroups/admin/forms.md
+              - Overview: appGroups/admin/relational/viewDefinitions/index.md
+              - Views: appGroups/admin/relational/viewDefinitions/views.md              
+              - Security: appGroups/admin/relational/viewDefinitions/security.md                            
+              - Columns: appGroups/admin/relational/viewDefinitions/columns.md
+              - Actions: appGroups/admin/relational/viewDefinitions/actions.md
+              - Filters: appGroups/admin/relational/viewDefinitions/filters.md
+          - Workflow:
+              - Units:
+                  - Overview: appGroups/admin/workflow/units/index.md
+                  - Units: appGroups/admin/workflow/units/units.md
+                  - Member Sets: appGroups/admin/workflow/units/memberSets.md
+              - Instances:
+                  - Overview: appGroups/admin/workflow/instances/index.md
+                  - Instances: appGroups/admin/workflow/instances/instances.md
+                  - Instance Types: appGroups/admin/workflow/instances/instanceTypes.md
+              - Areas: appGroups/admin/workflow/areas/index.md
+              - Supporting:
+                  - Overview: appGroups/admin/workflow/supporting/index.md
+                  - Member Set Types: appGroups/admin/workflow/supporting/memberSetTypes.md
+                  - Item Categories: appGroups/admin/workflow/supporting/itemCategories.md
+                  - Item Categories - Member Sets: appGroups/admin/workflow/supporting/itemCategoryMemberSets.md
+                  - Item Types: appGroups/admin/workflow/supporting/itemTypes.md
+                  - Item Types - Workflow Areas: appGroups/admin/workflow/supporting/itemTypeAreas.md
+                  - Item Types - Item Categories: appGroups/admin/workflow/supporting/itemTypeItemCategories.md
+          - Database:
+              - Overview: appGroups/admin/relational/database/index.md
+              - Tables: appGroups/admin/relational/database/tables.md
+              - Views: appGroups/admin/relational/database/views.md
+          - Supporting:
+              - Overview: appGroups/admin/relational/supporting/index.md
+              - Standard Columns: appGroups/admin/relational/supporting/standardColumns.md
+              - Lookups: appGroups/admin/relational/supporting/lookups.md
+              - Cube Views: appGroups/admin/relational/supporting/cubeViews.md
+              - Forms: appGroups/admin/relational/supporting/forms.md
+          - Cube:
+              - Cubes: appGroups/admin/cube/cubes/index.md
+              - Dimension Members:
+                  - Overview: appGroups/admin/cube/dimensionMembers/index.md
+                  - Dimensions: appGroups/admin/cube/dimensionMembers/dimensions.md
+                  - Members: appGroups/admin/cube/dimensionMembers/members.md
+          - Security:
+              - Users: appGroups/admin/security/Users/index.md
+              - Groups: appGroups/admin/security/Groups/index.md
       - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
   - Integrations: 

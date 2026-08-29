@@ -150,6 +150,6 @@ Then:
 
 ## 👉 Next Steps
 
-- Learn about [Relational Tables](../appGroups/admin/relationalTables/index.md)
+- Learn about [Relational Tables](../appGroups/admin/relational/tableDefinitions/index.md)
 - Learn about [Relational Models](models.md)
 - Explore [Relational Views](views.md)

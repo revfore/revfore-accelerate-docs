@@ -67,7 +67,7 @@ General actions can be added.
 4. Click on the **Import** button
 5. Check all desired **Actions** from the Actions tab and click **OK**
 
-See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information
+See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information
 
 ## Custom Actions
 

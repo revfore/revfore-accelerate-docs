@@ -12,11 +12,11 @@ While the **Config** application group is focused on setup, upgrades, and system
 
 The Admin application group includes the following sections:
 
-- [Relational Tables](relationalTables\index.md)
-- [Relational Models](relationalModels\index.md)
-- [Relational Views](relationalViews\index.md)
-- [Lookups](lookups.md)
-- [Forms](forms.md)
+- [Relational Tables](relational/tableDefinitions/index.md)
+- [Relational Models](relational/modelDefinitions/index.md)
+- [Relational Views](relational/viewDefinitions/index.md)
+- [Lookups](relational/supporting/lookups.md)
+- [Forms](relational/supporting/forms.md)
 
 ---
 

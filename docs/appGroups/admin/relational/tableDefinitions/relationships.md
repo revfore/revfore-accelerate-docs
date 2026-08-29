@@ -75,7 +75,7 @@ When defining relationships:
 
     The Related To Column 1 will auto-populate to the primary key of the Related To Table if blank.
     
-    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
+    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 

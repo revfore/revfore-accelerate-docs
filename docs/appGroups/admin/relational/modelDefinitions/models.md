@@ -61,7 +61,7 @@ Use relational models to define data structures such as:
 !!! note "Important Notes"
     The Ext Ref Unique Code and Relational Model Id will be auto-assigned.
 
-    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records.
+    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records.
 
 ## Notes
 

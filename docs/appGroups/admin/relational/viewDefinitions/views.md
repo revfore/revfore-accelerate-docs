@@ -80,7 +80,7 @@ The following fields are used for a Relational View header record.
 
     If Lookups need to be created for the underlying relation model, you will want to create a separate Lookup Relational View for it.  See [Tips for Lookup Views](index.md#tips-for-lookup-views)
     
-    See [General Actions](../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
+    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 
