@@ -61,7 +61,7 @@ The following fields are used for a Relational View header record.
 
 ## Create a new Relational View
 
-1. Go to **Admin | Relational Views**
+1. Go to **Admin | Relational | Relational Views**
 2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**

@@ -57,4 +57,4 @@ The following fields are used for a Relational Standard Column record.
 
 - Standard columns are shared across every solution in the application; treat them as read-only unless there is a clear reason to change one.
 - If no standard column fits a requirement, review the list again before adding one — the intended column often exists under a different name.
-- See [Table Columns](../tableDefinitions/columns.md) for how a standard column is applied when defining a column.
+- See [Table Columns](../relationalTables/columns.md) for how a standard column is applied when defining a column.

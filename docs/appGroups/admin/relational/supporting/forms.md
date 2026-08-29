@@ -6,7 +6,7 @@ Forms provide **user-facing interfaces** for entering, editing, and managing dat
 
 They allow users to interact with relational data in a structured and intuitive way.
 
-Custom forms can be selected on [Custom View Actions](../viewDefinitions/actions.md) and custom code can be added to a custom assembly file to handle custom logic.
+Custom forms can be selected on [Custom View Actions](../relationalViews/actions.md) and custom code can be added to a custom assembly file to handle custom logic.
 
 ## Overview
 
@@ -49,7 +49,7 @@ The following fields are used for a Form record.
 
 ## Create a new Form
 
-1. Go to **Admin | Forms**
+1. Go to **Admin | Relational | Supporting**
 2. Click on '**Add**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**

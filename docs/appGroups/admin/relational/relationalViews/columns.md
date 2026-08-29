@@ -73,7 +73,7 @@ When defining view columns:
 
 ## Import new Relational View Columns
 
-1. Go to **Admin | Relational Views**
+1. Go to **Admin | Relational | Relational Views**
 2. Select the desired Relational View and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Actions**'
 4. Click on the **Import** button
@@ -81,7 +81,7 @@ When defining view columns:
 
 ## Create a new Relational View Column
 
-1. Go to **Admin | Relational Views**
+1. Go to **Admin | Relational | Relational Views**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Columns**'
 4. In the '**Relational Views : Columns**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 

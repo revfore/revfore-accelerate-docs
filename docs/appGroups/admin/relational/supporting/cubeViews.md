@@ -59,5 +59,5 @@ The following fields are used for a Cube View record.
 
 ## Notes
 
-- A cube view presents an existing relational object — define the [relational view](../viewDefinitions/index.md) first.
+- A cube view presents an existing relational object — define the [relational view](../relationalViews/index.md) first.
 - Disabling a view removes it from presentation but leaves the definition in place.

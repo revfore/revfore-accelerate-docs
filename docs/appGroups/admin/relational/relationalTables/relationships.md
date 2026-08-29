@@ -59,7 +59,7 @@ When defining relationships:
 
 ## Create a new Relational Table Relationship
 
-1. Go to **Admin | Relational Tables**
+1. Go to **Admin | Relational | Relational Tables**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Tables : Relationships**'
 4. In the '**Relational Tables : Relationships**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 

@@ -52,7 +52,7 @@ When defining security:
 
 ## Configure Relational View Security
 
-1. Go to **Admin | Relational Views**
+1. Go to **Admin | Relational | Relational Views**
 2. Select the **Security** page
 3. Select the desired Relational View
 4. Click on '**Edit**' or '**Enable Inline Adding & Editing**' 

@@ -46,7 +46,7 @@ When defining model relationships:
 
 ## Import a new Model Relationship (Recommended)
 
-1. Go to **Admin | Relational Models**
+1. Go to **Admin | Relational | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
 3. In the Child Views list, select **Relational Models : Relationships**
 4. In the **Relational Models : Relationships** section, click on **Import**
@@ -55,7 +55,7 @@ When defining model relationships:
 
 ## Create a new Model Relationship
 
-1. Go to **Admin | Relational Models**
+1. Go to **Admin | Relational | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
 3. In the Child Views list, select **Relational Models : Sources**
 4. In the **Relational Models : Sources** section, click on **Add** or **Enable Inline Adding & Editing**

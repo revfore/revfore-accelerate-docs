@@ -66,7 +66,7 @@ The inspection shows the view's columns, the SQL it was scripted from, and its d
 2. Open the **Views** page
 3. Select a view that has no Relational Object shown
 4. Click **Add Definition**
-5. Review the created definition under [Relational Views](../viewDefinitions/index.md)
+5. Review the created definition under [Relational Views](../relationalViews/index.md)
 
 !!!Note Important Notes
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about working with records

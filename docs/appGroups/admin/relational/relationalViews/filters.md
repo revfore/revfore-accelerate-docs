@@ -56,7 +56,7 @@ When defining filters:
 
 ## Create a new Relational View Filters
 
-1. Go to **Admin | Relational Views**
+1. Go to **Admin | Relational | Relational Views**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Filters**'
 4. In the '**Relational Views : Filters**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 

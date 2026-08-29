@@ -66,7 +66,7 @@ The following fields are shown for each database table.
 2. Open the **Tables** page
 3. Select a table that has no Relational Object shown
 4. Click **Add Definition**
-5. Review the created definition under [Relational Tables](../tableDefinitions/index.md)
+5. Review the created definition under [Relational Tables](../relationalTables/index.md)
 
 !!!Note Important Notes
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about working with records

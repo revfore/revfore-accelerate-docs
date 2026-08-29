@@ -64,7 +64,7 @@ When working with indexes:
 
 ## Create a new Relational Index
 
-1. Go to **Admin | Relational Tables**
+1. Go to **Admin | Relational | Relational Tables**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Tables : Indexes**'
 4. In the '**Relational Tables : Indexes**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 

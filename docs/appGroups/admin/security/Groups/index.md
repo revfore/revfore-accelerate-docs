@@ -44,7 +44,7 @@ Access through a nested hierarchy is resolved automatically: a user who is a mem
 
 A security group is selected when configuring:
 
-- [Relational Views](../../relational/viewDefinitions/security.md) – who can see and edit a view
+- [Relational Views](../../relational/relationalViews/security.md) – who can see and edit a view
 - [Workflow Units](../../workflow/units/units.md) – read-write and read-only access to a unit's data
 - [Workflow Instances](../../workflow/instances/instances.md) – read-write and read-only access to a cycle's data
 

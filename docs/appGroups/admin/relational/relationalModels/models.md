@@ -48,7 +48,7 @@ Use relational models to define data structures such as:
 
 ## Create a new Relational Model
 
-1. Go to **Admin | Relational Models**
+1. Go to **Admin | Relational | Relational Models**
 2. Click on **Add+** or **Enable Inline Adding & Editing**
 3. Click on the **+** button on the top left of the grid
 4. Enter required fields and click **Save**

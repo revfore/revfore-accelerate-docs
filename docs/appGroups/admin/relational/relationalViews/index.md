@@ -4,6 +4,8 @@
 
 Relational Views provide reusable, user-facing representations of relational data in Revfore Framework.
 
+A relational view is **defined here and generated as a SQL view in the database**. The definition is what you edit; the generated view is what queries actually run against, and it can be inspected under [Database | Views](../database/views.md).
+
 Views leverage **Relational Models** as their foundation. A single relational model can support many relational views, each designed for a different use case such as data creation/entry, lookup or reporting/analysis.
 
 ## Overview

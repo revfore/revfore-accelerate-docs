@@ -61,7 +61,7 @@ When defining actions:
 
 General actions can be added.
 
-1. Go to **Admin | Relational Views**
+1. Go to **Admin | Relational | Relational Views**
 2. Select the desired Relational View and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Actions**'
 4. Click on the **Import** button
@@ -73,7 +73,7 @@ See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-a
 
 Custom actions can also be added.
 
-1. Go to **Admin | Relational Views**
+1. Go to **Admin | Relational | Relational Views**
 2. Select the desired Relational View and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Actions**'
 4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 

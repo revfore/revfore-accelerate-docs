@@ -70,7 +70,7 @@ When defining columns:
 
 ## Create a new Relational Column
 
-1. Go to **Admin | Relational Tables**
+1. Go to **Admin | Relational | Relational Tables**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Tables : Columns**'
 4. In the '**Relational Tables : Columns**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 

@@ -10,13 +10,27 @@ While the **Config** application group is focused on setup, upgrades, and system
 
 ## Admin Sections
 
-The Admin application group includes the following sections:
+The Admin application group is organised into four sections:
 
-- [Relational Tables](relational/tableDefinitions/index.md)
-- [Relational Models](relational/modelDefinitions/index.md)
-- [Relational Views](relational/viewDefinitions/index.md)
-- [Lookups](relational/supporting/lookups.md)
-- [Forms](relational/supporting/forms.md)
+**Relational** – the relational data model and the database behind it
+
+- [Database](relational/database/index.md) – the tables and views that physically exist in the database
+- [Relational Tables](relational/relationalTables/index.md) – table definitions, columns, indexes and relationships
+- [Relational Models](relational/relationalModels/index.md) – models, sources, columns and relationships
+- [Relational Views](relational/relationalViews/index.md) – views, security, columns, actions and filters
+- [Supporting](relational/supporting/index.md) – standard columns, lookups, cube views and forms
+
+**Workflow** – the workflow structures a process runs against
+
+- [Units](workflow/units/index.md), [Instances](workflow/instances/index.md), [Areas](workflow/areas/index.md) and [Supporting](workflow/supporting/index.md)
+
+**Cube** – the OneStream cubes and dimension members relational data maps to
+
+- [Cubes](cube/cubes/index.md) and [Dimension Members](cube/dimensionMembers/index.md)
+
+**Security** – who can see and edit data
+
+- [Users](security/Users/index.md) and [Groups](security/Groups/index.md)
 
 ---
 
@@ -32,9 +46,9 @@ Use the Admin application group to:
 
 ---
 
-## How the Sections Work Together
+## How the Relational Sections Work Together
 
-The Admin components are designed to work together as part of a relational framework:
+The Relational components are designed to work together as part of a relational framework:
 
 ### Relational Tables
 Define the core business entities and store detailed data.
@@ -55,7 +69,7 @@ Provide user-facing interfaces for entering and managing data.
 
 ## Typical Workflow
 
-A common workflow in the Admin application group:
+A common workflow when building a relational solution:
 
 1. Create **Relational Tables** to define your data structure  
 2. Build **Relational Models** to link those tables together  

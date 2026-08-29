@@ -51,7 +51,7 @@ Use relational tables to define business entities and objects such as:
   
 ## Create a new Relational Table
 
-1. Go to **Admin | Relational Tables**
+1. Go to **Admin | Relational | Relational Tables**
 2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**

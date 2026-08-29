@@ -101,7 +101,7 @@ When defining model columns:
 
 ## Create a new Model Column
 
-1. Go to **Admin | Relational Models**
+1. Go to **Admin | Relational | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
 3. In the Child Views list, select **Relational Models : Columns**
 4. In the **Relational Models : Columns** section, click on **Add** or **Enable Inline Adding & Editing**

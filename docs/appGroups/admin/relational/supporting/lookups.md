@@ -51,7 +51,7 @@ The following fields are used for a Lookup record.
 
 ## Create a new Lookup
 
-1. Go to **Admin | Lookups**
+1. Go to **Admin | Relational | Supporting**
 2. Click on '**Add**' or '**Enable Inline Adding & Editing**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
