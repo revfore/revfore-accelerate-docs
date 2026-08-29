@@ -297,7 +297,7 @@
           <li class="md-nav__item">
   <a href="#claude-assisted-design-and-file-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      Claude assisted design and file creation
+      Claude-assisted design and file creation
     </span>
   </a>
   
@@ -3075,7 +3075,7 @@
           <li class="md-nav__item">
   <a href="#claude-assisted-design-and-file-creation" class="md-nav__link">
     <span class="md-ellipsis">
-      Claude assisted design and file creation
+      Claude-assisted design and file creation
     </span>
   </a>
   
@@ -3202,9 +3202,10 @@
 <hr />
 <h2 id="core-concepts">🧠 Core Concepts</h2>
 <p>Before you begin, it’s helpful to understand a few key ideas:</p>
-<h3 id="claude-assisted-design-and-file-creation">Claude assisted design and file creation</h3>
+<h3 id="claude-assisted-design-and-file-creation">Claude-assisted design and file creation</h3>
+<p>Requirements are turned into the files a solution is built from — the JSON that defines its tables, models and views, the JSON that seeds its reference data, and the C# that implements its business logic. You review and adjust those files rather than writing them from scratch.</p>
 <h3 id="database-tables-views">Database Tables &amp; Views</h3>
-<p>??</p>
+<p>The physical objects in the database, as opposed to the definitions below that describe them. A definition is what you edit; syncing it creates or updates the real table or view. Both are visible in the application, so the two can be compared when they drift apart.</p>
 <h3 id="relational-table-definitions">Relational Table Definitions</h3>
 <p>Structured datasets that store your business data and define how that data links together through relationships<br />
 (e.g., Customers, Rates, Employees, Assets, Products, Requests)</p>
@@ -3217,53 +3218,58 @@
 <hr />
 <h2 id="basic-workflow">⚙️ Basic Workflow</h2>
 <p>Here’s the typical process for building a solution:</p>
-<p>1  **Gather requirements</p>
 <ol>
 <li>
-<p>**Use Claude to review the requirements, design and create json schem, json data and code assembly files</p>
+<p><strong>Gather requirements</strong></p>
 </li>
 <li>
-<p>**Import the json schema files</p>
+<p><strong>Use Claude to review the requirements, then design and create the JSON schema, JSON data, and code assembly files</strong></p>
+</li>
+<li>
+<p><strong>Import the JSON schema files</strong></p>
 </li>
 <li>
 <p>This will create all your table, model and view definitions</p>
 </li>
 <li>
-<p>**Review and Sync table and view definitions</p>
+<p><strong>Review and sync the table and view definitions</strong></p>
 </li>
 <li>
 <p>This will create the database tables and views</p>
 </li>
 <li>
-<p>**Import json data files for supporting tables</p>
+<p><strong>Import the JSON data files for supporting tables</strong></p>
 </li>
 <li>
-<p>Now that the database tables and view are created, data can be imported into them.</p>
+<p>Now that the database tables and views are created, data can be imported into them</p>
 </li>
 <li>
-<p>**Add code assembly files</p>
+<p><strong>Add the code assembly files</strong></p>
 </li>
 <li>
-<p>This will put in place all the logic that needs to run when data is entered, submitted, etc.</p>
+<p>This will put in place all the logic that needs to run when data is entered, submitted, and so on</p>
 </li>
 <li>
-<p>**Add new Genesis navigation groups and pages</p>
+<p><strong>Add new Genesis navigation groups and pages</strong></p>
 </li>
 <li>
-<p>**Link Revfore to Genesis pages and configure the presentation</p>
+<p><strong>Link Revfore to the Genesis pages and configure the presentation</strong></p>
 </li>
 <li>
-<p>**Start using the solution</p>
+<p><strong>Start using the solution</strong></p>
 </li>
 </ol>
 <hr />
 <h2 id="your-first-use-case">🏁 Your First Use Case</h2>
 <p>A common starting point:</p>
 <blockquote>
-<p>Open Claude and start prompting to help you build a simple solution that handles a particular use-case</p>
+<p>Open Claude and start prompting to help you build a simple solution that handles a particular use case</p>
 </blockquote>
-<p>Example:
-???</p>
+<p>Example:</p>
+<blockquote>
+<p>"I need to capture rate changes by product and effective date, with an approver on each change. "
+"Design the tables, models and views for that and generate the import JSON."</p>
+</blockquote>
 <hr />
 <h2 id="tips">💡 Tips</h2>
 <ul>
