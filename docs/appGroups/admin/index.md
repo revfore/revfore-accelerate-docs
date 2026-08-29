@@ -26,7 +26,7 @@ The Admin application group is organised into four sections:
 
 **Cube** – the OneStream cubes and dimension members relational data maps to
 
-- [Cubes](cube/cubes/index.md) and [Dimension Members](cube/dimensionMembers/index.md)
+- [Cubes](cube/cubes/index.md), [Dimension Members](cube/dimensions/index.md) and [Dimension Types](cube/supporting/index.md)
 
 **Security** – who can see and edit data
 

@@ -89,11 +89,12 @@ nav:
                   - Item Types - Workflow Areas: appGroups/admin/workflow/supporting/itemTypeAreas.md
                   - Item Types - Item Categories: appGroups/admin/workflow/supporting/itemTypeItemCategories.md
           - Cube:
-              - Cubes: appGroups/admin/cube/cubes/index.md
-              - Dimension Members:
-                  - Overview: appGroups/admin/cube/dimensionMembers/index.md
-                  - Dimensions: appGroups/admin/cube/dimensionMembers/dimensions.md
-                  - Members: appGroups/admin/cube/dimensionMembers/members.md
+              - Cubes:
+                  - Cubes: appGroups/admin/cube/cubes/index.md
+              - Dimensions:
+                  - Dimension Members: appGroups/admin/cube/dimensions/index.md
+              - Supporting:
+                  - Dimension Types: appGroups/admin/cube/supporting/index.md
           - Security:
               - Users: appGroups/admin/security/Users/index.md
               - Groups: appGroups/admin/security/Groups/index.md

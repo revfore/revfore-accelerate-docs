@@ -31,12 +31,37 @@ Before getting started, make sure your environment is ready:
 
 ---
 
+## 🤖 AI Tooling
+
+Solutions are designed and built with AI assistance. Two tools are involved, and only the second is required.
+
+### Custom GPT — optional
+
+The **Revfore Framework Assistant** is a custom GPT for the ideation stage. It is quicker to think out loud in, and good for shaping a solution before any files exist.
+
+[Revfore Framework Assistant (V200)](https://chatgpt.com/g/g-6a763d1d09688191ac7d1b3988aefabd-revfore-framework-assistant-v200)
+
+!!! note "Access required"
+    The custom GPT is not publicly available. Request access from Revfore before using the link above.
+
+You can skip it entirely — Claude can take requirements directly and do the ideation itself. Use the GPT when you want to explore a problem before committing to a design; go straight to Claude when the requirements are already clear.
+
+### Claude — required
+
+Claude does the engineering and build: it turns a design, or requirements directly, into the import JSON and the C# a solution is made of.
+
+Revfore publishes a **Claude skill** for this. The skill gives Claude the Framework's schema, conventions, standard columns, core table structures, and worked examples, so what it generates follows the same rules a hand-built solution is held to. Install the skill before you start — without it, Claude has no knowledge of the Framework.
+
+See [AI Model Integrations](integrations/aiModels/index.md) for how the two stages fit together.
+
+---
+
 ## 🧠 Core Concepts
 
 Before you begin, it’s helpful to understand a few key ideas:
 
-### Claude-assisted design and file creation
-Requirements are turned into the files a solution is built from — the JSON that defines its tables, models and views, the JSON that seeds its reference data, and the C# that implements its business logic. You review and adjust those files rather than writing them from scratch.
+### AI-assisted design and file creation
+Requirements are turned into the files a solution is built from — the JSON that defines its tables, models and views, the JSON that seeds its reference data, and the C# that implements its business logic. You review and adjust those files rather than writing them from scratch. See [AI Model Integrations](integrations/aiModels/index.md) for how this works.
 
 ### Database Tables & Views
 The physical objects in the database, as opposed to the definitions below that describe them. A definition is what you edit; syncing it creates or updates the real table or view. Both are visible in the application, so the two can be compared when they drift apart.
@@ -62,25 +87,28 @@ Here’s the typical process for building a solution:
 
 1. **Gather requirements**
 
-2. **Use Claude to review the requirements, then design and create the JSON schema, JSON data, and code assembly files**
+2. **Shape the solution in the custom GPT** *(optional)*
+   - Produces a written design to take forward. Skip this and go straight to Claude if the requirements are already clear
 
-3. **Import the JSON schema files**
+3. **Use Claude to review the requirements or design, then create the JSON schema, JSON data, and code assembly files**
+
+4. **Import the JSON schema files**
    - This will create all your table, model and view definitions
 
-4. **Review and sync the table and view definitions**
+5. **Review and sync the table and view definitions**
    - This will create the database tables and views
 
-5. **Import the JSON data files for supporting tables**
+6. **Import the JSON data files for supporting tables**
    - Now that the database tables and views are created, data can be imported into them
 
-6. **Add the code assembly files**
+7. **Add the code assembly files**
    - This will put in place all the logic that needs to run when data is entered, submitted, and so on
 
-7. **Add new Genesis navigation groups and pages**
+8. **Add new Genesis navigation groups and pages**
 
-8. **Link Revfore to the Genesis pages and configure the presentation**
+9. **Link Revfore to the Genesis pages and configure the presentation**
 
-9. **Start using the solution**
+10. **Start using the solution**
 
 ---
 

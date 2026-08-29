@@ -6,30 +6,35 @@ Users are the **people who use the solution**.
 
 A user record identifies an individual and carries the settings that control how they access the application and what they are licensed for.
 
+!!! note "Read-only"
+    Users come from OneStream and are refreshed by **Sync**. They cannot be added or edited here. To change a user, change it in OneStream and sync again.
+
 ## Overview
 
-Use Users to:
+Use the Users page to:
 
-- register the people who use the solution
-- control which application modes a user can work in
-- limit access to a period of time using effective dates
-- enable or disable a user without removing them
+- see which users the Framework knows about
+- refresh the list after users change in OneStream
+- re-establish the link to a OneStream record where it has been lost
 
 Access to data is granted through [Security Groups](../Groups/index.md) rather than directly on the user record.
 
+## Actions
+
+| Action | What it does | Notes |
+|---|---|---|
+| **Sync** | Sync with OneStream Users and Security Groups. | Brings the current set of users and groups across from OneStream. Run it after users are added, removed, or changed there.
+| **Relink** | Relink to OneStream records. | Re-establishes the link between a Framework record and its OneStream counterpart, for cases where the two have become disconnected.
+
 ## User Record Fields
 
-The following fields are used for a User record.
+The following fields are shown for a User record. All are populated from OneStream.
 
 | Field | Data Type| Purpose | Notes |
 |---|---|---|---|
 | User Number | nvarchar | Identifying number for the user. | Required.
 | User Name | nvarchar | Name of the user. | Required.
 | User Description | nvarchar | Description or additional detail about the user. |
-| Person | int | The person record this user is associated with. |
-| License Type | int | The licence the user is assigned. | Determines what the user is entitled to use.
-| Default Application Mode | int | The mode the application opens in for this user. |
-| Application Mode Flags | int | The modes this user is permitted to work in. |
 | Comments | nvarchar | Free-text comments about the user. |
 | Effective Start Date | date | Date the user becomes active. | Defaults to 1900-01-01.
 | Effective End Date | date | Date the user stops being active. | Defaults to 2999-12-31. Use this rather than deleting a user who has left.
@@ -49,22 +54,15 @@ The user record is referenced throughout the solution:
 - as the owner, approver or other business contact on solution tables
 - as a member of one or more [Security Groups](../Groups/index.md), which is what grants access to data
 
-## Create a new User
+## Sync users from OneStream
 
 1. Go to **Admin | Security | Users**
-2. Click on '**Add+**' or '**Add & Edit in Grid**'
-3. Click on the '**+**' button on the top left of the grid
-4. Enter required fields and click **Save**
-5. Add the user to the [Security Groups](../Groups/index.md) that grant the access they need
+2. Click **Sync**
 
-**Add & Edit in Grid** allows adding and modifying rows directly in the grid
-
-!!!Note Important Notes
-    The Integration Code and User Id will be auto-assigned
-
-    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
+Syncing brings the current set of users and security groups across from OneStream.
 
 ## Notes
 
 - A user with no security group membership can sign in but will not see data that is secured.
-- Use effective dates to retire a user rather than deleting the record, so the audit trail on existing data stays intact.
+- A user missing here has usually been added in OneStream but not yet synced.
+- Because users mirror OneStream, retire a user there rather than trying to remove them here.

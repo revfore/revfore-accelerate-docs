@@ -4,18 +4,20 @@ Revfore Framework is designed so that a solution's structure can be **generated 
 
 Because tables, models, and views are defined as metadata — importable JSON rather than hand-written SQL and screens — an AI model can produce a complete, reviewable solution definition, and that definition can be validated before anything reaches the database.
 
-Two AI tools are used, at two different stages.
+Two AI tools can be used, at two different stages.
 
 ## The two stages
 
 | Stage | Tool | Produces |
 |---|---|---|
-| **Ideation and design** | Revfore Framework custom GPT | A written solution design — the tables, models, views, lookups, actions and behaviour a solution needs, and why |
+| **Ideation and design** | Revfore Framework custom GPT *(optional)* | A written solution design — the tables, models, views, lookups, actions and behaviour a solution needs, and why |
 | **Engineering and build** | Claude | The import JSON and the C# that implement that design |
 
 The design is the handoff. You work through the shape of a solution in the GPT, then take the finished design to Claude, which turns it into the files you actually import.
 
-## Custom GPT — ideation and design
+**The first stage is optional.** Claude can take requirements directly and do the ideation itself, so you can skip the GPT entirely and work end to end in one place. The two-stage route exists because the GPT is quicker to think out loud in — it is a convenience, not a prerequisite.
+
+## Custom GPT — ideation and design (optional)
 
 The Revfore Framework custom GPT is the **thinking-out-loud stage**. It is fast at exploring requirements, answering product questions, and shaping a solution before any files exist.
 
@@ -30,7 +32,9 @@ It knows the Framework's schema, conventions, standard columns, and existing pla
 
 ## Claude — engineering and build
 
-Claude takes the finished design and produces the files a solution is actually made of:
+Claude can start from either end: a finished design handed over from the GPT, or the raw requirements themselves — in which case it does the ideation and requirement ingestion as well.
+
+From there it produces the files a solution is actually made of:
 
 - the import JSON that defines the tables, models, views and lookups
 - the import JSON that seeds reference data
@@ -66,7 +70,7 @@ Claude validates what it generates against the Framework's schema and convention
 
 ## Notes
 
-- The two stages are deliberately separate: the GPT is quick and exploratory, Claude is precise and produces the deliverables.
+- Where both stages are used they are deliberately separate: the GPT is quick and exploratory, Claude is precise and produces the deliverables. Using Claude alone is a perfectly good route, and the better one when the requirements are already clear.
 - Generated output is always reviewed before import — nothing reaches the database without a person applying it.
-- The design produced in the first stage is what makes the second stage reliable; a vague design produces vague files.
+- However the design is arrived at — in the GPT or in Claude — it is what makes the build reliable; a vague design produces vague files.
 - See [Getting Started](../../getting-started.md) for where these stages sit in the overall build process.

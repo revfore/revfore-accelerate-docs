@@ -2,38 +2,38 @@
 
 [← Back to Admin](../../index.md)
 
-Cubes are the **OneStream cubes the Framework reads from and writes to**.
+Cubes are the **OneStream cubes available to the Framework**.
 
-Registering a cube makes it available for selection wherever relational data is mapped to cube data — workflow areas, unit member sets, item types, and item category member sets.
+This page lists the cubes brought across from OneStream. They are what you select wherever relational data is mapped to cube data — workflow areas, unit member sets, item types, and item category member sets.
+
+!!! note "Read-only"
+    Cubes come from OneStream and are refreshed by **Sync**. They cannot be added or edited here. To change a cube, change it in OneStream and sync again.
 
 ## Overview
 
-Use Cubes to:
+Use the Cubes page to:
 
-- register the OneStream cubes the solution uses
-- review the cubes already available for selection
-- limit a cube to a period of time using effective dates
-- enable or disable a cube without removing it
-
-A cube record here is a reference to a cube that exists in OneStream. It does not create the cube.
+- see which OneStream cubes are available for selection
+- confirm a cube exists before mapping data to it
+- refresh the list after a cube is added or changed in OneStream
 
 ## Cube Record Fields
 
-The following fields are used for a Cube record.
+The following fields are shown for a Cube record. All are populated from OneStream.
 
 | Field | Data Type| Purpose | Notes |
 |---|---|---|---|
-| Cube Name | nvarchar | Name of the cube. | Should match the cube name in OneStream.
-| Cube Description | nvarchar | Description of the cube and its purpose. |
-| Effective Start Date | date | Date the cube becomes available for selection. | Defaults to 1900-01-01.
-| Effective End Date | date | Date the cube stops being available for selection. | Defaults to 2999-12-31.
+| Cube Name | nvarchar | Name of the cube in OneStream. |
+| Cube Description | nvarchar | Description of the cube. |
+| Effective Start Date | date | Date the cube becomes available for selection. |
+| Effective End Date | date | Date the cube stops being available for selection. |
 | Is Enabled | bit | Indicates whether the cube is enabled for use. |
-| Integration Code | nvarchar | Unique value for the cube record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the cube record. | Used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the cube record. |
 | Modified By | int | User who last modified the cube record. |
-| Cube Id | int | Unique identifier for the cube record. | If you leave blank, the system will auto assign
+| Cube Id | int | Unique identifier for the cube record. |
 
 ## Where Cubes are Used
 
@@ -44,22 +44,14 @@ A cube is selected when configuring:
 - [Workflow Item Types](../../workflow/supporting/itemTypes.md) – the cube an item type's data belongs to
 - [Item Category Member Sets](../../workflow/supporting/itemCategoryMemberSets.md) – the cube a category's data is written to
 
-## Create a new Cube
+## Sync cubes from OneStream
 
 1. Go to **Admin | Cube | Cubes**
-2. Click on '**Add+**' or '**Add & Edit in Grid**'
-3. Click on the '**+**' button on the top left of the grid
-4. Enter the cube name and any remaining fields, then click **Save**
+2. Click **Sync**
 
-**Add & Edit in Grid** allows adding and modifying rows directly in the grid
-
-!!!Note Important Notes
-    The Integration Code and Cube Id will be auto-assigned
-
-    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
+Syncing brings the current set of cubes across from OneStream. Run it after a cube is added, renamed, or removed there.
 
 ## Notes
 
-- Register only the cubes the solution actually posts to or reads from.
-- Disabling a cube removes it from selection lists but leaves existing configuration intact.
-- Cube names should match OneStream exactly, since the name is how the cube is identified when data is synced.
+- A cube that is missing here almost always means it has been added in OneStream but not yet synced.
+- Because the list mirrors OneStream, removing a cube there and re-syncing affects any configuration already pointing at it.

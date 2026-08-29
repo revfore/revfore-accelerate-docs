@@ -6,18 +6,27 @@ Security Groups are **how access to data is granted**.
 
 Users are not given access directly. They are placed in groups, and groups are assigned to the things that need securing — relational views, workflow units, and workflow instances.
 
+!!! note "Read-only"
+    Security groups come from OneStream and are refreshed by **Sync**. They cannot be added or edited here, and group membership is maintained in OneStream. To change a group, change it in OneStream and sync again.
+
 ## Overview
 
-Use Security Groups to:
+Use the Security Groups page to:
 
-- define the groups the solution uses to control access
-- build a hierarchy by nesting groups within parent groups
-- assign users to the groups that grant them access
-- enable or disable a group without removing it
+- see which groups are available to assign
+- refresh the list after groups change in OneStream
+- re-establish the link to a OneStream record where it has been lost
+
+## Actions
+
+| Action | What it does | Notes |
+|---|---|---|
+| **Sync** | Sync with OneStream Users and Security Groups. | Brings the current set of users and groups across from OneStream. Run it after groups are added, removed, or changed there.
+| **Relink** | Relink to OneStream records. | Re-establishes the link between a Framework record and its OneStream counterpart, for cases where the two have become disconnected.
 
 ## Security Group Record Fields
 
-The following fields are used for a Security Group record.
+The following fields are shown for a Security Group record. All are populated from OneStream.
 
 | Field | Data Type| Purpose | Notes |
 |---|---|---|---|
@@ -33,7 +42,7 @@ The following fields are used for a Security Group record.
 
 ## Group Hierarchy and Membership
 
-Two relationships sit alongside the group record:
+Two relationships sit alongside the group record, both maintained in OneStream:
 
 - **Parent groups** – a group can be nested within another group, so access granted to a parent flows down to its children.
 - **User membership** – users are assigned to groups, which is what actually grants them access.
@@ -50,24 +59,15 @@ A security group is selected when configuring:
 
 Read-write and read-only access are granted through **separate groups**, so a user can be given visibility of data without the ability to change it.
 
-## Create a new Security Group
+## Sync security groups from OneStream
 
 1. Go to **Admin | Security | Groups**
-2. Click on '**Add+**' or '**Add & Edit in Grid**'
-3. Click on the '**+**' button on the top left of the grid
-4. Enter the name and description, then click **Save**
-5. Assign [Users](../Users/index.md) to the group
-6. Assign the group where access is needed, such as on a view, unit or instance
+2. Click **Sync**
 
-**Add & Edit in Grid** allows adding and modifying rows directly in the grid
-
-!!!Note Important Notes
-    The Integration Code and Security Group Id will be auto-assigned
-
-    See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
+Syncing brings the current set of users and security groups across from OneStream.
 
 ## Notes
 
-- Name groups after the access they grant rather than after the team that happens to hold it.
+- Name groups after the access they grant rather than after the team that happens to hold it — a naming decision made in OneStream.
 - Prefer a shallow hierarchy; deeply nested groups make effective access hard to reason about.
-- Description is required on a security group — use it to record what the group is for.
+- A group missing here has usually been added in OneStream but not yet synced.
