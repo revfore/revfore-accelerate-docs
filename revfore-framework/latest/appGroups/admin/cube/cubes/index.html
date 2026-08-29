@@ -16,7 +16,7 @@
         <link rel="prev" href="../../workflow/supporting/itemTypeItemCategories/">
       
       
-        <link rel="next" href="../dimensionMembers/">
+        <link rel="next" href="../dimensions/">
       
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
@@ -2211,6 +2211,45 @@
   
   
   
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4_1" id="__nav_5_2_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cubes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cubes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
     <li class="md-nav__item md-nav__item--active">
       
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
@@ -2283,9 +2322,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-new-cube" class="md-nav__link">
+  <a href="#sync-cubes-from-onestream" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new Cube
+      Sync cubes from OneStream
     </span>
   </a>
   
@@ -2303,6 +2342,14 @@
     </ul>
   
 </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -2332,7 +2379,7 @@
             
   
   <span class="md-ellipsis">
-    Dimension Members
+    Dimensions
   </span>
   
 
@@ -2342,7 +2389,7 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_4_2">
             <span class="md-nav__icon md-icon"></span>
-            Dimension Members
+            Dimensions
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2353,15 +2400,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../dimensionMembers/" class="md-nav__link">
+      <a href="../dimensions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Overview
+    Dimension Members
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2373,20 +2428,36 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../dimensionMembers/dimensions/" class="md-nav__link">
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4_3" id="__nav_5_2_4_3_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    Dimensions
+    Supporting
   </span>
   
 
-      </a>
-    </li>
-  
-
-              
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Supporting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2395,11 +2466,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../dimensionMembers/members/" class="md-nav__link">
+      <a href="../supporting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Members
+    Dimension Types
   </span>
   
 
@@ -3066,9 +3137,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-new-cube" class="md-nav__link">
+  <a href="#sync-cubes-from-onestream" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new Cube
+      Sync cubes from OneStream
     </span>
   </a>
   
@@ -3100,19 +3171,21 @@
 
 <h1 id="cubes">Cubes</h1>
 <p><a href="../../">← Back to Admin</a></p>
-<p>Cubes are the <strong>OneStream cubes the Framework reads from and writes to</strong>.</p>
-<p>Registering a cube makes it available for selection wherever relational data is mapped to cube data — workflow areas, unit member sets, item types, and item category member sets.</p>
+<p>Cubes are the <strong>OneStream cubes available to the Framework</strong>.</p>
+<p>This page lists the cubes brought across from OneStream. They are what you select wherever relational data is mapped to cube data — workflow areas, unit member sets, item types, and item category member sets.</p>
+<div class="admonition note">
+<p class="admonition-title">Read-only</p>
+<p>Cubes come from OneStream and are refreshed by <strong>Sync</strong>. They cannot be added or edited here. To change a cube, change it in OneStream and sync again.</p>
+</div>
 <h2 id="overview">Overview</h2>
-<p>Use Cubes to:</p>
+<p>Use the Cubes page to:</p>
 <ul>
-<li>register the OneStream cubes the solution uses</li>
-<li>review the cubes already available for selection</li>
-<li>limit a cube to a period of time using effective dates</li>
-<li>enable or disable a cube without removing it</li>
+<li>see which OneStream cubes are available for selection</li>
+<li>confirm a cube exists before mapping data to it</li>
+<li>refresh the list after a cube is added or changed in OneStream</li>
 </ul>
-<p>A cube record here is a reference to a cube that exists in OneStream. It does not create the cube.</p>
 <h2 id="cube-record-fields">Cube Record Fields</h2>
-<p>The following fields are used for a Cube record.</p>
+<p>The following fields are shown for a Cube record. All are populated from OneStream.</p>
 <table>
 <thead>
 <tr>
@@ -3126,26 +3199,26 @@
 <tr>
 <td>Cube Name</td>
 <td>nvarchar</td>
-<td>Name of the cube.</td>
-<td>Should match the cube name in OneStream.</td>
+<td>Name of the cube in OneStream.</td>
+<td></td>
 </tr>
 <tr>
 <td>Cube Description</td>
 <td>nvarchar</td>
-<td>Description of the cube and its purpose.</td>
+<td>Description of the cube.</td>
 <td></td>
 </tr>
 <tr>
 <td>Effective Start Date</td>
 <td>date</td>
 <td>Date the cube becomes available for selection.</td>
-<td>Defaults to 1900-01-01.</td>
+<td></td>
 </tr>
 <tr>
 <td>Effective End Date</td>
 <td>date</td>
 <td>Date the cube stops being available for selection.</td>
-<td>Defaults to 2999-12-31.</td>
+<td></td>
 </tr>
 <tr>
 <td>Is Enabled</td>
@@ -3157,7 +3230,7 @@
 <td>Integration Code</td>
 <td>nvarchar</td>
 <td>Unique value for the cube record.</td>
-<td>This is readonly and provides a unique value for the record that is used for importing data</td>
+<td>Used for importing data</td>
 </tr>
 <tr>
 <td>Created Date</td>
@@ -3187,7 +3260,7 @@
 <td>Cube Id</td>
 <td>int</td>
 <td>Unique identifier for the cube record.</td>
-<td>If you leave blank, the system will auto assign</td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -3199,24 +3272,16 @@
 <li><a href="../../workflow/supporting/itemTypes/">Workflow Item Types</a> – the cube an item type's data belongs to</li>
 <li><a href="../../workflow/supporting/itemCategoryMemberSets/">Item Category Member Sets</a> – the cube a category's data is written to</li>
 </ul>
-<h2 id="create-a-new-cube">Create a new Cube</h2>
+<h2 id="sync-cubes-from-onestream">Sync cubes from OneStream</h2>
 <ol>
 <li>Go to <strong>Admin | Cube | Cubes</strong></li>
-<li>Click on '<strong>Add+</strong>' or '<strong>Add &amp; Edit in Grid</strong>'</li>
-<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
-<li>Enter the cube name and any remaining fields, then click <strong>Save</strong></li>
+<li>Click <strong>Sync</strong></li>
 </ol>
-<p><strong>Add &amp; Edit in Grid</strong> allows adding and modifying rows directly in the grid</p>
-<div class="admonition note important notes">
-<p class="admonition-title">Note</p>
-<p>The Integration Code and Cube Id will be auto-assigned</p>
-<p>See <a href="../../../../concepts/metadataDrivenUI/actions/#general-actions">General Actions</a> for more information about adding records</p>
-</div>
+<p>Syncing brings the current set of cubes across from OneStream. Run it after a cube is added, renamed, or removed there.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Register only the cubes the solution actually posts to or reads from.</li>
-<li>Disabling a cube removes it from selection lists but leaves existing configuration intact.</li>
-<li>Cube names should match OneStream exactly, since the name is how the cube is identified when data is synced.</li>
+<li>A cube that is missing here almost always means it has been added in OneStream but not yet synced.</li>
+<li>Because the list mirrors OneStream, removing a cube there and re-syncing affects any configuration already pointing at it.</li>
 </ul>
 
 

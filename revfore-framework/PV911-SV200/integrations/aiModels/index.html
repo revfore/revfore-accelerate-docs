@@ -2203,6 +2203,43 @@
   
   
   
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4_1" id="__nav_5_2_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cubes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cubes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../appGroups/admin/cube/cubes/" class="md-nav__link">
         
@@ -2213,6 +2250,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2241,7 +2286,7 @@
             
   
   <span class="md-ellipsis">
-    Dimension Members
+    Dimensions
   </span>
   
 
@@ -2251,7 +2296,7 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_4_2">
             <span class="md-nav__icon md-icon"></span>
-            Dimension Members
+            Dimensions
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2262,15 +2307,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../appGroups/admin/cube/dimensionMembers/" class="md-nav__link">
+      <a href="../../appGroups/admin/cube/dimensions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Overview
+    Dimension Members
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2282,20 +2335,36 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../appGroups/admin/cube/dimensionMembers/dimensions/" class="md-nav__link">
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4_3" id="__nav_5_2_4_3_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    Dimensions
+    Supporting
   </span>
   
 
-      </a>
-    </li>
-  
-
-              
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Supporting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2304,11 +2373,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../appGroups/admin/cube/dimensionMembers/members/" class="md-nav__link">
+      <a href="../../appGroups/admin/cube/supporting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Members
+    Dimension Types
   </span>
   
 
@@ -2621,9 +2690,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-gpt-ideation-and-design" class="md-nav__link">
+  <a href="#custom-gpt-ideation-and-design-optional" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom GPT — ideation and design
+      Custom GPT — ideation and design (optional)
     </span>
   </a>
   
@@ -3064,9 +3133,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-gpt-ideation-and-design" class="md-nav__link">
+  <a href="#custom-gpt-ideation-and-design-optional" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom GPT — ideation and design
+      Custom GPT — ideation and design (optional)
     </span>
   </a>
   
@@ -3135,7 +3204,7 @@
 <h1 id="ai-model-integrations">AI Model Integrations</h1>
 <p>Revfore Framework is designed so that a solution's structure can be <strong>generated from plain-English requirements</strong> rather than hand-built.</p>
 <p>Because tables, models, and views are defined as metadata — importable JSON rather than hand-written SQL and screens — an AI model can produce a complete, reviewable solution definition, and that definition can be validated before anything reaches the database.</p>
-<p>Two AI tools are used, at two different stages.</p>
+<p>Two AI tools can be used, at two different stages.</p>
 <h2 id="the-two-stages">The two stages</h2>
 <table>
 <thead>
@@ -3148,7 +3217,7 @@
 <tbody>
 <tr>
 <td><strong>Ideation and design</strong></td>
-<td>Revfore Framework custom GPT</td>
+<td>Revfore Framework custom GPT <em>(optional)</em></td>
 <td>A written solution design — the tables, models, views, lookups, actions and behaviour a solution needs, and why</td>
 </tr>
 <tr>
@@ -3159,7 +3228,8 @@
 </tbody>
 </table>
 <p>The design is the handoff. You work through the shape of a solution in the GPT, then take the finished design to Claude, which turns it into the files you actually import.</p>
-<h2 id="custom-gpt-ideation-and-design">Custom GPT — ideation and design</h2>
+<p><strong>The first stage is optional.</strong> Claude can take requirements directly and do the ideation itself, so you can skip the GPT entirely and work end to end in one place. The two-stage route exists because the GPT is quicker to think out loud in — it is a convenience, not a prerequisite.</p>
+<h2 id="custom-gpt-ideation-and-design-optional">Custom GPT — ideation and design (optional)</h2>
 <p>The Revfore Framework custom GPT is the <strong>thinking-out-loud stage</strong>. It is fast at exploring requirements, answering product questions, and shaping a solution before any files exist.</p>
 <p>Use it to:</p>
 <ul>
@@ -3170,7 +3240,8 @@
 </ul>
 <p>It knows the Framework's schema, conventions, standard columns, and existing platform structures, so what it proposes is buildable rather than merely plausible. It does not write the import JSON or the C# — that is the next stage.</p>
 <h2 id="claude-engineering-and-build">Claude — engineering and build</h2>
-<p>Claude takes the finished design and produces the files a solution is actually made of:</p>
+<p>Claude can start from either end: a finished design handed over from the GPT, or the raw requirements themselves — in which case it does the ideation and requirement ingestion as well.</p>
+<p>From there it produces the files a solution is actually made of:</p>
 <ul>
 <li>the import JSON that defines the tables, models, views and lookups</li>
 <li>the import JSON that seeds reference data</li>
@@ -3205,9 +3276,9 @@
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>The two stages are deliberately separate: the GPT is quick and exploratory, Claude is precise and produces the deliverables.</li>
+<li>Where both stages are used they are deliberately separate: the GPT is quick and exploratory, Claude is precise and produces the deliverables. Using Claude alone is a perfectly good route, and the better one when the requirements are already clear.</li>
 <li>Generated output is always reviewed before import — nothing reaches the database without a person applying it.</li>
-<li>The design produced in the first stage is what makes the second stage reliable; a vague design produces vague files.</li>
+<li>However the design is arrived at — in the GPT or in Claude — it is what makes the build reliable; a vague design produces vague files.</li>
 <li>See <a href="../../getting-started/">Getting Started</a> for where these stages sit in the overall build process.</li>
 </ul>
 

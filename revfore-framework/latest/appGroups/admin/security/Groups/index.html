@@ -2207,6 +2207,43 @@
   
   
   
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4_1" id="__nav_5_2_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cubes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cubes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../cube/cubes/" class="md-nav__link">
         
@@ -2217,6 +2254,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2245,7 +2290,7 @@
             
   
   <span class="md-ellipsis">
-    Dimension Members
+    Dimensions
   </span>
   
 
@@ -2255,7 +2300,7 @@
         <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5_2_4_2">
             <span class="md-nav__icon md-icon"></span>
-            Dimension Members
+            Dimensions
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -2266,15 +2311,23 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cube/dimensionMembers/" class="md-nav__link">
+      <a href="../../cube/dimensions/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Overview
+    Dimension Members
   </span>
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -2286,20 +2339,36 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../cube/dimensionMembers/dimensions/" class="md-nav__link">
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_4_3" id="__nav_5_2_4_3_label" tabindex="0">
+            
   
   <span class="md-ellipsis">
-    Dimensions
+    Supporting
   </span>
   
 
-      </a>
-    </li>
-  
-
-              
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_2_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Supporting
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2308,11 +2377,11 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cube/dimensionMembers/members/" class="md-nav__link">
+      <a href="../../cube/supporting/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
-    Members
+    Dimension Types
   </span>
   
 
@@ -2460,6 +2529,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#security-group-record-fields" class="md-nav__link">
     <span class="md-ellipsis">
       Security Group Record Fields
@@ -2487,9 +2565,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-new-security-group" class="md-nav__link">
+  <a href="#sync-security-groups-from-onestream" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new Security Group
+      Sync security groups from OneStream
     </span>
   </a>
   
@@ -3057,6 +3135,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#actions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#security-group-record-fields" class="md-nav__link">
     <span class="md-ellipsis">
       Security Group Record Fields
@@ -3084,9 +3171,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-a-new-security-group" class="md-nav__link">
+  <a href="#sync-security-groups-from-onestream" class="md-nav__link">
     <span class="md-ellipsis">
-      Create a new Security Group
+      Sync security groups from OneStream
     </span>
   </a>
   
@@ -3120,16 +3207,41 @@
 <p><a href="../../">← Back to Admin</a></p>
 <p>Security Groups are <strong>how access to data is granted</strong>.</p>
 <p>Users are not given access directly. They are placed in groups, and groups are assigned to the things that need securing — relational views, workflow units, and workflow instances.</p>
+<div class="admonition note">
+<p class="admonition-title">Read-only</p>
+<p>Security groups come from OneStream and are refreshed by <strong>Sync</strong>. They cannot be added or edited here, and group membership is maintained in OneStream. To change a group, change it in OneStream and sync again.</p>
+</div>
 <h2 id="overview">Overview</h2>
-<p>Use Security Groups to:</p>
+<p>Use the Security Groups page to:</p>
 <ul>
-<li>define the groups the solution uses to control access</li>
-<li>build a hierarchy by nesting groups within parent groups</li>
-<li>assign users to the groups that grant them access</li>
-<li>enable or disable a group without removing it</li>
+<li>see which groups are available to assign</li>
+<li>refresh the list after groups change in OneStream</li>
+<li>re-establish the link to a OneStream record where it has been lost</li>
 </ul>
+<h2 id="actions">Actions</h2>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>What it does</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Sync</strong></td>
+<td>Sync with OneStream Users and Security Groups.</td>
+<td>Brings the current set of users and groups across from OneStream. Run it after groups are added, removed, or changed there.</td>
+</tr>
+<tr>
+<td><strong>Relink</strong></td>
+<td>Relink to OneStream records.</td>
+<td>Re-establishes the link between a Framework record and its OneStream counterpart, for cases where the two have become disconnected.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="security-group-record-fields">Security Group Record Fields</h2>
-<p>The following fields are used for a Security Group record.</p>
+<p>The following fields are shown for a Security Group record. All are populated from OneStream.</p>
 <table>
 <thead>
 <tr>
@@ -3197,7 +3309,7 @@
 </tbody>
 </table>
 <h2 id="group-hierarchy-and-membership">Group Hierarchy and Membership</h2>
-<p>Two relationships sit alongside the group record:</p>
+<p>Two relationships sit alongside the group record, both maintained in OneStream:</p>
 <ul>
 <li><strong>Parent groups</strong> – a group can be nested within another group, so access granted to a parent flows down to its children.</li>
 <li><strong>User membership</strong> – users are assigned to groups, which is what actually grants them access.</li>
@@ -3211,26 +3323,17 @@
 <li><a href="../../workflow/instances/instances/">Workflow Instances</a> – read-write and read-only access to a cycle's data</li>
 </ul>
 <p>Read-write and read-only access are granted through <strong>separate groups</strong>, so a user can be given visibility of data without the ability to change it.</p>
-<h2 id="create-a-new-security-group">Create a new Security Group</h2>
+<h2 id="sync-security-groups-from-onestream">Sync security groups from OneStream</h2>
 <ol>
 <li>Go to <strong>Admin | Security | Groups</strong></li>
-<li>Click on '<strong>Add+</strong>' or '<strong>Add &amp; Edit in Grid</strong>'</li>
-<li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
-<li>Enter the name and description, then click <strong>Save</strong></li>
-<li>Assign <a href="../Users/">Users</a> to the group</li>
-<li>Assign the group where access is needed, such as on a view, unit or instance</li>
+<li>Click <strong>Sync</strong></li>
 </ol>
-<p><strong>Add &amp; Edit in Grid</strong> allows adding and modifying rows directly in the grid</p>
-<div class="admonition note important notes">
-<p class="admonition-title">Note</p>
-<p>The Integration Code and Security Group Id will be auto-assigned</p>
-<p>See <a href="../../../../concepts/metadataDrivenUI/actions/#general-actions">General Actions</a> for more information about adding records</p>
-</div>
+<p>Syncing brings the current set of users and security groups across from OneStream.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Name groups after the access they grant rather than after the team that happens to hold it.</li>
+<li>Name groups after the access they grant rather than after the team that happens to hold it — a naming decision made in OneStream.</li>
 <li>Prefer a shallow hierarchy; deeply nested groups make effective access hard to reason about.</li>
-<li>Description is required on a security group — use it to record what the group is for.</li>
+<li>A group missing here has usually been added in OneStream but not yet synced.</li>
 </ul>
 
 
