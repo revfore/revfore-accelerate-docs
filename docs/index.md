@@ -1,9 +1,9 @@
 ![alt text](REVFORE_S2-01b.png){ width="500" }
 # Revfore Framework
 
-**A no-code relational framework for OneStream that helps developers and administrators build, manage, and surface relational data solutions faster.**
+**A low-code relational framework for OneStream that helps developers and administrators build, manage, and surface relational data solutions faster.**
 
-Revfore Framework simplifies how relational tables, relationships, views, and governed user interfaces are created within OneStream. Instead of building everything from scratch with custom SQL, dashboards, and workflows, teams can use Revfore Framework to deliver relational data solutions more quickly and consistently.
+Revfore Framework simplifies how relational tables, relationships, views, and governed user interfaces are created within OneStream. Instead of building everything from scratch with custom SQL, dashboards, and workflows, teams can use Revfore Framework to deliver relational data solutions more quickly and consistently with far less custom architecture to maintain.
 
 ---
 
@@ -32,6 +32,8 @@ Revfore Framework helps teams:
 - Surface data in governed, reusable interfaces
 - Support both administrators and end users with consistent experiences
 - Extend OneStream for planning, workflows, and custom business processes
+Prepare solutions for agentic AI
+
 
 ---
 
@@ -45,6 +47,9 @@ Revfore Framework can support a wide range of solutions, including:
 - Workflow-based data collection
 - Custom administrative applications
 - Browser-based and dashboard-driven relational interfaces
+ -revenue recognition solutions
+ -GL Journal entry solutions
+ -
 
 ---
 
@@ -62,8 +67,10 @@ Define relational views that can be used across dashboards, editable lists, and 
 ### Governed user interfaces
 Surface relational data in standardized, governed screens for both setup and end-user processes.
 
-### Faster solution development
-Reduce the time and complexity required to build custom relational solutions in OneStream.
+### Standardarized solution development
+Increase speed, reduce custom architure and code, less maintenance, better security
+
+###Agentic detail
 
 ---
 
@@ -89,23 +96,6 @@ Use the navigation menu to explore the documentation. A typical path might inclu
 4. Managing tables, relationships, and views
 5. Building end-user experiences
 6. Deployment and administration
-
----
-
-## Documentation sections
-
-Suggested sections for this site:
-
-- **Overview** — Product introduction and key concepts
-- **Architecture** — How the framework is structured
-- **Configuration** — Setup instructions and prerequisites
-- **Tables and Fields** — Defining relational structures
-- **Relationships** — Linking relational data
-- **Views** — Building reusable relational views
-- **User Interfaces** — Editable lists, dashboards, and navigation
-- **Administration** — Managing metadata and settings
-- **Examples** — Sample use cases and implementation patterns
-- **Troubleshooting** — Common issues and resolutions
 
 ---
 
