@@ -19,7 +19,29 @@ Revfore Framework is a **low-code relational framework** that allows you to:
 - Build reusable relational views from the relational models along with allowed user actions
 - Surface data in editable grids and dashboards
 
-All without writing SQL.
+All of it defined as metadata rather than code — which is what makes it fast to build, cheap to maintain, and secure by default.
+
+### Built for AI assistance
+
+Because a solution is **defined as metadata rather than hand-written SQL and screens**, it can be described in files — and files are something an AI model can write, read back, and check.
+
+That is the difference between AI that guesses at a solution and AI that builds one. Claude works from the Framework's own schema and conventions, produces the import JSON and code a solution is actually made of, and validates them before anything reaches the database. You review files, not screenshots of screens someone else has already clicked together.
+
+The practical effect is that the slow part of a project — standing up the tables, models, views and the code behind them — stops being the slow part.
+
+### Less custom architecture to maintain
+
+Everything a solution needs is defined inside the Framework: the tables, the relationships, the views, the user actions, the security. There is no bespoke schema to document, no hand-rolled screens to keep in step with it, and no one-off SQL scattered across dashboards.
+
+That matters most after go-live. A solution built this way is one another person can pick up and understand, because it looks like every other solution built the same way — and an upgrade moves the whole estate forward rather than breaking somebody's custom work.
+
+### Stronger security by default
+
+Security is part of the model rather than something layered on afterwards.
+
+Users and security groups come from OneStream, and the group hierarchy and user assignments are synced and flattened, so **row-level user security is a join rather than a piece of custom code**. Access is defined once, on the view, and applies wherever that view is used.
+
+Custom-built alternatives tend to reimplement this per solution, which is where inconsistencies and gaps get in.
 
 ---
 

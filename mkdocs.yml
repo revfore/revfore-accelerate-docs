@@ -40,6 +40,9 @@ nav:
           - Other: appGroups/config/other.md  
       - Admin:
           - Overview: appGroups/admin/index.md
+          - Security:
+              - Users: appGroups/admin/security/Users/index.md
+              - Groups: appGroups/admin/security/Groups/index.md          
           - Relational:
             - Database:
                 - Overview: appGroups/admin/relational/database/index.md
@@ -70,6 +73,13 @@ nav:
                 - Lookups: appGroups/admin/relational/supporting/lookups.md
                 - Cube Views: appGroups/admin/relational/supporting/cubeViews.md
                 - Forms: appGroups/admin/relational/supporting/forms.md
+          - Cube:
+              - Cubes:
+                  - Cubes: appGroups/admin/cube/cubes/index.md
+              - Dimensions:
+                  - Dimension Members: appGroups/admin/cube/dimensions/index.md
+              - Supporting:
+                  - Dimension Types: appGroups/admin/cube/supporting/index.md
           - Workflow:
               - Units:
                   - Overview: appGroups/admin/workflow/units/index.md
@@ -88,16 +98,6 @@ nav:
                   - Item Types: appGroups/admin/workflow/supporting/itemTypes.md
                   - Item Types - Workflow Areas: appGroups/admin/workflow/supporting/itemTypeAreas.md
                   - Item Types - Item Categories: appGroups/admin/workflow/supporting/itemTypeItemCategories.md
-          - Cube:
-              - Cubes:
-                  - Cubes: appGroups/admin/cube/cubes/index.md
-              - Dimensions:
-                  - Dimension Members: appGroups/admin/cube/dimensions/index.md
-              - Supporting:
-                  - Dimension Types: appGroups/admin/cube/supporting/index.md
-          - Security:
-              - Users: appGroups/admin/security/Users/index.md
-              - Groups: appGroups/admin/security/Groups/index.md
       - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
   - Integrations: 
@@ -114,9 +114,11 @@ nav:
       - REST APIs:
           - Overview: integrations/restAPIs/index.md
 
-not_in_nav: |
-  misc/*.md
-  
+# Working notes and drafts - excluded from the build entirely, so they are not
+# published. docs/misc/ is also gitignored.
+exclude_docs: |
+  misc/*
+
 plugins:
   - search
   - mike:
