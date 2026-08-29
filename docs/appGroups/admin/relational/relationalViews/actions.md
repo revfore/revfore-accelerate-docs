@@ -32,7 +32,7 @@ The following fields are used for a Relational View Action record.
 | Business Rule Flag | int | Defines the business rule behavior associated with the action. | Select 'Custom' for to trigger custom assembly logic |
 | Form | int | Identifies the form associated with the action. | Used when the action opens or works with a specific form. |
 | Is Enabled | bit | Indicates whether the action is enabled for use. | Disabled actions are not intended for active use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational view action record. | This is readonly and will be auto set the View Name & Action Name providing a unique value for the record that is used for importing data |
+| Integration Code | nvarchar | Unique value for the relational view action record. | This is readonly and will be auto set the View Name & Action Name providing a unique value for the record that is used for importing data |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational view action record. | This is system maintained. |
@@ -76,7 +76,7 @@ Custom actions can also be added.
 1. Go to **Admin | Relational | Relational Views**
 2. Select the desired Relational View and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Actions**'
-4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
+4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Add & Edit in Grid**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields, select **Custom** for the **Business Rule Flag** column and click **Save**
 7. Go to **Application | Presentation | Workspaces** and select the **Revfore Framework (RFA)** workspace
@@ -86,7 +86,7 @@ Custom actions can also be added.
 11. Add custom code.  See [Sample Custom Code](#sample-custom-code).
 12. Save assembly
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 This allows developers to extend the standard action set with solution-specific functionality.
 

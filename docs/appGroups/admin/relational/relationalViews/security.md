@@ -25,7 +25,7 @@ The following fields are used for a Relational View Security record.
 | Relational View Display Name | nvarchar | User-friendly display name shown in the application. | |
 | Read Data Group | uniqueidentifier | Identifies the security group that has read-only access to the view data. | Users in this group can view the data but cannot update it. |
 | Read and Write Data Group | uniqueidentifier | Identifies the security group that has both read and write access to the view data. | Users in this group can view and update the data, depending on the view configuration. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational view security record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
+| Integration Code | nvarchar | Unique value for the relational view security record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational view security record. | This is system maintained. |
@@ -55,10 +55,10 @@ When defining security:
 1. Go to **Admin | Relational | Relational Views**
 2. Select the **Security** page
 3. Select the desired Relational View
-4. Click on '**Edit**' or '**Enable Inline Adding & Editing**' 
+4. Click on '**Edit**' or '**Add & Edit in Grid**' 
 5. Make any needed changes and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 ## Notes
 

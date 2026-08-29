@@ -46,7 +46,7 @@ The following fields are used for a Relational View Column record.
 | Width | int | Defines the display width of the column. | Used to control how wide the column appears in the UI. |
 | Sub Total Flag | int | Defines subtotal behavior for the column. | Used when the column participates in subtotal or aggregation logic. |
 | Group By Flag | int | Defines whether the column participates in group by behavior. | Used when the View's 'Group By Enabled' field is On. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational view column record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
+| Integration Code | nvarchar | Unique value for the relational view column record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational view column record. | This is system maintained. |
@@ -84,11 +84,11 @@ When defining view columns:
 1. Go to **Admin | Relational | Relational Views**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Views : Columns**'
-4. In the '**Relational Views : Columns**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
+4. In the '**Relational Views : Columns**' section, Click on '**Add**' or '**Add & Edit in Grid**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 Once all columns are created, create new [Relational Actions](actions.md)
 

@@ -32,7 +32,7 @@ The following fields are used for a Relational Table Relationship record.
 | Related To Column 1 | int | Defines the primary column in the related table used for the relationship. | This is the target column that the source column joins to.  Will auto-populate to the primary key of the Related To Table if blank |
 | Related To Category Flag | int | Defines the category flag associated with the related side of the relationship. | These are used to organize the relationships for end-users |
 | Display Name Flag | int | Identifies the display name behavior for the relationship. | Used to control how related records are labeled or presented in the application. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational relationship record. | This is readonly and will be auto set the Table Name & Relationship Name providing a unique value for the record that is used for importing data |
+| Integration Code | nvarchar | Unique value for the relational relationship record. | This is readonly and will be auto set the Table Name & Relationship Name providing a unique value for the record that is used for importing data |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational relationship record. | This is system maintained. |
@@ -62,14 +62,14 @@ When defining relationships:
 1. Go to **Admin | Relational | Relational Tables**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Tables : Relationships**'
-4. In the '**Relational Tables : Relationships**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
+4. In the '**Relational Tables : Relationships**' section, Click on '**Add**' or '**Add & Edit in Grid**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Relational Relationship Id will be auto-assigned
+    The Integration Code and Relational Relationship Id will be auto-assigned
 
     The Relational Relationship Name will be auto-assigned if blank or has the value 'Auto()' in it
 

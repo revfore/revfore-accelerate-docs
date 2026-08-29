@@ -12,7 +12,7 @@ Use the Workflow Item Categories : Member Sets page to:
 
 - assign an item category to a cube for a given member set type
 - set the base dimension members the category's data is written at
-- set the summary dimension members the category's data rolls up to
+- set the scope dimension members that bound the category's slice of the cube
 - limit an assignment to a period of time using effective dates
 
 A member set is defined per **item category**, **member set type** and **cube**.
@@ -27,7 +27,7 @@ The following fields are used for a Workflow Item Category Member Set record.
 | Workflow Member Set Type | int | The kind of member set assignment this record represents. | Required. See [Member Set Types](memberSetTypes.md).
 | Cube | int | The cube the category's data belongs to. | Required.
 | Base Dimension Members | int | The members the category's data is written at, one per dimension. | Entity, Scenario, Account, Flow, IC and UD1 through UD8. Set only the dimensions the solution actually uses.
-| Summary Dimension Members | int | The members the category's data rolls up to, one per dimension. | Same dimensions as the base members.
+| Scope Dimension Members | int | The outer bounds of the category's slice of the cube, one per dimension. | Same dimensions as the base members. Not a rollup target - see the equivalent section under [Workflow Unit Member Sets](../units/memberSets.md#base-and-scope-members).
 | Effective Start Date | date | Date the member set becomes active. | Defaults to 1900-01-01.
 | Effective End Date | date | Date the member set stops being active. | Defaults to 2999-12-31.
 | Is Enabled | bit | Indicates whether the member set is enabled for use. |
@@ -42,11 +42,11 @@ The following fields are used for a Workflow Item Category Member Set record.
 1. Go to **Admin | Workflow | Supporting**
 2. Open the **Item Categories** page and select the category
 3. Open the **Member Sets** child grid
-4. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+4. Click on '**Add+**' or '**Add & Edit in Grid**'
 5. Enter the Member Set Type and Cube, then the dimension members required
 6. Click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
     The Workflow Item Category is set from the category the member set is added under

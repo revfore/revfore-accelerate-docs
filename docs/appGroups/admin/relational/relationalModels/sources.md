@@ -43,7 +43,7 @@ The following fields are used for a Relational Model Source record.
 | Join Relational Column 5 | int | Identifies the fifth relational column from this source used in the join. | This is the source-side column for the 5th join condition. |
 | Join With Relational Column 5 | int | Identifies the fifth relational column from the joined source used in the join. | This is the target-side column for the 5th join condition. |
 | Additional Join Clause | nvarchar | Defines any additional SQL join logic required for the model source. | Used when the relationship cannot be fully defined through the standard join fields alone.  Use the **Clause** button to open the expression editor page |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational model source record. | This is readonly and is auto set to provide a stable unique value for importing data. |
+| Integration Code | nvarchar | Unique value for the relational model source record. | This is readonly and is auto set to provide a stable unique value for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational model source record. | This is system maintained. |
@@ -69,16 +69,16 @@ Examples include:
 1. Go to **Admin | Relational | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
 3. In the Child Views list, select **Relational Models : Sources**
-4. In the **Relational Models : Sources** section, click on **Add** or **Enable Inline Adding & Editing**
+4. In the **Relational Models : Sources** section, click on **Add** or **Add & Edit in Grid**
 5. Click on the **+** button on the top left of the grid
 6. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 Once all sources are created, create new [Relational Model Columns](columns.md)
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Relational Model Source Id will be auto-assigned
+    The Integration Code and Relational Model Source Id will be auto-assigned
 
     The first source is the primary source and should not join to another source
 
@@ -88,7 +88,7 @@ Once all sources are created, create new [Relational Model Columns](columns.md)
 
     The Sequence Number will be auto-assigned if blank on a new record
 
-    Sources are needed for lookup columns.  Typically only one source if the lookup pulls from columns that share a single source.  If the lookup pulls from columns from any sources, all of those sources will need to be added.  This often happens if Lookups use expression columns for their Display or Ext Ref Unique Code column.
+    Sources are needed for lookup columns.  Typically only one source if the lookup pulls from columns that share a single source.  If the lookup pulls from columns from any sources, all of those sources will need to be added.  This often happens if Lookups use expression columns for their Display or Integration Code column.
 
 ## Notes
 

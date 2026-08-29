@@ -26,10 +26,10 @@ The following fields are used for a Lookup record.
 | Key/Value View Column | int | Identifies the view column that provides the key or value stored by the lookup. | This is the underlying value used by the application.  Typically the Primary Key Column. Required when lookup type is 'Relational View' and can auto-populate. |
 | Display View Column | int | Identifies the view column that provides the display value for the lookup. | This is the user-friendly value shown in the application. Required when lookup type is 'Relational View' and can auto-populate. |
 | Is Enabled View Column | int | Identifies the view column that provides whether or not records are enabled. | Used when the lookup values support enabled or disabled states.  Can auto-populate |
-| Ext Ref Unique Code View Column | int | Identifies the view column that provides the external reference unique code. | Used when the lookup is tied to a stable unique external reference value. Required when lookup type is 'Relational View' and can auto-populate. |
+| Integration Code View Column | int | Identifies the view column that provides the external reference unique code. | Used when the lookup is tied to a stable unique external reference value. Required when lookup type is 'Relational View' and can auto-populate. |
 | Delimited List Json Expression | nvarchar | Defines the JSON expression used for a delimited list lookup. | Required when the lookup type is 'Delimited List'. |
 | Is Enabled | bit | Indicates whether the lookup is enabled for use. | Disabled lookups are not intended for active use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the lookup record. | This will default to a Guid but can be changed. |
+| Integration Code | nvarchar | Unique value for the lookup record. | This will default to a Guid but can be changed. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the lookup record. | This is system maintained. |
@@ -52,14 +52,14 @@ The following fields are used for a Lookup record.
 ## Create a new Lookup
 
 1. Go to **Admin | Relational | Supporting**
-2. Click on '**Add**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Key/Value View Column, Display View Column, Is Enabled View Column and Ext Ref Unique Code View Column fields can auto-populate once a Relational View is selected and Saved.  
+    The Key/Value View Column, Display View Column, Is Enabled View Column and Integration Code View Column fields can auto-populate once a Relational View is selected and Saved.  
 
     The **Key/Value View Column** will be set to the 'Primary Key' column if found
 
@@ -67,7 +67,7 @@ The following fields are used for a Lookup record.
 
     The **Is Enabled View Column** will be set to the 'Primary Key' column if found
 
-    The **Ext Ref Unique Code View Column** will be set to the 'Ext Ref Unique Code' column if found
+    The **Integration Code View Column** will be set to the 'Integration Code' column if found
 
     The **Delimited List Json Expression** column expects a json object that has the Key first and the Display text second. 
     Here are two examples:

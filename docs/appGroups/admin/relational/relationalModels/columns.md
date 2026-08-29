@@ -58,7 +58,7 @@ The following fields are used for a Relational Model Column record.
 | Copy Function Flag | int | Indicates whether a copy function is used. | Used to control copy behavior for the model column. |
 | Copy Function | int | Defines the function used during copy processing. | Used when custom logic should run during copy operations. |  
 | Copy Expression | nvarchar | Defines the expression used during copy processing. | Used when copied values are derived through an expression. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational model column record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
+| Integration Code | nvarchar | Unique value for the relational model column record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational model column record. | This is system maintained. |
@@ -104,11 +104,11 @@ When defining model columns:
 1. Go to **Admin | Relational | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
 3. In the Child Views list, select **Relational Models : Columns**
-4. In the **Relational Models : Columns** section, click on **Add** or **Enable Inline Adding & Editing**
+4. In the **Relational Models : Columns** section, click on **Add** or **Add & Edit in Grid**
 5. Click on the **+** button on the top left of the grid
 6. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 Once all columns are created, create new [Relational Model Relationships](relationships.md)
 
@@ -119,7 +119,7 @@ Once all columns are created, create new [Relational Model Relationships](relati
 
     Lookup and display behavior is often handled at the model level rather than directly in the base relational table.
 
-    All 'Relational View' lookup columns will require a Lookup Model Source and possibly multiple Expression Model Sources if the lookup records use expression columns for their Display or Ext Ref Unique Column.
+    All 'Relational View' lookup columns will require a Lookup Model Source and possibly multiple Expression Model Sources if the lookup records use expression columns for their Display or Integration Code Column.
 
     All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.
 
@@ -138,9 +138,9 @@ Once all columns are created, create new [Relational Model Relationships](relati
 ---
 ## Other
 
-## Ext Ref Unique Code column
+## Integration Code column
 
-What is an 'Ext Ref Unique Code' column?
+What is an 'Integration Code' column?
 - Used to uniquely identify a record
 - Can be set externally before a record is created which can be helpful when needing to match a unique value in an external system and link data before it is saved.
 - Can be changed at any time 

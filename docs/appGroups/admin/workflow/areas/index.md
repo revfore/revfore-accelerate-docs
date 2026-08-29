@@ -32,7 +32,7 @@ The following fields are used for a Workflow Area record.
 | Data Source Member | int | The data source dimension member used for the area's data. |
 | Auto Trigger Update Of Cube | bit | Whether saving data in this area updates the cube automatically. | When off, the cube is updated by an explicit action instead.
 | Is Enabled | bit | Indicates whether the workflow area is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the workflow area record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the workflow area record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the workflow area record. |
@@ -50,16 +50,16 @@ The following fields are used for a Workflow Area record.
 ## Create a new Workflow Area
 
 1. Go to **Admin | Workflow | Areas**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Select the Workflow Instance Type and enter the remaining required fields
 5. Click **Save**
 6. Assign the area to the [Workflow Item Types](../supporting/itemTypeAreas.md) that use it
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Workflow Area Id will be auto-assigned
+    The Integration Code and Workflow Area Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

@@ -26,7 +26,7 @@ The following fields are used for a Workflow Instance Type record.
 | Workflow Instance Type Display Name | nvarchar | User-friendly display name shown in the application. | Must be unique.
 | Workflow Instance Type Description | nvarchar | Description of the instance type and its purpose. |
 | Is Enabled | bit | Indicates whether the instance type is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the instance type record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the instance type record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the instance type record. |
@@ -44,14 +44,14 @@ The following fields are used for a Workflow Instance Type record.
 
 1. Go to **Admin | Workflow | Instances**
 2. Open the **Instance Types** page
-3. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+3. Click on '**Add+**' or '**Add & Edit in Grid**'
 4. Enter required fields and click **Save**
 5. Configure the [Workflow Units](../units/memberSets.md) and [Workflow Areas](../areas/index.md) that apply to this instance type
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Workflow Instance Type Id will be auto-assigned
+    The Integration Code and Workflow Instance Type Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

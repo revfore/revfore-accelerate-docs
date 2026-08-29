@@ -54,7 +54,7 @@ Examples include:
 
 These views are typically focused on a primary entity and are often used in editable or user-managed experiences.
 
-These require a Primary Key, Name and Ext Ref Unique Code column
+These require a Primary Key, Name and Integration Code column
 
 These require Actions to be defined
 
@@ -62,7 +62,7 @@ These require Actions to be defined
 
 Lookup views are used exclusively on Lookup records are of type 'Relational View'
 
-These require a Primary Key, Name and Ext Ref Unique Code column
+These require a Primary Key, Name and Integration Code column
 
 These do not require Actions
 

@@ -31,7 +31,7 @@ The following fields are used for a Workflow Unit header record.
 | Effective Start Date | date | Date the workflow unit becomes available for use. | Defaults to 1900-01-01, meaning available from the beginning.
 | Effective End Date | date | Date the workflow unit stops being available for use. | Defaults to 2999-12-31, meaning no end date. Set this rather than deleting a unit that is no longer in use.
 | Is Enabled | bit | Indicates whether the workflow unit is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the workflow unit record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the workflow unit record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the workflow unit record. |
@@ -51,20 +51,20 @@ Use workflow units to represent the structures a process is performed for, such 
 ## Create a new Workflow Unit
 
 1. Go to **Admin | Workflow | Units**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create the unit's [Member Sets](memberSets.md) for each workflow instance type it participates in
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Workflow Unit Id will be auto-assigned
+    The Integration Code and Workflow Unit Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 
 ## Notes
 
-- Workflow Unit Name, Display Name and Ext Ref Unique Code must each be unique.
+- Workflow Unit Name, Display Name and Integration Code must each be unique.
 - Security groups here control access to the unit's data, and are separate from the security applied to relational views.
 - A unit is only usable within its effective date range, so check these first if a unit is not appearing where expected.

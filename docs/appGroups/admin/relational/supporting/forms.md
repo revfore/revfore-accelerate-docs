@@ -27,7 +27,7 @@ The following fields are used for a Form record.
 | Form Description | nvarchar | Description of the form and its purpose. | Use this to document how the form should be used. |
 | Form Type | int | Defines the type of form. | Use the 'Dashboard' type.  It is the only one supported right now |
 | Dashboard - OneStream | nvarchar | Identifies the associated OneStream dashboard. | Used when the form is tied to a OneStream dashboard-based experience. |
-| Ext Ref Unique Code | nvarchar | Unique value for the form record. | This is auto set to Form Name to provide a stable unique value for importing data. Can be changed. |
+| Integration Code | nvarchar | Unique value for the form record. | This is auto set to Form Name to provide a stable unique value for importing data. Can be changed. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the form record. | This is system maintained. |
@@ -50,11 +50,11 @@ The following fields are used for a Form record.
 ## Create a new Form
 
 1. Go to **Admin | Relational | Supporting**
-2. Click on '**Add**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 ## Notes
 

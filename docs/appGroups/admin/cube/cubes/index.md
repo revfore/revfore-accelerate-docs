@@ -28,7 +28,7 @@ The following fields are used for a Cube record.
 | Effective Start Date | date | Date the cube becomes available for selection. | Defaults to 1900-01-01.
 | Effective End Date | date | Date the cube stops being available for selection. | Defaults to 2999-12-31.
 | Is Enabled | bit | Indicates whether the cube is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the cube record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the cube record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the cube record. |
@@ -47,14 +47,14 @@ A cube is selected when configuring:
 ## Create a new Cube
 
 1. Go to **Admin | Cube | Cubes**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter the cube name and any remaining fields, then click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Cube Id will be auto-assigned
+    The Integration Code and Cube Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

@@ -36,7 +36,7 @@ The following fields are used for a Relational View header record.
 | Navigate To Enabled | bit | Indicates whether navigation is enabled for the view. | Used when users should be able to navigate from this view to related views or records. |
 | Where Clause | nvarchar | Defines additional where clause logic for the view. | Used to restrict which records are included in the view.  Use the **Clause** button to open the expression editor page. |
 | Having Clause | nvarchar | Defines additional having clause logic for the view. | Used to restrict grouped or aggregated results. Use the **Clause** button to open the expression editor page. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational view record. | This is readonly and is auto set the same value as the View Name, providing a unique value for the record that is used for importing data. |
+| Integration Code | nvarchar | Unique value for the relational view record. | This is readonly and is auto set the same value as the View Name, providing a unique value for the record that is used for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational view record. | This is system maintained. |
@@ -62,7 +62,7 @@ The following fields are used for a Relational View header record.
 ## Create a new Relational View
 
 1. Go to **Admin | Relational | Relational Views**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create new [Relational View Security](security.md)
@@ -71,10 +71,10 @@ The following fields are used for a Relational View header record.
 8. Create new [Relational View Filters](filters.md)
 9. Click on the **Sync** button to sync the view definition with the database
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Relational View Id will be auto-assigned
+    The Integration Code and Relational View Id will be auto-assigned
 
     The Name, Display Name, Description, Schema, Is RFA Managed and Is Custom fields will auto-populate if a Relational Model is selected and Saved.
 

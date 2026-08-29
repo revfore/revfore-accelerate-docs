@@ -44,7 +44,7 @@ Workflow Supporting consists of:
 4. Map each item type to its [Areas](itemTypeAreas.md) and [Item Categories](itemTypeItemCategories.md)
 
 !!!Note Important Notes
-    Ext Ref Unique Codes and record Ids are auto-assigned throughout
+    Integration Codes and record Ids are auto-assigned throughout
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

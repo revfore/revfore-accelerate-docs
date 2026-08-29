@@ -24,7 +24,7 @@ The following fields are used for a Security Group record.
 | Security Group Name | nvarchar | Internal name of the security group. | Must be unique.
 | Security Group Description | nvarchar | Description of the group and what access it grants. | Required.
 | Is Enabled | bit | Indicates whether the security group is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the security group record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the security group record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the record. |
@@ -53,16 +53,16 @@ Read-write and read-only access are granted through **separate groups**, so a us
 ## Create a new Security Group
 
 1. Go to **Admin | Security | Groups**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter the name and description, then click **Save**
 5. Assign [Users](../Users/index.md) to the group
 6. Assign the group where access is needed, such as on a view, unit or instance
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Security Group Id will be auto-assigned
+    The Integration Code and Security Group Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

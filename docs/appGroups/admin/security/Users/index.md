@@ -34,7 +34,7 @@ The following fields are used for a User record.
 | Effective Start Date | date | Date the user becomes active. | Defaults to 1900-01-01.
 | Effective End Date | date | Date the user stops being active. | Defaults to 2999-12-31. Use this rather than deleting a user who has left.
 | Is Enabled | bit | Indicates whether the user is enabled. |
-| Ext Ref Unique Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the record. |
@@ -52,15 +52,15 @@ The user record is referenced throughout the solution:
 ## Create a new User
 
 1. Go to **Admin | Security | Users**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Add the user to the [Security Groups](../Groups/index.md) that grant the access they need
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and User Id will be auto-assigned
+    The Integration Code and User Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

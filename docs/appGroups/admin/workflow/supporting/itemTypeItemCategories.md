@@ -39,10 +39,10 @@ The following fields are used for a Workflow Item Type Item Category record.
 1. Go to **Admin | Workflow | Supporting**
 2. Open the **Item Types** page and select the item type
 3. Open the **Item Categories** child grid
-4. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+4. Click on '**Add+**' or '**Add & Edit in Grid**'
 5. Select the Workflow Item Category and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
     The Workflow Item Type is set from the item type the mapping is added under

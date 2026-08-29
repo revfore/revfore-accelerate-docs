@@ -42,7 +42,7 @@ Dimension Members consists of:
 3. Select those members when configuring [workflow areas](../../workflow/areas/index.md), [unit member sets](../../workflow/units/memberSets.md) and [item types](../../workflow/supporting/itemTypes.md)
 
 !!!Note Important Notes
-    Ext Ref Unique Codes and record Ids are auto-assigned
+    Integration Codes and record Ids are auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

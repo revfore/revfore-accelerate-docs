@@ -36,7 +36,7 @@ The following fields are used for a Relational Table Index record.
 | Relational Column 5 | int | Defines the fifth column included in the index. | Use when the index includes multiple columns. |
 | Relational Column 5 Is Ascending | bit | Indicates whether the fifth indexed column is sorted in ascending order. | If not enabled, the column is sorted in descending order. |
 | Is Enabled | bit | Indicates whether the index is enabled for use. | Disabled indexes are not intended for active use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational index record. | This is readonly and will be auto set the Table Name & Index Name providing a unique value for the record that is used for importing data |
+| Integration Code | nvarchar | Unique value for the relational index record. | This is readonly and will be auto set the Table Name & Index Name providing a unique value for the record that is used for importing data |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational index record. | This is system maintained. |
@@ -67,16 +67,16 @@ When working with indexes:
 1. Go to **Admin | Relational | Relational Tables**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Tables : Indexes**'
-4. In the '**Relational Tables : Indexes**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
+4. In the '**Relational Tables : Indexes**' section, Click on '**Add**' or '**Add & Edit in Grid**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 Once all indexes are created, create new [Table Relationships](relationships.md)
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Relational Index Id will be auto-assigned
+    The Integration Code and Relational Index Id will be auto-assigned
 
     The Relational Index Name will be auto-assigned if blank or has the value 'Auto()' in it
 

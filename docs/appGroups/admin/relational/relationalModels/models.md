@@ -29,7 +29,7 @@ The following fields are used for a Relational Model header record.
 | Relational Table | int | Identifies the primary relational table associated with the model. | This is typically the main business entity or object that the model is centered on. |
 | Is Custom | bit | Indicates whether the model is custom. | Almost all non-system models will be custom. |
 | Is Enabled | bit | Indicates whether the model is enabled for use. | |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational model record. | This is readonly and will be auto set the same value as the Model Name, providing a unique value for the record that is used for importing data. |
+| Integration Code | nvarchar | Unique value for the relational model record. | This is readonly and will be auto set the same value as the Model Name, providing a unique value for the record that is used for importing data. |
 | Created Date | datetime | Date and time the record was created. | |
 | Modified Date | datetime | Date and time the record was last modified. | |
 | Created By | int | User who created the relational model record. | |
@@ -49,17 +49,17 @@ Use relational models to define data structures such as:
 ## Create a new Relational Model
 
 1. Go to **Admin | Relational | Relational Models**
-2. Click on **Add+** or **Enable Inline Adding & Editing**
+2. Click on **Add+** or **Add & Edit in Grid**
 3. Click on the **+** button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create new [Model Sources](sources.md)
 6. Create new [Model Columns](columns.md)
 7. Create new [Model Relationships](relationships.md)
    
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!! note "Important Notes"
-    The Ext Ref Unique Code and Relational Model Id will be auto-assigned.
+    The Integration Code and Relational Model Id will be auto-assigned.
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records.
 

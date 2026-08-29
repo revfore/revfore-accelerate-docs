@@ -39,7 +39,7 @@ The following fields are used for a Relational Table Column record.
 | Lookup - Dynamic | int | Defines the dynamic lookup associated with the column. | Used when the column relies on a dynamic RFA lookup definition. |
 | Is Custom | bit | Indicates whether the column is custom. | Most user-defined columns will be custom. |
 | Is Enabled | bit | Indicates whether the column is enabled for use. | Disabled columns are not intended for active use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational table column record. | This is readonly and will be auto set the Table Name & Column Name providing a unique value for the record that is used for importing data |
+| Integration Code | nvarchar | Unique value for the relational table column record. | This is readonly and will be auto set the Table Name & Column Name providing a unique value for the record that is used for importing data |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational table column record. | This is system maintained. |
@@ -73,16 +73,16 @@ When defining columns:
 1. Go to **Admin | Relational | Relational Tables**
 2. Select the desired Relational Table and click on '**Edit+**'
 3. In the Child Views list, Select '**Relational Tables : Columns**'
-4. In the '**Relational Tables : Columns**' section, Click on '**Add**' or '**Enable Inline Adding & Editing**' 
+4. In the '**Relational Tables : Columns**' section, Click on '**Add**' or '**Add & Edit in Grid**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 Once all columns are created, create new [Relational Indexes](indexes.md)
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Relational Column Id will be auto-assigned
+    The Integration Code and Relational Column Id will be auto-assigned
 
     The Sequence Number will be auto-assigned if blank on a new record
 
@@ -107,9 +107,9 @@ Once all columns are created, create new [Relational Indexes](indexes.md)
 ---
 ## Other
 
-## Ext Ref Unique Code column
+## Integration Code column
 
-What is an 'Ext Ref Unique Code' column?
+What is an 'Integration Code' column?
 - Used to uniquely identify a record
 - Can be set externally before a record is created which can be helpful when needing to match a unique value in an external system and link data before it is saved.
 - Can be changed at any time 

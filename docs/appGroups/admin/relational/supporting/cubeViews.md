@@ -29,7 +29,7 @@ The following fields are used for a Cube View record.
 | View Ext Ref Code | nvarchar | External reference code for the view. |
 | View Ext Ref System | int | The external system the reference code belongs to. |
 | Is Enabled | bit | Indicates whether the view is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the view record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the view record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the view record. |
@@ -46,14 +46,14 @@ The following fields are used for a Cube View record.
 
 1. Go to **Admin | Relational | Supporting**
 2. Open the **Cube Views** page
-3. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+3. Click on '**Add+**' or '**Add & Edit in Grid**'
 4. Enter the name and select the Relational Object and Type
 5. Click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and View Id will be auto-assigned
+    The Integration Code and View Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

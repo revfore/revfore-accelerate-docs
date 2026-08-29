@@ -38,15 +38,15 @@ Each workflow unit definition consists of:
 ## Create a new Workflow Unit
 
 1. Go to **Admin | Workflow | Units**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create the unit's [Member Sets](memberSets.md) for each workflow instance type it participates in
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Workflow Unit Id will be auto-assigned
+    The Integration Code and Workflow Unit Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

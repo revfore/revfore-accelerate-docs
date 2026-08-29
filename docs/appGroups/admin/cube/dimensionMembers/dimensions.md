@@ -25,7 +25,7 @@ The following fields are used for a Dimension record.
 | Dimension Description | nvarchar | Description of the dimension and its purpose. |
 | Type Flag | int | Classifies the kind of dimension. | Identifies which OneStream dimension type the record represents.
 | Visibility Flags | int | Controls where the dimension is available for selection. |
-| Ext Ref Unique Code | nvarchar | Unique value for the dimension record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the dimension record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the dimension record. |
@@ -45,14 +45,14 @@ The following fields are used for a Dimension record.
 
 1. Go to **Admin | Cube | Dimension Members**
 2. Open the **Dimensions** page
-3. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+3. Click on '**Add+**' or '**Add & Edit in Grid**'
 4. Enter required fields and click **Save**
 5. Create the [Members](members.md) that belong to the dimension
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Dimension Id will be auto-assigned
+    The Integration Code and Dimension Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

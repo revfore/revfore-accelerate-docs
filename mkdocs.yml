@@ -100,6 +100,8 @@ nav:
       - Home: appGroups/home/index.md
       - Help: appGroups/help/index.md
   - Integrations: 
+      - AI Models:
+          - Overview: integrations/aiModels/index.md
       - Genesis:
           - Overview: integrations/genesis/index.md
       - Custom Dashboard:

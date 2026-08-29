@@ -31,7 +31,7 @@ The following fields are used for a Relational Table header record.
 | Is Custom | bit | Indicates whether the table is custom. | Almost all non-system tables will be custom.
 | Schema | int | Schema associated with the relational table.  Schemas provide a unique namespace for tables and views. | This will be auto-assigned based on the Is Custom value.  Custom tables should be assigned to the custom schema which is the one with 'x' in the name.
 | Is Enabled | bit | Indicates whether the table is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational table record. | This is readonly and will be auto set the same value as the Table Name providing a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the relational table record. | This is readonly and will be auto set the same value as the Table Name providing a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the relational table record. |
@@ -52,7 +52,7 @@ Use relational tables to define business entities and objects such as:
 ## Create a new Relational Table
 
 1. Go to **Admin | Relational | Relational Tables**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create new [Relational Columns](columns.md)
@@ -60,10 +60,10 @@ Use relational tables to define business entities and objects such as:
 7. Create new [Table Relationships](relationships.md)
 8. Click on the **Sync** button to sync the table definition with the database
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Schema, Ext Ref Unique Code and Relational Table Id will be auto-assigned
+    The Schema, Integration Code and Relational Table Id will be auto-assigned
     
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

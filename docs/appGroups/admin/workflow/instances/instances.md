@@ -34,7 +34,7 @@ The following fields are used for a Workflow Instance header record.
 | Security Group | int | Security group granted read-write access to the cycle's data. |
 | Read Security Group | int | Security group granted read-only access to the cycle's data. |
 | Is Enabled | bit | Indicates whether the workflow instance is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the workflow instance record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the workflow instance record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the workflow instance record. |
@@ -51,15 +51,15 @@ The following fields are used for a Workflow Instance header record.
 ## Create a new Workflow Instance
 
 1. Go to **Admin | Workflow | Instances**
-2. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Select the [Instance Type](instanceTypes.md) and enter the remaining required fields
 5. Click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Workflow Instance Id will be auto-assigned
+    The Integration Code and Workflow Instance Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

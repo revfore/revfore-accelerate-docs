@@ -23,7 +23,7 @@ The following fields are used for a Relational Model Relationship record.
 | Related To Relational Model | int | Identifies the related relational model connected to this relationship. | Used when the model relationship points to or interacts with another relational model. |
 | Related To Category Flag | int | Defines the category flag used for the related side of the relationship. | This is readonly and defined on the table relationship. |
 | Is Enabled | bit | Indicates whether the model relationship is enabled for use. | Disabled relationships are not intended for active use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the relational model relationship record. | This is readonly and is auto set to provide a stable unique value for importing data. |
+| Integration Code | nvarchar | Unique value for the relational model relationship record. | This is readonly and is auto set to provide a stable unique value for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
 | Created By | int | User who created the relational model relationship record. | This is system maintained. |
@@ -58,11 +58,11 @@ When defining model relationships:
 1. Go to **Admin | Relational | Relational Models**
 2. Select the desired Relational Model and click on **Edit+**
 3. In the Child Views list, select **Relational Models : Sources**
-4. In the **Relational Models : Sources** section, click on **Add** or **Enable Inline Adding & Editing**
+4. In the **Relational Models : Sources** section, click on **Add** or **Add & Edit in Grid**
 5. Click on the **+** button on the top left of the grid
 6. Enter required fields and click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 ## Notes
 

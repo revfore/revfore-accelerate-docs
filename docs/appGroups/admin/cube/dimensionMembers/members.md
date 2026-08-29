@@ -32,7 +32,7 @@ The following fields are used for a Dimension Member record.
 | Effective Start Date | date | Date the member becomes available for selection. | Defaults to 1900-01-01.
 | Effective End Date | date | Date the member stops being available for selection. | Defaults to 2999-12-31.
 | Is Enabled | bit | Indicates whether the member is enabled for use. |
-| Ext Ref Unique Code | nvarchar | Unique value for the member record. | This is readonly and provides a unique value for the record that is used for importing data
+| Integration Code | nvarchar | Unique value for the member record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the member record. |
@@ -43,8 +43,8 @@ The following fields are used for a Dimension Member record.
 
 Members are selected when configuring:
 
-- [Workflow Unit Member Sets](../../workflow/units/memberSets.md) – base and summary members per dimension
-- [Item Category Member Sets](../../workflow/supporting/itemCategoryMemberSets.md) – base and summary members per dimension
+- [Workflow Unit Member Sets](../../workflow/units/memberSets.md) – base and scope members per dimension
+- [Item Category Member Sets](../../workflow/supporting/itemCategoryMemberSets.md) – base and scope members per dimension
 - [Workflow Areas](../../workflow/areas/index.md) – the area's data source member
 - [Workflow Instances](../../workflow/instances/instances.md) – the cycle's scenario member
 
@@ -52,14 +52,14 @@ Members are selected when configuring:
 
 1. Go to **Admin | Cube | Dimension Members**
 2. Open the **Members** page
-3. Click on '**Add+**' or '**Enable Inline Adding & Editing**'
+3. Click on '**Add+**' or '**Add & Edit in Grid**'
 4. Select the Dimension and enter the remaining required fields
 5. Click **Save**
 
-**Enable Inline Adding & Editing** allows adding and modifying rows directly in the grid
+**Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 !!!Note Important Notes
-    The Ext Ref Unique Code and Dimension Member Id will be auto-assigned
+    The Integration Code and Dimension Member Id will be auto-assigned
 
     See [General Actions](../../../../concepts/metadataDrivenUI/actions.md#general-actions) for more information about adding records
 

@@ -26,7 +26,7 @@ The following general actions can be added to most views.
 
 | Action | Description | Notes |
 |---|---|---|
-| Enable Inline Adding & Editing | A checkbox-based action that switches the current grid into add/edit mode, allowing the user to click a **+** button to add new records and edit selected existing records directly in the grid. | Records that need to be edited must be selected before the checkbox is checked. |
+| Add & Edit in Grid | A checkbox-based action that switches the current grid into add/edit mode, allowing the user to click a **+** button to add new records and edit selected existing records directly in the grid. | Records that need to be edited must be selected before the checkbox is checked. |
 | Add | Opens a page with an empty grid that you can add records to. | Typically used to create new records. |
 | Add+ | Opens a Parent/Children add page. | Useful when users need to enter related records together in a single experience.  Add only to Parent records. |
 | Edit | Opens a page with an editable grid populated with the selected records. | Used to update existing records. |

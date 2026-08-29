@@ -58,7 +58,7 @@ Each view definition consists of:
 ## Tips for Lookup Views
 - Create separate 'Relational Views' for lookup definitions and use the suffix of '_ml' vs '_mc'. Don't use the same 'Relational View' for a lookup as you do for data creation/entry.
 - Only add the necessary columns you will need for lookups to reduce the number of joins needed to be done in the SQL View
-- The following types of columns are required: Primary key, Name or Display Name, Ext Ref Unique Code
+- The following types of columns are required: Primary key, Name or Display Name, Integration Code
 - The following types of columns are helpful: Is Enabled
 - Don't add any actions
 - Add a 'Where Clause' to the lookup view if you need it to be filtered
