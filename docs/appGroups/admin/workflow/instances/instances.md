@@ -27,7 +27,7 @@ The following fields are used for a Workflow Instance header record.
 | Workflow Instance Type | int | The kind of cycle this instance is. | Required. Workflow units, areas and member sets are configured per instance type, so this determines which configuration applies.
 | Scenario Member | int | The scenario dimension member the cycle's data belongs to. | Used when posting the cycle's data to the cube.
 | Year | int | The year the cycle relates to. |
-| Status | int | Current status of the cycle. | Required. Used to manage the cycle's lifecycle, for example open, in progress, or closed.
+| Status | int | Current status of the cycle. | Required. Chosen from a fixed list: Draft, Open, In-Review, In-Review & Locked, Pending Approval, Completed. See below.
 | Start Date | date | Date the cycle begins. |
 | End Date | date | Date the cycle ends. |
 | Actual End Period | int | The last period containing actuals for the cycle. | Used where a cycle mixes actual and planned data, to mark where actuals stop.
@@ -40,6 +40,21 @@ The following fields are used for a Workflow Instance header record.
 | Created By | int | User who created the workflow instance record. |
 | Modified By | int | User who last modified the workflow instance record. |
 | Workflow Instance Id | int | Unique identifier for the workflow instance record. | If you leave blank, the system will auto assign
+
+## Status values
+
+Status is a fixed list rather than a lookup table, so the values are not maintained anywhere in the application:
+
+| Value | Status |
+|---|---|
+| 1 | Draft |
+| 2 | Open |
+| 3 | In-Review |
+| 4 | In-Review & Locked |
+| 5 | Pending Approval |
+| 6 | Completed |
+
+Use status to move a cycle through its lifecycle rather than deleting instances that have finished.
 
 ## Typical Use Cases
 

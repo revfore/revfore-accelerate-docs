@@ -35,6 +35,7 @@ nav:
           - Overview: appGroups/config/index.md
           - Manage License Keys: appGroups/config/manage-license-key.md   
           - Setup & Upgrade: appGroups/config/setup-upgrade.md      
+          - Create New Instance: appGroups/config/create-new-instance.md
           - Uninstall: appGroups/config/uninstall.md
           - Run Maintenance Scripts: appGroups/config/run-maintenance-scripts.md
           - Other: appGroups/config/other.md  

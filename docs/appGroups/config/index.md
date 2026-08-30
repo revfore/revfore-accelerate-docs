@@ -10,6 +10,7 @@ The Config application group includes the following sections:
 
 - [Manage License Key](manage-license-key.md)
 - [Setup & Upgrade](setup-upgrade.md)
+- [Create New Instance](create-new-instance.md)
 - [Uninstall](uninstall.md)
 - [Run Maintenance Scripts](run-maintenance-scripts.md)
 - [Other](other.md)
