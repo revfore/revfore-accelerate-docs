@@ -792,6 +792,27 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../config/create-new-instance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Create New Instance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../config/uninstall/" class="md-nav__link">
         
   
@@ -2298,6 +2319,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#status-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3128,6 +3158,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#status-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Status values
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3233,7 +3272,7 @@
 <td>Status</td>
 <td>int</td>
 <td>Current status of the cycle.</td>
-<td>Required. Used to manage the cycle's lifecycle, for example open, in progress, or closed.</td>
+<td>Required. Chosen from a fixed list: Draft, Open, In-Review, In-Review &amp; Locked, Pending Approval, Completed. See below.</td>
 </tr>
 <tr>
 <td>Start Date</td>
@@ -3309,6 +3348,43 @@
 </tr>
 </tbody>
 </table>
+<h2 id="status-values">Status values</h2>
+<p>Status is a fixed list rather than a lookup table, so the values are not maintained anywhere in the application:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Draft</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Open</td>
+</tr>
+<tr>
+<td>3</td>
+<td>In-Review</td>
+</tr>
+<tr>
+<td>4</td>
+<td>In-Review &amp; Locked</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Pending Approval</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Completed</td>
+</tr>
+</tbody>
+</table>
+<p>Use status to move a cycle through its lifecycle rather than deleting instances that have finished.</p>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
 <li>FY26 Budget</li>
