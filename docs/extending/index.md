@@ -76,7 +76,7 @@ rfa_actnExtension_os/
     ├── IExtensionHandler.cs            the interface every handler implements
     ├── ExtensionHandlerDispatcher.cs   routes a view to its handler
     ├── SolutionHelper.cs               entry point the closed assemblies call
-    ├── SharedMethods.cs                helpers for opening views, reading context
+    ├── SharedMethods.cs                Revfore helpers - opening views, reading context
     └── ExtensionHandlers/
         ├── WfItemHandlers
             ├── WfItemHandler.cs            Can have many files in the folder
@@ -86,7 +86,7 @@ rfa_actnExtension_os/
             └── ...
 ```
 
-You will normally only add folders and files under **`ExtensionHandlers/`** and add one line to **`ExtensionHandlerDispatcher.cs`**.
+You will normally only add folders and files under **`ExtensionHandlers/`**, add one line to **`ExtensionHandlerDispatcher.cs`**, and — where two or more handlers need the same helper — add your own shared-methods file beside `SharedMethods.cs`. The Revfore files themselves are best left untouched, so an enhanced version drops straight in on upgrade. See [Shared Methods](shared-methods.md#adding-your-own).
 
 ## Notes
 

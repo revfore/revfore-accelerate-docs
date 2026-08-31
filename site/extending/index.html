@@ -3627,7 +3627,7 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    ├── IExtensionHandler.cs            the interface every handler implements
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    ├── ExtensionHandlerDispatcher.cs   routes a view to its handler
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ├── SolutionHelper.cs               entry point the closed assemblies call
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ├── SharedMethods.cs                helpers for opening views, reading context
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    ├── SharedMethods.cs                Revfore helpers - opening views, reading context
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    └── ExtensionHandlers/
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>        ├── WfItemHandlers
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>            ├── WfItemHandler.cs            Can have many files in the folder
@@ -3636,7 +3636,7 @@
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>        ├── OtherHandlers
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>            └── ...
 </code></pre></div>
-<p>You will normally only add folders and files under <strong><code>ExtensionHandlers/</code></strong> and add one line to <strong><code>ExtensionHandlerDispatcher.cs</code></strong>.</p>
+<p>You will normally only add folders and files under <strong><code>ExtensionHandlers/</code></strong>, add one line to <strong><code>ExtensionHandlerDispatcher.cs</code></strong>, and — where two or more handlers need the same helper — add your own shared-methods file beside <code>SharedMethods.cs</code>. The Revfore files themselves are best left untouched, so an enhanced version drops straight in on upgrade. See <a href="shared-methods/#adding-your-own">Shared Methods</a>.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>There is one extension assembly per instance. Separate instances have entirely separate code, as they have separate schemas.</li>

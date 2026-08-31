@@ -2,7 +2,7 @@
 
 [← Back to Extending the Framework](index.md)
 
-`SharedMethods` is a static helper class in the extension assembly holding operations that most handlers need. It sits alongside your handler files, so you can read it and add to it.
+`SharedMethods` is a Revfore helper class in the extension assembly, holding operations that most handlers need. It is unencrypted like the rest of the assembly, so you can read it — but it is Revfore's file to change, not yours. Put your own helpers in [your own files](#adding-your-own).
 
 ## Overview
 
@@ -81,12 +81,32 @@ Read as: *if the user changed the first period, and the row was evenly spread be
 
 ## Adding your own
 
-`SharedMethods` is part of the extension assembly, so you can add to it. It is the right home for anything two or more of your handlers need — resolving a code to an id, formatting a reference, applying a rule that spans model families.
+!!!Note Leave `SharedMethods.cs` as it is
+    `SharedMethods.cs` is a Revfore file. It sits in the extension assembly and is not encrypted, so nothing stops you editing it — but do not. Revfore ships enhanced versions of it, and taking a new one is a straight replacement only while the file is untouched. Edit it and every upgrade becomes a merge, with your additions to weigh against theirs.
 
-Keep it static and stateless, as the rest of the class is. Anything that belongs to one model family belongs in that family's handler instead.
+Put your own helpers in **your own files** instead, alongside it in `DashboardExtenders/`:
+
+```
+DashboardExtenders/
+├── SharedMethods.cs           Revfore's - replaced on upgrade, never edited
+├── PrjSharedMethods.cs        yours
+└── ExtensionHandlers/
+    └── PrjHandlers/
+        └── PrjHandler.cs
+```
+
+Name them for the solution or the area they serve rather than by function, so it stays obvious at a glance which files are yours and which arrived with the framework.
+
+What belongs in one:
+
+- anything two or more of your handlers need — resolving a code to an id, formatting a reference, applying a rule that spans model families
+- wrappers that give a Revfore method your own defaults, rather than changing the original
+
+Keep them static and stateless, as `SharedMethods` is — everything a method needs should arrive as a parameter. Anything specific to a single model family belongs in that family's handler, not in a shared file.
 
 ## Notes
 
 - The open methods deliberately hide Add+, Edit+ and Navigate on the view they open. If you need those, the action should navigate rather than open.
 - Pass a view name rather than an id where you can; it survives a rebuild of the metadata, an id may not.
 - The period helpers only decide *whether* to spread — they do not save anything. Flag and save the records as usual afterwards.
+- Do not edit `SharedMethods.cs`. Add your own file beside it, so an enhanced version from Revfore drops straight in.
