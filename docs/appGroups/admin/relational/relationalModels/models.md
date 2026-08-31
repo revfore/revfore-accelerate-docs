@@ -27,7 +27,7 @@ The following fields are used for a Relational Model header record.
 | Relational Model Display Name | nvarchar | User-friendly display name shown in the application. | If blank or set to 'Auto()' and a 'Relational Table' is selected, this value will auto populate from the Relational Column. |
 | Relational Model Description | nvarchar | Description of the relational model and its purpose. | |
 | Relational Table | int | Identifies the primary relational table associated with the model. | This is typically the main business entity or object that the model is centered on. |
-| Is Custom | bit | Indicates whether the model is custom. | Almost all non-system models will be custom. |
+| Is Extension | bit | Indicates whether the model is an extension. | Almost all non-system models will be extensions. |
 | Is Enabled | bit | Indicates whether the model is enabled for use. | |
 | Integration Code | nvarchar | Unique value for the relational model record. | This is readonly and will be auto set the same value as the Model Name, providing a unique value for the record that is used for importing data. |
 | Created Date | datetime | Date and time the record was created. | |

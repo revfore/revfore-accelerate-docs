@@ -37,7 +37,7 @@ The following fields are used for a Relational Table Column record.
 | Bulk Update Flag | int | Controls how the column behaves during bulk update processes. | Use this to manage whether and how the column participates in bulk updates. |
 | Lookup - Standard Parameter | nvarchar | Defines a standard parameter used for lookup behavior. | Used when the column relies on a standard lookup parameter. |
 | Lookup - Dynamic | int | Defines the dynamic lookup associated with the column. | Used when the column relies on a dynamic RFA lookup definition. |
-| Is Custom | bit | Indicates whether the column is custom. | Most user-defined columns will be custom. |
+| Is Extension | bit | Indicates whether the column is an extension. | Most user-defined columns will be extensions. |
 | Is Enabled | bit | Indicates whether the column is enabled for use. | Disabled columns are not intended for active use. |
 | Integration Code | nvarchar | Unique value for the relational table column record. | This is readonly and will be auto set the Table Name & Column Name providing a unique value for the record that is used for importing data |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |

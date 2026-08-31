@@ -25,7 +25,7 @@ The following fields are used for a Relational View header record.
 | Relational Model | int | Identifies the relational model that the view is based on. | |
 | Schema | int | Schema associated with the relational model. | This will be auto-set if a Relational Model is selected and this field is blank or set to 'Auto()'|
 | Is RFA Managed | bit | Indicates whether the view is managed by Revfore Framework. |  This will be auto-set if a Relational Model is selected.  See Important Field Notes below|
-| Is Custom | bit | Indicates whether the view is custom. | Almost all non-system views will be custom.  This will be auto-set if a Relational Model is selected.|
+| Is Extension | bit | Indicates whether the view is an extension. | Almost all non-system views will be extensions.  This will be auto-set if a Relational Model is selected.|
 | Master View | int | Identifies the master view associated with this view. | Used when this view participates in a master-child view structure. |
 | Parent View | int | Identifies the parent view associated with this view. | Used when this view is part of a parent-child hierarchy. |
 | Child Level | int | Defines the child level of the view within a hierarchy. | Used when this view is part of a parent-child hierarchy. |
@@ -76,7 +76,7 @@ The following fields are used for a Relational View header record.
 !!!Note Important Notes
     The Integration Code and Relational View Id will be auto-assigned
 
-    The Name, Display Name, Description, Schema, Is RFA Managed and Is Custom fields will auto-populate if a Relational Model is selected and Saved.
+    The Name, Display Name, Description, Schema, Is RFA Managed and Is Extension fields will auto-populate if a Relational Model is selected and Saved.
 
     If Lookups need to be created for the underlying relation model, you will want to create a separate Lookup Relational View for it.  See [Tips for Lookup Views](index.md#tips-for-lookup-views)
     

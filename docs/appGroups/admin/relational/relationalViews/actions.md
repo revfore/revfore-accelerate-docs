@@ -81,7 +81,7 @@ Custom actions can also be added.
 6. Enter required fields, select **Custom** for the **Business Rule Flag** column and click **Save**
 7. Go to **Application | Presentation | Workspaces** and select the **Revfore Framework (RFA)** workspace
 8. Find the ***XCP_xRfaDlg_ActnCustom** maintenance unit
-9. Find the **SolutionHelper.cs** file in the **rfa_actnCustom_os** assembly
+9. Find the **SolutionHelper.cs** file in the **rfa_actnExtension_os** assembly
 10. Find the **HandleForwardedActionClick** method
 11. Add custom code.  See [Sample Custom Code](#sample-custom-code).
 12. Save assembly
@@ -89,6 +89,8 @@ Custom actions can also be added.
 **Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
 This allows developers to extend the standard action set with solution-specific functionality.
+
+For the code side — where `ActionHandler` fits, what it receives, and how to open another view from an action — see [View Actions in Code](../../../../extending/actions.md).
 
 Once all actions are created, create new [Relational Filters](filters.md)
 

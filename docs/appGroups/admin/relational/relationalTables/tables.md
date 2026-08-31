@@ -28,8 +28,8 @@ The following fields are used for a Relational Table header record.
 | Relational Table Description | nvarchar | Description of the relational table and its purpose. |
 | Alias | nvarchar | Alternate short name or alias for the relational table. | This will be used for joining tables and views, and as the prefix for model and view column names. No spaces or special characters are allowed.
 | Is RFA Managed | bit | Indicates whether the table is managed by Revfore Framework. | If Managed, the table header, columns, indexes and relationships are defined in RFA and created from RFA using the Sync process.  If not managed, the table is create directly in the database by some other method and RFA only references it.  Both RFA managed and non-managed tables can be used in Relational Models and Views.
-| Is Custom | bit | Indicates whether the table is custom. | Almost all non-system tables will be custom.
-| Schema | int | Schema associated with the relational table.  Schemas provide a unique namespace for tables and views. | This will be auto-assigned based on the Is Custom value.  Custom tables should be assigned to the custom schema which is the one with 'x' in the name.
+| Is Extension | bit | Indicates whether the table is an extension. | Almost all non-system tables will be extensions.
+| Schema | int | Schema associated with the relational table.  Schemas provide a unique namespace for tables and views. | This will be auto-assigned based on the Is Extension value.  Extension tables should be assigned to the extension schema which is the one with 'x' in the name.
 | Is Enabled | bit | Indicates whether the table is enabled for use. |
 | Integration Code | nvarchar | Unique value for the relational table record. | This is readonly and will be auto set the same value as the Table Name providing a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |

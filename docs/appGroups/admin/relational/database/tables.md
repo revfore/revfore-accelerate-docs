@@ -32,7 +32,7 @@ The following fields are shown for each database table.
 | Is Table | bit | Indicates the object is a table. |
 | Is View | bit | Indicates the object is a view. |
 | Is Stored Procedure | bit | Indicates the object is a stored procedure. |
-| Is Custom | bit | Indicates the object is custom rather than part of the core product. |
+| Is Extension | bit | Indicates the object is an extension rather than part of the core product. |
 | Table Id | int | Identifier for the object record. |
 
 ## Actions
