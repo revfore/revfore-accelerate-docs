@@ -3578,7 +3578,7 @@
 
 <h1 id="shared-methods">Shared Methods</h1>
 <p><a href="../">← Back to Extending the Framework</a></p>
-<p><code>SharedMethods</code> is a static helper class in the extension assembly holding operations that most handlers need. It sits alongside your handler files, so you can read it and add to it.</p>
+<p><code>SharedMethods</code> is a Revfore helper class in the extension assembly, holding operations that most handlers need. It is unencrypted like the rest of the assembly, so you can read it — but it is Revfore's file to change, not yours. Put your own helpers in <a href="#adding-your-own">your own files</a>.</p>
 <h2 id="overview">Overview</h2>
 <table>
 <thead>
@@ -3657,13 +3657,29 @@
 <p>Read as: <em>if the user changed the first period, and the row was evenly spread before they touched it, then spread the new value across all periods.</em> A row the user has already shaped by hand fails the second test and is left alone.</p>
 <p><code>AreAllModifiedPeriodValuesExceptTheFirstEqual</code> covers the variant where you care whether the trailing periods are still even after the edit.</p>
 <h2 id="adding-your-own">Adding your own</h2>
-<p><code>SharedMethods</code> is part of the extension assembly, so you can add to it. It is the right home for anything two or more of your handlers need — resolving a code to an id, formatting a reference, applying a rule that spans model families.</p>
-<p>Keep it static and stateless, as the rest of the class is. Anything that belongs to one model family belongs in that family's handler instead.</p>
+<p>!!!Note Leave <code>SharedMethods.cs</code> as it is
+    <code>SharedMethods.cs</code> is a Revfore file. It sits in the extension assembly and is not encrypted, so nothing stops you editing it — but do not. Revfore ships enhanced versions of it, and taking a new one is a straight replacement only while the file is untouched. Edit it and every upgrade becomes a merge, with your additions to weigh against theirs.</p>
+<p>Put your own helpers in <strong>your own files</strong> instead, alongside it in <code>DashboardExtenders/</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>DashboardExtenders/
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>├── SharedMethods.cs           Revfore's - replaced on upgrade, never edited
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>├── PrjSharedMethods.cs        yours
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>└── ExtensionHandlers/
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    └── PrjHandlers/
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        └── PrjHandler.cs
+</code></pre></div>
+<p>Name them for the solution or the area they serve rather than by function, so it stays obvious at a glance which files are yours and which arrived with the framework.</p>
+<p>What belongs in one:</p>
+<ul>
+<li>anything two or more of your handlers need — resolving a code to an id, formatting a reference, applying a rule that spans model families</li>
+<li>wrappers that give a Revfore method your own defaults, rather than changing the original</li>
+</ul>
+<p>Keep them static and stateless, as <code>SharedMethods</code> is — everything a method needs should arrive as a parameter. Anything specific to a single model family belongs in that family's handler, not in a shared file.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>The open methods deliberately hide Add+, Edit+ and Navigate on the view they open. If you need those, the action should navigate rather than open.</li>
 <li>Pass a view name rather than an id where you can; it survives a rebuild of the metadata, an id may not.</li>
 <li>The period helpers only decide <em>whether</em> to spread — they do not save anything. Flag and save the records as usual afterwards.</li>
+<li>Do not edit <code>SharedMethods.cs</code>. Add your own file beside it, so an enhanced version from Revfore drops straight in.</li>
 </ul>
 
 
