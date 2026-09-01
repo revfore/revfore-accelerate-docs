@@ -123,7 +123,7 @@ Once all columns are created, create new [Relational Model Relationships](relati
 
     All expression columns will require at least one 'Expression Model Source'.  They will need as many as there are reference in the expression formula.
 
-    If you plan to use this model as a source for a 'Relational View' lookup or as a source for a 'Relational View' that supports importing from excel, spreadsheets or API, an [XRefUniqueCode](#ext-ref-unique-code-column) column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.  Define it in the Relational Table if you have an external system value, such as an external system primary key value, that needs to be stored in it for integration purposes.  The Model Column Name preferably ends with '_XRefUniqueCode'.  If not, the Model Column Name needs to contain 'XRefUniqueCode'.
+    If you plan to use this model as a source for a 'Relational View' lookup or as a source for a 'Relational View' that supports importing from excel, spreadsheets or API, an [Integration Code](#integration-code-column) column is required to be defined as a column in the Relational Table or as an expression column in the Relational Model.  Define it in the Relational Table if you have an external system value, such as an external system primary key value, that needs to be stored in it for integration purposes.  The Model Column Name preferably ends with '_IntegrationCode'.  If not, the Model Column Name needs to contain 'IntegrationCode'.
 
     For columns that are required to be unique, Use Always as the Copy Function Flag, Get_ColumnValues as the Copy Function and {MyColumnName()}{Copy()} as the Copy Expression
 

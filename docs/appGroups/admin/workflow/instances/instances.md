@@ -30,6 +30,8 @@ The following fields are used for a Workflow Instance header record.
 | Status | int | Current status of the cycle. | Required. Chosen from a fixed list: Draft, Open, In-Review, In-Review & Locked, Pending Approval, Completed. See below.
 | Start Date | date | Date the cycle begins. |
 | End Date | date | Date the cycle ends. |
+| Start Period | int | First period the cycle covers. | Optional. Bounds the cycle in periods, alongside the calendar dates above.
+| End Period | int | Last period the cycle covers. | Optional. Set with Start Period rather than on its own.
 | Actual End Period | int | The last period containing actuals for the cycle. | Used where a cycle mixes actual and planned data, to mark where actuals stop.
 | Security Group | int | Security group granted read-write access to the cycle's data. |
 | Read Security Group | int | Security group granted read-only access to the cycle's data. |
@@ -82,4 +84,5 @@ Use status to move a cycle through its lifecycle rather than deleting instances 
 
 - The instance type drives which unit member sets and workflow areas apply, so set it correctly before work begins on the cycle.
 - Description is required on an instance, unlike most other workflow records.
-- Actual End Period only matters where a cycle contains both actual and planned data.
+- Start Period and End Period express the cycle in periods; Start Date and End Date express it as calendar dates. They describe the same window in two forms, so keep them consistent.
+- Actual End Period is a different thing again - it marks where actuals stop *within* the cycle, and only matters where a cycle contains both actual and planned data.

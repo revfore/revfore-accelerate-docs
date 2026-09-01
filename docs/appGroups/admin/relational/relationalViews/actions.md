@@ -79,18 +79,16 @@ Custom actions can also be added.
 4. In the '**Relational Views : Actions**' section, Click on '**Add**' or '**Add & Edit in Grid**' 
 5. Click on the '**+**' button on the top left of the grid
 6. Enter required fields, select **Custom** for the **Business Rule Flag** column and click **Save**
-7. Go to **Application | Presentation | Workspaces** and select the **Revfore Framework (RFA)** workspace
-8. Find the ***XCP_xRfaDlg_ActnCustom** maintenance unit
-9. Find the **SolutionHelper.cs** file in the **rfa_actnExtension_os** assembly
-10. Find the **HandleForwardedActionClick** method
-11. Add custom code.  See [Sample Custom Code](#sample-custom-code).
-12. Save assembly
 
 **Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
-This allows developers to extend the standard action set with solution-specific functionality.
+That defines the action. Nothing happens when a user clicks it until the code side is implemented, which is done in the extension assembly rather than here.
 
-For the code side — where `ActionHandler` fits, what it receives, and how to open another view from an action — see [View Actions in Code](../../../../extending/actions.md).
+The **Action Name** you entered above is the value your code matches on, so it is the contract between the two halves — pick something stable and descriptive.
+
+See [View Actions in Code](../../../../extending/actions.md) for implementing it: where `ActionHandler` fits, what it receives, and how to open another view from an action. If the model family has no handler yet, start with [Adding a Handler](../../../../extending/handlers/adding.md).
+
+This allows developers to extend the standard action set with solution-specific functionality.
 
 Once all actions are created, create new [Relational Filters](filters.md)
 
@@ -99,66 +97,3 @@ Once all actions are created, create new [Relational Filters](filters.md)
 - Actions help turn a view into an interactive experience.
 - Good action design improves workflow efficiency and usability.
 - Actions should support real user tasks rather than add complexity.
-
-## Sample Custom Code
-
-          case "ImportRecordsForViewObject":{
-            Workspace.__WsNamespacePrefix.rel.Relationship oRelationship = oCurrentViewViewerBaseSettings.Get_Relationship_Object();
-            
-            if(!((oRelationship.CategoryFlag & 4) == 4 && oRelationship.lstSourceSelectedPrimaryKeyIds.Count == 1)) {
-              throw new Exception($"The relationship has to be a parent to child relationship with one selected parent primary key Id. oRelationship.CategoryFlag: {oRelationship.CategoryFlag};  Current Count: {oRelationship.lstSourceSelectedPrimaryKeyIds.Count}");
-            }
-            saveOther = true;
-            iLaunchingViewParameterSetId = 99; //so it doesn't clear any that are used
-            int iTargetParentPrimaryKeyId = oRelationship.lstSourceSelectedPrimaryKeyIds[0];
-
-            selectionChangedTaskResult.ModifiedCustomSubstVars.Add($"param_RfaDlg_ActnOther_RelObj_ObjectId", iTargetParentPrimaryKeyId.ToString());
-            selectionChangedTaskResult.ModifiedCustomSubstVars.Add($"param_RfaDlg_ActnOther_RelObjCol_StartingSequenceNumber", string.Empty); //We need to start with this blank
-
-            launchingViewViewerBaseSettings.Load(parms, $"Settings_{actionName}", OSGlobalProtectedConstants.RelSolutionCode, OSGlobalProtectedConstants.RelModuleCode, iLaunchingViewParameterSetId, iViewObjectId);
-            launchingViewViewerBaseSettings.Set_IsReadOnlyMode(true);
-            
-            break; }
-
-          case "EditObjectActionFilter":
-          case "EditModelColumn":
-          case "EditModelSource":
-          case "EditViewObject":
-
-            string sParamName1ToPersistInDb = string.Empty;
-            string sParamName2ToPersistInDb = string.Empty;
-
-            if(actionName.Equals("EditObjectActionFilter")){
-                sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelObjFltr_FilterExpression";
-            } else if(actionName.Equals("EditModelColumn")){
-                sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelMdlCol_Expression";
-            } else if(actionName.Equals("EditModelSource")){
-                sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelMdlSrc_AdditionalJoinClause";
-            } else if(actionName.Equals("EditViewObject")){
-                sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelObj_WhereClause";
-                sParamName2ToPersistInDb = "param_RfaDlg_ActnOther_RelObj_HavingClause";
-            }
-
-            iLaunchingViewParameterSetId = 9000;
-            if(selectedPrimaryKeyIds.Count > 0){
-                launchingViewViewerBaseSettings = viewerBaseAndContextSettings.ViewerBaseSettings.CreateCopy(9000);
-                Workspace.__WsNamespacePrefix.rfa_shared_os.BusinessRule.DashboardExtender.SolutionHelper.MainClass.AutoLoadCustomSubstVarsWithAllColumnValues_Initialize(parms, actionName, iViewObjectId, iLaunchingViewParameterSetId, ref launchingViewViewerBaseSettings, selectedPrimaryKeyIds[0], selectionChangedTaskResult, "RfaDlg_ActnOther", ref errorMessage);
-
-                //We have to save the expression values to the database since they wont persist in memory from the expression editor back to the expression edit screen
-                bool bParameterFound = false;
-                string sExpression = GeneralUtils.NvpToStringNz(selectionChangedTaskResult.ModifiedCustomSubstVars, sParamName1ToPersistInDb, string.Empty, ref bParameterFound);
-                if(bParameterFound){
-                keyValues.SetValue(parms, sParamName1ToPersistInDb, sExpression);
-                //RF.ErrorLog.LogMessage($"  {sParamNameToPersistInDb} sExpression {sExpression} ");
-                }
-
-                if(!string.IsNullOrEmpty(sParamName2ToPersistInDb)){
-                sExpression = GeneralUtils.NvpToStringNz(selectionChangedTaskResult.ModifiedCustomSubstVars, sParamName2ToPersistInDb, string.Empty, ref bParameterFound);
-                if(bParameterFound){
-                    keyValues.SetValue(parms, sParamName2ToPersistInDb, sExpression);
-                    //RF.ErrorLog.LogMessage($"  {sParamNameToPersistInDb} sExpression {sExpression} ");
-                }
-                }
-                
-            }
-            break;

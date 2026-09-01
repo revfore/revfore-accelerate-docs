@@ -3613,6 +3613,18 @@
 <td></td>
 </tr>
 <tr>
+<td>Start Period</td>
+<td>int</td>
+<td>First period the cycle covers.</td>
+<td>Optional. Bounds the cycle in periods, alongside the calendar dates above.</td>
+</tr>
+<tr>
+<td>End Period</td>
+<td>int</td>
+<td>Last period the cycle covers.</td>
+<td>Optional. Set with Start Period rather than on its own.</td>
+</tr>
+<tr>
 <td>Actual End Period</td>
 <td>int</td>
 <td>The last period containing actuals for the cycle.</td>
@@ -3736,7 +3748,8 @@
 <ul>
 <li>The instance type drives which unit member sets and workflow areas apply, so set it correctly before work begins on the cycle.</li>
 <li>Description is required on an instance, unlike most other workflow records.</li>
-<li>Actual End Period only matters where a cycle contains both actual and planned data.</li>
+<li>Start Period and End Period express the cycle in periods; Start Date and End Date express it as calendar dates. They describe the same window in two forms, so keep them consistent.</li>
+<li>Actual End Period is a different thing again - it marks where actuals stop <em>within</em> the cycle, and only matters where a cycle contains both actual and planned data.</li>
 </ul>
 
 

@@ -2035,15 +2035,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#sample-custom-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Custom Code
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3546,15 +3537,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#sample-custom-code" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Custom Code
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -3733,16 +3715,12 @@
 <li>In the '<strong>Relational Views : Actions</strong>' section, Click on '<strong>Add</strong>' or '<strong>Add &amp; Edit in Grid</strong>' </li>
 <li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
 <li>Enter required fields, select <strong>Custom</strong> for the <strong>Business Rule Flag</strong> column and click <strong>Save</strong></li>
-<li>Go to <strong>Application | Presentation | Workspaces</strong> and select the <strong>Revfore Framework (RFA)</strong> workspace</li>
-<li>Find the <strong>*XCP_xRfaDlg_ActnCustom</strong> maintenance unit</li>
-<li>Find the <strong>SolutionHelper.cs</strong> file in the <strong>rfa_actnExtension_os</strong> assembly</li>
-<li>Find the <strong>HandleForwardedActionClick</strong> method</li>
-<li>Add custom code.  See <a href="#sample-custom-code">Sample Custom Code</a>.</li>
-<li>Save assembly</li>
 </ol>
 <p><strong>Add &amp; Edit in Grid</strong> allows adding and modifying rows directly in the grid</p>
+<p>That defines the action. Nothing happens when a user clicks it until the code side is implemented, which is done in the extension assembly rather than here.</p>
+<p>The <strong>Action Name</strong> you entered above is the value your code matches on, so it is the contract between the two halves — pick something stable and descriptive.</p>
+<p>See <a href="../../../../../extending/actions/">View Actions in Code</a> for implementing it: where <code>ActionHandler</code> fits, what it receives, and how to open another view from an action. If the model family has no handler yet, start with <a href="../../../../../extending/handlers/adding/">Adding a Handler</a>.</p>
 <p>This allows developers to extend the standard action set with solution-specific functionality.</p>
-<p>For the code side — where <code>ActionHandler</code> fits, what it receives, and how to open another view from an action — see <a href="../../../../../extending/actions/">View Actions in Code</a>.</p>
 <p>Once all actions are created, create new <a href="../filters/">Relational Filters</a></p>
 <h2 id="notes">Notes</h2>
 <ul>
@@ -3750,68 +3728,6 @@
 <li>Good action design improves workflow efficiency and usability.</li>
 <li>Actions should support real user tasks rather than add complexity.</li>
 </ul>
-<h2 id="sample-custom-code">Sample Custom Code</h2>
-<div class="highlight"><pre><span></span><code>      case "ImportRecordsForViewObject":{
-        Workspace.__WsNamespacePrefix.rel.Relationship oRelationship = oCurrentViewViewerBaseSettings.Get_Relationship_Object();
-
-        if(!((oRelationship.CategoryFlag &amp; 4) == 4 &amp;&amp; oRelationship.lstSourceSelectedPrimaryKeyIds.Count == 1)) {
-          throw new Exception($"The relationship has to be a parent to child relationship with one selected parent primary key Id. oRelationship.CategoryFlag: {oRelationship.CategoryFlag};  Current Count: {oRelationship.lstSourceSelectedPrimaryKeyIds.Count}");
-        }
-        saveOther = true;
-        iLaunchingViewParameterSetId = 99; //so it doesn't clear any that are used
-        int iTargetParentPrimaryKeyId = oRelationship.lstSourceSelectedPrimaryKeyIds[0];
-
-        selectionChangedTaskResult.ModifiedCustomSubstVars.Add($"param_RfaDlg_ActnOther_RelObj_ObjectId", iTargetParentPrimaryKeyId.ToString());
-        selectionChangedTaskResult.ModifiedCustomSubstVars.Add($"param_RfaDlg_ActnOther_RelObjCol_StartingSequenceNumber", string.Empty); //We need to start with this blank
-
-        launchingViewViewerBaseSettings.Load(parms, $"Settings_{actionName}", OSGlobalProtectedConstants.RelSolutionCode, OSGlobalProtectedConstants.RelModuleCode, iLaunchingViewParameterSetId, iViewObjectId);
-        launchingViewViewerBaseSettings.Set_IsReadOnlyMode(true);
-
-        break; }
-
-      case "EditObjectActionFilter":
-      case "EditModelColumn":
-      case "EditModelSource":
-      case "EditViewObject":
-
-        string sParamName1ToPersistInDb = string.Empty;
-        string sParamName2ToPersistInDb = string.Empty;
-
-        if(actionName.Equals("EditObjectActionFilter")){
-            sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelObjFltr_FilterExpression";
-        } else if(actionName.Equals("EditModelColumn")){
-            sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelMdlCol_Expression";
-        } else if(actionName.Equals("EditModelSource")){
-            sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelMdlSrc_AdditionalJoinClause";
-        } else if(actionName.Equals("EditViewObject")){
-            sParamName1ToPersistInDb = "param_RfaDlg_ActnOther_RelObj_WhereClause";
-            sParamName2ToPersistInDb = "param_RfaDlg_ActnOther_RelObj_HavingClause";
-        }
-
-        iLaunchingViewParameterSetId = 9000;
-        if(selectedPrimaryKeyIds.Count &gt; 0){
-            launchingViewViewerBaseSettings = viewerBaseAndContextSettings.ViewerBaseSettings.CreateCopy(9000);
-            Workspace.__WsNamespacePrefix.rfa_shared_os.BusinessRule.DashboardExtender.SolutionHelper.MainClass.AutoLoadCustomSubstVarsWithAllColumnValues_Initialize(parms, actionName, iViewObjectId, iLaunchingViewParameterSetId, ref launchingViewViewerBaseSettings, selectedPrimaryKeyIds[0], selectionChangedTaskResult, "RfaDlg_ActnOther", ref errorMessage);
-
-            //We have to save the expression values to the database since they wont persist in memory from the expression editor back to the expression edit screen
-            bool bParameterFound = false;
-            string sExpression = GeneralUtils.NvpToStringNz(selectionChangedTaskResult.ModifiedCustomSubstVars, sParamName1ToPersistInDb, string.Empty, ref bParameterFound);
-            if(bParameterFound){
-            keyValues.SetValue(parms, sParamName1ToPersistInDb, sExpression);
-            //RF.ErrorLog.LogMessage($"  {sParamNameToPersistInDb} sExpression {sExpression} ");
-            }
-
-            if(!string.IsNullOrEmpty(sParamName2ToPersistInDb)){
-            sExpression = GeneralUtils.NvpToStringNz(selectionChangedTaskResult.ModifiedCustomSubstVars, sParamName2ToPersistInDb, string.Empty, ref bParameterFound);
-            if(bParameterFound){
-                keyValues.SetValue(parms, sParamName2ToPersistInDb, sExpression);
-                //RF.ErrorLog.LogMessage($"  {sParamNameToPersistInDb} sExpression {sExpression} ");
-            }
-            }
-
-        }
-        break;
-</code></pre></div>
 
 
 
