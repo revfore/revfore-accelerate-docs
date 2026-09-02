@@ -55,26 +55,23 @@ Before getting started, make sure your environment is ready:
 
 ## 🤖 AI Tooling
 
-Solutions are designed and built with AI assistance. Two tools are involved, and only the second is required.
-
-### Custom GPT — optional
-
-The **Revfore Framework Assistant** is a custom GPT for the ideation stage. It is quicker to think out loud in, and good for shaping a solution before any files exist.
-
-[Revfore Framework Assistant (V200)](https://chatgpt.com/g/g-6a763d1d09688191ac7d1b3988aefabd-revfore-framework-assistant-v200)
-
-!!! note "Access required"
-    The custom GPT is not publicly available. Request access from Revfore before using the link above.
-
-You can skip it entirely — Claude can take requirements directly and do the ideation itself. Use the GPT when you want to explore a problem before committing to a design; go straight to Claude when the requirements are already clear.
-
-### Claude — required
-
-Claude does the engineering and build: it turns a design, or requirements directly, into the import JSON and the C# a solution is made of.
+Solutions are designed and built with AI assistance, using **Claude**.
 
 Revfore publishes a **Claude skill** for this. The skill gives Claude the Framework's schema, conventions, standard columns, core table structures, and worked examples, so what it generates follows the same rules a hand-built solution is held to. Install the skill before you start — without it, Claude has no knowledge of the Framework.
 
-See [AI Model Integrations](integrations/aiModels/index.md) for how the two stages fit together.
+With the skill loaded, Claude takes a solution from a requirements conversation through to the files you import.
+
+### The design workbook
+
+Claude does not go straight from a conversation to import files. It first produces a **design workbook** — an Excel file with a sheet for each part of the configuration: tables, columns, views, actions, lookups, reference data and behaviour.
+
+The workbook is where the design gets settled. Because it is an ordinary `.xlsx`, you can take it away and work through it with the people who own the process — email it round, sit down with them and go through the columns, gather changes over a week. **The design conversation does not have to happen in front of Claude.**
+
+Hand the edited workbook back and Claude reports only what changed, then produces the next version. This normally takes several rounds.
+
+Only once the workbook has settled, and only when you ask, does Claude generate the import JSON. The extension code comes after that.
+
+See [AI Model Integrations](integrations/aiModels/index.md) for the full picture.
 
 ---
 
@@ -109,28 +106,31 @@ Here’s the typical process for building a solution:
 
 1. **Gather requirements**
 
-2. **Shape the solution in the custom GPT** *(optional)*
-   - Produces a written design to take forward. Skip this and go straight to Claude if the requirements are already clear
+2. **Work through the design with Claude, which produces a design workbook**
+   - An Excel file covering the tables, columns, views, actions, lookups and reference data
 
-3. **Use Claude to review the requirements or design, then create the JSON schema, JSON data, and code assembly files**
+3. **Review and edit the workbook, with your stakeholders**
+   - Hand it back to Claude, which reports what changed and produces the next version. Expect several rounds
 
-4. **Import the JSON schema files**
+4. **When the design has settled, ask Claude for the JSON schema, JSON data, and code assembly files**
+
+5. **Import the JSON schema files**
    - This will create all your table, model and view definitions
 
-5. **Review and sync the table and view definitions**
+6. **Review and sync the table and view definitions**
    - This will create the database tables and views
 
-6. **Import the JSON data files for supporting tables**
+7. **Import the JSON data files for supporting tables**
    - Now that the database tables and views are created, data can be imported into them
 
-7. **Add the code assembly files**
+8. **Add the code assembly files**
    - This will put in place all the logic that needs to run when data is entered, submitted, and so on
 
-8. **Add new Genesis navigation groups and pages**
+9. **Add new Genesis navigation groups and pages**
 
-9. **Link Revfore to the Genesis pages and configure the presentation**
+10. **Link Revfore to the Genesis pages and configure the presentation**
 
-10. **Start using the solution**
+11. **Start using the solution**
 
 ---
 
@@ -143,7 +143,9 @@ A common starting point:
 Example:
 
 > "I need to capture rate changes by product and effective date, with an approver on each change. "
-> "Design the tables, models and views for that and generate the import JSON."
+> "Design the tables, models and views for that and give me a design workbook."
+
+Work through the workbook, hand it back with your edits, and ask for the import JSON once it looks right.
 
 ---
 
@@ -153,6 +155,8 @@ Example:
 - Think in terms of business entities (not technical structures)  
 - Reuse views whenever possible  
 - Keep naming consistent  
+- Settle the workbook before asking for JSON — a change is a cell edit at that stage, and a rebuild after it  
+- Put a `?` in the workbook where you are unsure; it comes back as a question rather than a guess  
 
 ---
 
