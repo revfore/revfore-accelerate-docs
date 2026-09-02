@@ -4,49 +4,73 @@ Revfore Framework is designed so that a solution's structure can be **generated 
 
 Because tables, models, and views are defined as metadata — importable JSON rather than hand-written SQL and screens — an AI model can produce a complete, reviewable solution definition, and that definition can be validated before anything reaches the database.
 
-Two AI tools can be used, at two different stages.
+Revfore provides a **Claude skills file** that teaches Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. With that loaded, Claude takes a solution from a conversation through to the files you import.
 
-## The two stages
+## How a solution gets built
 
-| Stage | Tool | Produces |
-|---|---|---|
-| **Ideation and design** | Revfore Framework custom GPT *(optional)* | A written solution design — the tables, models, views, lookups, actions and behaviour a solution needs, and why |
-| **Engineering and build** | Claude | The import JSON and the C# that implement that design |
+| Stage | What comes out of it |
+|---|---|
+| **Requirements conversation** | An understanding of what the solution needs to do, and a written design |
+| **Design workbook** | An Excel workbook you and your stakeholders edit directly — the configuration in a form anyone can review |
+| **Import JSON** | The tables, models, views, lookups and reference data, generated once the workbook has settled |
+| **Extension code** | The C# that implements the solution's business logic |
 
-The design is the handoff. You work through the shape of a solution in the GPT, then take the finished design to Claude, which turns it into the files you actually import.
+Each stage is a deliverable you can read and change. Nothing reaches the database until you import it.
 
-**The first stage is optional.** Claude can take requirements directly and do the ideation itself, so you can skip the GPT entirely and work end to end in one place. The two-stage route exists because the GPT is quicker to think out loud in — it is a convenience, not a prerequisite.
+## The design workbook
 
-## Custom GPT — ideation and design (optional)
+The middle stage is the one that changes how a solution gets designed.
 
-The Revfore Framework custom GPT is the **thinking-out-loud stage**. It is fast at exploring requirements, answering product questions, and shaping a solution before any files exist.
+Rather than going straight from a conversation to import files, Claude produces an **Excel design workbook** — one sheet per part of the configuration:
 
-Use it to:
+| Sheet | Holds |
+|---|---|
+| **Tables** | One row per table: names, kind, parent, business key |
+| **Columns** | The heart of it — every column, its type, whether it is visible and editable, how it is populated |
+| **Views** | The screens and lists the solution needs |
+| **ViewColumns** | Per-view overrides of the column defaults |
+| **Actions** | The buttons on each view |
+| **Lookups** | The dropdowns, and where their values come from |
+| **ReferenceData** | Seed rows the solution needs to function |
+| **Behaviour** | The rules that need code behind them |
 
-- turn a business requirement into a proposed set of tables, models and views
-- decide which structures are needed and which are not
-- check what is possible before committing to a design
-- surface the design decisions that are expensive to change later
+### Why it exists
 
-It knows the Framework's schema, conventions, standard columns, and existing platform structures, so what it proposes is buildable rather than merely plausible. It does not write the import JSON or the C# — that is the next stage.
+A design written as prose is hard to review and harder to argue with. A workbook is a **configuration tool**: the person who knows the business can open it, change a display name, mark a column hidden, add a row, and hand it back — without knowing anything about the Framework's schema.
 
-## Claude — engineering and build
+The sheets constrain what can be entered, so edits stay valid: dropdowns for standard columns, lookups, action names, and how each column is populated. Where something is genuinely unknown, a `?` records it as an open question rather than a guess.
 
-Claude can start from either end: a finished design handed over from the GPT, or the raw requirements themselves — in which case it does the ideation and requirement ingestion as well.
+### Editing it offline, with stakeholders
 
-From there it produces the files a solution is actually made of:
+The workbook is an ordinary `.xlsx` file. Once Claude has produced it you can take it away entirely — email it round, sit down with the finance team and work through the Columns sheet on a screen, or collect changes from several people over a week.
 
-- the import JSON that defines the tables, models, views and lookups
-- the import JSON that seeds reference data
-- the C# assembly code that implements the solution's business logic
+That is the point. **The design conversation does not have to happen in front of Claude.** It happens where the knowledge is, in a tool everyone already has, on your own timescale.
+
+### Iterating
+
+When the workbook comes back, Claude reads it and reports **only what changed** — a short list of edited rows, not the whole file. You confirm or discuss those changes, and it produces the next version.
+
+This normally takes several rounds, and that is expected. The workbook stage is where a design gets argued out.
+
+!!! note "Import JSON comes last"
+    Claude does not generate the import JSON until you ask for it. Generating early wastes work — the JSON goes stale the moment another cell changes. Ask for it once the workbook has settled; the extension code comes later still.
+
+## What Claude produces
+
+- the **design workbook**, and each revised version as the design evolves
+- the **import JSON** that defines tables, models, views and lookups
+- the **import JSON** that seeds reference data
+- the **C# extension code** that implements the solution's business logic
 
 Claude validates what it generates against the Framework's schema and conventions before you import it, which catches the class of mistakes that produce valid-looking JSON that is still wrong.
 
 ## Capabilities
 
-- Generate a complete solution design from plain-English requirements
-- Generate importable Tables, Models, Views, Lookups and Data JSON from that design
-- Generate the C# customization code that implements a solution's business logic
+- Turn plain-English requirements into a proposed solution design
+- Produce a design workbook for stakeholders to review and edit directly
+- Read an edited workbook back and report only what changed
+- Generate importable Tables, Models, Views, Lookups and Data JSON once the design has settled
+- Generate the C# customization code behind a custom action or business rule
 - Validate generated JSON against the current schema before import
 - Review and explain an existing solution's definitions
 - Answer product, setup, and configuration questions
@@ -54,14 +78,17 @@ Claude validates what it generates against the Framework's schema and convention
 ## Benefits
 
 - **Move from requirement to working solution in a fraction of the time**, without hand-writing SQL, screens, or import files
+- **Non-technical stakeholders can review the actual configuration**, not a description of it
+- **The design is settled before anything is built**, so changes happen in a spreadsheet cell rather than in deployed structures
 - **Design decisions surface early**, while they are still cheap to change
 - **Output follows the same conventions every time**, so solutions built by different people look and behave alike
-- **Everything is reviewable** — the design, the JSON, and the code are all files you can read and change before anything is applied
+- **Everything is reviewable** — the workbook, the JSON, and the code are all files you can read and change before anything is applied
 - **The framework does the enforcing**, so a generated solution is held to the same rules as a hand-built one
 
 ## Typical Use Cases
 
 - Standing up a new solution from a business requirement
+- Working through a design with the people who own the process, in a workbook they can edit
 - Adding a table, column, or view to an existing solution
 - Seeding reference data for a new solution
 - Writing the handler code behind a custom action
@@ -70,7 +97,7 @@ Claude validates what it generates against the Framework's schema and convention
 
 ## Notes
 
-- Where both stages are used they are deliberately separate: the GPT is quick and exploratory, Claude is precise and produces the deliverables. Using Claude alone is a perfectly good route, and the better one when the requirements are already clear.
+- Each design session gets its own dated working folder, so an edited workbook is never confused with an earlier version.
 - Generated output is always reviewed before import — nothing reaches the database without a person applying it.
-- However the design is arrived at — in the GPT or in Claude — it is what makes the build reliable; a vague design produces vague files.
-- See [Getting Started](../../getting-started.md) for where these stages sit in the overall build process.
+- A vague design produces vague files. The workbook stage exists to make the design specific before it is built.
+- See [Getting Started](../../getting-started.md) for where these stages sit in the overall build process, and [Extending the Framework](../../extending/index.md) for what the generated files contain.
