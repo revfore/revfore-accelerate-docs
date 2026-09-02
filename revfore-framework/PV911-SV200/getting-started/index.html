@@ -328,18 +328,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#custom-gpt-optional" class="md-nav__link">
+  <a href="#the-design-workbook" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom GPT — optional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-required" class="md-nav__link">
-    <span class="md-ellipsis">
-      Claude — required
+      The design workbook
     </span>
   </a>
   
@@ -3654,18 +3645,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#custom-gpt-optional" class="md-nav__link">
+  <a href="#the-design-workbook" class="md-nav__link">
     <span class="md-ellipsis">
-      Custom GPT — optional
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#claude-required" class="md-nav__link">
-    <span class="md-ellipsis">
-      Claude — required
+      The design workbook
     </span>
   </a>
   
@@ -3826,19 +3808,15 @@
 <p>👉 Follow the <a href="../setup/setup/">Setup And Installation</a> to install and configure Revfore Framework.</p>
 <hr />
 <h2 id="ai-tooling">🤖 AI Tooling</h2>
-<p>Solutions are designed and built with AI assistance. Two tools are involved, and only the second is required.</p>
-<h3 id="custom-gpt-optional">Custom GPT — optional</h3>
-<p>The <strong>Revfore Framework Assistant</strong> is a custom GPT for the ideation stage. It is quicker to think out loud in, and good for shaping a solution before any files exist.</p>
-<p><a href="https://chatgpt.com/g/g-6a763d1d09688191ac7d1b3988aefabd-revfore-framework-assistant-v200">Revfore Framework Assistant (V200)</a></p>
-<div class="admonition note">
-<p class="admonition-title">Access required</p>
-<p>The custom GPT is not publicly available. Request access from Revfore before using the link above.</p>
-</div>
-<p>You can skip it entirely — Claude can take requirements directly and do the ideation itself. Use the GPT when you want to explore a problem before committing to a design; go straight to Claude when the requirements are already clear.</p>
-<h3 id="claude-required">Claude — required</h3>
-<p>Claude does the engineering and build: it turns a design, or requirements directly, into the import JSON and the C# a solution is made of.</p>
+<p>Solutions are designed and built with AI assistance, using <strong>Claude</strong>.</p>
 <p>Revfore publishes a <strong>Claude skill</strong> for this. The skill gives Claude the Framework's schema, conventions, standard columns, core table structures, and worked examples, so what it generates follows the same rules a hand-built solution is held to. Install the skill before you start — without it, Claude has no knowledge of the Framework.</p>
-<p>See <a href="../integrations/aiModels/">AI Model Integrations</a> for how the two stages fit together.</p>
+<p>With the skill loaded, Claude takes a solution from a requirements conversation through to the files you import.</p>
+<h3 id="the-design-workbook">The design workbook</h3>
+<p>Claude does not go straight from a conversation to import files. It first produces a <strong>design workbook</strong> — an Excel file with a sheet for each part of the configuration: tables, columns, views, actions, lookups, reference data and behaviour.</p>
+<p>The workbook is where the design gets settled. Because it is an ordinary <code>.xlsx</code>, you can take it away and work through it with the people who own the process — email it round, sit down with them and go through the columns, gather changes over a week. <strong>The design conversation does not have to happen in front of Claude.</strong></p>
+<p>Hand the edited workbook back and Claude reports only what changed, then produces the next version. This normally takes several rounds.</p>
+<p>Only once the workbook has settled, and only when you ask, does Claude generate the import JSON. The extension code comes after that.</p>
+<p>See <a href="../integrations/aiModels/">AI Model Integrations</a> for the full picture.</p>
 <hr />
 <h2 id="core-concepts">🧠 Core Concepts</h2>
 <p>Before you begin, it’s helpful to understand a few key ideas:</p>
@@ -3863,13 +3841,19 @@
 <p><strong>Gather requirements</strong></p>
 </li>
 <li>
-<p><strong>Shape the solution in the custom GPT</strong> <em>(optional)</em></p>
+<p><strong>Work through the design with Claude, which produces a design workbook</strong></p>
 </li>
 <li>
-<p>Produces a written design to take forward. Skip this and go straight to Claude if the requirements are already clear</p>
+<p>An Excel file covering the tables, columns, views, actions, lookups and reference data</p>
 </li>
 <li>
-<p><strong>Use Claude to review the requirements or design, then create the JSON schema, JSON data, and code assembly files</strong></p>
+<p><strong>Review and edit the workbook, with your stakeholders</strong></p>
+</li>
+<li>
+<p>Hand it back to Claude, which reports what changed and produces the next version. Expect several rounds</p>
+</li>
+<li>
+<p><strong>When the design has settled, ask Claude for the JSON schema, JSON data, and code assembly files</strong></p>
 </li>
 <li>
 <p><strong>Import the JSON schema files</strong></p>
@@ -3914,8 +3898,9 @@
 <p>Example:</p>
 <blockquote>
 <p>"I need to capture rate changes by product and effective date, with an approver on each change. "
-"Design the tables, models and views for that and generate the import JSON."</p>
+"Design the tables, models and views for that and give me a design workbook."</p>
 </blockquote>
+<p>Work through the workbook, hand it back with your edits, and ask for the import JSON once it looks right.</p>
 <hr />
 <h2 id="tips">💡 Tips</h2>
 <ul>
@@ -3923,6 +3908,8 @@
 <li>Think in terms of business entities (not technical structures)  </li>
 <li>Reuse views whenever possible  </li>
 <li>Keep naming consistent  </li>
+<li>Settle the workbook before asking for JSON — a change is a cell edit at that stage, and a rebuild after it  </li>
+<li>Put a <code>?</code> in the workbook where you are unsure; it comes back as a question rather than a guess  </li>
 </ul>
 <hr />
 <h2 id="next-steps">👉 Next Steps</h2>
