@@ -32,6 +32,7 @@ The following fields are used for a Workflow Unit header record.
 | Effective End Date | date | Date the workflow unit stops being available for use. | Defaults to 2999-12-31, meaning no end date. Set this rather than deleting a unit that is no longer in use.
 | Is Enabled | bit | Indicates whether the workflow unit is enabled for use. |
 | Integration Code | nvarchar | Unique value for the workflow unit record. | This is readonly and provides a unique value for the record that is used for importing data
+| Os Workflow Reference | nvarchar | How this unit maps to a OneStream workflow. | Only needed when the solution is driven by OneStream workflow. Currently the OneStream **parent** workflow profile name. Leave blank otherwise.
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the workflow unit record. |

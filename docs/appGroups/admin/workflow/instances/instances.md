@@ -37,6 +37,7 @@ The following fields are used for a Workflow Instance header record.
 | Read Security Group | int | Security group granted read-only access to the cycle's data. |
 | Is Enabled | bit | Indicates whether the workflow instance is enabled for use. |
 | Integration Code | nvarchar | Unique value for the workflow instance record. | This is readonly and provides a unique value for the record that is used for importing data
+| Os Workflow Reference | nvarchar | How this instance maps to a OneStream workflow. | Only needed when the solution is driven by OneStream workflow. Currently the scenario name and time key, as `Scenario\|TimeKey` (e.g. `Budget\|2026003000`). Leave blank otherwise.
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the workflow instance record. |
