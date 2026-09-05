@@ -160,10 +160,28 @@ The file is written to your **ExportAndImport** folder, timestamped, so repeated
 alongside each other rather than overwriting — the previous one is usually still wanted, to diff
 the new one against.
 
-!!!Note Structure and data still load as two steps
-    A "Both" extract is one file, but loading it is still the two-step sequence above: load it,
-    sync the tables and views, then load it again for the data. Extracting them separately is
-    usually simpler.
+### Which mode to use
+
+The choice follows from what the file is *for*, and the two cases pull in opposite directions.
+
+**Extracting for Claude? Use Both.**
+
+When you want a change made to something that already exists, Claude needs to see the structure
+*and* the data. Structure alone describes the shape but not what is in it — and a great many
+changes depend on the contents: what a lookup table actually holds, which configuration rows exist,
+what the reference data looks like. A single Both file gives the whole picture in one attachment,
+which is exactly what makes the request answerable without a round of questions.
+
+**Extracting to load into another instance? Keep them separate.**
+
+Loading is a two-step sequence with a sync in between — structure, sync the tables, sync the views,
+then data. Two files match those steps one to one. A Both file has to be loaded twice, once before
+the sync for its structure and once after for its data, which is easy to get wrong and gives no
+benefit here.
+
+!!!Note A "Both" file is still loaded in two passes
+    One file does not mean one step. If you do load a Both file, it is still: load it, sync the
+    tables and views, then load the same file again for the data.
 
 ### What is and is not carried across
 

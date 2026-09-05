@@ -913,6 +913,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#which-mode-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which mode to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-is-and-is-not-carried-across" class="md-nav__link">
     <span class="md-ellipsis">
       What is and is not carried across
@@ -3661,6 +3670,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#which-mode-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Which mode to use
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#what-is-and-is-not-carried-across" class="md-nav__link">
     <span class="md-ellipsis">
       What is and is not carried across
@@ -3913,12 +3931,22 @@ over those views — so you pick the tables and the rest follows.</p>
 <p>The file is written to your <strong>ExportAndImport</strong> folder, timestamped, so repeated extracts sit
 alongside each other rather than overwriting — the previous one is usually still wanted, to diff
 the new one against.</p>
-<div class="admonition note structure and data still load as two steps">
-<p class="admonition-title">Note</p>
-<p>A "Both" extract is one file, but loading it is still the two-step sequence above: load it,
-sync the tables and views, then load it again for the data. Extracting them separately is
-usually simpler.</p>
-</div>
+<h3 id="which-mode-to-use">Which mode to use</h3>
+<p>The choice follows from what the file is <em>for</em>, and the two cases pull in opposite directions.</p>
+<p><strong>Extracting for Claude? Use Both.</strong></p>
+<p>When you want a change made to something that already exists, Claude needs to see the structure
+<em>and</em> the data. Structure alone describes the shape but not what is in it — and a great many
+changes depend on the contents: what a lookup table actually holds, which configuration rows exist,
+what the reference data looks like. A single Both file gives the whole picture in one attachment,
+which is exactly what makes the request answerable without a round of questions.</p>
+<p><strong>Extracting to load into another instance? Keep them separate.</strong></p>
+<p>Loading is a two-step sequence with a sync in between — structure, sync the tables, sync the views,
+then data. Two files match those steps one to one. A Both file has to be loaded twice, once before
+the sync for its structure and once after for its data, which is easy to get wrong and gives no
+benefit here.</p>
+<p>!!!Note A "Both" file is still loaded in two passes
+    One file does not mean one step. If you do load a Both file, it is still: load it, sync the
+    tables and views, then load the same file again for the data.</p>
 <h3 id="what-is-and-is-not-carried-across">What is and is not carried across</h3>
 <p>Everything in an extracted file is written as an <strong>integration code</strong> with a
 <a href="#schema-tokens">schema token</a> — never a database id, and never a literal schema name. That is what
