@@ -2,334 +2,334 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.revfore.com/revfore-framework/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/getting-started/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/cube/cubes/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/cube/dimensions/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/cube/supporting/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/database/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/database/tables/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/database/views/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalModels/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalModels/columns/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalModels/models/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalModels/relationships/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalModels/sources/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalTables/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalTables/columns/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalTables/indexes/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalTables/relationships/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalTables/tables/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalViews/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalViews/actions/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalViews/columns/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalViews/filters/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalViews/security/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/relationalViews/views/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/supporting/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/supporting/cubeViews/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/supporting/forms/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/supporting/lookups/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/relational/supporting/standardColumns/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/security/Groups/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/security/Users/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/areas/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/instances/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/instances/instanceTypes/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/instances/instances/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/supporting/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/supporting/itemCategories/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/supporting/itemCategoryMemberSets/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/supporting/itemTypeAreas/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/supporting/itemTypeItemCategories/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/supporting/itemTypes/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/supporting/memberSetTypes/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/units/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/units/memberSets/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/admin/workflow/units/units/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/config/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/config/create-new-instance/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/config/manage-license-key/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/config/other/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/config/run-maintenance-scripts/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/config/setup-upgrade/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/config/uninstall/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/help/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/appGroups/home/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/models/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/tables/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/views/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/actions/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/contentItem/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/contentSubItem/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/contentSubItem/customAdapterDashboard/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/contentSubItem/dynamicGrid/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/contentSubItem/list/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/contentSubItem/pivotGrid/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/concepts/metadataDrivenUI/contentSubItem/summaryCard/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/actions/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/records/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/shared-methods/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/handlers/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/handlers/adding/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/import/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/import/data/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/extending/import/structure/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/integrations/aiModels/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/integrations/customDashboard/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/integrations/excel/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/integrations/genesis/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/integrations/partnerSolution/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/integrations/restAPIs/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
     <url>
          <loc>https://docs.revfore.com/revfore-framework/setup/setup/</loc>
-         <lastmod>2026-09-03</lastmod>
+         <lastmod>2026-09-05</lastmod>
     </url>
 </urlset>

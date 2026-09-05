@@ -4,10 +4,10 @@
 
 The `Data` section seeds rows — the reference data a solution needs before anyone can use it. Categories, types, statuses, default configuration.
 
-It uses the same file format as [structure definitions](structure.md) and the same **Import** action.
+It uses the same file format as [structure definitions](structure.md) and the same **Load** action, and is what an [extract](index.md#extracting-a-solution) in Data mode produces.
 
 !!!Note Data comes after the sync
-    A data file can only be imported once the tables and views it writes to actually exist. That means importing the structure file, then **Sync** on [Relational Tables](../../appGroups/admin/relational/relationalTables/tables.md) and again on [Relational Views](../../appGroups/admin/relational/relationalViews/views.md), and only then the data file. See [Running an import](index.md#running-an-import) for the full sequence.
+    A data file can only be loaded once the tables and views it writes to actually exist. That means loading the structure file, then **Sync** on [Relational Tables](../../appGroups/admin/relational/relationalTables/tables.md) and again on [Relational Views](../../appGroups/admin/relational/relationalViews/views.md), and only then the data file. See [Loading a file](index.md#loading-a-file) for the full sequence.
 
     This is why structure and data are normally kept in separate files — they are imported at different points in the sequence.
 

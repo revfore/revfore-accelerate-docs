@@ -731,7 +731,7 @@
             
   
   <span class="md-ellipsis">
-    Import Files
+    Load & Extract Files
   </span>
   
 
@@ -741,7 +741,7 @@
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5_2">
             <span class="md-nav__icon md-icon"></span>
-            Import Files
+            Load & Extract Files
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -3533,10 +3533,10 @@
 <h1 id="data-files">Data Files</h1>
 <p><a href="../">← Back to Import Files</a></p>
 <p>The <code>Data</code> section seeds rows — the reference data a solution needs before anyone can use it. Categories, types, statuses, default configuration.</p>
-<p>It uses the same file format as <a href="../structure/">structure definitions</a> and the same <strong>Import</strong> action.</p>
+<p>It uses the same file format as <a href="../structure/">structure definitions</a> and the same <strong>Load</strong> action, and is what an <a href="../#extracting-a-solution">extract</a> in Data mode produces.</p>
 <div class="admonition note data comes after the sync">
 <p class="admonition-title">Note</p>
-<p>A data file can only be imported once the tables and views it writes to actually exist. That means importing the structure file, then <strong>Sync</strong> on <a href="../../../appGroups/admin/relational/relationalTables/tables/">Relational Tables</a> and again on <a href="../../../appGroups/admin/relational/relationalViews/views/">Relational Views</a>, and only then the data file. See <a href="../#running-an-import">Running an import</a> for the full sequence.</p>
+<p>A data file can only be loaded once the tables and views it writes to actually exist. That means loading the structure file, then <strong>Sync</strong> on <a href="../../../appGroups/admin/relational/relationalTables/tables/">Relational Tables</a> and again on <a href="../../../appGroups/admin/relational/relationalViews/views/">Relational Views</a>, and only then the data file. See <a href="../#loading-a-file">Loading a file</a> for the full sequence.</p>
 <p>This is why structure and data are normally kept in separate files — they are imported at different points in the sequence.</p>
 </div>
 <h2 id="shape">Shape</h2>

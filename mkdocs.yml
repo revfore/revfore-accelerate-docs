@@ -32,7 +32,7 @@ nav:
               - Summary Card: concepts/metadataDrivenUI/contentSubItem/summaryCard.md
   - Extending the Framework:
       - Overview: extending/index.md
-      - Import Files:
+      - Load & Extract Files:
           - Overview: extending/import/index.md
           - Structure Definitions: extending/import/structure.md
           - Data Files: extending/import/data.md
