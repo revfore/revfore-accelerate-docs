@@ -172,21 +172,25 @@ changes depend on the contents: what a lookup table actually holds, which config
 what the reference data looks like. A single Both file gives the whole picture in one attachment,
 which is exactly what makes the request answerable without a round of questions.
 
-**Extracting to load into another instance? Keep them separate.**
+**Loading a change anywhere? Keep them separate.**
 
-A fresh target does not have the physical tables and SQL views yet, and rows can only be written
-once they exist. Standing the solution up there is the two-step sequence above — structure, sync the
-tables, sync the views, then data — and two files match those steps one to one.
+Any change that touches structure needs a sync before data can rely on it — a new instance, and
+equally an existing one where you are adding a column and seeding it, or adding a table and its
+reference rows. Two files match the sequence one to one: structure, sync the tables, sync the views,
+then data.
 
 !!!Note What a "Both" file does on load
-    Data is processed last within the same run, so a Both file loads in **one pass** wherever the
-    tables and views already exist physically — re-loading into an instance that already has the
-    solution, for instance.
+    Data is processed last within the same run, so a Both file completes in **one pass** only when
+    nothing in its structure half needs syncing — the physical tables and views already match what
+    the file declares.
 
-    On a **first** load into an instance that does not have them yet, the structure saves but the
-    data half cannot be written, because it goes through a SQL view that Sync has not created yet.
-    The structure is committed at that point, so the recovery is simply: sync the tables and views,
-    then load the same file again for its data.
+    Whenever the structure half changes something physical, that same pass cannot write the data
+    that depends on it, because data goes through a SQL view Sync has not built yet. That covers a
+    first load into a new instance *and* a change to an existing solution that adds or alters
+    structure and seeds data for it.
+
+    The structure is committed at that point, so nothing is lost: sync the tables and views, then
+    load the same file again for its data. Two files avoid the round trip.
 
 ### What is and is not carried across
 
