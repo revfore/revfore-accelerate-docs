@@ -174,14 +174,19 @@ which is exactly what makes the request answerable without a round of questions.
 
 **Extracting to load into another instance? Keep them separate.**
 
-Loading is a two-step sequence with a sync in between — structure, sync the tables, sync the views,
-then data. Two files match those steps one to one. A Both file has to be loaded twice, once before
-the sync for its structure and once after for its data, which is easy to get wrong and gives no
-benefit here.
+A fresh target does not have the physical tables and SQL views yet, and rows can only be written
+once they exist. Standing the solution up there is the two-step sequence above — structure, sync the
+tables, sync the views, then data — and two files match those steps one to one.
 
-!!!Note A "Both" file is still loaded in two passes
-    One file does not mean one step. If you do load a Both file, it is still: load it, sync the
-    tables and views, then load the same file again for the data.
+!!!Note What a "Both" file does on load
+    Data is processed last within the same run, so a Both file loads in **one pass** wherever the
+    tables and views already exist physically — re-loading into an instance that already has the
+    solution, for instance.
+
+    On a **first** load into an instance that does not have them yet, the structure saves but the
+    data half cannot be written, because it goes through a SQL view that Sync has not created yet.
+    The structure is committed at that point, so the recovery is simply: sync the tables and views,
+    then load the same file again for its data.
 
 ### What is and is not carried across
 
