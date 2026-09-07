@@ -3088,6 +3088,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#getting-the-claude-skills-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting the Claude skills file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-skills-into-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading the skills into Claude
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading the skills into Claude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claude-desktop-and-claudeai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Desktop and claude.ai
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#capabilities" class="md-nav__link">
     <span class="md-ellipsis">
       Capabilities
@@ -3564,6 +3606,48 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#getting-the-claude-skills-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Getting the Claude skills file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loading-the-skills-into-claude" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading the skills into Claude
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Loading the skills into Claude">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#claude-desktop-and-claudeai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Desktop and claude.ai
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      Claude Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#capabilities" class="md-nav__link">
     <span class="md-ellipsis">
       Capabilities
@@ -3617,7 +3701,7 @@
 <h1 id="ai-model-integrations">AI Model Integrations</h1>
 <p>Revfore Framework is designed so that a solution's structure can be <strong>generated from plain-English requirements</strong> rather than hand-built.</p>
 <p>Because tables, models, and views are defined as metadata — importable JSON rather than hand-written SQL and screens — an AI model can produce a complete, reviewable solution definition, and that definition can be validated before anything reaches the database.</p>
-<p>Revfore provides a <strong>Claude skills file</strong> that teaches Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. With that loaded, Claude takes a solution from a conversation through to the files you import.</p>
+<p>Revfore provides a <strong>Claude skills file</strong> that teaches Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. With that loaded, Claude takes a solution from a conversation through to the files you import. See <a href="#getting-the-claude-skills-file">Getting the Claude skills file</a> for where to download it and how to load it.</p>
 <h2 id="how-a-solution-gets-built">How a solution gets built</h2>
 <table>
 <thead>
@@ -3712,6 +3796,37 @@
 <li>the <strong>C# extension code</strong> that implements the solution's business logic</li>
 </ul>
 <p>Claude validates what it generates against the Framework's schema and conventions before you import it, which catches the class of mistakes that produce valid-looking JSON that is still wrong.</p>
+<h2 id="getting-the-claude-skills-file">Getting the Claude skills file</h2>
+<p>The skills file ships with the product, in the same maintenance unit as the extension assembly.</p>
+<ol>
+<li>In OneStream, go to <strong>Application | Presentation | Workspaces</strong></li>
+<li>Select the <strong>Revfore Framework (RFA)</strong> workspace</li>
+<li>Open <strong>XCP_xRfaDlg_ActnExtension</strong>, the extension assembly's maintenance unit</li>
+<li>Under <strong>Files</strong>, download <strong>ClaudeSkills.zip</strong></li>
+</ol>
+<p>The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts.</p>
+<h2 id="loading-the-skills-into-claude">Loading the skills into Claude</h2>
+<p>Both Claude apps take the zip as it is downloaded. There is no need to unpack and repackage it.</p>
+<h3 id="claude-desktop-and-claudeai">Claude Desktop and claude.ai</h3>
+<ol>
+<li>Open <strong>Settings | Capabilities | Skills</strong></li>
+<li>Choose <strong>Upload skill</strong> and select <strong>ClaudeSkills.zip</strong></li>
+<li>Enable the skills once the upload finishes</li>
+</ol>
+<h3 id="claude-code">Claude Code</h3>
+<p>Claude Code reads skills from a <code>skills</code> folder inside a <code>.claude</code> directory, so here the archive is extracted rather than uploaded. Extract it so each skill folder sits directly under <code>skills</code> — that is, <code>.../skills/&lt;skill-name&gt;/SKILL.md</code>.</p>
+<p>Choose where it goes:</p>
+<ul>
+<li><strong>Personal</strong>, available in every project — <code>%USERPROFILE%\.claude\skills\</code></li>
+<li><strong>Project</strong>, shared with everyone working on that solution — <code>&lt;project root&gt;\.claude\skills\</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Expand-Archive</span> <span class="n">ClaudeSkills</span><span class="p">.</span><span class="n">zip</span> <span class="n">-DestinationPath</span> <span class="s2">"$env:USERPROFILE\.claude\skills\"</span>
+</code></pre></div>
+<p>Restart Claude Code and run <code>/skills</code> to confirm they are listed.</p>
+<div class="admonition note">
+<p class="admonition-title">Upgrades ship a new skills file</p>
+<p>The skills describe the schema and conventions of the version they shipped with. After an upgrade, download <strong>ClaudeSkills.zip</strong> again and replace the copy you loaded, so Claude is generating against the current schema.</p>
+</div>
 <h2 id="capabilities">Capabilities</h2>
 <ul>
 <li>Turn plain-English requirements into a proposed solution design</li>
