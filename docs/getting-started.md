@@ -61,6 +61,17 @@ Revfore publishes a **Claude skill** for this. The skill gives Claude the Framew
 
 With the skill loaded, Claude takes a solution from a requirements conversation through to the files you import.
 
+### Installing the skill
+
+Download **ClaudeSkills.zip** from OneStream: **Application | Presentation | Workspaces**, select the **Revfore Framework (RFA)** workspace, open the **XCP_xRfaDlg_ActnExtension** maintenance unit, and take the file from **Files**.
+
+Then load it into whichever Claude you use — both take the zip exactly as downloaded:
+
+- **Claude Desktop or claude.ai** — open **Settings | Capabilities | Skills**, choose **Upload skill**, select the zip, and enable the skills.
+- **Claude Code** — extract the zip into `%USERPROFILE%\.claude\skills\`, restart, and run `/skills` to confirm they are listed.
+
+Download it again after an upgrade, so Claude is working from the current schema. See [Getting the Claude skills file](integrations/aiModels/index.md#getting-the-claude-skills-file) for the full instructions, including project-level installs.
+
 ### The design workbook
 
 Claude does not go straight from a conversation to import files. It first produces a **design workbook** — an Excel file with a sheet for each part of the configuration: tables, columns, views, actions, lookups, reference data and behaviour.

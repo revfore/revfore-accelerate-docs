@@ -328,6 +328,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#installing-the-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the skill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#the-design-workbook" class="md-nav__link">
     <span class="md-ellipsis">
       The design workbook
@@ -3645,6 +3654,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#installing-the-skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing the skill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#the-design-workbook" class="md-nav__link">
     <span class="md-ellipsis">
       The design workbook
@@ -3811,6 +3829,14 @@
 <p>Solutions are designed and built with AI assistance, using <strong>Claude</strong>.</p>
 <p>Revfore publishes a <strong>Claude skill</strong> for this. The skill gives Claude the Framework's schema, conventions, standard columns, core table structures, and worked examples, so what it generates follows the same rules a hand-built solution is held to. Install the skill before you start — without it, Claude has no knowledge of the Framework.</p>
 <p>With the skill loaded, Claude takes a solution from a requirements conversation through to the files you import.</p>
+<h3 id="installing-the-skill">Installing the skill</h3>
+<p>Download <strong>ClaudeSkills.zip</strong> from OneStream: <strong>Application | Presentation | Workspaces</strong>, select the <strong>Revfore Framework (RFA)</strong> workspace, open the <strong>XCP_xRfaDlg_ActnExtension</strong> maintenance unit, and take the file from <strong>Files</strong>.</p>
+<p>Then load it into whichever Claude you use — both take the zip exactly as downloaded:</p>
+<ul>
+<li><strong>Claude Desktop or claude.ai</strong> — open <strong>Settings | Capabilities | Skills</strong>, choose <strong>Upload skill</strong>, select the zip, and enable the skills.</li>
+<li><strong>Claude Code</strong> — extract the zip into <code>%USERPROFILE%\.claude\skills\</code>, restart, and run <code>/skills</code> to confirm they are listed.</li>
+</ul>
+<p>Download it again after an upgrade, so Claude is working from the current schema. See <a href="../integrations/aiModels/#getting-the-claude-skills-file">Getting the Claude skills file</a> for the full instructions, including project-level installs.</p>
 <h3 id="the-design-workbook">The design workbook</h3>
 <p>Claude does not go straight from a conversation to import files. It first produces a <strong>design workbook</strong> — an Excel file with a sheet for each part of the configuration: tables, columns, views, actions, lookups, reference data and behaviour.</p>
 <p>The workbook is where the design gets settled. Because it is an ordinary <code>.xlsx</code>, you can take it away and work through it with the people who own the process — email it round, sit down with them and go through the columns, gather changes over a week. <strong>The design conversation does not have to happen in front of Claude.</strong></p>

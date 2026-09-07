@@ -4,7 +4,7 @@ Revfore Framework is designed so that a solution's structure can be **generated 
 
 Because tables, models, and views are defined as metadata — importable JSON rather than hand-written SQL and screens — an AI model can produce a complete, reviewable solution definition, and that definition can be validated before anything reaches the database.
 
-Revfore provides a **Claude skills file** that teaches Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. With that loaded, Claude takes a solution from a conversation through to the files you import.
+Revfore provides a **Claude skills file** that teaches Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. With that loaded, Claude takes a solution from a conversation through to the files you import. See [Getting the Claude skills file](#getting-the-claude-skills-file) for where to download it and how to load it.
 
 ## How a solution gets built
 
@@ -63,6 +63,45 @@ This normally takes several rounds, and that is expected. The workbook stage is 
 - the **C# extension code** that implements the solution's business logic
 
 Claude validates what it generates against the Framework's schema and conventions before you import it, which catches the class of mistakes that produce valid-looking JSON that is still wrong.
+
+## Getting the Claude skills file
+
+The skills file ships with the product, in the same maintenance unit as the extension assembly.
+
+1. In OneStream, go to **Application | Presentation | Workspaces**
+2. Select the **Revfore Framework (RFA)** workspace
+3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
+4. Under **Files**, download **ClaudeSkills.zip**
+
+The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts.
+
+## Loading the skills into Claude
+
+Both Claude apps take the zip as it is downloaded. There is no need to unpack and repackage it.
+
+### Claude Desktop and claude.ai
+
+1. Open **Settings | Capabilities | Skills**
+2. Choose **Upload skill** and select **ClaudeSkills.zip**
+3. Enable the skills once the upload finishes
+
+### Claude Code
+
+Claude Code reads skills from a `skills` folder inside a `.claude` directory, so here the archive is extracted rather than uploaded. Extract it so each skill folder sits directly under `skills` — that is, `.../skills/<skill-name>/SKILL.md`.
+
+Choose where it goes:
+
+- **Personal**, available in every project — `%USERPROFILE%\.claude\skills\`
+- **Project**, shared with everyone working on that solution — `<project root>\.claude\skills\`
+
+```powershell
+Expand-Archive ClaudeSkills.zip -DestinationPath "$env:USERPROFILE\.claude\skills\"
+```
+
+Restart Claude Code and run `/skills` to confirm they are listed.
+
+!!! note "Upgrades ship a new skills file"
+    The skills describe the schema and conventions of the version they shipped with. After an upgrade, download **ClaudeSkills.zip** again and replace the copy you loaded, so Claude is generating against the current schema.
 
 ## Capabilities
 
