@@ -1,3 +1,7 @@
 # Working notes and drafts - not part of the published documentation set.
 # Note: these still build and publish unless excluded from the MkDocs build too.
 docs/misc/
+
+# Built output. The published site is deployed to the gh-pages branch by mike,
+# so the local build is a working artefact and is not tracked here.
+site/
