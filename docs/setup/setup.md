@@ -8,7 +8,7 @@ This guide walks you through installing and configuring Revfore Framework in you
 
 Revfore Framework requires:
 
-- OneStream **version 9.1.1 or later**
+- OneStream **version 9.1.2 or later**
 - A standard OneStream installation (no additional external dependencies required)
 
 ### Security Requirements
