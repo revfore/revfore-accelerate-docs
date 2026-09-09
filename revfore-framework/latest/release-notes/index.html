@@ -3419,6 +3419,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#release-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release theme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#users-and-security-in-your-own-tables" class="md-nav__link">
     <span class="md-ellipsis">
       Users and security in your own tables
@@ -3582,6 +3591,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#release-theme" class="md-nav__link">
+    <span class="md-ellipsis">
+      Release theme
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#users-and-security-in-your-own-tables" class="md-nav__link">
     <span class="md-ellipsis">
       Users and security in your own tables
@@ -3721,6 +3739,11 @@
 <hr />
 <h2 id="pv912-sv200">PV912-SV200</h2>
 <p>Requires OneStream <strong>9.1.2 or later</strong>. See <a href="../setup/setup/">Setup and Installation</a> for upgrade steps.</p>
+<h3 id="release-theme">Release theme</h3>
+<p>This release is about giving the Framework <strong>context</strong> — about what a solution is being built from, what it posts to, and what process it belongs to — so that less of that context has to be carried in a developer's head or restated in code. It comes together in three themes.</p>
+<p><strong>AI-assisted development using Claude.</strong> A solution can now be taken from a conversation through to the files that build it. The <a href="../integrations/aiModels/">Claude skill</a> teaches Claude the Framework — its schema, conventions, standard columns, extension points and the shape of every file it produces — so what it generates follows the same rules a hand-built solution is held to. <a href="../extending/import/">Load and Extract</a> closes the loop in the other direction: an existing application can be extracted back to JSON and handed to Claude as context before asking it to change anything.</p>
+<p><strong>Cube Intelligence.</strong> The Framework now understands the cube it sits next to. Cubes and dimension members are imported and kept in step by Sync, and new <a href="../appGroups/admin/relational/supporting/standardColumns/">standard columns</a> let a relational column hold a cube reference, a dimension member or a time period directly. A row can name its own cube intersection, which is what removes the hand-written mapping that used to sit between a relational solution and the cube.</p>
+<p><strong>Workflow Intelligence.</strong> Workflow has been extended on both sides — Revfore workflow and its integration with OneStream workflow — and member sets give a workflow unit or item category a full cube intersection. That is what lets a detail table stay thin: the unit a record belongs to already determines where its data posts, so the context is resolved rather than re-entered.</p>
 <h3 id="users-and-security-in-your-own-tables">Users and security in your own tables</h3>
 <p>Users and security groups can now be integrated into extension tables directly, rather than being something the Framework only used internally.</p>
 <p>You can:</p>
