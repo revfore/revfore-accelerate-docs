@@ -1,9 +1,9 @@
 ![alt text](REVFORE_S2-01b.png){ width="500" }
 # Revfore Framework
 
-**A low-code relational framework for OneStream that helps developers and administrators build, manage, and surface relational data solutions faster.**
+**A governed relational framework for OneStream that gives developers and administrators secure, well-managed relational data solutions — with [AI](integrations/aiModels/index.md) to create the structure, data and code, and far less custom architecture to build and maintain.**
 
-Revfore Framework simplifies how relational tables, relationships, views, and governed user interfaces are created within OneStream. Instead of building everything from scratch with custom SQL, dashboards, and workflows, teams can use Revfore Framework to deliver relational data solutions more quickly and consistently with far less custom architecture to maintain.
+Revfore Framework defines relational tables, relationships, models, views and the interfaces over them as managed metadata, so security and governance belong to the structure itself rather than being rebuilt in every solution. Access is controlled down to the field, changes are audited, and workflow context travels with the data — configured once and applied consistently wherever the data is surfaced. Instead of assembling all of that from scratch with custom SQL, dashboards and workflows, and then owning it for the life of the solution, teams build on a framework that carries it for them.
 
 ---
 

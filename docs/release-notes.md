@@ -14,6 +14,16 @@ Version labels combine the OneStream platform version the release targets with t
 
 Requires OneStream **9.1.2 or later**. See [Setup and Installation](setup/setup.md) for upgrade steps.
 
+### Release theme
+
+This release is about giving the Framework **context** — about what a solution is being built from, what it posts to, and what process it belongs to — so that less of that context has to be carried in a developer's head or restated in code. It comes together in three themes.
+
+**AI-assisted development using Claude.** A solution can now be taken from a conversation through to the files that build it. The [Claude skill](integrations/aiModels/index.md) teaches Claude the Framework — its schema, conventions, standard columns, extension points and the shape of every file it produces — so what it generates follows the same rules a hand-built solution is held to. [Load and Extract](extending/import/index.md) closes the loop in the other direction: an existing application can be extracted back to JSON and handed to Claude as context before asking it to change anything.
+
+**Cube Intelligence.** The Framework now understands the cube it sits next to. Cubes and dimension members are imported and kept in step by Sync, and new [standard columns](appGroups/admin/relational/supporting/standardColumns.md) let a relational column hold a cube reference, a dimension member or a time period directly. A row can name its own cube intersection, which is what removes the hand-written mapping that used to sit between a relational solution and the cube.
+
+**Workflow Intelligence.** Workflow has been extended on both sides — Revfore workflow and its integration with OneStream workflow — and member sets give a workflow unit or item category a full cube intersection. That is what lets a detail table stay thin: the unit a record belongs to already determines where its data posts, so the context is resolved rather than re-entered.
+
 ### Users and security in your own tables
 
 Users and security groups can now be integrated into extension tables directly, rather than being something the Framework only used internally.
