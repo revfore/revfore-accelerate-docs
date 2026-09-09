@@ -70,7 +70,7 @@ The **`Alias`** is the short prefix used when this table's columns appear in a m
 
 **Required:** `Name`, `DisplayName`, `StandardColumnId_IntegrationCode`.
 
-**Standard columns** are the framework's column templates. Referencing one — `Key_Int`, `Name_Short`, and so on — brings its data type, length and defaults with it, so column definitions stay short and consistent across solutions. See [Relational Standard Columns](../../appGroups/admin/relational/supporting/index.md).
+**Standard columns** are the framework's column templates. Referencing one — `Key_Int`, `Name_NVarchar`, and so on — brings its data type, length and defaults with it, so column definitions stay short and consistent across solutions. See [Relational Standard Columns](../../appGroups/admin/relational/supporting/index.md).
 
 Optional properties cover the usual overrides: `IsNullable`, `MaxLength`, `Precision`, `Scale`, `DefaultValue`, `IsEnabled`.
 
@@ -150,8 +150,10 @@ Model columns also carry the column's **behaviour**, and this is where most of i
 
 The `Default`, `Insert`, `Update` and `Copy` sets are what let a column populate itself — a timestamp on insert, the current user on update, a cleared reference on copy — with no code involved. Define them here and they apply to every view over the model.
 
-!!!Note Unset does not mean blank
-    An attribute you leave off a model column inherits from its [Standard Column](../../appGroups/admin/relational/supporting/index.md), not from nothing. That is the point of standard columns — you set only what differs. The same is true of view columns.
+!!! note "Unset does not mean blank"
+    An attribute you leave off a model column inherits from its [Standard Column](../../appGroups/admin/relational/supporting/standardColumns.md), not from nothing. The same is true of view columns.
+
+    Inheritance is a safety net, not a reason to omit a value that matters. In a file that will be reviewed and diffed, prefer to set an attribute explicitly where it matters for that column — even where the value matches what would be inherited — so a reader can see that a column is read-only or hidden without cross-referencing the standard column it came from. Omit an attribute where its value genuinely does not matter. See [What a column inherits, and when to override it](../../appGroups/admin/relational/supporting/standardColumns.md#what-a-column-inherits-and-when-to-override-it).
 
 ## Views
 
@@ -228,5 +230,5 @@ A lookup is defined once and referenced from any number of view columns, so the 
 
 - Define tables, models and views together in the structure file; the framework resolves them in dependency order within it. Seed data goes in a separate file, imported after the sync.
 - Get aliases right before anything references them; changing one later ripples through model columns, view columns and code.
-- Prefer standard columns over spelling out types. Consistency across solutions is the point of them.
+- Prefer standard columns over spelling out types. Consistency across solutions is the point of them. The [full catalogue](../../appGroups/admin/relational/supporting/standardColumns.md#standard-column-catalogue) lists every code and what it means.
 - Most behaviour people reach for code to do — defaults, required rules, dropdown filtering — is a view column property. Check [Configuration first](../index.md#configuration-first).

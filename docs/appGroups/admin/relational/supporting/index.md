@@ -17,7 +17,7 @@ Relational Supporting consists of:
 
 ## Key Concepts
 
-- A standard column carries the data type, key flags, nullability and defaults that a table column inherits, so columns of the same kind behave the same way everywhere.
+- A standard column carries the data type, key flags, nullability and defaults that a table column inherits, so columns of the same kind behave the same way everywhere. The [catalogue](standardColumns.md#standard-column-catalogue) lists all 117 of them by purpose.
 - A lookup turns a stored foreign-key id into a value a user can choose from and read.
 - Cube views and forms are the presentation layer — they surface what the relational model defines.
 - Because these are shared, changing one affects everywhere it is used. Review before editing.

@@ -6,6 +6,10 @@ The **Table Columns** page is used to define and manage the fields that belong t
 
 Columns describe the attributes of each record stored in a table.
 
+Every column is built from a **[Standard Column](../supporting/standardColumns.md)** — the reusable definition that supplies the column's data type, key behaviour, nullability, length and defaults. Choosing the right one is the most consequential decision on this page: it is what makes columns of the same kind behave alike everywhere, and it determines how the Framework treats the column downstream, from key handling to cube and workflow awareness. The settings below are largely *overrides* of what the standard column already provides, so leave one unset to take the inherited behaviour.
+
+The [Standard Column Catalogue](../supporting/standardColumns.md#standard-column-catalogue) lists all 117 codes by purpose.
+
 ## Overview
 
 Use the Columns page to:
@@ -82,6 +86,8 @@ When defining columns:
 Once all columns are created, create new [Relational Indexes](indexes.md)
 
 !!!Note Important Notes
+    Choose the [Standard Column](../supporting/standardColumns.md) first — the data type, nullability, length and key flags below are inherited from it unless overridden
+
     The Integration Code and Relational Column Id will be auto-assigned
 
     The Sequence Number will be auto-assigned if blank on a new record

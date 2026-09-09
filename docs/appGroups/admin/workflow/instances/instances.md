@@ -37,12 +37,49 @@ The following fields are used for a Workflow Instance header record.
 | Read Security Group | int | Security group granted read-only access to the cycle's data. |
 | Is Enabled | bit | Indicates whether the workflow instance is enabled for use. |
 | Integration Code | nvarchar | Unique value for the workflow instance record. | This is readonly and provides a unique value for the record that is used for importing data
-| Os Workflow Reference | nvarchar | How this instance maps to a OneStream workflow. | Only needed when the solution is driven by OneStream workflow. Currently the scenario name and time key, as `Scenario\|TimeKey` (e.g. `Budget\|2026003000`). Leave blank otherwise.
+| OneStream Workflow Reference | nvarchar | How this instance maps to a OneStream workflow. | Only needed when the solution is driven by OneStream workflow. Currently the scenario name and time key, as `Scenario\|TimeKey` (e.g. `Budget\|2026003000`). See [OneStream Workflow Reference](#onestream-workflow-reference) for the time key format. Leave blank otherwise.
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
 | Created By | int | User who created the workflow instance record. |
 | Modified By | int | User who last modified the workflow instance record. |
 | Workflow Instance Id | int | Unique identifier for the workflow instance record. | If you leave blank, the system will auto assign
+
+## OneStream Workflow Reference
+
+When a solution is driven by OneStream workflow, **OneStream Workflow Reference** is what ties a workflow instance to the OneStream workflow it represents. It takes the form `Scenario|TimeKey` — for example `Budget|2026003000`.
+
+The time key is ten digits: the **four-digit year**, followed by a **six-digit period offset**.
+
+| Offset | Period | Offset | Period | Offset | Period |
+|---|---|---|---|---|---|
+| `000000` | FY | `007000` | M4 | `013000` | M8 |
+| `001000` | HY1 | `008000` | M5 | `014000` | M9 |
+| `002000` | Q1 | `009000` | M6 | `015000` | Q4 |
+| `003000` | M1 | `010000` | HY2 | `016000` | M10 |
+| `004000` | M2 | `011000` | Q3 | `017000` | M11 |
+| `005000` | M3 | `012000` | M7 | `018000` | M12 |
+| `006000` | Q2 | | | | |
+
+So `Budget|2026003000` is the Budget scenario for **M1 of 2026**, and `Budget|2026004000` is the same scenario for **M2**.
+
+The offsets are not sequential by month — they step by 1000 through the time hierarchy in the order the members appear, with each summary level taking its own slot ahead of the periods beneath it:
+
+```
+FY ─┬─ HY1 ─┬─ Q1 ─┬─ M1  M2  M3
+    │       │      └─ ...
+    │       └─ Q2 ─── M4  M5  M6
+    └─ HY2 ─┬─ Q3 ─── M7  M8  M9
+            └─ Q4 ─── M10 M11 M12
+```
+
+Reading that top to bottom gives FY, HY1, Q1, M1, M2, M3, Q2, M4, M5, M6, HY2, Q3, M7, M8, M9, Q4, M10, M11, M12 — the offsets in order. This is why M4 is `007000` rather than `006000`: Q2 occupies the slot in between.
+
+!!! note "The time key carries the workflow's grain"
+    Take the key as OneStream gives it rather than normalising it to a month. A OneStream workflow run **by period** produces a period-level key such as `2026003000`; one run **by year** produces `2026000000`, the FY offset.
+
+    That means the same reference format yields one workflow instance per scenario-period for a period workflow, and one per scenario-year for a yearly one. Seed instances to match the grain the OneStream workflow actually runs at.
+
+The unit side of the mapping works the same way — see the **OneStream Workflow Reference** field on [Units](../units/units.md), which holds the OneStream parent workflow profile name. Leave both blank when the solution is not driven by OneStream workflow.
 
 ## Status values
 

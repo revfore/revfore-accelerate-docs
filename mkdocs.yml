@@ -94,6 +94,7 @@ nav:
               - Supporting:
                   - Dimension Types: appGroups/admin/cube/supporting/index.md
           - Workflow:
+              - Overview: appGroups/admin/workflow/index.md
               - Units:
                   - Overview: appGroups/admin/workflow/units/index.md
                   - Units: appGroups/admin/workflow/units/units.md

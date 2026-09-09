@@ -31,6 +31,7 @@ The following fields are used for a Relational Table header record.
 | Is Extension | bit | Indicates whether the table is an extension. | Almost all non-system tables will be extensions.
 | Schema | int | Schema associated with the relational table.  Schemas provide a unique namespace for tables and views. | This will be auto-assigned based on the Is Extension value.  Extension tables should be assigned to the extension schema which is the one with 'x' in the name.
 | Is Enabled | bit | Indicates whether the table is enabled for use. |
+| Audit Log Flags | int | Controls whether changes to this table are automatically recorded in the audit log. | Set per action, so a table can log updates and deletes without logging the noise of inserts. Leave it unset to record nothing. Each entry captures the action, the record, who made the change and when, together with the values themselves — a full snapshot for an insert or delete, before-and-after values for an update.
 | Integration Code | nvarchar | Unique value for the relational table record. | This is readonly and will be auto set the same value as the Table Name providing a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
@@ -72,3 +73,4 @@ Use relational tables to define business entities and objects such as:
 - Tables should be designed around business entities and objects rather than technical groupings.
 - Keep table names clear and consistent.
 - Tables are the starting point for columns, relationships, models, views, and forms.
+- Audit logging is a property of the table, not something a solution writes for itself. Turning it on here is all that is required — there is no handler code to add. In an import file it is the table definition's `EnableAuditLog` property.

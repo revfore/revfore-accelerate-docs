@@ -70,9 +70,16 @@ Using Genesis integration with Revfore Framework helps:
 
     8. Click **Configure** to set up the desired Relational View.
 
+## Open a Genesis Page from a OneStream Workflow Profile
+
+Once a page is configured, the same Content Item dashboard can be opened directly from a **OneStream workflow profile** input step, so users reach it through the workflow they already use rather than navigating to it separately.
+
+This uses the page's **Linked Page Reference**, found on the Revfore Setup page in designer mode. See [Linking a Workflow Profile form to a Revfore Content Item dashboard](../../appGroups/admin/workflow/index.md#linking-a-workflow-profile-form-to-a-revfore-content-item-dashboard).
+
 ---
 
 ## Related Concepts
 
 - [Content Items](../../concepts/metadataDrivenUI/contentItem.md)
 - [Content Sub Items](../../concepts/metadataDrivenUI/contentSubItem/index.md)
+- [Workflow](../../appGroups/admin/workflow/index.md) – driving a solution from Revfore or OneStream workflow
