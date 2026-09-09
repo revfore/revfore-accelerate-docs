@@ -27,7 +27,7 @@ It is tempting to read a view as "a screen", but it is the access layer for the 
 | Consumer | Reads or writes through a view |
 |---|---|
 | **Screens** | The grids and forms users work in |
-| **Dashboard adapters** | [Extension adapter dashboards](../../concepts/metadataDrivenUI/contentSubItem/customAdapterDashboard.md) bind to a view as their data source |
+| **Dashboard adapters** | [Adapter dashboards](../../concepts/metadataDrivenUI/contentSubItem/adapterDashboard.md) bind to a view as their data source |
 | **AI agents and integrations** | [REST APIs](../../integrations/restAPIs/index.md), [Excel](../../integrations/excel/index.md) and agent access all go through views |
 | **Data imports** | [Data files](data.md) write their rows through a view, not into the table |
 | **Extension code** | A `RecordSet` is bound to a view, not a table — see [Working with Records](../records.md) |
