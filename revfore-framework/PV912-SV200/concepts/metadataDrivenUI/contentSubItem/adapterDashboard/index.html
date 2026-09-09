@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://docs.revfore.com/revfore-framework/PV912-SV200/concepts/metadataDrivenUI/contentSubItem/customAdapterDashboard/">
+        <link rel="canonical" href="https://docs.revfore.com/revfore-framework/PV912-SV200/concepts/metadataDrivenUI/contentSubItem/adapterDashboard/">
       
       
         <link rel="prev" href="../">
@@ -24,7 +24,7 @@
     
     
       
-        <title>Extension Adapter Dashboard - Revfore Framework Docs</title>
+        <title>Adapter Dashboard - Revfore Framework Docs</title>
       
     
     
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extension-adapter-dashboard-content-sub-item" class="md-skip">
+        <a href="#adapter-dashboard-content-sub-item" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extension Adapter Dashboard
+              Adapter Dashboard
             
           </span>
         </div>
@@ -541,7 +541,7 @@
           
   
   <span class="md-ellipsis">
-    Extension Adapter Dashboard
+    Adapter Dashboard
   </span>
   
 
@@ -552,7 +552,7 @@
         
   
   <span class="md-ellipsis">
-    Extension Adapter Dashboard
+    Adapter Dashboard
   </span>
   
 
@@ -601,9 +601,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-extension-adapter-dashboard" class="md-nav__link">
+  <a href="#create-adapter-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Extension Adapter Dashboard
+      Create Adapter Dashboard
     </span>
   </a>
   
@@ -3592,9 +3592,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#create-extension-adapter-dashboard" class="md-nav__link">
+  <a href="#create-adapter-dashboard" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Extension Adapter Dashboard
+      Create Adapter Dashboard
     </span>
   </a>
   
@@ -3693,19 +3693,19 @@
                   
 
 
-<h1 id="extension-adapter-dashboard-content-sub-item">Extension Adapter Dashboard Content Sub Item</h1>
+<h1 id="adapter-dashboard-content-sub-item">Adapter Dashboard Content Sub Item</h1>
 <p><a href="../">← Back to Content Sub Items</a></p>
-<p>An <strong>Extension Adapter Dashboard</strong> Content Sub Item is used to render a Relational View in an Extension Adapter Dashboard experience within a Content Item layout.</p>
-<p>Extension Adapter Dashboard Content Sub Items allow you to tailor the presentation and behavior of a Relational View for a specific page. This means the same Relational View can be reused across multiple Content Sub Items and configured differently depending on the user experience you want to create.</p>
+<p>An <strong>Adapter Dashboard</strong> Content Sub Item is used to render a Relational View in an Adapter Dashboard experience within a Content Item layout.</p>
+<p>Adapter Dashboard Content Sub Items allow you to tailor the presentation and behavior of a Relational View for a specific page. This means the same Relational View can be reused across multiple Content Sub Items and configured differently depending on the user experience you want to create.</p>
 <h2 id="overview">Overview</h2>
-<p>Use an Extension Adapter Dashboard Content Sub Item to:</p>
+<p>Use an Adapter Dashboard Content Sub Item to:</p>
 <ul>
-<li>render a Relational View in an Extension Adapter Dashboard</li>
-<li>tailor the Extension Adapter Dashboard for a specific page</li>
+<li>render a Relational View in an Adapter Dashboard</li>
+<li>tailor the Adapter Dashboard for a specific page</li>
 <li>control the columns and filters</li>
 </ul>
 <h2 id="key-concept">Key Concept</h2>
-<p>An Extension Adapter Dashboard Content Sub Item does not replace the underlying Relational View. Instead, it provides a page-specific layer of configuration on top of that view.</p>
+<p>An Adapter Dashboard Content Sub Item does not replace the underlying Relational View. Instead, it provides a page-specific layer of configuration on top of that view.</p>
 <p>This allows you to:</p>
 <ul>
 <li>reuse the same Relational View in multiple places</li>
@@ -3715,7 +3715,7 @@
 <li>create different user experiences from the same underlying relational structure</li>
 </ul>
 <h2 id="general-settings">General Settings</h2>
-<p>The following settings are available for an Extension Adapter Dashboard Content Sub Item.</p>
+<p>The following settings are available for an Adapter Dashboard Content Sub Item.</p>
 <table>
 <thead>
 <tr>
@@ -3732,8 +3732,8 @@
 </tr>
 <tr>
 <td>Body Dashboard Name</td>
-<td>Defines the inner dashboard that holds only the Extension Adapter Dashboard.</td>
-<td><strong>This will need to be the name of the custom dashboard that holds an adapter based component.  See 'Create Extension Adapter Dashboard' below</strong></td>
+<td>Defines the inner dashboard that holds only the Adapter Dashboard.</td>
+<td><strong>This will need to be the name of the custom dashboard that holds an adapter based component.  See 'Create Adapter Dashboard' below</strong></td>
 </tr>
 <tr>
 <td>Relational View</td>
@@ -3777,8 +3777,8 @@
 </tr>
 <tr>
 <td>Auto Populate</td>
-<td>Controls whether the Extension Adapter Dashboard automatically loads records when opened.</td>
-<td>Not applicable for Extension Adapter Dashboards at this time.</td>
+<td>Controls whether the Adapter Dashboard automatically loads records when opened.</td>
+<td>Not applicable for Adapter Dashboards at this time.</td>
 </tr>
 <tr>
 <td>Show Title Bar</td>
@@ -3788,16 +3788,16 @@
 <tr>
 <td>Show Filter Bar</td>
 <td>Controls whether the filter bar is shown.</td>
-<td>Not applicable to Extension Adapter Dashboards</td>
+<td>Not applicable to Adapter Dashboards</td>
 </tr>
 <tr>
 <td>Show Inline Entry</td>
 <td>Controls whether the Enable <strong>Inline Adding &amp; Editing</strong> option is available.</td>
-<td>Not applicable for Extension Adapter Dashboards</td>
+<td>Not applicable for Adapter Dashboards</td>
 </tr>
 </tbody>
 </table>
-<h2 id="create-extension-adapter-dashboard">Create Extension Adapter Dashboard</h2>
+<h2 id="create-adapter-dashboard">Create Adapter Dashboard</h2>
 <p>Create a custom dashboard that has an <strong>adapter based component</strong> on it, such as a BI Viewer component.<br />
 Create it in a <strong>custom maintenance unit</strong> in the same Revfore Framework workspace as the Relational View.  </p>
 <p>!!!Note.  Use the <strong>XCP_xRfaConSubItm_AdptrDshbrds</strong> maintenance unit or create a new one.  Just make sure it starts with <strong>XCP_x</strong>.  In it you will find a sample adapter and dashboard.</p>
@@ -3818,7 +3818,7 @@ Create it in a <strong>custom maintenance unit</strong> in the same Revfore Fram
 You can find the <strong>Linked Page Ref</strong> and the <strong>Content Sub Item Number</strong> on the header of the Configure Content Sub Item page.<br />
 The <strong>Linked Page Ref</strong> and the <strong>Content Sub Item Number</strong> will point the adapter to all the Content Sub Item settings</p>
 <h2 id="column-tab">Column Tab</h2>
-<p>The <strong>Column</strong> tab is used to control which columns appear in the Extension Adapter Dashboard and how they behave.</p>
+<p>The <strong>Column</strong> tab is used to control which columns appear in the Adapter Dashboard and how they behave.</p>
 <h3 id="included-and-excluded-columns">Included and Excluded Columns</h3>
 <p>The Column tab includes:</p>
 <ul>
@@ -3835,30 +3835,30 @@ The <strong>Linked Page Ref</strong> and the <strong>Content Sub Item Number</st
 <li>visibility</li>
 </ul>
 <h2 id="actions-tab">Actions Tab</h2>
-<p>The <strong>Actions</strong> tab does not apply to Extension Adapter Dashboards</p>
+<p>The <strong>Actions</strong> tab does not apply to Adapter Dashboards</p>
 <h2 id="dependents-tab">Dependents Tab</h2>
 <p>The <strong>Dependents</strong> tab is used to define how this Content Sub Item interacts with other Content Sub Items on the same page.</p>
-<p>Extension Adapter Dashboard do not affect other Content Sub Items but other Content Sub Items, such as Dynamic Grids and List, can affect Extension Adapter Dashboards Content Sub Items.</p>
+<p>Adapter Dashboard do not affect other Content Sub Items but other Content Sub Items, such as Dynamic Grids and List, can affect Adapter Dashboards Content Sub Items.</p>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
-<p>Examples of Extension Adapter Dashboard Content Sub Item use cases include:</p>
+<p>Examples of Adapter Dashboard Content Sub Item use cases include:</p>
 <ul>
 <li>using the same Relational View on multiple pages with different filters</li>
-<li>creating List that controls an Extension Adapter Dashboard that includes an interactive BI Viewer component on it</li>
+<li>creating List that controls an Adapter Dashboard that includes an interactive BI Viewer component on it</li>
 <li>showing different subsets of columns depending on the audience</li>
 </ul>
 <h2 id="design-guidance">Design Guidance</h2>
-<p>When configuring an Extension Adapter Dashboard Content Sub Item:</p>
+<p>When configuring an Adapter Dashboard Content Sub Item:</p>
 <ul>
 <li>start with the underlying Relational View</li>
-<li>only expose the columns needed for the Extension Adapter Dashboard</li>
+<li>only expose the columns needed for the Adapter Dashboard</li>
 <li>use page-level filters to reuse views without duplicating them</li>
 <li>keep the configuration focused on the intended use case</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>An Extension Adapter Dashboard Content Sub Item is a page-specific configuration layer on top of a Relational View.</li>
+<li>An Adapter Dashboard Content Sub Item is a page-specific configuration layer on top of a Relational View.</li>
 <li>The same Relational View can be reused across multiple Content Sub Items and configured differently.</li>
-<li>Column, filter, and dependent settings allow each Extension Adapter Dashboard to be tailored for a specific page.</li>
+<li>Column, filter, and dependent settings allow each Adapter Dashboard to be tailored for a specific page.</li>
 </ul>
 
 
