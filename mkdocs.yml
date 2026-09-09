@@ -126,6 +126,7 @@ nav:
           - Overview: integrations/excel/index.md
       - REST APIs:
           - Overview: integrations/restAPIs/index.md
+  - Release Notes: release-notes.md
 
 # Working notes and drafts - excluded from the build entirely, so they are not
 # published. docs/misc/ is also gitignored.
