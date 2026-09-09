@@ -2499,6 +2499,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -2509,10 +2530,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_1" id="__nav_6_2_5_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_2" id="__nav_6_2_5_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2523,8 +2544,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_2">
             <span class="md-nav__icon md-icon"></span>
             Units
           </label>
@@ -2617,10 +2638,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_2" id="__nav_6_2_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_3" id="__nav_6_2_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2631,8 +2652,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_3">
             <span class="md-nav__icon md-icon"></span>
             Instances
           </label>
@@ -2746,10 +2767,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_5" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_4" id="__nav_6_2_5_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_5" id="__nav_6_2_5_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2760,8 +2781,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_5">
             <span class="md-nav__icon md-icon"></span>
             Supporting
           </label>
@@ -3430,6 +3451,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3590,6 +3631,12 @@
 <td></td>
 </tr>
 <tr>
+<td>Audit Log Flags</td>
+<td>int</td>
+<td>Controls whether changes to this table are automatically recorded in the audit log.</td>
+<td>Set per action, so a table can log updates and deletes without logging the noise of inserts. Leave it unset to record nothing. Each entry captures the action, the record, who made the change and when, together with the values themselves — a full snapshot for an insert or delete, before-and-after values for an update.</td>
+</tr>
+<tr>
 <td>Integration Code</td>
 <td>nvarchar</td>
 <td>Unique value for the relational table record.</td>
@@ -3659,6 +3706,7 @@
 <li>Tables should be designed around business entities and objects rather than technical groupings.</li>
 <li>Keep table names clear and consistent.</li>
 <li>Tables are the starting point for columns, relationships, models, views, and forms.</li>
+<li>Audit logging is a property of the table, not something a solution writes for itself. Turning it on here is all that is required — there is no handler code to add. In an import file it is the table definition's <code>EnableAuditLog</code> property.</li>
 </ul>
 
 

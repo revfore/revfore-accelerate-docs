@@ -2600,6 +2600,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../appGroups/admin/workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -2610,10 +2631,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_1" id="__nav_6_2_5_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_2" id="__nav_6_2_5_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2624,8 +2645,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_2">
             <span class="md-nav__icon md-icon"></span>
             Units
           </label>
@@ -2718,10 +2739,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_2" id="__nav_6_2_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_3" id="__nav_6_2_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2732,8 +2753,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_3">
             <span class="md-nav__icon md-icon"></span>
             Instances
           </label>
@@ -2847,10 +2868,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_5" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_4" id="__nav_6_2_5_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_5" id="__nav_6_2_5_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2861,8 +2882,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_5">
             <span class="md-nav__icon md-icon"></span>
             Supporting
           </label>
@@ -3531,6 +3552,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3793,7 +3834,7 @@
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
 </code></pre></div>
 <p><strong>Required:</strong> <code>Name</code>, <code>DisplayName</code>, <code>StandardColumnId_IntegrationCode</code>.</p>
-<p><strong>Standard columns</strong> are the framework's column templates. Referencing one — <code>Key_Int</code>, <code>Name_Short</code>, and so on — brings its data type, length and defaults with it, so column definitions stay short and consistent across solutions. See <a href="../../../appGroups/admin/relational/supporting/">Relational Standard Columns</a>.</p>
+<p><strong>Standard columns</strong> are the framework's column templates. Referencing one — <code>Key_Int</code>, <code>Name_NVarchar</code>, and so on — brings its data type, length and defaults with it, so column definitions stay short and consistent across solutions. See <a href="../../../appGroups/admin/relational/supporting/">Relational Standard Columns</a>.</p>
 <p>Optional properties cover the usual overrides: <code>IsNullable</code>, <code>MaxLength</code>, <code>Precision</code>, <code>Scale</code>, <code>DefaultValue</code>, <code>IsEnabled</code>.</p>
 <h3 id="positioning-columns">Positioning columns</h3>
 <p><code>SequenceNumber</code> sets a column's position outright. More often you want to place one relative to an existing column, which is what the position properties are for:</p>
@@ -3877,9 +3918,10 @@
 </tbody>
 </table>
 <p>The <code>Default</code>, <code>Insert</code>, <code>Update</code> and <code>Copy</code> sets are what let a column populate itself — a timestamp on insert, the current user on update, a cleared reference on copy — with no code involved. Define them here and they apply to every view over the model.</p>
-<div class="admonition note unset does not mean blank">
-<p class="admonition-title">Note</p>
-<p>An attribute you leave off a model column inherits from its <a href="../../../appGroups/admin/relational/supporting/">Standard Column</a>, not from nothing. That is the point of standard columns — you set only what differs. The same is true of view columns.</p>
+<div class="admonition note">
+<p class="admonition-title">Unset does not mean blank</p>
+<p>An attribute you leave off a model column inherits from its <a href="../../../appGroups/admin/relational/supporting/standardColumns/">Standard Column</a>, not from nothing. The same is true of view columns.</p>
+<p>Inheritance is a safety net, not a reason to omit a value that matters. In a file that will be reviewed and diffed, prefer to set an attribute explicitly where it matters for that column — even where the value matches what would be inherited — so a reader can see that a column is read-only or hidden without cross-referencing the standard column it came from. Omit an attribute where its value genuinely does not matter. See <a href="../../../appGroups/admin/relational/supporting/standardColumns/#what-a-column-inherits-and-when-to-override-it">What a column inherits, and when to override it</a>.</p>
 </div>
 <h2 id="views">Views</h2>
 <p>Defines how a set of data is accessed — by a screen, an adapter, an API, an agent or an import.</p>
@@ -3962,7 +4004,7 @@
 <ul>
 <li>Define tables, models and views together in the structure file; the framework resolves them in dependency order within it. Seed data goes in a separate file, imported after the sync.</li>
 <li>Get aliases right before anything references them; changing one later ripples through model columns, view columns and code.</li>
-<li>Prefer standard columns over spelling out types. Consistency across solutions is the point of them.</li>
+<li>Prefer standard columns over spelling out types. Consistency across solutions is the point of them. The <a href="../../../appGroups/admin/relational/supporting/standardColumns/#standard-column-catalogue">full catalogue</a> lists every code and what it means.</li>
 <li>Most behaviour people reach for code to do — defaults, required rules, dropdown filtering — is a view column property. Check <a href="../../#configuration-first">Configuration first</a>.</li>
 </ul>
 

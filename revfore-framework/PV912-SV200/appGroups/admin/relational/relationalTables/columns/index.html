@@ -2526,6 +2526,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../workflow/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -2536,10 +2557,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_2" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_1" id="__nav_6_2_5_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_2" id="__nav_6_2_5_2_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2550,8 +2571,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_1">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_2">
             <span class="md-nav__icon md-icon"></span>
             Units
           </label>
@@ -2644,10 +2665,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_2" id="__nav_6_2_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_3" id="__nav_6_2_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2658,8 +2679,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_3">
             <span class="md-nav__icon md-icon"></span>
             Instances
           </label>
@@ -2773,10 +2794,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2_5_5" >
         
           
-          <label class="md-nav__link" for="__nav_6_2_5_4" id="__nav_6_2_5_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6_2_5_5" id="__nav_6_2_5_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -2787,8 +2808,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6_2_5_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_6_2_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2_5_5">
             <span class="md-nav__icon md-icon"></span>
             Supporting
           </label>
@@ -3457,6 +3478,26 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../release-notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -3574,6 +3615,8 @@
 <p><a href="../">← Back to Relational Tables Overview</a></p>
 <p>The <strong>Table Columns</strong> page is used to define and manage the fields that belong to a relational table.</p>
 <p>Columns describe the attributes of each record stored in a table.</p>
+<p>Every column is built from a <strong><a href="../../supporting/standardColumns/">Standard Column</a></strong> — the reusable definition that supplies the column's data type, key behaviour, nullability, length and defaults. Choosing the right one is the most consequential decision on this page: it is what makes columns of the same kind behave alike everywhere, and it determines how the Framework treats the column downstream, from key handling to cube and workflow awareness. The settings below are largely <em>overrides</em> of what the standard column already provides, so leave one unset to take the inherited behaviour.</p>
+<p>The <a href="../../supporting/standardColumns/#standard-column-catalogue">Standard Column Catalogue</a> lists all 117 codes by purpose.</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Columns page to:</p>
 <ul>
@@ -3772,6 +3815,7 @@
 <p>Once all columns are created, create new <a href="../indexes/">Relational Indexes</a></p>
 <div class="admonition note important notes">
 <p class="admonition-title">Note</p>
+<p>Choose the <a href="../../supporting/standardColumns/">Standard Column</a> first — the data type, nullability, length and key flags below are inherited from it unless overridden</p>
 <p>The Integration Code and Relational Column Id will be auto-assigned</p>
 <p>The Sequence Number will be auto-assigned if blank on a new record</p>
 <p>The first column should be the <strong>Primary Key Column</strong>. It should be not nullable and an Int. It is typically an Identity column.  All tables need a primary key column.</p>
