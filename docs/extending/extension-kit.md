@@ -31,7 +31,7 @@ The kit ships with the product, in the same maintenance unit as the extension as
 1. In OneStream, go to **Application | Presentation | Workspaces**
 2. Select the **Revfore Framework (RFA)** workspace
 3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
-4. Under **Files**, download **rfaExtensionKit-<version>.zip**
+4. Under **Files**, download **rfaExtensionKit.zip**
 
 Extract it to a folder for your work, one per project or customer, and open that folder in VS Code. The zip has a single `rfaExtensionKit` folder at its root; rename it to suit the project.
 
@@ -193,7 +193,7 @@ Each Revfore release comes with a new kit. The reference stubs, skills and sampl
 - **`rfa_actnExtension_os/` holds your code.** Keep your handlers and your dispatcher registrations when you take a new kit. Take Revfore's own files, such as `IExtensionHandler.cs`, `SolutionHelper.cs` and `SharedMethods.cs`, from the new kit.
 - **`Directory.Build.props` and `packages/` are yours.** Keep them unless you're also moving to a new OneStream version.
 
-To take a new kit, download **rfaExtensionKit-<version>.zip** from the maintenance unit again, as in [Step 1](#step-1-unpack-the-kit). Then copy your `solutions/`, `packages/`, `Directory.Build.props` and handler folders across from your old kit folder.
+To take a new kit, download **rfaExtensionKit.zip** from the maintenance unit again, as in [Step 1](#step-1-unpack-the-kit). Then copy your `solutions/`, `packages/`, `Directory.Build.props` and handler folders across from your old kit folder.
 
 The skills describe the schema and conventions of the release they shipped with, so update the kit whenever you upgrade the Framework in OneStream. Otherwise Claude generates against an older schema.
 
