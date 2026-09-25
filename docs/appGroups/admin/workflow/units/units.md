@@ -26,7 +26,7 @@ The following fields are used for a Workflow Unit header record.
 | Workflow Unit Name | nvarchar | Internal name of the workflow unit. | Must be unique. No spaces or special characters are allowed.
 | Workflow Unit Display Name | nvarchar | User-friendly display name shown in the application. | Must be unique.
 | Workflow Unit Description | nvarchar | Description of the workflow unit and its purpose. |
-| Profile Type | int | Whether this unit holds records of its own or groups other units. | Defaults to **Base**. See [Unit Profile Type](#unit-profile-type).
+| Profile Type | int | Whether this unit sits at the bottom of a structure or groups other units. | Defaults to **Base**. See [Unit Profile Type](#unit-profile-type).
 | Security Group | int | Security group granted read-write access to the unit's data. | Users in this group can view and edit data for this unit. Leave blank to grant no read-write access through the unit itself.
 | Read Security Group | int | Security group granted read-only access to the unit's data. | Users in this group can view but not edit data for this unit.
 | Effective Start Date | date | Date the workflow unit becomes available for use. | Defaults to 1900-01-01, meaning available from the beginning.
@@ -46,8 +46,10 @@ The following fields are used for a Workflow Unit header record.
 
 | Profile Type | Meaning |
 |---|---|
-| **Base** | Holds records of its own. This is the default, and what every unit was before profile types existed. |
-| **Parent** | Groups other units in a [hierarchy](hierarchies.md), so it can see and review their work. |
+| **Base** | A unit at the bottom of a structure, with no units beneath it. This is the default, and what every unit was before profile types existed. |
+| **Parent** | A unit that groups others in a [hierarchy](hierarchies.md), so it can see and review their work. |
+
+**Both kinds of unit can hold records of their own.** A Parent unit is not a heading — a regional manager may enter their own overhead alongside reviewing the departments beneath them. Whether a given screen shows those rows is set on the view, by **Unit Records Shown**: a view including *Parent Records* shows a Parent's own rows, and one including *Descendant Records* shows the rows of the units below it. A view can include either, both, or neither.
 
 The profile type is a label and nothing more — it says what the unit *is*, not what any particular screen lets it do. What a Parent unit sees and may change is decided **per view**, by [Unit Records Shown and Parent Unit Editability](../../relational/relationalViews/views.md#workflow-behaviour).
 

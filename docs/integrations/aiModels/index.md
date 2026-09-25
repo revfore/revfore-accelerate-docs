@@ -100,6 +100,9 @@ Expand-Archive ClaudeSkills.zip -DestinationPath "$env:USERPROFILE\.claude\skill
 
 Restart Claude Code and run `/skills` to confirm they are listed.
 
+!!! tip "The Extension Kit already includes the skills"
+    If you build solutions in VS Code, the [Extension Kit](../../extending/extension-kit.md) ships with the skills in its own `.claude/skills` folder, together with a buildable copy of the extension assembly. Open the kit folder and Claude Code loads them automatically.
+
 !!! note "Upgrades ship a new skills file"
     The skills describe the schema and conventions of the version they shipped with. After an upgrade, download **ClaudeSkills.zip** again and replace the copy you loaded, so Claude is generating against the current schema.
 

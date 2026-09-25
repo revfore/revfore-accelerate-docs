@@ -173,7 +173,9 @@ See [Statuses](appGroups/admin/workflow/instances/statuses.md).
 
 ### Base and Parent units
 
-A workflow unit now declares whether it **holds records of its own** or **groups other units**. The profile type is a label and nothing more — what a Parent unit actually sees and may change is decided per view, not per unit.
+A workflow unit now declares whether it sits at the bottom of a structure or **groups other units**. Both kinds can hold records of their own — a Parent unit is not a heading, and may enter its own data as well as review what is beneath it.
+
+The profile type is a label and nothing more — what a Parent unit actually sees and may change is decided per view, not per unit.
 
 That split is what makes a review screen possible. The same Parent unit is typically read-only on a data entry screen and fully editable on the review screen beside it, and a single setting on the unit could not express both.
 

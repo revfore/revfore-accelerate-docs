@@ -13,6 +13,8 @@ Use this section to:
 - write and wire up an extension handler
 - work with the framework's record objects from your own code
 
+To design and build a solution on your own machine, with Claude and a compiler checking the work before anything reaches OneStream, see [Extension Kit (VS Code)](extension-kit.md).
+
 ## What you can and cannot change
 
 Revfore Framework ships as a set of OneStream workspace assemblies. All but one are closed product code.

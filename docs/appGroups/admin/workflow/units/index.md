@@ -28,7 +28,7 @@ Each workflow unit definition consists of:
 - A unit's member set is what connects it to the cube, so a unit without one has no cube destination for its data.
 - Member sets are effective-dated and scoped per instance type, so the same unit can map differently for different kinds of workflow.
 - Read-write and read-only access are granted separately, through two different security groups.
-- A unit is either a **Base** unit, holding records of its own, or a **Parent** unit that groups others — see [Unit Profile Type](units.md#unit-profile-type).
+- A unit is either a **Base** unit at the bottom of a structure or a **Parent** unit that groups others. Both can hold records of their own — see [Unit Profile Type](units.md#unit-profile-type).
 - Units are arranged into review and roll-up structures by [Unit Hierarchies](hierarchies.md), and a unit can belong to more than one.
 
 ## Typical Use Cases
