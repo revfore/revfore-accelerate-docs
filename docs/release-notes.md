@@ -142,3 +142,74 @@ See [Cube Views](appGroups/admin/relational/supporting/cubeViews.md).
 Workflow has been extended on both sides — **Revfore workflow** (units, instances, areas, item types and categories) and its **integration with OneStream workflow**.
 
 See [Workflow](appGroups/admin/workflow/units/index.md).
+
+### Unit hierarchies
+
+Workflow units can now be arranged **under one another**, so a unit higher up a structure can see and review the work of the units beneath it. Without this, every unit was an island: it had its own data and nobody had a view across it.
+
+A hierarchy is one record and one grid of parent-and-child pairs. From that, **Process** builds two further tables the application maintains for you — every ancestor-to-descendant pair at any depth, and a pivoted form with each unit's ancestors spread across columns. Those are what turn *"every unit below this one, however deep"* into a single join instead of a recursive walk.
+
+A unit can belong to more than one hierarchy, because a reporting structure and an approval structure are rarely the same shape, and units can sit at different depths or appear under more than one parent.
+
+See [Unit Hierarchies](appGroups/admin/workflow/units/hierarchies.md).
+
+### Per-unit workflow status
+
+A cycle used to have a single status covering everything in it. That is enough to open and close a round of work, but not to run a submission process — within one open cycle, a department may still be drafting while another has submitted and a third has been approved.
+
+Each unit now carries **its own status within a cycle**, alongside who submitted it, when, and any review comments. The two levels combine as restrictions: whatever either forbids is forbidden, so a submitted unit is locked while its cycle stays open, and everything in a closed cycle is locked whatever the individual units say.
+
+Records are created for a unit and everything beneath it when a user sets their workflow context, so a submission grid has something in it when they arrive. Set the instance's **Default Unit Status** to turn this on.
+
+See [Instance Units](appGroups/admin/workflow/instances/instanceUnits.md).
+
+### Statuses are now yours to define
+
+Workflow statuses were a fixed list built into the application. They are now records you maintain, so the stages can be named after your own process rather than around someone else's.
+
+Each status says what it **restricts** — a status marked Read Only stops data being entered — and whether it applies to a whole cycle, to a single unit, or to both. Restrictions rather than permissions is what lets the instance and unit levels combine without precedence rules.
+
+See [Statuses](appGroups/admin/workflow/instances/statuses.md).
+
+### Base and Parent units
+
+A workflow unit now declares whether it **holds records of its own** or **groups other units**. The profile type is a label and nothing more — what a Parent unit actually sees and may change is decided per view, not per unit.
+
+That split is what makes a review screen possible. The same Parent unit is typically read-only on a data entry screen and fully editable on the review screen beside it, and a single setting on the unit could not express both.
+
+See [Unit Profile Type](appGroups/admin/workflow/units/units.md#unit-profile-type).
+
+### Views know which units they are for
+
+Two new settings on a Relational View decide how it behaves for the unit looking at it:
+
+- **Unit Records Shown** — whether the view returns the unit's own rows, the rows of the units below it in a hierarchy, or both. The default is what every view did before the setting existed, so nothing changes by accident.
+- **Parent Unit Editability** — what a Parent unit may do here. Left blank it is read-only, which is the safe default for a unit looking across other units' data. Set, it *replaces* the view's editability for a Parent, which is how a review screen stays editable for an approver on a grid nobody else can change.
+
+Where a view genuinely shows more than one unit's rows, the workflow unit column appears by itself. Nothing needs configuring, and it stays hidden everywhere else rather than repeating a single value down the page.
+
+See [Workflow behaviour](appGroups/admin/relational/relationalViews/views.md#workflow-behaviour).
+
+### Workflow actions
+
+View actions can now be marked as **Workflow** actions — Submit, Approve, Reject, Recall and the Calculate that runs with them.
+
+A workflow action is gated on the **cycle** being open, not on the unit's own status. That distinction matters: a unit-level read-only status freezes that unit's *data*, not the workflow's ability to move it on. Marked as an edit action instead, a Submit button would disable itself the moment it succeeded, and nothing could ever recall it.
+
+See [Availability and the Crud flags](appGroups/admin/relational/relationalViews/actions.md#availability-and-the-crud-flags).
+
+### Core and extension logic together
+
+A Relational View can now say **which assembly handles its save and delete logic, and in what order** — core, extension, or both in either order.
+
+Previously it was one or the other, decided by whether the view was an extension. Adding a rule to a core view meant taking over its behaviour entirely and reproducing whatever the core already did. Now *Core, then Extension* leaves the framework's own validation and stamping in place and runs your handler afterwards on the same save.
+
+See [Business Rule Flags](appGroups/admin/relational/relationalViews/views.md#business-rule-flags).
+
+### Solution setup hook
+
+Solutions can run their own scripts and processes as part of **Setup and Upgrade**, through a new extension point that receives the workspace along with the previous and current version numbers.
+
+The version pair is what makes it safe to call every time: an upgrade that skips two versions still runs each step it should, and re-running the same version does nothing.
+
+See [Solution setup](extending/shared-methods.md#solution-setup).

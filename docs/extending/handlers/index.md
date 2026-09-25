@@ -44,6 +44,25 @@ Three things follow from this:
 
 Handlers are held as **static singletons** and reused across every call, so they must be stateless. Anything specific to the current user, record or request comes in through the method parameters — never stored on the class.
 
+## Core and extension together
+
+Resolving *which* handler owns a view is only half the question. The other half is whether the **core** logic runs as well, and in what order — which is set per view, by [Business Rule Flags](../../appGroups/admin/relational/relationalViews/views.md#business-rule-flags).
+
+| Setting | What runs |
+|---|---|
+| Default (by area) | Core for core views, extension for extension views. The behaviour before the setting existed. |
+| Core | Core only. |
+| Extension | Extension only — it **replaces** the core behaviour. |
+| Core, then Extension | Both, core first. |
+| Extension, then Core | Both, extension first. |
+
+This is what makes it possible to **add** behaviour to a core view rather than take it over. Setting *Core, then Extension* on a core workflow view means the framework still does its own validation and stamping, and your handler runs afterwards on the same save.
+
+The order matters where both sides touch the same values. Core first is the usual choice — your handler then sees the result of the core work and can correct it. Extension first is for the case where the core logic should act on values you have already defaulted.
+
+!!!Note
+    The setting applies to the save and delete hooks. An extension handler that only implements actions is unaffected by it.
+
 ## The extension points
 
 `IExtensionHandler` defines the points the framework will call. Implement the ones you need and leave the rest as empty stubs.

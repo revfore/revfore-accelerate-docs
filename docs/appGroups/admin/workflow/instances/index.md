@@ -19,6 +19,8 @@ Each workflow instance definition consists of:
 
 - [Instances](instances.md) – the individual cycles, their dates, scenario, and status
 - [Instance Types](instanceTypes.md) – the kinds of cycle available, such as Budget or Forecast
+- [Statuses](statuses.md) – the stages a cycle or a unit can be in, and what each stage restricts
+- [Instance Units](instanceUnits.md) – each unit's own status within a cycle, for processes where units submit independently
 
 ## Key Concepts
 
@@ -27,6 +29,8 @@ Each workflow instance definition consists of:
 - The instance type is the reusable definition; the instance is the dated occurrence of it.
 - An instance carries its own status, so cycles can be opened, worked, and closed independently.
 - Security groups on an instance apply to that cycle, and work alongside the groups set on the unit.
+- A cycle's status and a unit's own status combine as restrictions, so a unit can be locked inside a cycle that is still open.
+- Statuses are records you maintain, not a fixed list, so the stages can be named after your own process.
 
 ## Typical Use Cases
 
@@ -55,3 +59,4 @@ Each workflow instance definition consists of:
 - Create the instance type before the instances that use it.
 - Name instances so the cycle is obvious at a glance, for example `FY26 Budget` rather than `Budget`.
 - Use status to manage a cycle's lifecycle rather than deleting instances that have finished.
+- If units submit independently, set the instance's **Default Unit Status** — per-unit records are only created for cycles that have one.

@@ -26,6 +26,7 @@ The following fields are used for a Workflow Unit header record.
 | Workflow Unit Name | nvarchar | Internal name of the workflow unit. | Must be unique. No spaces or special characters are allowed.
 | Workflow Unit Display Name | nvarchar | User-friendly display name shown in the application. | Must be unique.
 | Workflow Unit Description | nvarchar | Description of the workflow unit and its purpose. |
+| Profile Type | int | Whether this unit holds records of its own or groups other units. | Defaults to **Base**. See [Unit Profile Type](#unit-profile-type).
 | Security Group | int | Security group granted read-write access to the unit's data. | Users in this group can view and edit data for this unit. Leave blank to grant no read-write access through the unit itself.
 | Read Security Group | int | Security group granted read-only access to the unit's data. | Users in this group can view but not edit data for this unit.
 | Effective Start Date | date | Date the workflow unit becomes available for use. | Defaults to 1900-01-01, meaning available from the beginning.
@@ -38,6 +39,22 @@ The following fields are used for a Workflow Unit header record.
 | Created By | int | User who created the workflow unit record. |
 | Modified By | int | User who last modified the workflow unit record. |
 | Workflow Unit Id | int | Unique identifier for the workflow unit record. | If you leave blank, the system will auto assign
+
+## Unit Profile Type
+
+**Profile Type** says what kind of unit this is.
+
+| Profile Type | Meaning |
+|---|---|
+| **Base** | Holds records of its own. This is the default, and what every unit was before profile types existed. |
+| **Parent** | Groups other units in a [hierarchy](hierarchies.md), so it can see and review their work. |
+
+The profile type is a label and nothing more — it says what the unit *is*, not what any particular screen lets it do. What a Parent unit sees and may change is decided **per view**, by [Unit Records Shown and Parent Unit Editability](../../relational/relationalViews/views.md#workflow-behaviour).
+
+That split is deliberate. The same Parent unit is often read-only on a data entry screen and fully editable on the review screen that sits next to it, and a setting on the unit could not express both.
+
+!!!Note
+    A Base unit is expected to sit at the bottom of a hierarchy with nothing beneath it, and a Parent unit to have units under it. Nothing enforces this, and it is legitimately untrue for a moment while a Parent unit is being built up, but it is the arrangement to design for.
 
 ## Typical Use Cases
 
@@ -56,6 +73,7 @@ Use workflow units to represent the structures a process is performed for, such 
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
 5. Create the unit's [Member Sets](memberSets.md) for each workflow instance type it participates in
+6. Place the unit in a [Unit Hierarchy](hierarchies.md) if it takes part in a review or roll-up structure
 
 **Add & Edit in Grid** allows adding and modifying rows directly in the grid
 

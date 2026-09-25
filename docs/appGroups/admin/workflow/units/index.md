@@ -19,6 +19,7 @@ Each workflow unit definition consists of:
 
 - [Units](units.md) – name, effective dates, security groups, and other unit-level settings
 - [Member Sets](memberSets.md) – the cube and dimension members a unit's data is written to and summarised at, per workflow instance type
+- [Unit Hierarchies](hierarchies.md) – how units are arranged under one another, so a unit can review the work of those beneath it
 
 ## Key Concepts
 
@@ -27,6 +28,8 @@ Each workflow unit definition consists of:
 - A unit's member set is what connects it to the cube, so a unit without one has no cube destination for its data.
 - Member sets are effective-dated and scoped per instance type, so the same unit can map differently for different kinds of workflow.
 - Read-write and read-only access are granted separately, through two different security groups.
+- A unit is either a **Base** unit, holding records of its own, or a **Parent** unit that groups others — see [Unit Profile Type](units.md#unit-profile-type).
+- Units are arranged into review and roll-up structures by [Unit Hierarchies](hierarchies.md), and a unit can belong to more than one.
 
 ## Typical Use Cases
 
@@ -55,3 +58,4 @@ Each workflow unit definition consists of:
 - Name units after the business structure they represent, not after the workflow they take part in.
 - A unit with no member set can still be created, but its data has nowhere to post to the cube.
 - Use effective dates rather than deleting units, so historical workflow data stays intact.
+- A hierarchy has to be processed before anything reads it. Adding units to one is not enough on its own — see [Unit Hierarchies](hierarchies.md#process).

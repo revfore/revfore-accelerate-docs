@@ -61,6 +61,25 @@ rfa_wf.WorkflowContext oWfContext =
 
 From it you can read `WfUnitId`, `WfInstanceId` and the unit's resolved member set values — including the [data source scope members](../appGroups/admin/workflow/units/memberSets.md#data-source-scope-members) that bound what the unit may read and change.
 
+### The context is a snapshot
+
+The workflow context is **cached state, not a live read.** It is written when the user sets their workflow settings, and nothing invalidates it when the underlying instance or unit changes — including when your own code is what changed it.
+
+That bites hardest on a status change, because the context carries not just the status name but the behaviour behind it. An action that submits a unit and does not refresh the context leaves the rest of the session believing the unit is still open: the grid stays editable, the buttons stay live, and the first thing anyone notices is the save that refuses.
+
+After any code that moves a status, refresh it:
+
+```csharp
+rfa_wf.WorkflowContext.RefreshCurrentStatuses(parms);
+```
+
+One line, after the status write has committed. It re-reads both the instance's status and the unit's, stores the result, and returns the refreshed context. It only writes when something actually moved, so calling it on a path that may not have changed anything costs nothing.
+
+**That is the whole job — you do not also need to touch the viewer settings.** They rebuild themselves from the stored context on the next request.
+
+!!!Note
+    A grid refresh is not the same thing. `RequestGridRefresh` redraws the rows; it does not rebuild the context that decides whether they are editable. An action that changed a status usually wants both.
+
 ## Period helpers
 
 Views that spread a value across periods share a common editing pattern: the user types into the first period and expects the rest to follow, but only while the row is still evenly spread. Once they have edited an individual period, overwriting their work would be wrong.
@@ -78,6 +97,24 @@ if(SharedMethods.FirstPeriodValueChanged(dictPeriodFields)
 Read as: *if the user changed the first period, and the row was evenly spread before they touched it, then spread the new value across all periods.* A row the user has already shaped by hand fails the second test and is left alone.
 
 `AreAllModifiedPeriodValuesExceptTheFirstEqual` covers the variant where you care whether the trailing periods are still even after the edit.
+
+## Solution setup
+
+`SolutionHelper.Setup_RunSolutionSetupScriptsAndProcesses` is called during **Setup and Upgrade**, on both the install and the upgrade path, before the framework relinks its OneStream records.
+
+```csharp
+public static void Setup_RunSolutionSetupScriptsAndProcesses(
+    RFParams parms, Guid workspaceId, int prevVersion, int currentVersion,
+    ref string errorMessage, ref string infoMessage)
+```
+
+It is where a solution does the work that has to happen as part of being installed or upgraded, rather than by hand afterwards — running its own scripts, seeding reference data, or processing something the new version depends on.
+
+`prevVersion` and `currentVersion` are what make it safe to call every time: compare them to decide whether a step is needed, so an upgrade that skips two versions still runs each step it should, and a re-run of the same version does nothing.
+
+Report what happened through `infoMessage`, and anything that went wrong through `errorMessage` — both are surfaced on the setup screen.
+
+See [Setup and Upgrade](../appGroups/config/setup-upgrade.md).
 
 ## Adding your own
 

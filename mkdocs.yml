@@ -99,10 +99,13 @@ nav:
                   - Overview: appGroups/admin/workflow/units/index.md
                   - Units: appGroups/admin/workflow/units/units.md
                   - Member Sets: appGroups/admin/workflow/units/memberSets.md
+                  - Unit Hierarchies: appGroups/admin/workflow/units/hierarchies.md
               - Instances:
                   - Overview: appGroups/admin/workflow/instances/index.md
                   - Instances: appGroups/admin/workflow/instances/instances.md
                   - Instance Types: appGroups/admin/workflow/instances/instanceTypes.md
+                  - Statuses: appGroups/admin/workflow/instances/statuses.md
+                  - Instance Units: appGroups/admin/workflow/instances/instanceUnits.md
               - Areas: appGroups/admin/workflow/areas/index.md
               - Supporting:
                   - Overview: appGroups/admin/workflow/supporting/index.md

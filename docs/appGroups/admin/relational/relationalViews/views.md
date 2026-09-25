@@ -34,6 +34,9 @@ The following fields are used for a Relational View header record.
 | Group By Enabled | bit | Indicates whether grouping is enabled for the view. | Used when the view should support grouped or aggregated output. |
 | Distinct Enabled | bit | Indicates whether distinct selection is enabled for the view. | Used when duplicate records should be eliminated from the view output.  This field is not used at this time. |
 | Navigate To Enabled | bit | Indicates whether navigation is enabled for the view. | Used when users should be able to navigate from this view to related views or records. |
+| Unit Records Shown | int | Which records the view shows, relative to the workflow unit looking at it. | Defaults to Own Records Only. See [Workflow behaviour](#workflow-behaviour). |
+| Parent Unit Editability | int | What a Parent unit may do on this view. | Blank means read-only for a Parent. See [Workflow behaviour](#workflow-behaviour). |
+| Business Rule Flags | int | Which assembly handles this view's save and delete logic, and in what order. | Defaults to the behaviour that applied before the setting existed. See [Business Rule Flags](#business-rule-flags). |
 | Where Clause | nvarchar | Defines additional where clause logic for the view. | Used to restrict which records are included in the view.  Use the **Clause** button to open the expression editor page. |
 | Having Clause | nvarchar | Defines additional having clause logic for the view. | Used to restrict grouped or aggregated results. Use the **Clause** button to open the expression editor page. |
 | Integration Code | nvarchar | Unique value for the relational view record. | This is readonly and is auto set the same value as the View Name, providing a unique value for the record that is used for importing data. |
@@ -45,6 +48,62 @@ The following fields are used for a Relational View header record.
 
 !!!Note Important Field Notes
     **Is RFA Managed** - If Managed, the view definition is maintained in RFA and pushed to the database as a SQL view.  If not managed, the view is created directly in the database by some other method and RFA only references it.  Managed Views give you the full Relational View functionality.  Non-managed Views can only be used as Model Sources.  A good example of a non-managed view is a SQL view that is very complex and can only be created directly in SQL and is required for reporting & analytics.
+
+## Workflow behaviour
+
+Two settings decide how a workflow-enabled view behaves for the unit looking at it. Both live on the view rather than on the unit, because the same unit is usually treated differently on a data entry screen and on the review screen next to it.
+
+### Unit Records Shown
+
+Which rows the view returns, relative to the current workflow unit.
+
+| Setting | The view shows |
+|---|---|
+| Own Records Only (default) | The current unit's own rows, whatever kind of unit it is. |
+| Base Records | The unit's own rows, when it is a **Base** unit. |
+| Parent Records | The unit's own rows, when it is a **Parent** unit. |
+| Descendant Records | Rows belonging to the units **below** it in the [unit hierarchy](../../workflow/units/hierarchies.md). |
+| Base & Descendant Records | Both of the above. |
+| Parent & Descendant Records | Both of the above. |
+| Base, Parent & Descendant Records | Everything the unit can reach. |
+
+Own Records Only is what every view did before this setting existed, so leaving it alone changes nothing.
+
+The combinations exist because Base and Parent units usually want different screens. A submission grid might show Base records only; the review grid beside it shows Parent and Descendant records, so a reviewer sees their own summary row together with everything underneath it.
+
+!!!Note
+    Descendant records are resolved through the unit hierarchy, so a hierarchy has to exist and have been [processed](../../workflow/units/hierarchies.md#process) before anything appears.
+
+### Parent Unit Editability
+
+What a **Parent** unit is allowed to do here, using the same choices as Editability Mode.
+
+- **Left blank**, a Parent unit gets read-only. This is the safe default: a parent looking across other units' data is reviewing it, not typing into it.
+- **Set**, it *replaces* Editability Mode for a Parent unit — it does not narrow it. A view that is read-only for everyone can still be editable for a Parent, which is how a review screen lets an approver record a decision on a grid nobody else can change.
+
+The workflow status check still applies on top of either. A closed cycle is read-only for a Parent as much as for anyone else.
+
+### The unit column
+
+Where a view shows more than one unit's rows, the workflow unit column appears by itself. Nothing needs configuring — it follows from Unit Records Shown including descendants and the current unit being a Parent.
+
+On every other view it stays hidden, because every row belongs to the same unit and the column would repeat a single value down the page.
+
+## Business Rule Flags
+
+**Business Rule Flags** decides which assembly handles the view's save and delete logic.
+
+| Setting | Behaviour |
+|---|---|
+| Default (by area) | What applied before this setting existed: core handles core views, the extension assembly handles extension views. |
+| Core | Core logic only. |
+| Extension | Extension logic only — it **replaces** the core behaviour rather than adding to it. |
+| Core, then Extension | Both, core first. |
+| Extension, then Core | Both, extension first. |
+
+The common reason to set it is to add validation to a **core** view without losing what the core already does — *Core, then Extension*. Choosing *Extension* on its own is how you deliberately take the core behaviour out.
+
+See [How Dispatch Works](../../../../extending/handlers/index.md) for what runs where.
 
 ## Key Concepts
 
@@ -58,6 +117,7 @@ The following fields are used for a Relational View header record.
 - Data entry and review interfaces  
 - Dashboard and page integrations  
 - Workflow-driven data interaction  
+- Review and approval screens that look across the units beneath a parent  
 
 ## Create a new Relational View
 

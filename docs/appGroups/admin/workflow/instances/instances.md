@@ -27,7 +27,8 @@ The following fields are used for a Workflow Instance header record.
 | Workflow Instance Type | int | The kind of cycle this instance is. | Required. Workflow units, areas and member sets are configured per instance type, so this determines which configuration applies.
 | Scenario Member | int | The scenario dimension member the cycle's data belongs to. | Used when posting the cycle's data to the cube.
 | Year | int | The year the cycle relates to. |
-| Status | int | Current status of the cycle. | Required. Chosen from a fixed list: Draft, Open, In-Review, In-Review & Locked, Pending Approval, Completed. See below.
+| Status | int | Current status of the cycle. | Required. Chosen from the [Statuses](statuses.md) marked for use at instance level.
+| Default Unit Status | int | The status a unit starts at within this cycle. | Set this if units submit independently. Without it no [Instance Unit](instanceUnits.md) records are created, and a submission grid comes up empty.
 | Start Date | date | Date the cycle begins. |
 | End Date | date | Date the cycle ends. |
 | Start Period | int | First period the cycle covers. | Optional. Bounds the cycle in periods, alongside the calendar dates above.
@@ -81,20 +82,21 @@ Reading that top to bottom gives FY, HY1, Q1, M1, M2, M3, Q2, M4, M5, M6, HY2, Q
 
 The unit side of the mapping works the same way — see the **OneStream Workflow Reference** field on [Units](../units/units.md), which holds the OneStream parent workflow profile name. Leave both blank when the solution is not driven by OneStream workflow.
 
-## Status values
+## Status
 
-Status is a fixed list rather than a lookup table, so the values are not maintained anywhere in the application:
+Status is maintained on the [Statuses](statuses.md) page rather than being a fixed list, so a solution names its stages after its own process.
 
-| Value | Status |
-|---|---|
-| 1 | Draft |
-| 2 | Open |
-| 3 | In-Review |
-| 4 | In-Review & Locked |
-| 5 | Pending Approval |
-| 6 | Completed |
+An instance offers the statuses marked for use at instance level. What a status restricts is set on the status itself: one marked **Read Only** stops data being entered for the whole cycle.
 
 Use status to move a cycle through its lifecycle rather than deleting instances that have finished.
+
+### Per-unit status
+
+A cycle's status covers everything in it. Where units submit independently — one department still drafting while another has been approved — each unit also carries its own status, held as an [Instance Unit](instanceUnits.md) record.
+
+The two combine as restrictions: **whatever either level forbids is forbidden.** A submitted unit is locked while its cycle stays open, and everything in a closed cycle is locked whatever the individual units say.
+
+Set **Default Unit Status** on the instance to turn this on. It is the stage a unit starts at, and without it no per-unit records are created.
 
 ## Typical Use Cases
 
@@ -123,4 +125,5 @@ Use status to move a cycle through its lifecycle rather than deleting instances 
 - The instance type drives which unit member sets and workflow areas apply, so set it correctly before work begins on the cycle.
 - Description is required on an instance, unlike most other workflow records.
 - Start Period and End Period express the cycle in periods; Start Date and End Date express it as calendar dates. They describe the same window in two forms, so keep them consistent.
+- Set Default Unit Status when creating the instance, not later. It is what per-unit records start at, and they are only created for cycles that have one.
 - Actual End Period is a different thing again - it marks where actuals stop *within* the cycle, and only matters where a cycle contains both actual and planned data.

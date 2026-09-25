@@ -30,6 +30,7 @@ The following fields are used for a Relational View Action record.
 | Component Width | int | Defines the display width of the action component. | Used to control the width of the button |
 | User Interface Action Flag | int | Defines the type of user interface action. | Used to determine how the action behaves in the application. |
 | Business Rule Flag | int | Defines the business rule behavior associated with the action. | Select 'Custom' for to trigger custom assembly logic |
+| Add/Read/Edit/Delete Flags | int | What kind of thing this action does, which decides when it is available. | See [Availability and the Crud flags](#availability-and-the-crud-flags). |
 | Form | int | Identifies the form associated with the action. | Used when the action opens or works with a specific form. |
 | Is Enabled | bit | Indicates whether the action is enabled for use. | Disabled actions are not intended for active use. |
 | Integration Code | nvarchar | Unique value for the relational view action record. | This is readonly and will be auto set the View Name & Action Name providing a unique value for the record that is used for importing data |
@@ -39,11 +40,38 @@ The following fields are used for a Relational View Action record.
 | Modified By | int | User who last modified the relational view action record. | This is system maintained. |
 | Relational Action Id | int | Unique identifier for the relational view action record. | If left blank, the system will auto assign it. |
 
+## Availability and the Crud flags
+
+**Add/Read/Edit/Delete Flags** says what kind of thing an action does. The application uses it to decide whether the button is available, so the flag is not a label — it is the rule.
+
+| Flag | The action is available when |
+|---|---|
+| Add | The view is addable, the user has read-write access, and the workflow status allows data entry. |
+| Edit | The view is editable, the user has read-write access, and the workflow status allows data entry. |
+| Delete | The view is deletable, the user has read-write access, and the workflow status allows data entry. |
+| Read | Always. Viewing, exporting and navigating stay available on a closed cycle. |
+| **Workflow** | The **cycle** is open and the user has read-write access — regardless of the unit's own status. |
+
+### Workflow actions
+
+Use **Workflow** for the buttons that move a process along: Submit, Approve, Reject, Recall, and the Calculate that runs alongside them.
+
+Neither of the obvious alternatives works:
+
+- Marked **Edit**, a Submit button disables itself the moment it succeeds. Submitted is normally a read-only status, so the lock Submit has just created takes its own button away — and nothing could ever recall it.
+- Marked **Read**, it survives a *closed* cycle, letting someone submit into a finished round of work.
+
+The rule underneath is that **a unit-level read-only status freezes that unit's data, not the workflow's ability to move it on.** A submitted unit cannot be edited; it can still be recalled or approved.
+
+!!!Note
+    The Workflow test is applied ahead of the others, so an action marked Workflow behaves as a transition first. Marking an action Read *and* Workflow adds nothing — the behaviour is the same as Workflow on its own.
+
 ## Typical Use Cases
 
 Examples of view actions may include:
 
 - opening related records
+- moving a unit through a submission or approval process
 - launching follow-up workflows
 - performing guided user tasks
 - navigating to related pages or forms
