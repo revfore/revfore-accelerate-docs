@@ -3705,7 +3705,7 @@
 <tr>
 <td>Profile Type</td>
 <td>int</td>
-<td>Whether this unit holds records of its own or groups other units.</td>
+<td>Whether this unit sits at the bottom of a structure or groups other units.</td>
 <td>Defaults to <strong>Base</strong>. See <a href="#unit-profile-type">Unit Profile Type</a>.</td>
 </tr>
 <tr>
@@ -3794,14 +3794,15 @@
 <tbody>
 <tr>
 <td><strong>Base</strong></td>
-<td>Holds records of its own. This is the default, and what every unit was before profile types existed.</td>
+<td>A unit at the bottom of a structure, with no units beneath it. This is the default, and what every unit was before profile types existed.</td>
 </tr>
 <tr>
 <td><strong>Parent</strong></td>
-<td>Groups other units in a <a href="../hierarchies/">hierarchy</a>, so it can see and review their work.</td>
+<td>A unit that groups others in a <a href="../hierarchies/">hierarchy</a>, so it can see and review their work.</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Both kinds of unit can hold records of their own.</strong> A Parent unit is not a heading — a regional manager may enter their own overhead alongside reviewing the departments beneath them. Whether a given screen shows those rows is set on the view, by <strong>Unit Records Shown</strong>: a view including <em>Parent Records</em> shows a Parent's own rows, and one including <em>Descendant Records</em> shows the rows of the units below it. A view can include either, both, or neither.</p>
 <p>The profile type is a label and nothing more — it says what the unit <em>is</em>, not what any particular screen lets it do. What a Parent unit sees and may change is decided <strong>per view</strong>, by <a href="../../../relational/relationalViews/views/#workflow-behaviour">Unit Records Shown and Parent Unit Editability</a>.</p>
 <p>That split is deliberate. The same Parent unit is often read-only on a data entry screen and fully editable on the review screen that sits next to it, and a setting on the unit could not express both.</p>
 <div class="admonition note">
