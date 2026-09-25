@@ -3930,7 +3930,18 @@
 </table>
 <h2 id="setting-up">Setting up</h2>
 <h3 id="step-1-unpack-the-kit">Step 1: Unpack the kit</h3>
-<p>Revfore supplies the kit as <code>rfaExtensionKit-&lt;version&gt;.zip</code>. Extract it to a folder for your work, one per project or customer, and open that folder in VS Code.</p>
+<p>The kit ships with the product, in the same maintenance unit as the extension assembly and the Claude skills file.</p>
+<ol>
+<li>In OneStream, go to <strong>Application | Presentation | Workspaces</strong></li>
+<li>Select the <strong>Revfore Framework (RFA)</strong> workspace</li>
+<li>Open <strong>XCP_xRfaDlg_ActnExtension</strong>, the extension assembly's maintenance unit</li>
+<li>Under <strong>Files</strong>, download <strong>rfaExtensionKit.zip</strong></li>
+</ol>
+<p>Extract it to a folder for your work, one per project or customer, and open that folder in VS Code. The zip has a single <code>rfaExtensionKit</code> folder at its root; rename it to suit the project.</p>
+<div class="admonition note">
+<p class="admonition-title">The kit includes the skills</p>
+<p>You don't need to download <strong>ClaudeSkills.zip</strong> as well. The kit carries the same skills in its <code>.claude/skills</code> folder, and Claude Code loads them when you open the folder. <strong>ClaudeSkills.zip</strong> is for Claude Desktop and claude.ai, which only accept a zip that contains skill folders.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>MyProject/
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>├── CLAUDE.md                  instructions Claude Code reads on startup
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>├── README.md
@@ -4083,6 +4094,7 @@
 <li><strong><code>rfa_actnExtension_os/</code> holds your code.</strong> Keep your handlers and your dispatcher registrations when you take a new kit. Take Revfore's own files, such as <code>IExtensionHandler.cs</code>, <code>SolutionHelper.cs</code> and <code>SharedMethods.cs</code>, from the new kit.</li>
 <li><strong><code>Directory.Build.props</code> and <code>packages/</code> are yours.</strong> Keep them unless you're also moving to a new OneStream version.</li>
 </ul>
+<p>To take a new kit, download <strong>rfaExtensionKit.zip</strong> from the maintenance unit again, as in <a href="#step-1-unpack-the-kit">Step 1</a>. Then copy your <code>solutions/</code>, <code>packages/</code>, <code>Directory.Build.props</code> and handler folders across from your old kit folder.</p>
 <p>The skills describe the schema and conventions of the release they shipped with, so update the kit whenever you upgrade the Framework in OneStream. Otherwise Claude generates against an older schema.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <table>
