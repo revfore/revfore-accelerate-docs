@@ -710,6 +710,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../../extending/extension-kit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extension Kit (VS Code)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -720,10 +741,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -734,8 +755,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Load & Extract Files
           </label>
@@ -828,10 +849,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -842,8 +863,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Extension Handlers
           </label>
@@ -2558,6 +2579,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#unit-profile-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Profile Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -2605,6 +2635,27 @@
   
   <span class="md-ellipsis">
     Member Sets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hierarchies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Hierarchies
   </span>
   
 
@@ -2713,6 +2764,48 @@
   
   <span class="md-ellipsis">
     Instance Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instances/statuses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statuses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../instances/instanceUnits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instance Units
   </span>
   
 
@@ -3516,6 +3609,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#unit-profile-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Unit Profile Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3601,6 +3703,12 @@
 <td></td>
 </tr>
 <tr>
+<td>Profile Type</td>
+<td>int</td>
+<td>Whether this unit holds records of its own or groups other units.</td>
+<td>Defaults to <strong>Base</strong>. See <a href="#unit-profile-type">Unit Profile Type</a>.</td>
+</tr>
+<tr>
 <td>Security Group</td>
 <td>int</td>
 <td>Security group granted read-write access to the unit's data.</td>
@@ -3674,6 +3782,32 @@
 </tr>
 </tbody>
 </table>
+<h2 id="unit-profile-type">Unit Profile Type</h2>
+<p><strong>Profile Type</strong> says what kind of unit this is.</p>
+<table>
+<thead>
+<tr>
+<th>Profile Type</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base</strong></td>
+<td>Holds records of its own. This is the default, and what every unit was before profile types existed.</td>
+</tr>
+<tr>
+<td><strong>Parent</strong></td>
+<td>Groups other units in a <a href="../hierarchies/">hierarchy</a>, so it can see and review their work.</td>
+</tr>
+</tbody>
+</table>
+<p>The profile type is a label and nothing more — it says what the unit <em>is</em>, not what any particular screen lets it do. What a Parent unit sees and may change is decided <strong>per view</strong>, by <a href="../../../relational/relationalViews/views/#workflow-behaviour">Unit Records Shown and Parent Unit Editability</a>.</p>
+<p>That split is deliberate. The same Parent unit is often read-only on a data entry screen and fully editable on the review screen that sits next to it, and a setting on the unit could not express both.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A Base unit is expected to sit at the bottom of a hierarchy with nothing beneath it, and a Parent unit to have units under it. Nothing enforces this, and it is legitimately untrue for a moment while a Parent unit is being built up, but it is the arrangement to design for.</p>
+</div>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <p>Use workflow units to represent the structures a process is performed for, such as:</p>
 <ul>
@@ -3690,6 +3824,7 @@
 <li>Click on the '<strong>+</strong>' button on the top left of the grid</li>
 <li>Enter required fields and click <strong>Save</strong></li>
 <li>Create the unit's <a href="../memberSets/">Member Sets</a> for each workflow instance type it participates in</li>
+<li>Place the unit in a <a href="../hierarchies/">Unit Hierarchy</a> if it takes part in a review or roll-up structure</li>
 </ol>
 <p><strong>Add &amp; Edit in Grid</strong> allows adding and modifying rows directly in the grid</p>
 <div class="admonition note important notes">

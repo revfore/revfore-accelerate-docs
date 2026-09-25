@@ -710,6 +710,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../extending/extension-kit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extension Kit (VS Code)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -720,10 +741,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -734,8 +755,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Load & Extract Files
           </label>
@@ -828,10 +849,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -842,8 +863,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Extension Handlers
           </label>
@@ -2614,6 +2635,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="hierarchies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Hierarchies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2713,6 +2755,48 @@
   
   <span class="md-ellipsis">
     Instance Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instances/statuses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statuses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instances/instanceUnits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instance Units
   </span>
   
 
@@ -3573,6 +3657,7 @@
 <ul>
 <li><a href="units/">Units</a> – name, effective dates, security groups, and other unit-level settings</li>
 <li><a href="memberSets/">Member Sets</a> – the cube and dimension members a unit's data is written to and summarised at, per workflow instance type</li>
+<li><a href="hierarchies/">Unit Hierarchies</a> – how units are arranged under one another, so a unit can review the work of those beneath it</li>
 </ul>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul>
@@ -3581,6 +3666,8 @@
 <li>A unit's member set is what connects it to the cube, so a unit without one has no cube destination for its data.</li>
 <li>Member sets are effective-dated and scoped per instance type, so the same unit can map differently for different kinds of workflow.</li>
 <li>Read-write and read-only access are granted separately, through two different security groups.</li>
+<li>A unit is either a <strong>Base</strong> unit, holding records of its own, or a <strong>Parent</strong> unit that groups others — see <a href="units/#unit-profile-type">Unit Profile Type</a>.</li>
+<li>Units are arranged into review and roll-up structures by <a href="hierarchies/">Unit Hierarchies</a>, and a unit can belong to more than one.</li>
 </ul>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
@@ -3608,6 +3695,7 @@
 <li>Name units after the business structure they represent, not after the workflow they take part in.</li>
 <li>A unit with no member set can still be created, but its data has nowhere to post to the cube.</li>
 <li>Use effective dates rather than deleting units, so historical workflow data stays intact.</li>
+<li>A hierarchy has to be processed before anything reads it. Adding units to one is not enough on its own — see <a href="hierarchies/#process">Unit Hierarchies</a>.</li>
 </ul>
 
 

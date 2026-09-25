@@ -710,6 +710,27 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../../extending/extension-kit/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Extension Kit (VS Code)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
     
@@ -720,10 +741,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
         
           
-          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -734,8 +755,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
             <span class="md-nav__icon md-icon"></span>
             Load & Extract Files
           </label>
@@ -828,10 +849,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -842,8 +863,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             Extension Handlers
           </label>
@@ -2527,6 +2548,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../units/hierarchies/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Unit Hierarchies
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -2675,11 +2717,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-values" class="md-nav__link">
+  <a href="#status" class="md-nav__link">
     <span class="md-ellipsis">
-      Status values
+      Status
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-unit-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-unit status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2731,6 +2788,48 @@
   
   <span class="md-ellipsis">
     Instance Types
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statuses/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Statuses
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instanceUnits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Instance Units
   </span>
   
 
@@ -3543,11 +3642,26 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#status-values" class="md-nav__link">
+  <a href="#status" class="md-nav__link">
     <span class="md-ellipsis">
-      Status values
+      Status
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Status">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#per-unit-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      Per-unit status
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3657,7 +3771,13 @@
 <td>Status</td>
 <td>int</td>
 <td>Current status of the cycle.</td>
-<td>Required. Chosen from a fixed list: Draft, Open, In-Review, In-Review &amp; Locked, Pending Approval, Completed. See below.</td>
+<td>Required. Chosen from the <a href="../statuses/">Statuses</a> marked for use at instance level.</td>
+</tr>
+<tr>
+<td>Default Unit Status</td>
+<td>int</td>
+<td>The status a unit starts at within this cycle.</td>
+<td>Set this if units submit independently. Without it no <a href="../instanceUnits/">Instance Unit</a> records are created, and a submission grid comes up empty.</td>
 </tr>
 <tr>
 <td>Start Date</td>
@@ -3839,43 +3959,14 @@
 <p>That means the same reference format yields one workflow instance per scenario-period for a period workflow, and one per scenario-year for a yearly one. Seed instances to match the grain the OneStream workflow actually runs at.</p>
 </div>
 <p>The unit side of the mapping works the same way — see the <strong>OneStream Workflow Reference</strong> field on <a href="../../units/units/">Units</a>, which holds the OneStream parent workflow profile name. Leave both blank when the solution is not driven by OneStream workflow.</p>
-<h2 id="status-values">Status values</h2>
-<p>Status is a fixed list rather than a lookup table, so the values are not maintained anywhere in the application:</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Draft</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Open</td>
-</tr>
-<tr>
-<td>3</td>
-<td>In-Review</td>
-</tr>
-<tr>
-<td>4</td>
-<td>In-Review &amp; Locked</td>
-</tr>
-<tr>
-<td>5</td>
-<td>Pending Approval</td>
-</tr>
-<tr>
-<td>6</td>
-<td>Completed</td>
-</tr>
-</tbody>
-</table>
+<h2 id="status">Status</h2>
+<p>Status is maintained on the <a href="../statuses/">Statuses</a> page rather than being a fixed list, so a solution names its stages after its own process.</p>
+<p>An instance offers the statuses marked for use at instance level. What a status restricts is set on the status itself: one marked <strong>Read Only</strong> stops data being entered for the whole cycle.</p>
 <p>Use status to move a cycle through its lifecycle rather than deleting instances that have finished.</p>
+<h3 id="per-unit-status">Per-unit status</h3>
+<p>A cycle's status covers everything in it. Where units submit independently — one department still drafting while another has been approved — each unit also carries its own status, held as an <a href="../instanceUnits/">Instance Unit</a> record.</p>
+<p>The two combine as restrictions: <strong>whatever either level forbids is forbidden.</strong> A submitted unit is locked while its cycle stays open, and everything in a closed cycle is locked whatever the individual units say.</p>
+<p>Set <strong>Default Unit Status</strong> on the instance to turn this on. It is the stage a unit starts at, and without it no per-unit records are created.</p>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
 <li>FY26 Budget</li>
@@ -3902,6 +3993,7 @@
 <li>The instance type drives which unit member sets and workflow areas apply, so set it correctly before work begins on the cycle.</li>
 <li>Description is required on an instance, unlike most other workflow records.</li>
 <li>Start Period and End Period express the cycle in periods; Start Date and End Date express it as calendar dates. They describe the same window in two forms, so keep them consistent.</li>
+<li>Set Default Unit Status when creating the instance, not later. It is what per-unit records start at, and they are only created for cycles that have one.</li>
 <li>Actual End Period is a different thing again - it marks where actuals stop <em>within</em> the cycle, and only matters where a cycle contains both actual and planned data.</li>
 </ul>
 
