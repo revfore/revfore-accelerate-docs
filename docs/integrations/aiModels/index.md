@@ -75,6 +75,8 @@ The skills file ships with the product, in the same maintenance unit as the exte
 
 The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts.
 
+The same folder also holds **rfaExtensionKit-<version>.zip**, the [Extension Kit](../../extending/extension-kit.md) for building solutions in VS Code. It includes the skills, so if you work in Claude Code you can download the kit instead of **ClaudeSkills.zip**.
+
 ## Loading the skills into Claude
 
 Both Claude apps take the zip as it is downloaded. There is no need to unpack and repackage it.
@@ -101,7 +103,7 @@ Expand-Archive ClaudeSkills.zip -DestinationPath "$env:USERPROFILE\.claude\skill
 Restart Claude Code and run `/skills` to confirm they are listed.
 
 !!! tip "The Extension Kit already includes the skills"
-    If you build solutions in VS Code, the [Extension Kit](../../extending/extension-kit.md) ships with the skills in its own `.claude/skills` folder, together with a buildable copy of the extension assembly. Open the kit folder and Claude Code loads them automatically.
+    If you build solutions in VS Code, download **rfaExtensionKit-<version>.zip** from the same maintenance unit instead. It ships with the skills in its own `.claude/skills` folder, together with a buildable copy of the extension assembly, and Claude Code loads them when you open the kit folder. See [Extension Kit (VS Code)](../../extending/extension-kit.md).
 
 !!! note "Upgrades ship a new skills file"
     The skills describe the schema and conventions of the version they shipped with. After an upgrade, download **ClaudeSkills.zip** again and replace the copy you loaded, so Claude is generating against the current schema.

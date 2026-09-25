@@ -26,7 +26,17 @@ Nothing in the kit runs your code. A clean build proves your code matches the re
 
 ### Step 1: Unpack the kit
 
-Revfore supplies the kit as `rfaExtensionKit-<version>.zip`. Extract it to a folder for your work, one per project or customer, and open that folder in VS Code.
+The kit ships with the product, in the same maintenance unit as the extension assembly and the Claude skills file.
+
+1. In OneStream, go to **Application | Presentation | Workspaces**
+2. Select the **Revfore Framework (RFA)** workspace
+3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
+4. Under **Files**, download **rfaExtensionKit-<version>.zip**
+
+Extract it to a folder for your work, one per project or customer, and open that folder in VS Code. The zip has a single `rfaExtensionKit` folder at its root; rename it to suit the project.
+
+!!! note "The kit includes the skills"
+    You don't need to download **ClaudeSkills.zip** as well. The kit carries the same skills in its `.claude/skills` folder, and Claude Code loads them when you open the folder. **ClaudeSkills.zip** is for Claude Desktop and claude.ai, which only accept a zip that contains skill folders.
 
 ```
 MyProject/
@@ -182,6 +192,8 @@ Each Revfore release comes with a new kit. The reference stubs, skills and sampl
 - **`solutions/` is never overwritten.** Your design work is safe across updates.
 - **`rfa_actnExtension_os/` holds your code.** Keep your handlers and your dispatcher registrations when you take a new kit. Take Revfore's own files, such as `IExtensionHandler.cs`, `SolutionHelper.cs` and `SharedMethods.cs`, from the new kit.
 - **`Directory.Build.props` and `packages/` are yours.** Keep them unless you're also moving to a new OneStream version.
+
+To take a new kit, download **rfaExtensionKit-<version>.zip** from the maintenance unit again, as in [Step 1](#step-1-unpack-the-kit). Then copy your `solutions/`, `packages/`, `Directory.Build.props` and handler folders across from your old kit folder.
 
 The skills describe the schema and conventions of the release they shipped with, so update the kit whenever you upgrade the Framework in OneStream. Otherwise Claude generates against an older schema.
 
