@@ -42,7 +42,7 @@ That matters for reading the grid. A unit showing nothing has not been forgotten
 
 ## How records get created
 
-You rarely create these by hand. When a user sets their workflow context — choosing an instance and a unit — the Framework makes sure that unit and everything beneath it in the [unit hierarchy](../units/hierarchies.md) has a record, so a submission grid has something in it when they arrive.
+You rarely create these by hand. When a user sets their workflow context — choosing an instance and a unit — the Framework makes sure that unit and everything beneath it in the [unit hierarchy](../units/hierarchies.md) has a record, so a submission grid has something in it when they arrive. The hierarchy used is the one the cycle resolves from its [instance type's Time](instanceTypes.md#time-which-hierarchy-applies) grid.
 
 This happens only where it can:
 

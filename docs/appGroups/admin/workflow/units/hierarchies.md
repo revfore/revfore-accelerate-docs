@@ -17,6 +17,12 @@ Use Unit Hierarchies to:
 
 A unit can appear in more than one hierarchy. Reporting structure and approval structure are often different, and each is its own hierarchy rather than a compromise between the two.
 
+### How a hierarchy comes to govern a cycle
+
+A hierarchy is not attached to a workflow instance directly. It is named on the **instance type**, effective-dated, in its [Time](../instances/instanceTypes.md#time-which-hierarchy-applies) grid — and a cycle resolves one from its instance type and its own start date.
+
+That indirection is what lets the structure change over time without rewriting history: a cycle that began last year still resolves the hierarchy that applied then. Until a Time row names it, a hierarchy exists but governs nothing.
+
 ## The four parts
 
 A hierarchy is made up of one record you create, one grid you maintain, and two tables the system builds for you.
@@ -143,6 +149,7 @@ These are reported rather than blocked. The hierarchy still processes, and the p
 4. Enter the name and display name and click **Save**
 5. With the hierarchy selected, open **Relationships** and add a row for each unit, leaving **Parent Unit** blank for the top-level units
 6. Click **Process**
+7. Name the hierarchy on the [instance type's Time](../instances/instanceTypes.md#time-which-hierarchy-applies) grid, so the cycles that should use it resolve it
 
 **Add & Edit in Grid** allows adding and modifying rows directly in the grid
 
@@ -159,3 +166,4 @@ These are reported rather than blocked. The hierarchy still processes, and the p
 - A unit's [Profile Type](units.md#unit-profile-type) and its place in the hierarchy are expected to agree: a **Base** unit sits at the bottom with nothing beneath it, a **Parent** unit has units under it.
 - Disable a relationship rather than deleting it when a unit leaves a structure, so the history of the arrangement is kept.
 - The derived tables are rebuilt in full on each Process run, so there is no cost to reprocessing and no state to clean up first.
+- Processing a hierarchy is not the same as putting it to use. Until an [instance type's Time](../instances/instanceTypes.md#time-which-hierarchy-applies) row names it, no cycle resolves it.

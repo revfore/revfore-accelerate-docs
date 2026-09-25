@@ -74,7 +74,7 @@ The combinations exist because Base and Parent units usually want different scre
 Note that **Parent Records** means a Parent unit's *own* rows, not the rows of the units below it. A Parent unit can hold data like any other — the two are separate settings precisely so a view can show one, the other, or both.
 
 !!!Note
-    Descendant records are resolved through the unit hierarchy, so a hierarchy has to exist and have been [processed](../../workflow/units/hierarchies.md#process) before anything appears.
+    Descendant records are resolved through the unit hierarchy that governs the current cycle. That hierarchy has to exist, have been [processed](../../workflow/units/hierarchies.md#process), and be named on the [instance type's Time](../../workflow/instances/instanceTypes.md#time-which-hierarchy-applies) grid for the cycle's start date — otherwise there is nothing to resolve and no descendant rows appear.
 
 ### Parent Unit Editability
 

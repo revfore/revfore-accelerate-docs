@@ -18,7 +18,7 @@ Use Workflow Instances to:
 Each workflow instance definition consists of:
 
 - [Instances](instances.md) – the individual cycles, their dates, scenario, and status
-- [Instance Types](instanceTypes.md) – the kinds of cycle available, such as Budget or Forecast
+- [Instance Types](instanceTypes.md) – the kinds of cycle available, such as Budget or Forecast, and the [unit hierarchy](instanceTypes.md#time-which-hierarchy-applies) that governs each over time
 - [Statuses](statuses.md) – the stages a cycle or a unit can be in, and what each stage restricts
 - [Instance Units](instanceUnits.md) – each unit's own status within a cycle, for processes where units submit independently
 
