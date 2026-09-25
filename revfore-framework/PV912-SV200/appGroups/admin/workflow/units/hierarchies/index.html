@@ -2609,6 +2609,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-a-hierarchy-comes-to-govern-a-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a hierarchy comes to govern a cycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3642,6 +3657,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-a-hierarchy-comes-to-govern-a-cycle" class="md-nav__link">
+    <span class="md-ellipsis">
+      How a hierarchy comes to govern a cycle
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3762,6 +3792,9 @@
 <li>roll a submission process up through review and approval levels</li>
 </ul>
 <p>A unit can appear in more than one hierarchy. Reporting structure and approval structure are often different, and each is its own hierarchy rather than a compromise between the two.</p>
+<h3 id="how-a-hierarchy-comes-to-govern-a-cycle">How a hierarchy comes to govern a cycle</h3>
+<p>A hierarchy is not attached to a workflow instance directly. It is named on the <strong>instance type</strong>, effective-dated, in its <a href="../../instances/instanceTypes/#time-which-hierarchy-applies">Time</a> grid — and a cycle resolves one from its instance type and its own start date.</p>
+<p>That indirection is what lets the structure change over time without rewriting history: a cycle that began last year still resolves the hierarchy that applied then. Until a Time row names it, a hierarchy exists but governs nothing.</p>
 <h2 id="the-four-parts">The four parts</h2>
 <p>A hierarchy is made up of one record you create, one grid you maintain, and two tables the system builds for you.</p>
 <table>
@@ -4078,6 +4111,7 @@
 <li>Enter the name and display name and click <strong>Save</strong></li>
 <li>With the hierarchy selected, open <strong>Relationships</strong> and add a row for each unit, leaving <strong>Parent Unit</strong> blank for the top-level units</li>
 <li>Click <strong>Process</strong></li>
+<li>Name the hierarchy on the <a href="../../instances/instanceTypes/#time-which-hierarchy-applies">instance type's Time</a> grid, so the cycles that should use it resolve it</li>
 </ol>
 <p><strong>Add &amp; Edit in Grid</strong> allows adding and modifying rows directly in the grid</p>
 <div class="admonition note important notes">
@@ -4092,6 +4126,7 @@
 <li>A unit's <a href="../units/#unit-profile-type">Profile Type</a> and its place in the hierarchy are expected to agree: a <strong>Base</strong> unit sits at the bottom with nothing beneath it, a <strong>Parent</strong> unit has units under it.</li>
 <li>Disable a relationship rather than deleting it when a unit leaves a structure, so the history of the arrangement is kept.</li>
 <li>The derived tables are rebuilt in full on each Process run, so there is no cost to reprocessing and no state to clean up first.</li>
+<li>Processing a hierarchy is not the same as putting it to use. Until an <a href="../../instances/instanceTypes/#time-which-hierarchy-applies">instance type's Time</a> row names it, no cycle resolves it.</li>
 </ul>
 
 

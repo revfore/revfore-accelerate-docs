@@ -3993,7 +3993,7 @@
 <p>Note that <strong>Parent Records</strong> means a Parent unit's <em>own</em> rows, not the rows of the units below it. A Parent unit can hold data like any other — the two are separate settings precisely so a view can show one, the other, or both.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Descendant records are resolved through the unit hierarchy, so a hierarchy has to exist and have been <a href="../../../workflow/units/hierarchies/#process">processed</a> before anything appears.</p>
+<p>Descendant records are resolved through the unit hierarchy that governs the current cycle. That hierarchy has to exist, have been <a href="../../../workflow/units/hierarchies/#process">processed</a>, and be named on the <a href="../../../workflow/instances/instanceTypes/#time-which-hierarchy-applies">instance type's Time</a> grid for the cycle's start date — otherwise there is nothing to resolve and no descendant rows appear.</p>
 </div>
 <h3 id="parent-unit-editability">Parent Unit Editability</h3>
 <p>What a <strong>Parent</strong> unit is allowed to do here, using the same choices as Editability Mode.</p>

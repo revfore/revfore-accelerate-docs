@@ -3790,7 +3790,7 @@
 <p>A unit with no record here is not a unit with no status. It means <strong>the unit has not diverged from its cycle</strong> — it takes the cycle's status, and behaves exactly as the instance says.</p>
 <p>That matters for reading the grid. A unit showing nothing has not been forgotten; it simply has not moved yet.</p>
 <h2 id="how-records-get-created">How records get created</h2>
-<p>You rarely create these by hand. When a user sets their workflow context — choosing an instance and a unit — the Framework makes sure that unit and everything beneath it in the <a href="../../units/hierarchies/">unit hierarchy</a> has a record, so a submission grid has something in it when they arrive.</p>
+<p>You rarely create these by hand. When a user sets their workflow context — choosing an instance and a unit — the Framework makes sure that unit and everything beneath it in the <a href="../../units/hierarchies/">unit hierarchy</a> has a record, so a submission grid has something in it when they arrive. The hierarchy used is the one the cycle resolves from its <a href="../instanceTypes/#time-which-hierarchy-applies">instance type's Time</a> grid.</p>
 <p>This happens only where it can:</p>
 <ul>
 <li>the instance must have a <strong>Default Unit Status</strong> set, which is the status new records start at</li>

@@ -2729,6 +2729,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#time-which-hierarchy-applies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time: which hierarchy applies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time: which hierarchy applies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-hierarchy-is-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the hierarchy is resolved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3600,6 +3624,30 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#time-which-hierarchy-applies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time: which hierarchy applies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Time: which hierarchy applies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-the-hierarchy-is-resolved" class="md-nav__link">
+    <span class="md-ellipsis">
+      How the hierarchy is resolved
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3727,6 +3775,98 @@
 </tr>
 </tbody>
 </table>
+<h2 id="time-which-hierarchy-applies">Time: which hierarchy applies</h2>
+<p>An instance type carries a <strong>Time</strong> grid, which says <strong>which <a href="../../units/hierarchies/">unit hierarchy</a> governs this kind of cycle, and from when</strong>.</p>
+<p>This is the only link between a workflow cycle and a hierarchy. An instance never names a hierarchy itself — it has an instance type and a start date, and those two resolve one.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Data Type</th>
+<th>Purpose</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instance Type</td>
+<td>int</td>
+<td>The instance type this row belongs to.</td>
+<td>Required.</td>
+</tr>
+<tr>
+<td>Unit Hierarchy</td>
+<td>int</td>
+<td>The hierarchy that governs cycles of this type in this period.</td>
+<td>Leave blank where the process is not hierarchical.</td>
+</tr>
+<tr>
+<td>Effective Start Date</td>
+<td>date</td>
+<td>Date this row takes effect.</td>
+<td></td>
+</tr>
+<tr>
+<td>Effective End Date</td>
+<td>date</td>
+<td>Date this row stops applying.</td>
+<td>Defaults to 2999-12-31, meaning no end date.</td>
+</tr>
+<tr>
+<td>Is Enabled</td>
+<td>bit</td>
+<td>Indicates whether the row is enabled.</td>
+<td>A disabled row is skipped when resolving.</td>
+</tr>
+<tr>
+<td>Integration Code</td>
+<td>nvarchar</td>
+<td>Unique value for the record.</td>
+<td>Readonly — built from the instance type and the effective start date.</td>
+</tr>
+<tr>
+<td>Created Date</td>
+<td>datetime</td>
+<td>Date and time the record was created.</td>
+<td></td>
+</tr>
+<tr>
+<td>Modified Date</td>
+<td>datetime</td>
+<td>Date and time the record was last modified.</td>
+<td></td>
+</tr>
+<tr>
+<td>Created By</td>
+<td>int</td>
+<td>User who created the record.</td>
+<td></td>
+</tr>
+<tr>
+<td>Modified By</td>
+<td>int</td>
+<td>User who last modified the record.</td>
+<td></td>
+</tr>
+<tr>
+<td>Workflow Instance Type Time Id</td>
+<td>int</td>
+<td>Unique identifier for the record.</td>
+<td>If you leave blank, the system will auto assign</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-the-hierarchy-is-resolved">How the hierarchy is resolved</h3>
+<p>For a given cycle, the application takes the <strong>instance's Start Date</strong> and finds the enabled Time row for that instance type whose effective range contains it. Where more than one row qualifies, the <strong>latest starting</strong> one wins.</p>
+<p>Two consequences worth knowing:</p>
+<ul>
+<li><strong>It is the instance's start date that decides, not today's date.</strong> Reopening an old cycle resolves the hierarchy that applied when that cycle began, not the current one — so last year's budget still reviews up last year's structure.</li>
+<li><strong>Restructuring is a new row, not an edit.</strong> End the current row and add one starting the day the new structure takes effect. Editing the existing row in place rewrites history, and cycles already closed will start resolving against a hierarchy that did not exist when they ran.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>No Time row, or one with no hierarchy, is a legitimate state — not every workflow is hierarchical. It simply means nothing resolves a hierarchy for these cycles, so views set to show descendant records will find nothing to show.</p>
+</div>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
 <li>Budget</li>
@@ -3741,6 +3881,7 @@
 <li>Click on '<strong>Add+</strong>' or '<strong>Add &amp; Edit in Grid</strong>'</li>
 <li>Enter required fields and click <strong>Save</strong></li>
 <li>Configure the <a href="../../units/memberSets/">Workflow Units</a> and <a href="../../areas/">Workflow Areas</a> that apply to this instance type</li>
+<li>Add a <strong>Time</strong> row naming the <a href="../../units/hierarchies/">unit hierarchy</a> that governs this kind of cycle, if the process is hierarchical</li>
 </ol>
 <p><strong>Add &amp; Edit in Grid</strong> allows adding and modifying rows directly in the grid</p>
 <div class="admonition note important notes">
@@ -3753,6 +3894,7 @@
 <li>Keep the number of instance types small — one per genuinely different kind of process, not one per cycle.</li>
 <li>Changing an instance type after cycles exist affects which unit member sets and areas apply, so review the configuration before making changes.</li>
 <li>A <code>Default</code> instance type is supplied with the platform and can be used where a solution needs only one kind of cycle.</li>
+<li>If a review screen is empty when it should show the units below the current one, check the Time row before the hierarchy itself — a cycle whose start date falls outside every effective range resolves no hierarchy at all.</li>
 </ul>
 
 
