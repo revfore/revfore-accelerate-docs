@@ -3769,6 +3769,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#columns-and-actions-for-some-units-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Columns and actions for some units only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#core-and-extension-logic-together" class="md-nav__link">
     <span class="md-ellipsis">
       Core and extension logic together
@@ -4031,6 +4040,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#columns-and-actions-for-some-units-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Columns and actions for some units only
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#core-and-extension-logic-together" class="md-nav__link">
     <span class="md-ellipsis">
       Core and extension logic together
@@ -4202,6 +4220,11 @@
 <p>View actions can now be marked as <strong>Workflow</strong> actions — Submit, Approve, Reject, Recall and the Calculate that runs with them.</p>
 <p>A workflow action is gated on the <strong>cycle</strong> being open, not on the unit's own status. That distinction matters: a unit-level read-only status freezes that unit's <em>data</em>, not the workflow's ability to move it on. Marked as an edit action instead, a Submit button would disable itself the moment it succeeded, and nothing could ever recall it.</p>
 <p>See <a href="../appGroups/admin/relational/relationalViews/actions/#availability-and-the-crud-flags">Availability and the Crud flags</a>.</p>
+<h3 id="columns-and-actions-for-some-units-only">Columns and actions for some units only</h3>
+<p>View columns and view actions have a new <strong>Unit Profile Types</strong> setting that limits them to <strong>Base</strong> units, <strong>Parent</strong> units, or both.</p>
+<p>That turns what used to be a single built-in rule — the workflow unit column shown to Parent units on review views — into something any column or action can say for itself. A submission screen can now show <strong>Submit</strong> and <strong>Recall</strong> to the units doing the work and <strong>Approve</strong> and <strong>Reject</strong> to the units reviewing it, on the same grid. A restricted action is refused if it is run anyway, not just hidden.</p>
+<p>Blank means every unit, which is what every column and action did before, so nothing changes on upgrade.</p>
+<p>See <a href="../appGroups/admin/relational/relationalViews/columns/#showing-a-column-to-some-units-only">Showing a column to some units only</a> and <a href="../appGroups/admin/relational/relationalViews/actions/#actions-for-some-units-only">Actions for some units only</a>.</p>
 <h3 id="core-and-extension-logic-together">Core and extension logic together</h3>
 <p>A Relational View can now say <strong>which assembly handles its save and delete logic, and in what order</strong> — core, extension, or both in either order.</p>
 <p>Previously it was one or the other, decided by whether the view was an extension. Adding a rule to a core view meant taking over its behaviour entirely and reproducing whatever the core already did. Now <em>Core, then Extension</em> leaves the framework's own validation and stamping in place and runs your handler afterwards on the same save.</p>

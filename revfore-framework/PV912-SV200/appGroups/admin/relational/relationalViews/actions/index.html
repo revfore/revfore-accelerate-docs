@@ -2125,6 +2125,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#actions-for-some-units-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions for some units only
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3755,6 +3764,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#actions-for-some-units-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions for some units only
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3899,6 +3917,12 @@
 <td>See <a href="#availability-and-the-crud-flags">Availability and the Crud flags</a>.</td>
 </tr>
 <tr>
+<td>Unit Profile Types</td>
+<td>int</td>
+<td>Which workflow units see and may run the action: Base units, Parent units, or both.</td>
+<td>Leave blank for every unit. See <a href="#actions-for-some-units-only">Actions for some units only</a>.</td>
+</tr>
+<tr>
 <td>Form</td>
 <td>int</td>
 <td>Identifies the form associated with the action.</td>
@@ -3992,6 +4016,31 @@
 <p class="admonition-title">Note</p>
 <p>The Workflow test is applied ahead of the others, so an action marked Workflow behaves as a transition first. Marking an action Read <em>and</em> Workflow adds nothing — the behaviour is the same as Workflow on its own.</p>
 </div>
+<h2 id="actions-for-some-units-only">Actions for some units only</h2>
+<p>On a workflow-enabled view, <strong>Unit Profile Types</strong> limits an action to the units it is for. The usual split on a submission screen:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Unit Profile Types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Submit, Recall</td>
+<td><strong>Base Units Only</strong></td>
+</tr>
+<tr>
+<td>Approve, Reject</td>
+<td><strong>Parent Units Only</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The button is not shown to other units, <strong>and the action is refused if it is run anyway</strong> — the user is told it is not available to their kind of unit. Hiding a button alone would not be enough.</li>
+<li>It adds to the other rules rather than replacing them: the action still has to be available under its <a href="#availability-and-the-crud-flags">Crud flags</a>, the user's security level and the workflow status.</li>
+<li>Leave it blank for every unit. On a view that is not workflow-enabled, or before a user has chosen a unit, the setting is ignored.</li>
+</ul>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <p>Examples of view actions may include:</p>
 <ul>

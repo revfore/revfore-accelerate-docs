@@ -2080,6 +2080,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#showing-a-column-to-some-units-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Showing a column to some units only
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -3707,6 +3716,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#showing-a-column-to-some-units-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Showing a column to some units only
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#key-concepts" class="md-nav__link">
     <span class="md-ellipsis">
       Key Concepts
@@ -3941,6 +3959,12 @@
 <td>Used when the View's 'Group By Enabled' field is On.</td>
 </tr>
 <tr>
+<td>Unit Profile Types</td>
+<td>int</td>
+<td>Which workflow units see the column: Base units, Parent units, or both.</td>
+<td>Leave blank to show it to every unit. See <a href="#showing-a-column-to-some-units-only">Showing a column to some units only</a>.</td>
+</tr>
+<tr>
 <td>Integration Code</td>
 <td>nvarchar</td>
 <td>Unique value for the relational view column record.</td>
@@ -3982,6 +4006,39 @@
 <p class="admonition-title">Note</p>
 <p>The Name, Display Name, Column Data Type, Is Enabled, Allow Updates and Is Visible fields will auto-populate once a Relational Model Column is selected and Saved.</p>
 </div>
+<h2 id="showing-a-column-to-some-units-only">Showing a column to some units only</h2>
+<p>On a workflow-enabled view, <strong>Unit Profile Types</strong> limits a column to the units it is for:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>The column is shown to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>(blank)</em></td>
+<td>Every unit. This is the default, and what every column did before the setting existed.</td>
+</tr>
+<tr>
+<td><strong>Base Units Only</strong></td>
+<td>Units at the bottom of a structure.</td>
+</tr>
+<tr>
+<td><strong>Parent Units Only</strong></td>
+<td>Units that group others — typically reviewers looking across the units below them.</td>
+</tr>
+<tr>
+<td><strong>Base &amp; Parent Units</strong></td>
+<td>Both. The same as blank, but kept so a restriction can be lifted without clearing it.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>It only ever hides.</strong> A column marked not visible stays hidden whatever this says.</li>
+<li><strong>The Workflow Unit column</strong> is the usual case: set it to <strong>Parent Units Only</strong> on a review view, so a reviewer can see which unit each row belongs to while a Base unit, whose rows are all its own, does not see the same value repeated down the page. Left blank, the Workflow Unit column keeps its built-in rule: it is shown to a Parent unit on a view that includes the records of the units below it.</li>
+<li><strong>Outside a workflow nothing is hidden.</strong> On a view that is not workflow-enabled, or before a user has chosen a unit, the setting is ignored.</li>
+</ul>
 <h2 id="key-concepts">Key Concepts</h2>
 <p>View columns are based on the underlying relational model and define the final output structure presented by the view.</p>
 <p>A good view should expose the right data in a clear and usable format.</p>
