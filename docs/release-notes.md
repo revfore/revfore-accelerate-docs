@@ -200,6 +200,16 @@ A workflow action is gated on the **cycle** being open, not on the unit's own st
 
 See [Availability and the Crud flags](appGroups/admin/relational/relationalViews/actions.md#availability-and-the-crud-flags).
 
+### Columns and actions for some units only
+
+View columns and view actions have a new **Unit Profile Types** setting that limits them to **Base** units, **Parent** units, or both.
+
+That turns what used to be a single built-in rule — the workflow unit column shown to Parent units on review views — into something any column or action can say for itself. A submission screen can now show **Submit** and **Recall** to the units doing the work and **Approve** and **Reject** to the units reviewing it, on the same grid. A restricted action is refused if it is run anyway, not just hidden.
+
+Blank means every unit, which is what every column and action did before, so nothing changes on upgrade.
+
+See [Showing a column to some units only](appGroups/admin/relational/relationalViews/columns.md#showing-a-column-to-some-units-only) and [Actions for some units only](appGroups/admin/relational/relationalViews/actions.md#actions-for-some-units-only).
+
 ### Core and extension logic together
 
 A Relational View can now say **which assembly handles its save and delete logic, and in what order** — core, extension, or both in either order.

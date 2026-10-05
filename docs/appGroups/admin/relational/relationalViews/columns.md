@@ -46,6 +46,7 @@ The following fields are used for a Relational View Column record.
 | Width | int | Defines the display width of the column. | Used to control how wide the column appears in the UI. |
 | Sub Total Flag | int | Defines subtotal behavior for the column. | Used when the column participates in subtotal or aggregation logic. |
 | Group By Flag | int | Defines whether the column participates in group by behavior. | Used when the View's 'Group By Enabled' field is On. |
+| Unit Profile Types | int | Which workflow units see the column: Base units, Parent units, or both. | Leave blank to show it to every unit. See [Showing a column to some units only](#showing-a-column-to-some-units-only). |
 | Integration Code | nvarchar | Unique value for the relational view column record. | This is readonly and is typically auto set to provide a stable unique value for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
@@ -55,6 +56,21 @@ The following fields are used for a Relational View Column record.
 
 !!!Note Important Field Notes
     The Name, Display Name, Column Data Type, Is Enabled, Allow Updates and Is Visible fields will auto-populate once a Relational Model Column is selected and Saved.
+
+## Showing a column to some units only
+
+On a workflow-enabled view, **Unit Profile Types** limits a column to the units it is for:
+
+| Setting | The column is shown to |
+|---|---|
+| *(blank)* | Every unit. This is the default, and what every column did before the setting existed. |
+| **Base Units Only** | Units at the bottom of a structure. |
+| **Parent Units Only** | Units that group others — typically reviewers looking across the units below them. |
+| **Base & Parent Units** | Both. The same as blank, but kept so a restriction can be lifted without clearing it. |
+
+- **It only ever hides.** A column marked not visible stays hidden whatever this says.
+- **The Workflow Unit column** is the usual case: set it to **Parent Units Only** on a review view, so a reviewer can see which unit each row belongs to while a Base unit, whose rows are all its own, does not see the same value repeated down the page. Left blank, the Workflow Unit column keeps its built-in rule: it is shown to a Parent unit on a view that includes the records of the units below it.
+- **Outside a workflow nothing is hidden.** On a view that is not workflow-enabled, or before a user has chosen a unit, the setting is ignored.
 
 ## Key Concepts
 
