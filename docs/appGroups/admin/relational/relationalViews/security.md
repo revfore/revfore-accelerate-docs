@@ -50,6 +50,14 @@ When defining security:
 - keep group assignments clear and consistent
 - align security with the intended use of the view
 
+## What users without access see
+
+A user who is not in a view's read group does not get an error when a page containing the view opens. The view is shown **empty** instead — no columns, no records and no buttons — and its title reads **"… | You don't have access to this view"**, so the rest of the page keeps working.
+
+Clicking a button that would *open* the view — Edit+, a related view, Navigate To — shows *"You don't have sufficient rights to open this view"* with the view name. The **Navigate To** tree and the **Edit+** Child Objects list only show views the user can open.
+
+See [What You Can See and Do](../../../../security/index.md) for how this looks to users.
+
 ## Configure Relational View Security
 
 1. Go to **Admin | Relational | Relational Views**
@@ -66,3 +74,5 @@ When defining security:
 - Read-only and read/write access should be separated where appropriate.
 - Security settings help ensure that users only have the level of access required for their role.
 - A user’s ability to update data also depends on whether the view and its columns are configured to allow updates.
+- A view with no read group can be opened by no one.
+- Every refusal is written to the OneStream error log with the user and view name, which helps when a user reports an empty view.

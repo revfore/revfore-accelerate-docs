@@ -208,6 +208,28 @@ Previously it was one or the other, decided by whether the view was an extension
 
 See [Business Rule Flags](appGroups/admin/relational/relationalViews/views.md#business-rule-flags).
 
+### Security that stays out of the way
+
+Security now works quietly in the background instead of interrupting people.
+
+- **No more blocking errors for views you can't open.** Previously, opening a page with a view you had no access to raised an error that could leave OneStream unresponsive. Now the view is simply shown empty — no columns, records or buttons — with *"You don't have access to this view"* in its title, and the rest of the page keeps working. Clicking through to such a view still tells you plainly that you don't have rights to it.
+- **Lists only offer what you can open.** The **Navigate To** tree and the **Edit+** Child Objects list leave out views you don't have access to, and Edit+ opens even when none of a record's child views are open to you.
+- **Workflow shows only your units and instances.** Workflow selectors, unit and instance drop-downs, and "this unit and below" grids show only the units and instances whose read group you belong to — including through nested groups. Parent units you can't read stay in the unit tree, so you can still reach the units beneath them.
+- **The workflow header appears in the Navigate dialog** as it does on the main grids: view, unit, instance, instance status and unit status.
+- **Page settings are protected** against being altered between requests, so a page can't be tricked into showing data its settings would not allow.
+
+See [What You Can See and Do](security/index.md).
+
+### Viewing as another user
+
+Administrators can now **impersonate** another user — see the application exactly as that user does, with their views, columns, buttons, workflow units and records — to check access or troubleshoot without borrowing anyone's sign-in.
+
+- Impersonation is **read-only**: nothing can be changed while it is on, and anything recorded still names the administrator.
+- It is set by an administrator **on their own user record**, and only for a user whose access the administrator **already has**, so it can never reveal more than they could already see.
+- The **Users** page always runs as the administrator, so impersonation can always be turned off.
+
+See [Viewing as Another User](security/impersonation.md).
+
 ### Solution setup hook
 
 Solutions can run their own scripts and processes as part of **Setup and Upgrade**, through a new extension point that receives the workspace along with the previous and current version numbers.

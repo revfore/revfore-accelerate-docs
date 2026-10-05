@@ -15,6 +15,9 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - Setup & Installation: setup/setup.md
+  - Security & Access:
+      - What You Can See and Do: security/index.md
+      - Viewing as Another User: security/impersonation.md
   - Core Concepts:
       - Relational Tables: concepts/tables.md
       - Relational Models: concepts/models.md

@@ -7,7 +7,7 @@ Users are the **people who use the solution**.
 A user record identifies an individual and carries the settings that control how they access the application and what they are licensed for.
 
 !!! note "Read-only"
-    Users come from OneStream and are refreshed by **Sync**. They cannot be added or edited here. To change a user, change it in OneStream and sync again.
+    Users come from OneStream and are refreshed by **Sync**. They cannot be added or edited here. To change a user, change it in OneStream and sync again. The one exception is **Impersonate User**, which an administrator sets on their own record — see [Viewing as Another User](../../../../security/impersonation.md).
 
 ## Overview
 
@@ -52,6 +52,7 @@ The following fields are shown for a User record. All are populated from OneStre
 | Effective Start Date | date | Date the user becomes active. | Defaults to 1900-01-01.
 | Effective End Date | date | Date the user stops being active. | Defaults to 2999-12-31. Use this rather than deleting a user who has left.
 | Is Enabled | bit | Indicates whether the user is enabled. |
+| Impersonate User | int | The user this administrator is currently viewing the application as. | Editable only by an administrator, only on their own record. Blank when not impersonating. See [Viewing as Another User](../../../../security/impersonation.md).
 | Integration Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
@@ -79,3 +80,4 @@ Syncing brings the current set of users and security groups across from OneStrea
 - A user with no security group membership can sign in but will not see data that is secured.
 - A user missing here has usually been added in OneStream but not yet synced.
 - Because users mirror OneStream, retire a user there rather than trying to remove them here.
+- The Users page always runs as **you**, even while you are impersonating someone, so impersonation can always be turned off here.
