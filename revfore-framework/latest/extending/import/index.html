@@ -4085,7 +4085,7 @@ so use whichever screen you happen to be on. <a href="#extracting-a-solution">Ex
 </ol>
 <p>This creates the SQL views. Both syncs are required before any data can be written.</p>
 <h3 id="step-4-load-the-data-file">Step 4: Load the data file</h3>
-<p>Same action as Step 1 — <strong>Load/Extract</strong>, then <strong>Load</strong>, choosing the data JSON.</p>
+<p>Same action as Step 1 — <strong>Load/Extract</strong>, then <strong>Load</strong>, choosing the data JSON. Where a solution has several data files, load them in file-name order: Claude numbers them (<code>410-</code>, <code>420-</code>, ...) so that each one loads after the files its rows refer to. See <a href="../extension-kit/#solution-folder-file-names">Solution folder file names</a>.</p>
 <div class="admonition note sync before loading data">
 <p class="admonition-title">Note</p>
 <p>Data rows are written through views, so the tables and views have to exist first. Loading a data file before syncing will fail — the view it names is not there yet.</p>

@@ -959,6 +959,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#solution-folder-file-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution folder file names
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-the-extension-code" class="md-nav__link">
     <span class="md-ellipsis">
       Writing the extension code
@@ -3902,6 +3911,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#solution-folder-file-names" class="md-nav__link">
+    <span class="md-ellipsis">
+      Solution folder file names
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#writing-the-extension-code" class="md-nav__link">
     <span class="md-ellipsis">
       Writing the extension code
@@ -4066,7 +4084,7 @@
 <h3 id="step-3-check-the-baseline">Step 3: Check the baseline</h3>
 <p>From a terminal in the kit folder:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet build RfaExtension.sln
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python .claude/skills/revfore-framework/scripts/validate_framework_json.py samples/GLEntry/glentry-solution.json
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python .claude/skills/revfore-framework/scripts/validate_framework_json.py samples/GLEntry/300-GLEntry-structure.json
 </code></pre></div>
 <p>Both should pass before you change anything. If one fails, fix it first, because every later step assumes this baseline. See <a href="#troubleshooting">Troubleshooting</a>.</p>
 <h2 id="designing-a-solution">Designing a solution</h2>
@@ -4076,7 +4094,7 @@
 <p>Tell Claude what the solution needs to do in plain English: what gets planned or tracked, by whom, how it is approved, and whether and how it posts to the cube. Include anything you know about existing configuration, such as workflow units, cubes, dimensions and accounts.</p>
 <p>Claude asks about anything a design needs but you haven't said. Answer those questions rather than letting it guess. A missing prerequisite, such as cube posting or a parent/child review, usually means table changes later.</p>
 <h3 id="step-2-review-the-design-and-workbook">Step 2: Review the design and workbook</h3>
-<p>Claude creates a folder for the solution under <code>solutions/</code> and writes:</p>
+<p>Claude creates a folder for the solution under <code>solutions/</code>, named for the solution alone (<code>solutions/SpendPlanning/</code>, no date), and writes:</p>
 <table>
 <thead>
 <tr>
@@ -4086,22 +4104,23 @@
 </thead>
 <tbody>
 <tr>
-<td><code>&lt;solution&gt;-spec.json</code></td>
-<td>The design in machine-readable form. Everything else is generated from it</td>
+<td><code>010-&lt;Solution&gt;-design.md</code></td>
+<td>The design as prose, for reviewers</td>
 </tr>
 <tr>
-<td><code>&lt;solution&gt;-design.md</code></td>
-<td>The same design as prose, for reviewers</td>
-</tr>
-<tr>
-<td><code>&lt;Solution&gt;-&lt;yyyymmdd&gt;.xlsx</code></td>
+<td><code>100-&lt;Solution&gt;-workbook-&lt;yyyymmdd&gt;-r01.xlsx</code></td>
 <td>The <a href="../../integrations/aiModels/#the-design-workbook">design workbook</a>, for you and your stakeholders to edit</td>
+</tr>
+<tr>
+<td><code>200-&lt;Solution&gt;-spec.json</code></td>
+<td>The design in machine-readable form. Everything else is generated from it</td>
 </tr>
 </tbody>
 </table>
+<p>The numbers at the front keep the folder in working order - see <a href="#solution-folder-file-names">Solution folder file names</a>.</p>
 <p>Edit the workbook directly, or share it. Use the <strong>Review Comment</strong> column for questions and requests that aren't a simple cell change.</p>
 <h3 id="step-3-iterate">Step 3: Iterate</h3>
-<p>Save the edited workbook back into the solution folder and ask Claude to read it. It reports only what changed, answers each review comment, updates the spec, and writes the next round of the workbook (<code>-r2</code>, <code>-r3</code>, ...) next to the previous ones.</p>
+<p>Save the edited workbook back into the solution folder and ask Claude to read it. It reports only what changed, answers each review comment, updates the spec, and writes the next round of the workbook (<code>-r02</code>, <code>-r03</code>, ...) next to the previous ones. A round on a new day starts again at <code>-r01</code> under that day's date.</p>
 <p>Expect several rounds. This is the cheapest stage to change your mind in.</p>
 <h3 id="step-4-generate-the-import-json">Step 4: Generate the import JSON</h3>
 <p>When the design has settled, ask Claude to generate the JSON. It doesn't do this before you ask, because JSON generated early goes stale with the next workbook change.</p>
@@ -4116,17 +4135,17 @@
 </thead>
 <tbody>
 <tr>
-<td><code>&lt;solution&gt;-solution.json</code></td>
+<td><code>300-&lt;Solution&gt;-structure.json</code></td>
 <td>Tables, Models, Views and Lookups</td>
 <td><a href="../import/structure/">Structure Definitions</a></td>
 </tr>
 <tr>
-<td><code>&lt;solution&gt;-data-setup.json</code></td>
-<td>Configuration and reference rows the solution needs, such as workflow areas, item types and rates</td>
+<td><code>410-&lt;Solution&gt;-data-reference.json</code>, <code>420-...</code>, ...</td>
+<td>Configuration and reference rows the solution needs, such as workflow areas, item types and rates, one file per group, numbered in load order</td>
 <td><a href="../import/data/">Data Files</a></td>
 </tr>
 <tr>
-<td><code>&lt;solution&gt;-data-sample.json</code></td>
+<td><code>490-&lt;Solution&gt;-data-sample.json</code></td>
 <td>Optional sample transactions for testing</td>
 <td><a href="../import/data/">Data Files</a></td>
 </tr>
@@ -4141,8 +4160,67 @@
 <p>A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. Read them off the relevant admin screen, because a guessed code can load against the wrong record.</p>
 </div>
 <h3 id="step-5-load-it-into-onestream">Step 5: Load it into OneStream</h3>
-<p>Load and sync the files in the order described in <a href="../import/#loading-a-file">Loading a file</a>: structure file, sync tables, sync views, then the data files.</p>
+<p>Load and sync the files in the order described in <a href="../import/#loading-a-file">Loading a file</a>: structure file (<code>300</code>), sync tables, sync views, then the data files (<code>4xx</code>) <strong>in file-name order</strong>. The numbers are chosen so that a data file always loads after the files its rows refer to.</p>
 <p>To change a solution that already exists in an instance, <strong>extract it first</strong> with <strong>Load/Extract | Extract | Both</strong> on <strong>Admin | Relational | Tables</strong>, and save the file in the solution folder. Claude then works from what's actually in the instance, not from a description of it. See <a href="../import/#extracting-a-solution">Extracting a solution</a>.</p>
+<h2 id="solution-folder-file-names">Solution folder file names</h2>
+<p>Everything Claude writes into a solution folder is named so that <strong>sorting by name puts it in working order</strong>: notes first, then the design rounds, then the files to load, in the order to load them.</p>
+<p><code>{NNN}-{Solution}-{kind}[-{detail}]</code></p>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>Group</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>000</code>-<code>099</code></td>
+<td>Overview and notes</td>
+<td><code>000-SpendPlanning-README.md</code>, <code>010-SpendPlanning-design.md</code></td>
+</tr>
+<tr>
+<td><code>100</code>-<code>199</code></td>
+<td>Design workbook rounds</td>
+<td><code>100-SpendPlanning-workbook-20261005-r01.xlsx</code></td>
+</tr>
+<tr>
+<td><code>200</code>-<code>299</code></td>
+<td>Spec</td>
+<td><code>200-SpendPlanning-spec.json</code></td>
+</tr>
+<tr>
+<td><code>300</code>-<code>399</code></td>
+<td>Structure files to load</td>
+<td><code>300-SpendPlanning-structure.json</code></td>
+</tr>
+<tr>
+<td><code>400</code>-<code>499</code></td>
+<td>Data files to load, numbered in load order</td>
+<td><code>410-SpendPlanning-data-reference.json</code>, <code>420-SpendPlanning-data-workflow.json</code>, <code>490-SpendPlanning-data-sample.json</code></td>
+</tr>
+<tr>
+<td><code>500</code>-<code>599</code></td>
+<td>Hand-written SQL</td>
+<td><code>500-SpendPlanning-view-SpdPlanTall.sql</code></td>
+</tr>
+<tr>
+<td><code>600</code>-<code>699</code></td>
+<td>Notes on the handler code</td>
+<td><code>600-SpendPlanning-handlers.md</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>The solution folder has no date</strong> - <code>solutions/SpendPlanning/</code>. The workbook files carry the dates instead.</li>
+<li><strong>Every workbook round has a two-digit round number</strong>, the first one included (<code>-r01</code>), so rounds sort correctly - <code>r10</code> after <code>r09</code>, and the first round before the second.</li>
+<li><strong>Numbers step by 10 within a group</strong>, leaving room to add a file later (<code>415-...</code>) without renaming the others.</li>
+<li><strong>Data files load in name order.</strong> A file whose rows refer to another file's rows - a lookup it fills, a workflow unit, a parent record - is given a higher number. Reference data comes first, workflow setup next, transactions after, and sample data last.</li>
+<li><strong>The full solution name is in every file name</strong>, because files are loaded into OneStream and shared on their own, away from the folder.</li>
+<li><strong>No spaces</strong>, so any file can be named on a command line without quotes.</li>
+<li>Scripts Claude writes to produce large files go in a <code>scripts/</code> subfolder, and superseded drafts in <code>archive/</code>.</li>
+</ul>
+<p>Solutions designed before this convention keep their existing names - nothing is renamed.</p>
 <h2 id="writing-the-extension-code">Writing the extension code</h2>
 <p>Once the structure is settled, ask Claude to write the handlers, or write them yourself. The kit's <code>rfa_actnExtension_os</code> folder mirrors the assembly in OneStream:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>rfa_actnExtension_os/
@@ -4226,7 +4304,7 @@
 <ul>
 <li>Keep one kit folder per project or customer. Each has its own <code>solutions/</code> and its own copy of the extension assembly, as each OneStream instance does.</li>
 <li>Put the kit folder under source control, but exclude <code>packages/</code>, <code>bin/</code> and <code>obj/</code>. The OneStream package must not be committed to a shared or public repository.</li>
-<li><code>samples/GLEntry</code> is a complete worked example: validated import JSON, sample data, and the <code>JrlEntryHandler</code> that goes with it. Read it before writing your first handler.</li>
+<li><code>samples/GLEntry</code> is a complete worked example, laid out with the <a href="#solution-folder-file-names">solution folder file names</a>: validated import JSON, sample data, and the <code>JrlEntryHandler</code> that goes with it. Read it before writing your first handler.</li>
 </ul>
 
 
