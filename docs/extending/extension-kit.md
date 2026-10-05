@@ -36,7 +36,7 @@ The kit ships with the product, in the same maintenance unit as the extension as
 Extract it to a folder for your work, one per project or customer, and open that folder in VS Code. The zip has a single `rfaExtensionKit` folder at its root; rename it to suit the project.
 
 !!! note "The kit includes the skills"
-    You don't need to download **ClaudeSkills.zip** as well. The kit carries the same skills in its `.claude/skills` folder, and Claude Code loads them when you open the folder. **ClaudeSkills.zip** is for Claude Desktop and claude.ai, which only accept a zip that contains skill folders.
+    You don't need to download **rfaClaudeSkills.zip** as well. The kit carries the same skills in its `.claude/skills` folder, and Claude Code loads them when you open the folder. **rfaClaudeSkills.zip** is for Claude Desktop and claude.ai, which only accept a zip that contains skill folders.
 
 ```
 MyProject/
@@ -81,7 +81,7 @@ From a terminal in the kit folder:
 
 ```
 dotnet build RfaExtension.sln
-python .claude/skills/revfore-framework/scripts/validate_framework_json.py samples/GLEntry/glentry-solution.json
+python .claude/skills/revfore-framework/scripts/validate_framework_json.py samples/GLEntry/300-GLEntry-structure.json
 ```
 
 Both should pass before you change anything. If one fails, fix it first, because every later step assumes this baseline. See [Troubleshooting](#troubleshooting).
@@ -100,19 +100,21 @@ Claude asks about anything a design needs but you haven't said. Answer those que
 
 ### Step 2: Review the design and workbook
 
-Claude creates a folder for the solution under `solutions/` and writes:
+Claude creates a folder for the solution under `solutions/`, named for the solution alone (`solutions/SpendPlanning/`, no date), and writes:
 
 | File | What it is |
 |---|---|
-| `<solution>-spec.json` | The design in machine-readable form. Everything else is generated from it |
-| `<solution>-design.md` | The same design as prose, for reviewers |
-| `<Solution>-<yyyymmdd>.xlsx` | The [design workbook](../integrations/aiModels/index.md#the-design-workbook), for you and your stakeholders to edit |
+| `010-<Solution>-design.md` | The design as prose, for reviewers |
+| `100-<Solution>-workbook-<yyyymmdd>-r01.xlsx` | The [design workbook](../integrations/aiModels/index.md#the-design-workbook), for you and your stakeholders to edit |
+| `200-<Solution>-spec.json` | The design in machine-readable form. Everything else is generated from it |
+
+The numbers at the front keep the folder in working order - see [Solution folder file names](#solution-folder-file-names).
 
 Edit the workbook directly, or share it. Use the **Review Comment** column for questions and requests that aren't a simple cell change.
 
 ### Step 3: Iterate
 
-Save the edited workbook back into the solution folder and ask Claude to read it. It reports only what changed, answers each review comment, updates the spec, and writes the next round of the workbook (`-r2`, `-r3`, ...) next to the previous ones.
+Save the edited workbook back into the solution folder and ask Claude to read it. It reports only what changed, answers each review comment, updates the spec, and writes the next round of the workbook (`-r02`, `-r03`, ...) next to the previous ones. A round on a new day starts again at `-r01` under that day's date.
 
 Expect several rounds. This is the cheapest stage to change your mind in.
 
@@ -124,9 +126,9 @@ You'll usually get:
 
 | File | Holds | Load with |
 |---|---|---|
-| `<solution>-solution.json` | Tables, Models, Views and Lookups | [Structure Definitions](import/structure.md) |
-| `<solution>-data-setup.json` | Configuration and reference rows the solution needs, such as workflow areas, item types and rates | [Data Files](import/data.md) |
-| `<solution>-data-sample.json` | Optional sample transactions for testing | [Data Files](import/data.md) |
+| `300-<Solution>-structure.json` | Tables, Models, Views and Lookups | [Structure Definitions](import/structure.md) |
+| `410-<Solution>-data-reference.json`, `420-...`, ... | Configuration and reference rows the solution needs, such as workflow areas, item types and rates, one file per group, numbered in load order | [Data Files](import/data.md) |
+| `490-<Solution>-data-sample.json` | Optional sample transactions for testing | [Data Files](import/data.md) |
 
 Claude validates each file before handing it over. You can also validate a file yourself at any time:
 
@@ -141,9 +143,35 @@ The validator checks the schema and the semantic rules the schema can't express:
 
 ### Step 5: Load it into OneStream
 
-Load and sync the files in the order described in [Loading a file](import/index.md#loading-a-file): structure file, sync tables, sync views, then the data files.
+Load and sync the files in the order described in [Loading a file](import/index.md#loading-a-file): structure file (`300`), sync tables, sync views, then the data files (`4xx`) **in file-name order**. The numbers are chosen so that a data file always loads after the files its rows refer to.
 
 To change a solution that already exists in an instance, **extract it first** with **Load/Extract | Extract | Both** on **Admin | Relational | Tables**, and save the file in the solution folder. Claude then works from what's actually in the instance, not from a description of it. See [Extracting a solution](import/index.md#extracting-a-solution).
+
+## Solution folder file names
+
+Everything Claude writes into a solution folder is named so that **sorting by name puts it in working order**: notes first, then the design rounds, then the files to load, in the order to load them.
+
+`{NNN}-{Solution}-{kind}[-{detail}]`
+
+| Prefix | Group | Example |
+|---|---|---|
+| `000`-`099` | Overview and notes | `000-SpendPlanning-README.md`, `010-SpendPlanning-design.md` |
+| `100`-`199` | Design workbook rounds | `100-SpendPlanning-workbook-20261005-r01.xlsx` |
+| `200`-`299` | Spec | `200-SpendPlanning-spec.json` |
+| `300`-`399` | Structure files to load | `300-SpendPlanning-structure.json` |
+| `400`-`499` | Data files to load, numbered in load order | `410-SpendPlanning-data-reference.json`, `420-SpendPlanning-data-workflow.json`, `490-SpendPlanning-data-sample.json` |
+| `500`-`599` | Hand-written SQL | `500-SpendPlanning-view-SpdPlanTall.sql` |
+| `600`-`699` | Notes on the handler code | `600-SpendPlanning-handlers.md` |
+
+- **The solution folder has no date** - `solutions/SpendPlanning/`. The workbook files carry the dates instead.
+- **Every workbook round has a two-digit round number**, the first one included (`-r01`), so rounds sort correctly - `r10` after `r09`, and the first round before the second.
+- **Numbers step by 10 within a group**, leaving room to add a file later (`415-...`) without renaming the others.
+- **Data files load in name order.** A file whose rows refer to another file's rows - a lookup it fills, a workflow unit, a parent record - is given a higher number. Reference data comes first, workflow setup next, transactions after, and sample data last.
+- **The full solution name is in every file name**, because files are loaded into OneStream and shared on their own, away from the folder.
+- **No spaces**, so any file can be named on a command line without quotes.
+- Scripts Claude writes to produce large files go in a `scripts/` subfolder, and superseded drafts in `archive/`.
+
+Solutions designed before this convention keep their existing names - nothing is renamed.
 
 ## Writing the extension code
 
@@ -211,4 +239,4 @@ The skills describe the schema and conventions of the release they shipped with,
 
 - Keep one kit folder per project or customer. Each has its own `solutions/` and its own copy of the extension assembly, as each OneStream instance does.
 - Put the kit folder under source control, but exclude `packages/`, `bin/` and `obj/`. The OneStream package must not be committed to a shared or public repository.
-- `samples/GLEntry` is a complete worked example: validated import JSON, sample data, and the `JrlEntryHandler` that goes with it. Read it before writing your first handler.
+- `samples/GLEntry` is a complete worked example, laid out with the [solution folder file names](#solution-folder-file-names): validated import JSON, sample data, and the `JrlEntryHandler` that goes with it. Read it before writing your first handler.

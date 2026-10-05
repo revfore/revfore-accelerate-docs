@@ -71,11 +71,11 @@ The skills file ships with the product, in the same maintenance unit as the exte
 1. In OneStream, go to **Application | Presentation | Workspaces**
 2. Select the **Revfore Framework (RFA)** workspace
 3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
-4. Under **Files**, download **ClaudeSkills.zip**
+4. Under **Files**, download **rfaClaudeSkills.zip**
 
 The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts.
 
-The same folder also holds **rfaExtensionKit.zip**, the [Extension Kit](../../extending/extension-kit.md) for building solutions in VS Code. It includes the skills, so if you work in Claude Code you can download the kit instead of **ClaudeSkills.zip**.
+The same folder also holds **rfaExtensionKit.zip**, the [Extension Kit](../../extending/extension-kit.md) for building solutions in VS Code. It includes the skills, so if you work in Claude Code you can download the kit instead of **rfaClaudeSkills.zip**.
 
 ## Loading the skills into Claude
 
@@ -84,7 +84,7 @@ Both Claude apps take the zip as it is downloaded. There is no need to unpack an
 ### Claude Desktop and claude.ai
 
 1. Open **Settings | Capabilities | Skills**
-2. Choose **Upload skill** and select **ClaudeSkills.zip**
+2. Choose **Upload skill** and select **rfaClaudeSkills.zip**
 3. Enable the skills once the upload finishes
 
 ### Claude Code
@@ -97,7 +97,7 @@ Choose where it goes:
 - **Project**, shared with everyone working on that solution — `<project root>\.claude\skills\`
 
 ```powershell
-Expand-Archive ClaudeSkills.zip -DestinationPath "$env:USERPROFILE\.claude\skills\"
+Expand-Archive rfaClaudeSkills.zip -DestinationPath "$env:USERPROFILE\.claude\skills\"
 ```
 
 Restart Claude Code and run `/skills` to confirm they are listed.
@@ -106,7 +106,7 @@ Restart Claude Code and run `/skills` to confirm they are listed.
     If you build solutions in VS Code, download **rfaExtensionKit.zip** from the same maintenance unit instead. It ships with the skills in its own `.claude/skills` folder, together with a buildable copy of the extension assembly, and Claude Code loads them when you open the kit folder. See [Extension Kit (VS Code)](../../extending/extension-kit.md).
 
 !!! note "Upgrades ship a new skills file"
-    The skills describe the schema and conventions of the version they shipped with. After an upgrade, download **ClaudeSkills.zip** again and replace the copy you loaded, so Claude is generating against the current schema.
+    The skills describe the schema and conventions of the version they shipped with. After an upgrade, download **rfaClaudeSkills.zip** again and replace the copy you loaded, so Claude is generating against the current schema.
 
 ## Capabilities
 
@@ -141,7 +141,7 @@ Restart Claude Code and run `/skills` to confirm they are listed.
 
 ## Notes
 
-- Each design session gets its own dated working folder, so an edited workbook is never confused with an earlier version.
+- Each solution gets one working folder, named for the solution. Every round of the workbook is a separate, dated and numbered file in it (`100-SpendPlanning-workbook-20261005-r01.xlsx`, `-r02`, ...), so an edited workbook is never confused with an earlier version. See [Solution folder file names](../../extending/extension-kit.md#solution-folder-file-names).
 - Generated output is always reviewed before import — nothing reaches the database without a person applying it.
 - A vague design produces vague files. The workbook stage exists to make the design specific before it is built.
 - See [Getting Started](../../getting-started.md) for where these stages sit in the overall build process, and [Extending the Framework](../../extending/index.md) for what the generated files contain.
