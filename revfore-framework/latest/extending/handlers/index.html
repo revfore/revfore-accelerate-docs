@@ -3890,23 +3890,23 @@
 </thead>
 <tbody>
 <tr>
-<td>Default (by area)</td>
+<td><span style="white-space: nowrap">Default (by area)</span></td>
 <td>Core for core views, extension for extension views. The behaviour before the setting existed.</td>
 </tr>
 <tr>
-<td>Core</td>
+<td><span style="white-space: nowrap">Core</span></td>
 <td>Core only.</td>
 </tr>
 <tr>
-<td>Extension</td>
+<td><span style="white-space: nowrap">Extension</span></td>
 <td>Extension only — it <strong>replaces</strong> the core behaviour.</td>
 </tr>
 <tr>
-<td>Core, then Extension</td>
+<td><span style="white-space: nowrap">Core, then Extension</span></td>
 <td>Both, core first.</td>
 </tr>
 <tr>
-<td>Extension, then Core</td>
+<td><span style="white-space: nowrap">Extension, then Core</span></td>
 <td>Both, extension first.</td>
 </tr>
 </tbody>
@@ -3930,12 +3930,12 @@
 </thead>
 <tbody>
 <tr>
-<td><code>BeforeSaveHandler</code></td>
+<td><span style="white-space: nowrap"><code>BeforeSaveHandler</code></span></td>
 <td>After the user's edits are collected, before they are written</td>
 <td>Validate across records, default or correct values, block the save</td>
 </tr>
 <tr>
-<td><code>AfterSaveHandler</code></td>
+<td><span style="white-space: nowrap"><code>AfterSaveHandler</code></span></td>
 <td>After the rows are committed</td>
 <td>Write to related tables, trigger a calculation, refresh dependent data</td>
 </tr>
@@ -3953,12 +3953,12 @@
 </thead>
 <tbody>
 <tr>
-<td><code>BeforeCopyHandler</code></td>
+<td><span style="white-space: nowrap"><code>BeforeCopyHandler</code></span></td>
 <td>Before records are copied</td>
 <td>Filter which records may be copied</td>
 </tr>
 <tr>
-<td><code>AfterCopyHandler</code></td>
+<td><span style="white-space: nowrap"><code>AfterCopyHandler</code></span></td>
 <td>After the copies exist</td>
 <td>Fix up the new rows, copy child records</td>
 </tr>
@@ -3976,17 +3976,17 @@
 </thead>
 <tbody>
 <tr>
-<td><code>BeforeDeleteHandler</code></td>
+<td><span style="white-space: nowrap"><code>BeforeDeleteHandler</code></span></td>
 <td>Before anything is deleted</td>
 <td>Filter what may be deleted; declare which referencing records you will handle</td>
 </tr>
 <tr>
-<td><code>BeforeDeleteCommitHandler</code></td>
+<td><span style="white-space: nowrap"><code>BeforeDeleteCommitHandler</code></span></td>
 <td>Inside the delete, before commit</td>
 <td>Delete dependent records yourself</td>
 </tr>
 <tr>
-<td><code>AfterDeleteHandler</code></td>
+<td><span style="white-space: nowrap"><code>AfterDeleteHandler</code></span></td>
 <td>After the delete has committed</td>
 <td>Clean up anything outside the model</td>
 </tr>
@@ -4004,12 +4004,12 @@
 </thead>
 <tbody>
 <tr>
-<td><code>BeforeBulkUpdate</code></td>
+<td><span style="white-space: nowrap"><code>BeforeBulkUpdate</code></span></td>
 <td>Before a bulk update is applied</td>
 <td>Filter which of the selected records may be updated</td>
 </tr>
 <tr>
-<td><code>AfterBulkUpdate</code></td>
+<td><span style="white-space: nowrap"><code>AfterBulkUpdate</code></span></td>
 <td>After the update is applied</td>
 <td>Cascade the change, recalculate</td>
 </tr>
@@ -4027,12 +4027,12 @@
 </thead>
 <tbody>
 <tr>
-<td><code>ActionHandler</code></td>
+<td><span style="white-space: nowrap"><code>ActionHandler</code></span></td>
 <td>A custom action is clicked</td>
 <td>Run the action — open a view, call a service, start a process</td>
 </tr>
 <tr>
-<td><code>ComponentSelectionChangedHandler</code></td>
+<td><span style="white-space: nowrap"><code>ComponentSelectionChangedHandler</code></span></td>
 <td>A component's selection changes</td>
 <td>React to the user picking something</td>
 </tr>
