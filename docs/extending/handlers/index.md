@@ -50,11 +50,11 @@ Resolving *which* handler owns a view is only half the question. The other half 
 
 | Setting | What runs |
 |---|---|
-| Default (by area) | Core for core views, extension for extension views. The behaviour before the setting existed. |
-| Core | Core only. |
-| Extension | Extension only — it **replaces** the core behaviour. |
-| Core, then Extension | Both, core first. |
-| Extension, then Core | Both, extension first. |
+| <span style="white-space: nowrap">Default (by area)</span> | Core for core views, extension for extension views. The behaviour before the setting existed. |
+| <span style="white-space: nowrap">Core</span> | Core only. |
+| <span style="white-space: nowrap">Extension</span> | Extension only — it **replaces** the core behaviour. |
+| <span style="white-space: nowrap">Core, then Extension</span> | Both, core first. |
+| <span style="white-space: nowrap">Extension, then Core</span> | Both, extension first. |
 
 This is what makes it possible to **add** behaviour to a core view rather than take it over. Setting *Core, then Extension* on a core workflow view means the framework still does its own validation and stamping, and your handler runs afterwards on the same save.
 
@@ -71,8 +71,8 @@ The order matters where both sides touch the same values. Core first is the usua
 
 | Method | When it fires | Typical use |
 |---|---|---|
-| `BeforeSaveHandler` | After the user's edits are collected, before they are written | Validate across records, default or correct values, block the save |
-| `AfterSaveHandler` | After the rows are committed | Write to related tables, trigger a calculation, refresh dependent data |
+| <span style="white-space: nowrap">`BeforeSaveHandler`</span> | After the user's edits are collected, before they are written | Validate across records, default or correct values, block the save |
+| <span style="white-space: nowrap">`AfterSaveHandler`</span> | After the rows are committed | Write to related tables, trigger a calculation, refresh dependent data |
 
 `BeforeSaveHandler` receives the pending edits as a `rel.RecordSet` and can change them in place, so a value corrected here is what gets saved. `AfterSaveHandler` receives the primary keys of what was written, split into all, original and new — which lets you tell an insert from an update.
 
@@ -80,8 +80,8 @@ The order matters where both sides touch the same values. Core first is the usua
 
 | Method | When it fires | Typical use |
 |---|---|---|
-| `BeforeCopyHandler` | Before records are copied | Filter which records may be copied |
-| `AfterCopyHandler` | After the copies exist | Fix up the new rows, copy child records |
+| <span style="white-space: nowrap">`BeforeCopyHandler`</span> | Before records are copied | Filter which records may be copied |
+| <span style="white-space: nowrap">`AfterCopyHandler`</span> | After the copies exist | Fix up the new rows, copy child records |
 
 `BeforeCopyHandler` **returns the list of primary keys to proceed with**. Return a shorter list to copy fewer records, or an empty list to copy none. `AfterCopyHandler` receives a dictionary mapping each original key to its new one, which is what you need to re-point child records.
 
@@ -89,9 +89,9 @@ The order matters where both sides touch the same values. Core first is the usua
 
 | Method | When it fires | Typical use |
 |---|---|---|
-| `BeforeDeleteHandler` | Before anything is deleted | Filter what may be deleted; declare which referencing records you will handle |
-| `BeforeDeleteCommitHandler` | Inside the delete, before commit | Delete dependent records yourself |
-| `AfterDeleteHandler` | After the delete has committed | Clean up anything outside the model |
+| <span style="white-space: nowrap">`BeforeDeleteHandler`</span> | Before anything is deleted | Filter what may be deleted; declare which referencing records you will handle |
+| <span style="white-space: nowrap">`BeforeDeleteCommitHandler`</span> | Inside the delete, before commit | Delete dependent records yourself |
+| <span style="white-space: nowrap">`AfterDeleteHandler`</span> | After the delete has committed | Clean up anything outside the model |
 
 Delete has three points rather than two because of referential integrity. `BeforeDeleteHandler` returns the keys to proceed with, and also lets you list the referencing objects you intend to clear yourself — the framework then stops treating those references as blockers and leaves them to your `BeforeDeleteCommitHandler`.
 
@@ -99,8 +99,8 @@ Delete has three points rather than two because of referential integrity. `Befor
 
 | Method | When it fires | Typical use |
 |---|---|---|
-| `BeforeBulkUpdate` | Before a bulk update is applied | Filter which of the selected records may be updated |
-| `AfterBulkUpdate` | After the update is applied | Cascade the change, recalculate |
+| <span style="white-space: nowrap">`BeforeBulkUpdate`</span> | Before a bulk update is applied | Filter which of the selected records may be updated |
+| <span style="white-space: nowrap">`AfterBulkUpdate`</span> | After the update is applied | Cascade the change, recalculate |
 
 `AfterBulkUpdate` tells you which column was changed and gives the new value in whichever form fits its type — text, lookup, boolean or date.
 
@@ -108,8 +108,8 @@ Delete has three points rather than two because of referential integrity. `Befor
 
 | Method | When it fires | Typical use |
 |---|---|---|
-| `ActionHandler` | A custom action is clicked | Run the action — open a view, call a service, start a process |
-| `ComponentSelectionChangedHandler` | A component's selection changes | React to the user picking something |
+| <span style="white-space: nowrap">`ActionHandler`</span> | A custom action is clicked | Run the action — open a view, call a service, start a process |
+| <span style="white-space: nowrap">`ComponentSelectionChangedHandler`</span> | A component's selection changes | React to the user picking something |
 
 `ActionHandler` only receives **custom** actions. Built-in actions — Save, Add, Edit, Delete, Copy, Bulk Update, Navigate, Audit, Reset — are handled entirely inside the closed assemblies and never reach your code. See [Actions](../../concepts/metadataDrivenUI/actions.md) for defining one.
 
