@@ -1313,9 +1313,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-select-the-file-and-create-the-new-instance-file" class="md-nav__link">
+  <a href="#step-2-name-the-instance-select-the-file-and-create-the-new-instance-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Select the file and create the new instance file
+      Step 2: Name the instance, select the file and create the new instance file
     </span>
   </a>
   
@@ -3737,9 +3737,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-select-the-file-and-create-the-new-instance-file" class="md-nav__link">
+  <a href="#step-2-name-the-instance-select-the-file-and-create-the-new-instance-file" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: Select the file and create the new instance file
+      Step 2: Name the instance, select the file and create the new instance file
     </span>
   </a>
   
@@ -3819,8 +3819,9 @@
 <li>Unzip it and extract the included <code>ApplicationWorkspaces.xml</code> file</li>
 </ul>
 <p>The new instance is created at the version of the install file you select, so use the version you actually intend to run.</p>
-<h3 id="step-2-select-the-file-and-create-the-new-instance-file">Step 2: Select the file and create the new instance file</h3>
+<h3 id="step-2-name-the-instance-select-the-file-and-create-the-new-instance-file">Step 2: Name the instance, select the file and create the new instance file</h3>
 <ul>
+<li>Enter the <strong>New Instance Name</strong> and <strong>New Instance Code</strong>. Together they become the name of the instance's workspace in OneStream: <strong>New Instance Name (New Instance Code)</strong>. A New Instance Name of <code>Demo 1008</code> and a New Instance Code of <code>rfa20261008</code> give a workspace called <strong>Demo 1008 (rfa20261008)</strong> — the same pattern as the original instance, <strong>Revfore Framework (RFA)</strong>.</li>
 <li>Click <strong>Select &amp; Create Xml File</strong></li>
 <li>Select the <code>ApplicationWorkspaces.xml</code> file you extracted</li>
 </ul>
@@ -3838,6 +3839,7 @@
 <p>Once the file is loaded, relaunch the application. The new instance then follows the normal setup process — see <a href="../setup-upgrade/">Setup &amp; Upgrade</a>.</p>
 <h2 id="notes">Notes</h2>
 <ul>
+<li>The documentation refers to the <strong>Revfore Framework (RFA)</strong> workspace throughout. In an instance you created, use its own workspace instead — <strong>New Instance Name (New Instance Code)</strong>, as set in Step 2.</li>
 <li>Each instance has its own custom SQL schema, so nothing is shared between instances. Structures cannot be referenced across them.</li>
 <li>The new instance is created at the version of the install file you select. To create an instance at a different version, start again from that version's install file.</li>
 <li>Creating the file changes nothing on its own — the instance does not exist until the file is loaded through Load/Extract.</li>

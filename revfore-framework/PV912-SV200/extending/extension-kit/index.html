@@ -993,6 +993,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Deploying to OneStream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying manually
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -3945,6 +3960,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Deploying to OneStream">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deploying-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deploying manually
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -4001,9 +4031,9 @@
 <ul>
 <li>the <strong>Claude skills</strong>, already installed in the folder, so Claude Code knows the Framework's schema and conventions as soon as you open it</li>
 <li>a <strong>design area</strong> (<code>solutions/</code>) for the design documents, workbooks and import JSON of each solution</li>
-<li>a <strong>buildable copy of the extension assembly</strong>, <code>rfa_actnExtension_os</code>, which compiles against the real Revfore and OneStream APIs so mistakes show up in the editor rather than in OneStream</li>
+<li>a <strong>buildable copy of the extension assembly</strong>, <code>rfa_actnExtension_os</code>, which compiles against reference copies of the Revfore and OneStream APIs — their method signatures, without the code behind them — so a wrong name, argument or type shows up in the editor rather than in OneStream</li>
 </ul>
-<p>Nothing in the kit runs your code. A clean build proves your code matches the real APIs: names, parameter types and signatures. The logic itself is tested on a OneStream environment after you deploy.</p>
+<p>Nothing in the kit runs your code. The Revfore references are stubs generated from each release, where every method throws, and the OneStream references are OneStream's own reference assemblies, which you supply. A clean build therefore proves your code matches the APIs' shapes — names, parameter types and signatures — and nothing more. The logic itself is tested on a OneStream environment after you deploy.</p>
 <h2 id="requirements">Requirements</h2>
 <table>
 <thead>
@@ -4040,7 +4070,7 @@
 <p>The kit ships with the product, in the same maintenance unit as the extension assembly and the Claude skills file.</p>
 <ol>
 <li>In OneStream, go to <strong>Application | Presentation | Workspaces</strong></li>
-<li>Select the <strong>Revfore Framework (RFA)</strong> workspace</li>
+<li>Select your Revfore Framework workspace — <strong>Revfore Framework (RFA)</strong>, or <em>name (code)</em> if you <a href="../../appGroups/config/create-new-instance/">created your own instance</a></li>
 <li>Open <strong>XCP_xRfaDlg_ActnExtension</strong>, the extension assembly's maintenance unit</li>
 <li>Under <strong>Files</strong>, download <strong>rfaExtensionKit.zip</strong></li>
 </ol>
@@ -4088,7 +4118,16 @@
 </code></pre></div>
 <p>Both should pass before you change anything. If one fails, fix it first, because every later step assumes this baseline. See <a href="#troubleshooting">Troubleshooting</a>.</p>
 <h2 id="designing-a-solution">Designing a solution</h2>
-<p>Start Claude Code in the kit folder. It loads <code>CLAUDE.md</code> and the Framework skills on its own; you don't need to upload or configure anything.</p>
+<p>Start Claude Code in the kit folder:</p>
+<ul>
+<li><strong>From a terminal:</strong> open a terminal in the kit folder (in VS Code, <strong>Terminal | New Terminal</strong>) and type <code>claude</code>.</li>
+<li><strong>From the VS Code extension:</strong> open the kit folder in VS Code and start Claude Code from the extension.</li>
+</ul>
+<p>It loads <code>CLAUDE.md</code> and the Framework skills on its own; you don't need to upload or configure anything.</p>
+<div class="admonition tip">
+<p class="admonition-title">PowerShell says running scripts is disabled</p>
+<p>If typing <code>claude</code> in PowerShell fails with an error about <code>claude.ps1</code> and script execution, type <code>claude.cmd</code> instead. That starts the same program without going through PowerShell's script policy.</p>
+</div>
 <p>The design follows the same stages described in <a href="../../integrations/aiModels/#how-a-solution-gets-built">AI Model Integrations</a>. The difference is that every file lands in your project folder, where you can version, diff and review it.</p>
 <h3 id="step-1-describe-the-requirement">Step 1: Describe the requirement</h3>
 <p>Tell Claude what the solution needs to do in plain English: what gets planned or tracked, by whom, how it is approved, and whether and how it posts to the cube. Include anything you know about existing configuration, such as workflow units, cubes, dimensions and accounts.</p>
@@ -4242,9 +4281,15 @@
 </ol>
 <p>The build compiles against <strong>reference stubs</strong>, not the real Revfore engine. <code>rfaRef</code> and <code>rfaOsRef</code> have the real Revfore signatures, but every method throws; OneStream's own types come from the reference assemblies package. A clean build proves the code will compile in OneStream. It doesn't prove the logic is right.</p>
 <h3 id="deploying-to-onestream">Deploying to OneStream</h3>
-<p>The kit doesn't publish anything. To deploy:</p>
+<p>The kit doesn't publish anything itself. There are two ways to get your changes into OneStream:</p>
+<ul>
+<li><strong>Manually</strong>, by copying the files into the workspace — the steps below.</li>
+<li><strong>With OneStream Developer Studio</strong>, which pushes assembly code to a OneStream workspace from your development environment, so a deploy can be repeated or scripted rather than copied by hand. Point it at the same place as the manual steps: the <strong>rfa_actnExtension_os</strong> assembly in the <strong>XCP_xRfaDlg_ActnExtension</strong> maintenance unit, plus any <strong>XCP_x</strong> units of your own. See OneStream's Developer Studio documentation for how to set it up.</li>
+</ul>
+<p>Either way, deploy the same files to the same place.</p>
+<h4 id="deploying-manually">Deploying manually</h4>
 <ol>
-<li>In OneStream, go to <strong>Application | Presentation | Workspaces</strong> and select the <strong>Revfore Framework (RFA)</strong> workspace</li>
+<li>In OneStream, go to <strong>Application | Presentation | Workspaces</strong> and select your Revfore Framework workspace (<strong>Revfore Framework (RFA)</strong>, or <em>name (code)</em> if you created your own instance)</li>
 <li>Open <strong>XCP_xRfaDlg_ActnExtension</strong> and go to <strong>Assemblies | rfa_actnExtension_os</strong></li>
 <li>Add or update the files you changed, using the same folder structure as the kit. This includes <code>ExtensionHandlerDispatcher.cs</code> if you registered a new handler</li>
 <li>Save. The change takes effect immediately</li>
@@ -4252,7 +4297,7 @@
 <p>Then test on a real environment. That is where behaviour, as opposed to shape, gets proven.</p>
 <div class="admonition warning">
 <p class="admonition-title">Keep one source of truth</p>
-<p>If someone edits a handler directly in OneStream, copy the change back into the kit before your next deploy, or your next deploy overwrites it. Keeping the kit folder in source control makes that drift easy to see.</p>
+<p>If someone edits a handler directly in OneStream, copy the change back into the kit before your next deploy, or your next deploy overwrites it. This matters even more when deploys are pushed with Developer Studio, since a push replaces what is in the workspace without anyone looking at it first. Keeping the kit folder in source control makes that drift easy to see.</p>
 </div>
 <h2 id="kit-updates">Kit updates</h2>
 <p>Each Revfore release comes with a new kit. The reference stubs, skills and samples are regenerated to match that release.</p>

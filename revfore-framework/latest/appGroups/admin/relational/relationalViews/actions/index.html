@@ -3920,7 +3920,7 @@
 <td>Unit Profile Types</td>
 <td>int</td>
 <td>Which workflow units see and may run the action: Base units, Parent units, or both.</td>
-<td>Leave blank for every unit. See <a href="#actions-for-some-units-only">Actions for some units only</a>.</td>
+<td>Blank means no restriction: every unit sees and can run the action. See <a href="#actions-for-some-units-only">Actions for some units only</a>.</td>
 </tr>
 <tr>
 <td>Form</td>
@@ -4039,7 +4039,8 @@
 <ul>
 <li>The button is not shown to other units, <strong>and the action is refused if it is run anyway</strong> — the user is told it is not available to their kind of unit. Hiding a button alone would not be enough.</li>
 <li>It adds to the other rules rather than replacing them: the action still has to be available under its <a href="#availability-and-the-crud-flags">Crud flags</a>, the user's security level and the workflow status.</li>
-<li>Leave it blank for every unit. On a view that is not workflow-enabled, or before a user has chosen a unit, the setting is ignored.</li>
+<li><strong>Blank means no restriction</strong> — the action is available to every unit.</li>
+<li><strong>It only applies when there is a unit to check.</strong> The setting compares against the workflow unit the user has selected, so it takes effect only on a workflow-enabled view once a unit is chosen. On a view without workflow, or before a unit is selected, the action is shown as if the setting were blank.</li>
 </ul>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <p>Examples of view actions may include:</p>

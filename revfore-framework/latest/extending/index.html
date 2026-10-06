@@ -842,6 +842,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="What you can and cannot change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-your-own-assemblies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding your own assemblies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3689,6 +3704,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="What you can and cannot change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-your-own-assemblies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding your own assemblies
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3755,7 +3785,7 @@
 </ul>
 <p>To design and build a solution on your own machine, with Claude and a compiler checking the work before anything reaches OneStream, see <a href="extension-kit/">Extension Kit (VS Code)</a>.</p>
 <h2 id="what-you-can-and-cannot-change">What you can and cannot change</h2>
-<p>Revfore Framework ships as a set of OneStream workspace assemblies. All but one are closed product code.</p>
+<p>Revfore Framework ships as a set of OneStream workspace assemblies. All but one are closed product code - the one that is yours is where the framework calls your code, and you can add assemblies of your own alongside it.</p>
 <table>
 <thead>
 <tr>
@@ -3768,7 +3798,7 @@
 <tr>
 <td><strong><code>rfa_actnExtension_os</code></strong></td>
 <td><strong>Yes</strong></td>
-<td>The extension assembly. The only unencrypted, editable assembly in the stack. All solution-specific code lives here.</td>
+<td>The extension assembly — where the framework calls your code. Every handler's entry point lives here.</td>
 </tr>
 <tr>
 <td><code>rfa_os</code></td>
@@ -3803,9 +3833,16 @@
 </tbody>
 </table>
 <p>This matters more than it might appear. Because the closed assemblies call <em>into</em> your extension assembly at fixed points, upgrading the framework does not overwrite your code — and your code cannot destabilise the engine. You extend at defined seams rather than by modifying the product.</p>
+<h3 id="adding-your-own-assemblies">Adding your own assemblies</h3>
+<p><code>rfa_actnExtension_os</code> is not the only place your code can live. You can add further assemblies of your own:</p>
+<ul>
+<li>in the extension assembly's maintenance unit, <strong>XCP_xRfaDlg_ActnExtension</strong>, or</li>
+<li>in new maintenance units whose names start with <strong>XCP_x</strong>.</li>
+</ul>
+<p>The framework calls only into <code>rfa_actnExtension_os</code> — that is where its extension points are — so a handler there is always the entry point, and it calls the code in your other assemblies. That is a good home for logic that is shared across several handlers, large enough to deserve its own assembly, or owned by a different team.</p>
 <div class="admonition note two levels of extension">
 <p class="admonition-title">Note</p>
-<p>Partners building a solution on the framework and customers extending that partner's solution both write code in the same place. There is one extension assembly per instance, so plan with your partner how it is shared if both parties will be adding handlers.</p>
+<p>Partners building a solution on the framework and customers extending that partner's solution both hook in at the same place. There is one extension assembly per instance, so plan with your partner how its handlers are shared — each party can keep the bulk of its own code in a separate <strong>XCP_x</strong> maintenance unit and leave only the entry points in <code>rfa_actnExtension_os</code>.</p>
 </div>
 <h2 id="configuration-first">Configuration first</h2>
 <p>Before writing code, check whether configuration already covers it. Code is harder to test, harder to upgrade around, and invisible to the administrators maintaining the solution.</p>
@@ -3832,7 +3869,7 @@
 <p>Inside OneStream:</p>
 <ol>
 <li>Go to <strong>Application | Presentation | Workspaces</strong></li>
-<li>Select the <strong>Revfore Framework (RFA)</strong> workspace</li>
+<li>Select your Revfore Framework workspace — <strong>Revfore Framework (RFA)</strong>, or <em>name (code)</em> if you <a href="../appGroups/config/create-new-instance/">created your own instance</a></li>
 <li>Open <strong>XCP_xRfaDlg_ActnExtension</strong>, the extension assembly's maintenance unit</li>
 <li>The files are under <strong>'Assemblies | rfa_actnExtension_os`</strong></li>
 </ol>
