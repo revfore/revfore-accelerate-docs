@@ -10,13 +10,13 @@ You need:
 
 - a **model** whose name starts with a distinctive prefix, and at least one view over it
 - a prefix that does not overlap an existing one (see [prefix order](index.md#how-dispatch-works))
-- access to the **Revfore Framework (RFA)** workspace in OneStream
+- access to your Revfore Framework workspace in OneStream — **Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](../../appGroups/config/create-new-instance.md)
 
 Check first that [configuration](../index.md#configuration-first) does not already cover the requirement.
 
 ## Step 1: Create the handler class
 
-In OneStream, go to **Application | Presentation | Workspaces**, select the **Revfore Framework (RFA)** workspace, and open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit.
+In OneStream, go to **Application | Presentation | Workspaces**, select your Revfore Framework workspace, and open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit.
 
 Under **Assemblies | rfa_actnExtension_os**, add a folder for the model family beneath `DashboardExtenders/ExtensionHandlers/` and create the handler inside it:
 

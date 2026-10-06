@@ -8,10 +8,10 @@ Extension code reads and writes data through four framework objects. They sit ab
 
 | Object | What it is |
 |---|---|
-| **`rel.View`** | A view and its metadata — columns, model name, schema, base object. What gets passed into most handlers. |
-| **`rel.Record`** | A single row, with the original and modified value of every field. |
-| **`rel.RecordSet`** | A collection of records tied to one view. What you load into, and what you save. |
-| **`rel.RecordSets`** | A collection of record sets, so several views can be validated and saved together. |
+| <span style="white-space: nowrap">**`rel.View`**</span> | A view and its metadata — columns, model name, schema, base object. What gets passed into most handlers. |
+| <span style="white-space: nowrap">**`rel.Record`**</span> | A single row, with the original and modified value of every field. |
+| <span style="white-space: nowrap">**`rel.RecordSet`**</span> | A collection of records tied to one view. What you load into, and what you save. |
+| <span style="white-space: nowrap">**`rel.RecordSets`**</span> | A collection of record sets, so several views can be validated and saved together. |
 
 ## Loading records
 

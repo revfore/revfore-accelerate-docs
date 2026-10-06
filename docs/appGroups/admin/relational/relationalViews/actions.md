@@ -31,7 +31,7 @@ The following fields are used for a Relational View Action record.
 | User Interface Action Flag | int | Defines the type of user interface action. | Used to determine how the action behaves in the application. |
 | Business Rule Flag | int | Defines the business rule behavior associated with the action. | Select 'Custom' for to trigger custom assembly logic |
 | Add/Read/Edit/Delete Flags | int | What kind of thing this action does, which decides when it is available. | See [Availability and the Crud flags](#availability-and-the-crud-flags). |
-| Unit Profile Types | int | Which workflow units see and may run the action: Base units, Parent units, or both. | Leave blank for every unit. See [Actions for some units only](#actions-for-some-units-only). |
+| Unit Profile Types | int | Which workflow units see and may run the action: Base units, Parent units, or both. | Blank means no restriction: every unit sees and can run the action. See [Actions for some units only](#actions-for-some-units-only). |
 | Form | int | Identifies the form associated with the action. | Used when the action opens or works with a specific form. |
 | Is Enabled | bit | Indicates whether the action is enabled for use. | Disabled actions are not intended for active use. |
 | Integration Code | nvarchar | Unique value for the relational view action record. | This is readonly and will be auto set the View Name & Action Name providing a unique value for the record that is used for importing data |
@@ -78,7 +78,8 @@ On a workflow-enabled view, **Unit Profile Types** limits an action to the units
 
 - The button is not shown to other units, **and the action is refused if it is run anyway** — the user is told it is not available to their kind of unit. Hiding a button alone would not be enough.
 - It adds to the other rules rather than replacing them: the action still has to be available under its [Crud flags](#availability-and-the-crud-flags), the user's security level and the workflow status.
-- Leave it blank for every unit. On a view that is not workflow-enabled, or before a user has chosen a unit, the setting is ignored.
+- **Blank means no restriction** — the action is available to every unit.
+- **It only applies when there is a unit to check.** The setting compares against the workflow unit the user has selected, so it takes effect only on a workflow-enabled view once a unit is chosen. On a view without workflow, or before a unit is selected, the action is shown as if the setting were blank.
 
 ## Typical Use Cases
 

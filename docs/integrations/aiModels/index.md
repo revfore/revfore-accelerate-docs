@@ -69,7 +69,7 @@ Claude validates what it generates against the Framework's schema and convention
 The skills file ships with the product, in the same maintenance unit as the extension assembly.
 
 1. In OneStream, go to **Application | Presentation | Workspaces**
-2. Select the **Revfore Framework (RFA)** workspace
+2. Select your Revfore Framework workspace — **Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](../../appGroups/config/create-new-instance.md)
 3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
 4. Under **Files**, download **rfaClaudeSkills.zip**
 

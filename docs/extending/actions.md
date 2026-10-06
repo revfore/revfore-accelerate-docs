@@ -89,17 +89,36 @@ case "OpenSchedule":
 
 ## Getting the workflow context
 
-When an action needs to know which workflow unit or instance the user is in:
+When an action needs to know about the workflow the user is in, take it from the view you were handed. There are two methods, and the difference matters.
+
+**`Get_FullWorkflowContext` — the complete context.** Use it whenever the action posts to the cube, or reads the cube, a dimension member or the instance's periods:
+
+```csharp
+rfa_wf.WorkflowContext oWfContext =
+    viewerBaseAndContextSettings.ViewerBaseSettings.Get_FullWorkflowContext(parms);
+
+int iWfUnitId = oWfContext.GetWfUnitIdToInt();
+int iWfInstanceId = oWfContext.GetWfInstanceIdToInt();
+int iCbCubeId = oWfContext.CbCubeId;                 // from the unit's member set
+int iStartPeriod = oWfContext.InstanceStartPeriod;   // from the instance
+```
+
+It fills in everything the framework itself resolves when the user picks their workflow: the instance and its period range, the unit's member set (the cube and every dimension member), the unit and instance statuses, and the area of the screen the user is on. So values taken from it line up with what synchronise and clear will act on. Pass this context to `UpdateCubeHelper.UpdateCubeForWorkflowUnit` when posting.
+
+**`Get_WorkflowContext` — ids and names only.** Cheaper, and enough when an action only needs to know *which* unit and instance:
 
 ```csharp
 rfa_wf.WorkflowContext oWfContext =
     viewerBaseAndContextSettings.ViewerBaseSettings.Get_WorkflowContext(parms);
 
-int iWfUnitId = oWfContext.WfUnitId;
-int iWfInstanceId = oWfContext.WfInstanceId;
+int iWfUnitId = oWfContext.GetWfUnitIdToInt();
+int iWfInstanceId = oWfContext.GetWfInstanceIdToInt();
 ```
 
-This is the same context the framework uses to resolve the unit's member set, so values taken from it line up with what synchronise and clear will act on.
+!!! warning "Get_WorkflowContext leaves the cube and members at 0"
+    It does not load the unit's member set or the instance's periods, so `CbCubeId`, every dimension member and `InstanceStartPeriod`/`InstanceEndPeriod` read as 0 — with no error. Code that posts with it sends nothing to the right place, or syncs periods 1–12 regardless of the instance. If in doubt, use `Get_FullWorkflowContext`.
+
+The ids are held as text on the context, so read them with `GetWfUnitIdToInt()` and `GetWfInstanceIdToInt()` rather than the `WfUnitId`/`WfInstanceId` properties.
 
 ## Notes
 

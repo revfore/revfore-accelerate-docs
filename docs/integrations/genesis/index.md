@@ -56,7 +56,7 @@ Using Genesis integration with Revfore Framework helps:
 
     3. Select **"Link an Existing Content Item from a Shared Workspace"**.
 
-    4. Select the **"Revfore Framework (RFA)"** workspace.
+    4. Select your Revfore Framework workspace — **Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](../../appGroups/config/create-new-instance.md).
 
     5. In the filter field, type: `ContentItem`
 

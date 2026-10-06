@@ -56,10 +56,10 @@ Both open methods read the workflow context internally, and you can do the same 
 
 ```csharp
 rfa_wf.WorkflowContext oWfContext =
-    viewerBaseAndContextSettings.ViewerBaseSettings.Get_WorkflowContext(parms);
+    viewerBaseAndContextSettings.ViewerBaseSettings.Get_FullWorkflowContext(parms);
 ```
 
-From it you can read `WfUnitId`, `WfInstanceId` and the unit's resolved member set values — including the [data source scope members](../appGroups/admin/workflow/units/memberSets.md#data-source-scope-members) that bound what the unit may read and change.
+From it you can read the unit and instance (`GetWfUnitIdToInt()`, `GetWfInstanceIdToInt()`), the instance's periods, and the unit's resolved member set values — including the [data source scope members](../appGroups/admin/workflow/units/memberSets.md#data-source-scope-members) that bound what the unit may read and change. Use `Get_FullWorkflowContext` for those: the lighter `Get_WorkflowContext` carries only the ids and names and leaves the member set at 0. See [Getting the workflow context](actions.md#getting-the-workflow-context).
 
 ### The context is a snapshot
 

@@ -35,8 +35,9 @@ Where separation is not required, a single instance with well-named solutions is
 
 The new instance is created at the version of the install file you select, so use the version you actually intend to run.
 
-### Step 2: Select the file and create the new instance file
+### Step 2: Name the instance, select the file and create the new instance file
 
+- Enter the **New Instance Name** and **New Instance Code**. Together they become the name of the instance's workspace in OneStream: **New Instance Name (New Instance Code)**. A New Instance Name of `Demo 1008` and a New Instance Code of `rfa20261008` give a workspace called **Demo 1008 (rfa20261008)** — the same pattern as the original instance, **Revfore Framework (RFA)**.
 - Click **Select & Create Xml File**
 - Select the `ApplicationWorkspaces.xml` file you extracted
 
@@ -57,6 +58,7 @@ Once the file is loaded, relaunch the application. The new instance then follows
 
 ## Notes
 
+- The documentation refers to the **Revfore Framework (RFA)** workspace throughout. In an instance you created, use its own workspace instead — **New Instance Name (New Instance Code)**, as set in Step 2.
 - Each instance has its own custom SQL schema, so nothing is shared between instances. Structures cannot be referenced across them.
 - The new instance is created at the version of the install file you select. To create an instance at a different version, start again from that version's install file.
 - Creating the file changes nothing on its own — the instance does not exist until the file is loaded through Load/Extract.

@@ -17,11 +17,11 @@ To design and build a solution on your own machine, with Claude and a compiler c
 
 ## What you can and cannot change
 
-Revfore Framework ships as a set of OneStream workspace assemblies. All but one are closed product code.
+Revfore Framework ships as a set of OneStream workspace assemblies. All but one are closed product code - the one that is yours is where the framework calls your code, and you can add assemblies of your own alongside it.
 
 | Assembly | Yours to edit? | What it is |
 |---|---|---|
-| **`rfa_actnExtension_os`** | **Yes** | The extension assembly. The only unencrypted, editable assembly in the stack. All solution-specific code lives here. |
+| **`rfa_actnExtension_os`** | **Yes** | The extension assembly — where the framework calls your code. Every handler's entry point lives here. |
 | `rfa_os` | No | Core engine — builds screens from metadata and calls into your extension code. |
 | `rfa_shared_os` | No | Shared services used across the framework. |
 | `rfa_wf_os` | No | Workflow engine, cube synchronise and clear. |
@@ -31,8 +31,17 @@ Revfore Framework ships as a set of OneStream workspace assemblies. All but one 
 
 This matters more than it might appear. Because the closed assemblies call *into* your extension assembly at fixed points, upgrading the framework does not overwrite your code — and your code cannot destabilise the engine. You extend at defined seams rather than by modifying the product.
 
+### Adding your own assemblies
+
+`rfa_actnExtension_os` is not the only place your code can live. You can add further assemblies of your own:
+
+- in the extension assembly's maintenance unit, **XCP_xRfaDlg_ActnExtension**, or
+- in new maintenance units whose names start with **XCP_x**.
+
+The framework calls only into `rfa_actnExtension_os` — that is where its extension points are — so a handler there is always the entry point, and it calls the code in your other assemblies. That is a good home for logic that is shared across several handlers, large enough to deserve its own assembly, or owned by a different team.
+
 !!!Note Two levels of extension
-    Partners building a solution on the framework and customers extending that partner's solution both write code in the same place. There is one extension assembly per instance, so plan with your partner how it is shared if both parties will be adding handlers.
+    Partners building a solution on the framework and customers extending that partner's solution both hook in at the same place. There is one extension assembly per instance, so plan with your partner how its handlers are shared — each party can keep the bulk of its own code in a separate **XCP_x** maintenance unit and leave only the entry points in `rfa_actnExtension_os`.
 
 ## Configuration first
 
@@ -66,7 +75,7 @@ See [Extension Handlers](handlers/index.md) for how the dispatch works and what 
 Inside OneStream:
 
 1. Go to **Application | Presentation | Workspaces**
-2. Select the **Revfore Framework (RFA)** workspace
+2. Select your Revfore Framework workspace — **Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](../appGroups/config/create-new-instance.md)
 3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
 4. The files are under **'Assemblies | rfa_actnExtension_os`**
 

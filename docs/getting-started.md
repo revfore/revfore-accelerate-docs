@@ -63,7 +63,7 @@ With the skill loaded, Claude takes a solution from a requirements conversation 
 
 ### Installing the skill
 
-Download **rfaClaudeSkills.zip** from OneStream: **Application | Presentation | Workspaces**, select the **Revfore Framework (RFA)** workspace, open the **XCP_xRfaDlg_ActnExtension** maintenance unit, and take the file from **Files**.
+Download **rfaClaudeSkills.zip** from OneStream: **Application | Presentation | Workspaces**, select your Revfore Framework workspace (**Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](appGroups/config/create-new-instance.md)), open the **XCP_xRfaDlg_ActnExtension** maintenance unit, and take the file from **Files**.
 
 Then load it into whichever Claude you use — both take the zip exactly as downloaded:
 
