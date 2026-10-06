@@ -223,5 +223,5 @@ message.
 - A structure file can hold all of the tables, models, views and lookups together, or you can split it, as long as each file's dependencies already exist or appear earlier in the same file.
 - These files are ordinary text. Keep them in source control alongside your extension code — they are the definition of the solution.
 - Re-loading is the normal way to apply a change. Edit the file and load it again rather than hand-editing structures in the UI, so the file stays the source of truth.
-- A load defines structure and reference data. It does not deploy [extension code](../handlers/index.md), which is saved separately in the assembly. An extract does not include it either — the assembly moves separately.
+- A load defines structure and reference data. It does not deploy [extension code](../writing-code.md), which is saved separately in the assembly. An extract does not include it either — the assembly moves separately.
 - An extracted file is ordinary JSON and can be edited before it is loaded. Extract, edit and load back is a reasonable way to rename or restructure something that already exists.

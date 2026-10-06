@@ -40,12 +40,7 @@ nav:
           - Overview: extending/import/index.md
           - Structure Definitions: extending/import/structure.md
           - Data Files: extending/import/data.md
-      - Extension Handlers:
-          - How Dispatch Works: extending/handlers/index.md
-          - Adding a Handler: extending/handlers/adding.md
-      - Working with Records: extending/records.md
-      - View Actions in Code: extending/actions.md
-      - Shared Methods: extending/shared-methods.md
+      - Writing Extension Code: extending/writing-code.md
   - Application Groups:
       - Config:
           - Overview: appGroups/config/index.md

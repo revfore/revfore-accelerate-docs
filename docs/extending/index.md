@@ -10,8 +10,7 @@ Use this section to:
 
 - understand which parts of the framework you can change and which you cannot
 - decide whether a requirement needs configuration or code
-- write and wire up an extension handler
-- work with the framework's record objects from your own code
+- find out what extension code can do, and where the details live
 
 To design and build a solution on your own machine, with Claude and a compiler checking the work before anything reaches OneStream, see [Extension Kit (VS Code)](extension-kit.md).
 
@@ -56,19 +55,9 @@ Configuration usually handles:
 
 Reach for code when the requirement involves something configuration genuinely cannot express: cross-record validation, writing to other tables, calling an external service, or driving a cube operation.
 
-## The shape of an extension
+## What code can do
 
-Everything you write plugs in through one interface, `IExtensionHandler`, and one dispatcher.
-
-1. The user does something in a view — saves a row, copies records, clicks an action
-2. The closed engine calls the extension dispatcher
-3. The dispatcher works out which of your handlers owns that view, based on its **model name**
-4. Your handler runs, and can add messages, change values, block the operation, or do additional work
-5. If no handler claims the view, nothing custom happens and the standard behaviour continues
-
-That last point is worth holding on to: a view with no matching handler is not an error. Extension code is opt-in per model family.
-
-See [Extension Handlers](handlers/index.md) for how the dispatch works and what each extension point can do.
+Code runs at fixed **extension points** — when records are saved, copied, deleted or bulk updated, and when a custom action is clicked — and is organised by model family, so a view with no code behaves exactly as configured. See [Writing Extension Code](writing-code.md) for what each point is for. The full API reference ships in the [Extension Kit](extension-kit.md).
 
 ## Where the code lives
 
@@ -79,25 +68,7 @@ Inside OneStream:
 3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
 4. The files are under **'Assemblies | rfa_actnExtension_os`**
 
-The structure you will find:
-
-```
-rfa_actnExtension_os/
-└── DashboardExtenders/
-    ├── IExtensionHandler.cs            the interface every handler implements
-    ├── ExtensionHandlerDispatcher.cs   routes a view to its handler
-    ├── SolutionHelper.cs               entry point the closed assemblies call
-    ├── SharedMethods.cs                Revfore helpers - opening views, reading context
-    └── ExtensionHandlers/
-        ├── WfItemHandlers
-            ├── WfItemHandler.cs            Can have many files in the folder
-        ├── CpxItemHandlers
-            ├── CpxHandler.cs
-        ├── OtherHandlers
-            └── ...
-```
-
-You will normally only add folders and files under **`ExtensionHandlers/`**, add one line to **`ExtensionHandlerDispatcher.cs`**, and — where two or more handlers need the same helper — add your own shared-methods file beside `SharedMethods.cs`. The Revfore files themselves are best left untouched, so an enhanced version drops straight in on upgrade. See [Shared Methods](shared-methods.md#adding-your-own).
+Add your code there, or in assemblies of your own as described above. The [Extension Kit](extension-kit.md) has the same assembly as a buildable project, with the reference for every file in it.
 
 ## Notes
 

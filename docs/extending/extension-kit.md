@@ -183,21 +183,7 @@ Solutions designed before this convention keep their existing names - nothing is
 
 ## Writing the extension code
 
-Once the structure is settled, ask Claude to write the handlers, or write them yourself. The kit's `rfa_actnExtension_os` folder mirrors the assembly in OneStream:
-
-```
-rfa_actnExtension_os/
-└── DashboardExtenders/
-    ├── IExtensionHandler.cs
-    ├── ExtensionHandlerDispatcher.cs
-    ├── SolutionHelper.cs
-    ├── SharedMethods.cs
-    └── ExtensionHandlers/
-        ├── JrlEntryHandlers/          the sample handler
-        └── <Prefix>Handlers/          yours
-```
-
-Handlers are added and registered exactly as described in [Adding a Handler](handlers/adding.md): one class per model family implementing `IExtensionHandler`, plus one branch in `ExtensionHandlerDispatcher.cs`.
+Once the structure is settled, ask Claude to write the handlers, or write them yourself. The kit's `rfa_actnExtension_os` folder mirrors the assembly in OneStream, and the kit's **`docs/` folder is the reference for it** — start at `docs/README.md`. It covers how the framework calls your code, adding and registering a handler, working with records, custom actions and the shared helpers. The sample in `samples/GLEntry/` shows all of it working together.
 
 ### The inner loop
 

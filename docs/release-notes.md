@@ -246,4 +246,4 @@ Solutions can run their own scripts and processes as part of **Setup and Upgrade
 
 The version pair is what makes it safe to call every time: an upgrade that skips two versions still runs each step it should, and re-running the same version does nothing.
 
-See [Solution setup](extending/shared-methods.md#solution-setup).
+The hook and how to use it are described in the [Extension Kit](extending/extension-kit.md)'s reference.

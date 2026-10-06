@@ -129,7 +129,7 @@ That defines the action. Nothing happens when a user clicks it until the code si
 
 The **Action Name** you entered above is the value your code matches on, so it is the contract between the two halves — pick something stable and descriptive.
 
-See [View Actions in Code](../../../../extending/actions.md) for implementing it: where `ActionHandler` fits, what it receives, and how to open another view from an action. If the model family has no handler yet, start with [Adding a Handler](../../../../extending/handlers/adding.md).
+See [Writing Extension Code](../../../../extending/writing-code.md) for what a custom action's code can do; the implementation reference ships in the [Extension Kit](../../../../extending/extension-kit.md).
 
 This allows developers to extend the standard action set with solution-specific functionality.
 

@@ -30,7 +30,7 @@ It is tempting to read a view as "a screen", but it is the access layer for the 
 | **Dashboard adapters** | [Adapter dashboards](../../concepts/metadataDrivenUI/contentSubItem/adapterDashboard.md) bind to a view as their data source |
 | **AI agents and integrations** | [REST APIs](../../integrations/restAPIs/index.md), [Excel](../../integrations/excel/index.md) and agent access all go through views |
 | **Data imports** | [Data files](data.md) write their rows through a view, not into the table |
-| **Extension code** | A `RecordSet` is bound to a view, not a table — see [Working with Records](../records.md) |
+| **Extension code** | Extension code reads and writes records through a view, not a table — see [Writing Extension Code](../writing-code.md) |
 
 This is the reason so much configuration lives on the view rather than the table. Column security, required rules, defaults and lookups are defined once and then apply to **every** route into the data — a user typing into a grid, a seed file, an API call, or an agent. Enforcing a rule at the view means it cannot be bypassed by arriving through a different door.
 
@@ -131,7 +131,7 @@ The base table is the first source. Additional sources are joins — a lookup ta
 }
 ```
 
-The `Name` is the aliased form — source alias, underscore, column name. This is the name views and [extension code](../records.md#reading-and-writing-values) use, so it is worth getting the alias right early.
+The `Name` is the aliased form — source alias, underscore, column name. This is the name views and [extension code](../writing-code.md) use, so it is worth getting the alias right early.
 
 A model column does not have to map to a stored column. Set `Expression` instead, naming the sources it draws from (`ExpressionRelModelSource1Id_IntegrationCode` through `...Source5Id...`), and the value is calculated — which is how derived values are produced without any code.
 
@@ -205,7 +205,7 @@ Grouping, sorting and filtering are genuinely view-level and have no model equiv
 
 ### Actions, security and filters
 
-`Actions` are the buttons on the view. Most are built-in; one flagged as custom is handled in [extension code](../actions.md). `Security` controls who can see and change the view. `Filters` define saved filters users can apply.
+`Actions` are the buttons on the view. Most are built-in; one flagged as custom is handled in [extension code](../writing-code.md). `Security` controls who can see and change the view. `Filters` define saved filters users can apply.
 
 ## Lookups
 

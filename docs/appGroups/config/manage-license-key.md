@@ -15,21 +15,11 @@ Both license types allow access to the designer experience, but the **Starter** 
 
 ## Customer Reference Code
 
-The **customer reference code** is a unique number for a specific OneStream environment.
-
-It consists of two parts:  
-1) The application customer name found in Application | Application Properties | Customer Name.  
-2) A unique environment value that is auto generated after the solution is installed.  
-
-NOTE: A 'Starter' key can be generated from just the Customer Name.
-
-This code is used to generate a **Full license key** and is only available after Revfore Framework has been installed.
+The **customer reference code** identifies a specific OneStream environment. It is shown in this section once Revfore Framework has been installed, and it is what Revfore needs to issue a **Full license key** for that environment.
 
 ## Starter License Keys
 
-A **Starter** license key can be requested before Revfore Framework is installed.
-
-It only requires the **customer name**, which can be found on the **Application Properties** page in OneStream.
+A **Starter** license key can be requested before Revfore Framework is installed. To request one, send Revfore your application's **customer name**, from the **Application Properties** page in OneStream.
 
 ### Starter Key Benefits
 
@@ -43,7 +33,7 @@ With a Starter key, users can access the designer pages and work with:
 
 ## Full License Keys
 
-A **Full** license key requires the **customer reference code**, which is only available after the solution has been installed.
+To request a **Full** license key, send Revfore the **customer reference code** shown in this section after installation.
 
 ### Full Key Benefits
 

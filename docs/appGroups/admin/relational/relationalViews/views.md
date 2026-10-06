@@ -105,7 +105,7 @@ On every other view it stays hidden, because every row belongs to the same unit 
 
 The common reason to set it is to add validation to a **core** view without losing what the core already does — *Core, then Extension*. Choosing *Extension* on its own is how you deliberately take the core behaviour out.
 
-See [How Dispatch Works](../../../../extending/handlers/index.md) for what runs where.
+See [Writing Extension Code](../../../../extending/writing-code.md) for what runs where.
 
 ## Key Concepts
 
