@@ -108,7 +108,7 @@ This creates the SQL views. Both syncs are required before any data can be writt
 
 ### Step 4: Load the data file
 
-Same action as Step 1 — **Load/Extract**, then **Load**, choosing the data JSON. Where a solution has several data files, load them in file-name order: Claude numbers them (`410-`, `420-`, ...) so that each one loads after the files its rows refer to. See [Solution folder file names](../extension-kit.md#solution-folder-file-names).
+Same action as Step 1 — **Load/Extract**, then **Load**, choosing the data JSON. Claude puts every row the solution needs to run in one file (`410-`). An optional sample-data file (`490-`) seeds a demo or prototype — load it after, only if you want it. See [Solution folder file names](../extension-kit.md#solution-folder-file-names).
 
 !!!Note Sync before loading data
     Data rows are written through views, so the tables and views have to exist first. Loading a data file before syncing will fail — the view it names is not there yet.
