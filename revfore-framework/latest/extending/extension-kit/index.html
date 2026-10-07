@@ -4050,13 +4050,13 @@
 <td><a href="../import/structure/">Structure Definitions</a></td>
 </tr>
 <tr>
-<td><code>410-&lt;Solution&gt;-data-reference.json</code>, <code>420-...</code>, ...</td>
-<td>Configuration and reference rows the solution needs, such as workflow areas, item types and rates, one file per group, numbered in load order</td>
+<td><code>410-&lt;Solution&gt;-data.json</code></td>
+<td>Every row the solution needs to run — lookups, reference and configuration rows, workflow setup — in one file</td>
 <td><a href="../import/data/">Data Files</a></td>
 </tr>
 <tr>
 <td><code>490-&lt;Solution&gt;-data-sample.json</code></td>
-<td>Optional sample transactions for testing</td>
+<td>Optional sample data to seed a demo or prototype. Load it only if you want it</td>
 <td><a href="../import/data/">Data Files</a></td>
 </tr>
 </tbody>
@@ -4106,8 +4106,8 @@
 </tr>
 <tr>
 <td><code>400</code>-<code>499</code></td>
-<td>Data files to load, numbered in load order</td>
-<td><code>410-SpendPlanning-data-reference.json</code>, <code>420-SpendPlanning-data-workflow.json</code>, <code>490-SpendPlanning-data-sample.json</code></td>
+<td>Data files to load — one, plus optional sample data</td>
+<td><code>410-SpendPlanning-data.json</code>, <code>490-SpendPlanning-data-sample.json</code></td>
 </tr>
 <tr>
 <td><code>500</code>-<code>599</code></td>
@@ -4124,8 +4124,8 @@
 <ul>
 <li><strong>The solution folder has no date</strong> - <code>solutions/SpendPlanning/</code>. The workbook files carry the dates instead.</li>
 <li><strong>Every workbook round has a two-digit round number</strong>, the first one included (<code>-r01</code>), so rounds sort correctly - <code>r10</code> after <code>r09</code>, and the first round before the second.</li>
-<li><strong>Numbers step by 10 within a group</strong>, leaving room to add a file later (<code>415-...</code>) without renaming the others.</li>
-<li><strong>Data files load in name order.</strong> A file whose rows refer to another file's rows - a lookup it fills, a workflow unit, a parent record - is given a higher number. Reference data comes first, workflow setup next, transactions after, and sample data last.</li>
+<li><strong>Numbers step by 10 within a group</strong>, leaving room to add a file later without renaming the others.</li>
+<li><strong>One data file.</strong> Each file is a separate load, so every row the solution needs to run goes in <code>410-&lt;Solution&gt;-data.json</code>, ordered so that rows are created before anything that refers to them. The only other data file is optional sample data for a demo or prototype, <code>490-&lt;Solution&gt;-data-sample.json</code>, loaded after it if you want it.</li>
 <li><strong>The full solution name is in every file name</strong>, because files are loaded into OneStream and shared on their own, away from the folder.</li>
 <li><strong>No spaces</strong>, so any file can be named on a command line without quotes.</li>
 <li>Scripts Claude writes to produce large files go in a <code>scripts/</code> subfolder, and superseded drafts in <code>archive/</code>.</li>
