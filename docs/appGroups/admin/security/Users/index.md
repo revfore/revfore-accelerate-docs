@@ -53,8 +53,9 @@ The following fields are shown for a User record. All are populated from OneStre
 | Effective End Date | date | Date the user stops being active. | Defaults to 2999-12-31. Use this rather than deleting a user who has left.
 | Is Enabled | bit | Indicates whether the user is enabled. |
 | Impersonate User | int | The user this administrator is currently viewing the application as. | Editable only by an administrator, only on their own record. Blank when not impersonating. See [Viewing as Another User](../../../../security/impersonation.md).
-| Debug | int | Turns on diagnostic logging for this user. | Off or On. Set by an administrator, for any user. See [Debug logging](#debug-logging).
+| Debug | int | Turns on diagnostic logging for this user. | Off, On, or On (JSON). Set by an administrator, for any user. See [Debug logging](#debug-logging).
 | Debug Until | date | The last day Debug stays on. | Blank keeps it on until it is turned off. Set a date so it switches itself off.
+| Debug Filter | nvarchar | Writes only the debug lines that match. | Blank writes everything. See [Filtering the output](#filtering-the-output).
 | Integration Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
@@ -80,7 +81,57 @@ When a user reports something you cannot reproduce — a grid that is unexpected
 - which custom code ran for each save, copy, delete or action, and how long it took
 - what was saved, and the context used when posting to the cube
 
-Each line starts with `[DEBUG` and the user's name, so the log can be filtered to that one user.
+Each line starts with `[DEBUG] user=` and the user's name, so the log can be filtered to that one user. The rest is **logfmt**, the `key=value` format most log tools read on their own. The `category` (and, for anything timed, `ms`) is on the first line. Each detail is on its own indented line, and anything long (a SQL statement, an error) comes last as `detail`. Values with spaces or quotes are in double quotes.
+
+```
+[DEBUG] user=chris category=READONLY
+    view=PrjTask_mE
+    viewId=7120
+    parameterSet=1000
+    readOnly=true
+    rules=ParentUnit,WfStatus
+    detail="Parent unit, ..."
+[DEBUG] user=chris category=SECURITY
+    check=view
+    view=PrjBudget_mE
+    read=false
+    readWrite=false
+    result=lockedDown
+[DEBUG] user=chris category=SQL ms=38
+    source=GetDataTable
+    view=PrjTask_mE
+    detail=
+        select PrjTsk_Name, PrjTsk_Status, ...
+        from [rfa01].PrjTask_mE v
+        where PrjTsk_IsEnabled = 1
+        order by PrjTsk_Name ASC
+```
+
+A long detail with line breaks, such as a SQL statement, is written as indented lines under `detail=`, so it reads as it would in a query window.
+
+Set **Debug** to **On (JSON)** instead to get each line as one JSON object — for feeding the log to a tool or an AI agent:
+
+```
+{"debug":true,"user":"chris","category":"SQL","ms":38,"source":"GetDataTable","view":"PrjTask_mE","detail":"select ..."}
+```
+
+| Category | What it reports |
+|---|---|
+| `SQL` | Queries that read data — grids, drop-downs, record loads — with their time |
+| `SAVE` | What was saved, inserted (with the new record ids) or deleted, with its time — and, before a delete, which other records still refer to the ones being deleted |
+| `READONLY` | Why a screen opened read-only, and the workflow context it opened with |
+| `SECURITY` | View, group, row and unit-profile decisions |
+| `EXTENSION` | Which custom code each save, copy, delete or action ran, and how long it took |
+| `CUBE` | The context used when posting to the cube |
+| `ACTION` | Each action clicked |
+| `IMPORT` | Each stage of a Load, with record counts and times, every deferred source and column it resolved, and whether the load succeeded |
+| `WORKFLOW` | The workflow context — when it is chosen, changed by OneStream workflow, refreshed, or resolved for posting — with unit, instance, cube and periods |
+| `DASHBOARD` | When a grid's settings are rebuilt, and which change caused it. Reusing them writes nothing |
+| `EXPR` | Expressions and filter variables before and after their values were substituted |
+| `USER` | Who the user's requests run as, including impersonation. Written when Debug is turned on and again whenever impersonation or the filter changes, not on every request |
+| `DDL` | SQL views created or rebuilt, and any that failed |
+
+The fixed shape means both people and automated tools can read the log without guessing.
 
 To turn it on:
 
@@ -88,6 +139,22 @@ To turn it on:
 2. Edit the user's record
 3. Set **Debug** to **On**, and **Debug Until** to the last day you need it
 4. Click **Save**, and ask the user to close and reopen the page and repeat what they were doing
+
+### Filtering the output
+
+Debug output is detailed. To keep only the lines you care about, put a filter in **Debug Filter**:
+
+| Debug Filter | Writes |
+|---|---|
+| *(blank)* | Every debug line |
+| `PrjTask` | Lines containing *PrjTask*, in any case |
+| `PrjTask; WfInstance_Unit` | Lines containing **any** of the terms, separated by `;` |
+| `/category=SAVE.*view=PrjTask_mE\b/` | Lines matching a regular expression, written between `/` and `/` — here, saves through the PrjTask_mE view |
+
+Good things to filter on are a category (`category=READONLY` for only the read-only explanations), a `key=value` pair (`result=refused`, `handler=none`), a view or table name, a column name or a record key. `/ms=\d{3,}/` keeps only things that took 100 ms or more. The filter is matched against each entry as plain `key=value` pairs, before it is formatted, so the same filter works whether Debug is **On** or **On (JSON)**. A filter only matches what a line contains, so a record key finds the queries and saves that mention it, not every line about that record.
+
+!!! tip "Type ? for help"
+    Type `?` in **Debug Filter** and save to see the syntax and examples — the same `?` that shows the helper for Lookup Expression and Filter Expression. `/help` and `/info` work too. Nothing is saved. A regular expression that is not valid is refused when you save, with the reason.
 
 Turn it off — or let **Debug Until** pass — when you are done. Debug output is detailed and the error log is not meant for continuous tracing.
 
