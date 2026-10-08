@@ -1381,6 +1381,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#debug-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sync-users-from-onestream" class="md-nav__link">
     <span class="md-ellipsis">
       Sync users from OneStream
@@ -3603,6 +3612,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#debug-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug logging
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sync-users-from-onestream" class="md-nav__link">
     <span class="md-ellipsis">
       Sync users from OneStream
@@ -3641,7 +3659,7 @@
 <p>A user record identifies an individual and carries the settings that control how they access the application and what they are licensed for.</p>
 <div class="admonition note">
 <p class="admonition-title">Read-only</p>
-<p>Users come from OneStream and are refreshed by <strong>Sync</strong>. They cannot be added or edited here. To change a user, change it in OneStream and sync again. The one exception is <strong>Impersonate User</strong>, which an administrator sets on their own record — see <a href="../../../../security/impersonation/">Viewing as Another User</a>.</p>
+<p>Users come from OneStream and are refreshed by <strong>Sync</strong>. They cannot be added or edited here. To change a user, change it in OneStream and sync again. The exceptions are <strong>Impersonate User</strong>, which an administrator sets on their own record, and <strong>Debug</strong>, which an administrator sets for any user — see <a href="../../../../security/impersonation/">Viewing as Another User</a>.</p>
 </div>
 <h2 id="overview">Overview</h2>
 <p>Use the Users page to:</p>
@@ -3759,6 +3777,18 @@
 <td>Editable only by an administrator, only on their own record. Blank when not impersonating. See <a href="../../../../security/impersonation/">Viewing as Another User</a>.</td>
 </tr>
 <tr>
+<td>Debug</td>
+<td>int</td>
+<td>Turns on diagnostic logging for this user.</td>
+<td>Off or On. Set by an administrator, for any user. See <a href="#debug-logging">Debug logging</a>.</td>
+</tr>
+<tr>
+<td>Debug Until</td>
+<td>date</td>
+<td>The last day Debug stays on.</td>
+<td>Blank keeps it on until it is turned off. Set a date so it switches itself off.</td>
+</tr>
+<tr>
 <td>Integration Code</td>
 <td>nvarchar</td>
 <td>Unique value for the user record.</td>
@@ -3803,6 +3833,28 @@
 <li>as the owner, approver or other business contact on solution tables</li>
 <li>as a member of one or more <a href="../Groups/">Security Groups</a>, which is what grants access to data</li>
 </ul>
+<h2 id="debug-logging">Debug logging</h2>
+<p>When a user reports something you cannot reproduce — a grid that is unexpectedly read-only, a drop-down with the wrong values, a slow screen — turn on <strong>Debug</strong> for that user. While it is on, the application writes extra detail about what that user does to the OneStream <strong>error log</strong>:</p>
+<ul>
+<li>the queries behind their grids and drop-downs, with how long each took</li>
+<li>for each screen they open, the workflow context it was opened with and <strong>why it is read-only</strong>, if it is</li>
+<li>view and row security decisions</li>
+<li>which custom code ran for each save, copy, delete or action, and how long it took</li>
+<li>what was saved, and the context used when posting to the cube</li>
+</ul>
+<p>Each line starts with <code>[DEBUG</code> and the user's name, so the log can be filtered to that one user.</p>
+<p>To turn it on:</p>
+<ol>
+<li>Go to <strong>Admin | Security | Users</strong></li>
+<li>Edit the user's record</li>
+<li>Set <strong>Debug</strong> to <strong>On</strong>, and <strong>Debug Until</strong> to the last day you need it</li>
+<li>Click <strong>Save</strong>, and ask the user to close and reopen the page and repeat what they were doing</li>
+</ol>
+<p>Turn it off — or let <strong>Debug Until</strong> pass — when you are done. Debug output is detailed and the error log is not meant for continuous tracing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only administrators can change Debug. It follows the person signed in, not someone they are <a href="../../../../security/impersonation/">impersonating</a>, so an administrator viewing as another user sees their own debug output.</p>
+</div>
 <h2 id="sync-users-from-onestream">Sync users from OneStream</h2>
 <ol>
 <li>Go to <strong>Admin | Security | Users</strong></li>
