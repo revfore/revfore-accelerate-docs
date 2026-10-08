@@ -81,24 +81,23 @@ When a user reports something you cannot reproduce — a grid that is unexpected
 - which custom code ran for each save, copy, delete or action, and how long it took
 - what was saved, and the context used when posting to the cube
 
-Each line starts with `[DEBUG] user=` and the user's name, so the log can be filtered to that one user. The rest is **logfmt**, the `key=value` format most log tools read on their own. The `category` (and, for anything timed, `ms`) is on the first line. Each detail is on its own indented line, and anything long (a SQL statement, an error) comes last as `detail`. Values with spaces or quotes are in double quotes.
+Each line starts with `[DEBUG] user=` and the user's name, so the log can be filtered to that one user. The rest is **logfmt**, the `key=value` format most log tools read on their own. The first line names the `category`, how long it took (`ms`, for anything timed), the operation (`source`) and where in the application it was written (`at`). Each detail is on its own indented line, and anything long (a SQL statement, an error) comes last as `detail`. Values with spaces or quotes are in double quotes.
 
 ```
-[DEBUG] user=chris category=READONLY
+[DEBUG] user=chris category=READONLY at=rel.ViewerBaseSettings.Load
     view=PrjTask_mE
     viewId=7120
     parameterSet=1000
     readOnly=true
     rules=ParentUnit,WfStatus
     detail="Parent unit, ..."
-[DEBUG] user=chris category=SECURITY
+[DEBUG] user=chris category=SECURITY at=rfa_shared_os.SolutionHelper.MainClass.CheckAndSetSecurityValuesOnViewerBaseSettings
     check=view
     view=PrjBudget_mE
     read=false
     readWrite=false
     result=lockedDown
-[DEBUG] user=chris category=SQL ms=38
-    source=GetDataTable
+[DEBUG] user=chris category=SQL ms=38 source=GetDataTable at=rel.ViewerBaseSettings.Get_DataTable
     view=PrjTask_mE
     detail=
         select PrjTsk_Name, PrjTsk_Status, ...
@@ -112,7 +111,7 @@ A long detail with line breaks, such as a SQL statement, is written as indented 
 Set **Debug** to **On (JSON)** instead to get each line as one JSON object — for feeding the log to a tool or an AI agent:
 
 ```
-{"debug":true,"user":"chris","category":"SQL","ms":38,"source":"GetDataTable","view":"PrjTask_mE","detail":"select ..."}
+{"debug":true,"user":"chris","category":"SQL","ms":38,"source":"GetDataTable","at":"rel.ViewerBaseSettings.Get_DataTable","view":"PrjTask_mE","detail":"select ..."}
 ```
 
 | Category | What it reports |
