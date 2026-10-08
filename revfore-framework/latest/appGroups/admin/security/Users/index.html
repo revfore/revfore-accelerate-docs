@@ -1387,6 +1387,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Debug logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtering-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering the output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3618,6 +3633,21 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Debug logging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtering-the-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      Filtering the output
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3780,13 +3810,19 @@
 <td>Debug</td>
 <td>int</td>
 <td>Turns on diagnostic logging for this user.</td>
-<td>Off or On. Set by an administrator, for any user. See <a href="#debug-logging">Debug logging</a>.</td>
+<td>Off, On, or On (JSON). Set by an administrator, for any user. See <a href="#debug-logging">Debug logging</a>.</td>
 </tr>
 <tr>
 <td>Debug Until</td>
 <td>date</td>
 <td>The last day Debug stays on.</td>
 <td>Blank keeps it on until it is turned off. Set a date so it switches itself off.</td>
+</tr>
+<tr>
+<td>Debug Filter</td>
+<td>nvarchar</td>
+<td>Writes only the debug lines that match.</td>
+<td>Blank writes everything. See <a href="#filtering-the-output">Filtering the output</a>.</td>
 </tr>
 <tr>
 <td>Integration Code</td>
@@ -3842,7 +3878,96 @@
 <li>which custom code ran for each save, copy, delete or action, and how long it took</li>
 <li>what was saved, and the context used when posting to the cube</li>
 </ul>
-<p>Each line starts with <code>[DEBUG</code> and the user's name, so the log can be filtered to that one user.</p>
+<p>Each line starts with <code>[DEBUG] user=</code> and the user's name, so the log can be filtered to that one user. The rest is <strong>logfmt</strong>, the <code>key=value</code> format most log tools read on their own. The <code>category</code> (and, for anything timed, <code>ms</code>) is on the first line. Each detail is on its own indented line, and anything long (a SQL statement, an error) comes last as <code>detail</code>. Values with spaces or quotes are in double quotes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[DEBUG] user=chris category=READONLY
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    view=PrjTask_mE
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    viewId=7120
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    parameterSet=1000
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    readOnly=true
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    rules=ParentUnit,WfStatus
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    detail="Parent unit, ..."
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>[DEBUG] user=chris category=SECURITY
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    check=view
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    view=PrjBudget_mE
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    read=false
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    readWrite=false
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    result=lockedDown
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>[DEBUG] user=chris category=SQL ms=38
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    source=GetDataTable
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    view=PrjTask_mE
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    detail=
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        select PrjTsk_Name, PrjTsk_Status, ...
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        from [rfa01].PrjTask_mE v
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        where PrjTsk_IsEnabled = 1
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        order by PrjTsk_Name ASC
+</code></pre></div>
+<p>A long detail with line breaks, such as a SQL statement, is written as indented lines under <code>detail=</code>, so it reads as it would in a query window.</p>
+<p>Set <strong>Debug</strong> to <strong>On (JSON)</strong> instead to get each line as one JSON object — for feeding the log to a tool or an AI agent:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{"debug":true,"user":"chris","category":"SQL","ms":38,"source":"GetDataTable","view":"PrjTask_mE","detail":"select ..."}
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>What it reports</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SQL</code></td>
+<td>Queries that read data — grids, drop-downs, record loads — with their time</td>
+</tr>
+<tr>
+<td><code>SAVE</code></td>
+<td>What was saved, inserted (with the new record ids) or deleted, with its time — and, before a delete, which other records still refer to the ones being deleted</td>
+</tr>
+<tr>
+<td><code>READONLY</code></td>
+<td>Why a screen opened read-only, and the workflow context it opened with</td>
+</tr>
+<tr>
+<td><code>SECURITY</code></td>
+<td>View, group, row and unit-profile decisions</td>
+</tr>
+<tr>
+<td><code>EXTENSION</code></td>
+<td>Which custom code each save, copy, delete or action ran, and how long it took</td>
+</tr>
+<tr>
+<td><code>CUBE</code></td>
+<td>The context used when posting to the cube</td>
+</tr>
+<tr>
+<td><code>ACTION</code></td>
+<td>Each action clicked</td>
+</tr>
+<tr>
+<td><code>IMPORT</code></td>
+<td>Each stage of a Load, with record counts and times, every deferred source and column it resolved, and whether the load succeeded</td>
+</tr>
+<tr>
+<td><code>WORKFLOW</code></td>
+<td>The workflow context — when it is chosen, changed by OneStream workflow, refreshed, or resolved for posting — with unit, instance, cube and periods</td>
+</tr>
+<tr>
+<td><code>DASHBOARD</code></td>
+<td>When a grid's settings are rebuilt, and which change caused it. Reusing them writes nothing</td>
+</tr>
+<tr>
+<td><code>EXPR</code></td>
+<td>Expressions and filter variables before and after their values were substituted</td>
+</tr>
+<tr>
+<td><code>USER</code></td>
+<td>Who the user's requests run as, including impersonation. Written when Debug is turned on and again whenever impersonation or the filter changes, not on every request</td>
+</tr>
+<tr>
+<td><code>DDL</code></td>
+<td>SQL views created or rebuilt, and any that failed</td>
+</tr>
+</tbody>
+</table>
+<p>The fixed shape means both people and automated tools can read the log without guessing.</p>
 <p>To turn it on:</p>
 <ol>
 <li>Go to <strong>Admin | Security | Users</strong></li>
@@ -3850,6 +3975,39 @@
 <li>Set <strong>Debug</strong> to <strong>On</strong>, and <strong>Debug Until</strong> to the last day you need it</li>
 <li>Click <strong>Save</strong>, and ask the user to close and reopen the page and repeat what they were doing</li>
 </ol>
+<h3 id="filtering-the-output">Filtering the output</h3>
+<p>Debug output is detailed. To keep only the lines you care about, put a filter in <strong>Debug Filter</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Debug Filter</th>
+<th>Writes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>(blank)</em></td>
+<td>Every debug line</td>
+</tr>
+<tr>
+<td><code>PrjTask</code></td>
+<td>Lines containing <em>PrjTask</em>, in any case</td>
+</tr>
+<tr>
+<td><code>PrjTask; WfInstance_Unit</code></td>
+<td>Lines containing <strong>any</strong> of the terms, separated by <code>;</code></td>
+</tr>
+<tr>
+<td><code>/category=SAVE.*view=PrjTask_mE\b/</code></td>
+<td>Lines matching a regular expression, written between <code>/</code> and <code>/</code> — here, saves through the PrjTask_mE view</td>
+</tr>
+</tbody>
+</table>
+<p>Good things to filter on are a category (<code>category=READONLY</code> for only the read-only explanations), a <code>key=value</code> pair (<code>result=refused</code>, <code>handler=none</code>), a view or table name, a column name or a record key. <code>/ms=\d{3,}/</code> keeps only things that took 100 ms or more. The filter is matched against each entry as plain <code>key=value</code> pairs, before it is formatted, so the same filter works whether Debug is <strong>On</strong> or <strong>On (JSON)</strong>. A filter only matches what a line contains, so a record key finds the queries and saves that mention it, not every line about that record.</p>
+<div class="admonition tip">
+<p class="admonition-title">Type ? for help</p>
+<p>Type <code>?</code> in <strong>Debug Filter</strong> and save to see the syntax and examples — the same <code>?</code> that shows the helper for Lookup Expression and Filter Expression. <code>/help</code> and <code>/info</code> work too. Nothing is saved. A regular expression that is not valid is refused when you save, with the reason.</p>
+</div>
 <p>Turn it off — or let <strong>Debug Until</strong> pass — when you are done. Debug output is detailed and the error log is not meant for continuous tracing.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
