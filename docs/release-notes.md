@@ -200,6 +200,14 @@ A workflow action is gated on the **cycle** being open, not on the unit's own st
 
 See [Availability and the Crud flags](appGroups/admin/relational/relationalViews/actions.md#availability-and-the-crud-flags).
 
+### Debug logging per user
+
+Administrators can turn on **Debug** for a single user on **Admin | Security | Users**, optionally until a set date. While it is on, the application writes detail about what that user does to the OneStream error log — the queries behind their grids and drop-downs, why a screen is read-only, security decisions, which custom code ran and how long things took — tagged with their name so it can be filtered out.
+
+It turns "I can't reproduce it" into a log to read. Custom code can add its own lines with `RF.ErrorLog.Debug`, which costs nothing for anyone without Debug on.
+
+See [Debug logging](appGroups/admin/security/Users/index.md#debug-logging).
+
 ### Columns and actions for some units only
 
 View columns and view actions have a new **Unit Profile Types** setting that limits them to **Base** units, **Parent** units, or both.

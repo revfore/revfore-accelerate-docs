@@ -7,7 +7,7 @@ Users are the **people who use the solution**.
 A user record identifies an individual and carries the settings that control how they access the application and what they are licensed for.
 
 !!! note "Read-only"
-    Users come from OneStream and are refreshed by **Sync**. They cannot be added or edited here. To change a user, change it in OneStream and sync again. The one exception is **Impersonate User**, which an administrator sets on their own record — see [Viewing as Another User](../../../../security/impersonation.md).
+    Users come from OneStream and are refreshed by **Sync**. They cannot be added or edited here. To change a user, change it in OneStream and sync again. The exceptions are **Impersonate User**, which an administrator sets on their own record, and **Debug**, which an administrator sets for any user — see [Viewing as Another User](../../../../security/impersonation.md).
 
 ## Overview
 
@@ -53,6 +53,8 @@ The following fields are shown for a User record. All are populated from OneStre
 | Effective End Date | date | Date the user stops being active. | Defaults to 2999-12-31. Use this rather than deleting a user who has left.
 | Is Enabled | bit | Indicates whether the user is enabled. |
 | Impersonate User | int | The user this administrator is currently viewing the application as. | Editable only by an administrator, only on their own record. Blank when not impersonating. See [Viewing as Another User](../../../../security/impersonation.md).
+| Debug | int | Turns on diagnostic logging for this user. | Off or On. Set by an administrator, for any user. See [Debug logging](#debug-logging).
+| Debug Until | date | The last day Debug stays on. | Blank keeps it on until it is turned off. Set a date so it switches itself off.
 | Integration Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
 | Modified Date | datetime | Date and time the record was last modified. |
@@ -67,6 +69,30 @@ The user record is referenced throughout the solution:
 - as the Created By and Modified By on every record
 - as the owner, approver or other business contact on solution tables
 - as a member of one or more [Security Groups](../Groups/index.md), which is what grants access to data
+
+## Debug logging
+
+When a user reports something you cannot reproduce — a grid that is unexpectedly read-only, a drop-down with the wrong values, a slow screen — turn on **Debug** for that user. While it is on, the application writes extra detail about what that user does to the OneStream **error log**:
+
+- the queries behind their grids and drop-downs, with how long each took
+- for each screen they open, the workflow context it was opened with and **why it is read-only**, if it is
+- view and row security decisions
+- which custom code ran for each save, copy, delete or action, and how long it took
+- what was saved, and the context used when posting to the cube
+
+Each line starts with `[DEBUG` and the user's name, so the log can be filtered to that one user.
+
+To turn it on:
+
+1. Go to **Admin | Security | Users**
+2. Edit the user's record
+3. Set **Debug** to **On**, and **Debug Until** to the last day you need it
+4. Click **Save**, and ask the user to close and reopen the page and repeat what they were doing
+
+Turn it off — or let **Debug Until** pass — when you are done. Debug output is detailed and the error log is not meant for continuous tracing.
+
+!!! note
+    Only administrators can change Debug. It follows the person signed in, not someone they are [impersonating](../../../../security/impersonation.md), so an administrator viewing as another user sees their own debug output.
 
 ## Sync users from OneStream
 
