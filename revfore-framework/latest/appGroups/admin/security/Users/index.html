@@ -3878,32 +3878,31 @@
 <li>which custom code ran for each save, copy, delete or action, and how long it took</li>
 <li>what was saved, and the context used when posting to the cube</li>
 </ul>
-<p>Each line starts with <code>[DEBUG] user=</code> and the user's name, so the log can be filtered to that one user. The rest is <strong>logfmt</strong>, the <code>key=value</code> format most log tools read on their own. The <code>category</code> (and, for anything timed, <code>ms</code>) is on the first line. Each detail is on its own indented line, and anything long (a SQL statement, an error) comes last as <code>detail</code>. Values with spaces or quotes are in double quotes.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[DEBUG] user=chris category=READONLY
+<p>Each line starts with <code>[DEBUG] user=</code> and the user's name, so the log can be filtered to that one user. The rest is <strong>logfmt</strong>, the <code>key=value</code> format most log tools read on their own. The first line names the <code>category</code>, how long it took (<code>ms</code>, for anything timed), the operation (<code>source</code>) and where in the application it was written (<code>at</code>). Each detail is on its own indented line, and anything long (a SQL statement, an error) comes last as <code>detail</code>. Values with spaces or quotes are in double quotes.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>[DEBUG] user=chris category=READONLY at=rel.ViewerBaseSettings.Load
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    view=PrjTask_mE
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    viewId=7120
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    parameterSet=1000
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    readOnly=true
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    rules=ParentUnit,WfStatus
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    detail="Parent unit, ..."
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>[DEBUG] user=chris category=SECURITY
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>[DEBUG] user=chris category=SECURITY at=rfa_shared_os.SolutionHelper.MainClass.CheckAndSetSecurityValuesOnViewerBaseSettings
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    check=view
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    view=PrjBudget_mE
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    read=false
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    readWrite=false
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    result=lockedDown
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>[DEBUG] user=chris category=SQL ms=38
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    source=GetDataTable
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    view=PrjTask_mE
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    detail=
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        select PrjTsk_Name, PrjTsk_Status, ...
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        from [rfa01].PrjTask_mE v
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        where PrjTsk_IsEnabled = 1
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        order by PrjTsk_Name ASC
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>[DEBUG] user=chris category=SQL ms=38 source=GetDataTable at=rel.ViewerBaseSettings.Get_DataTable
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    view=PrjTask_mE
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>    detail=
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>        select PrjTsk_Name, PrjTsk_Status, ...
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>        from [rfa01].PrjTask_mE v
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>        where PrjTsk_IsEnabled = 1
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        order by PrjTsk_Name ASC
 </code></pre></div>
 <p>A long detail with line breaks, such as a SQL statement, is written as indented lines under <code>detail=</code>, so it reads as it would in a query window.</p>
 <p>Set <strong>Debug</strong> to <strong>On (JSON)</strong> instead to get each line as one JSON object — for feeding the log to a tool or an AI agent:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{"debug":true,"user":"chris","category":"SQL","ms":38,"source":"GetDataTable","view":"PrjTask_mE","detail":"select ..."}
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{"debug":true,"user":"chris","category":"SQL","ms":38,"source":"GetDataTable","at":"rel.ViewerBaseSettings.Get_DataTable","view":"PrjTask_mE","detail":"select ..."}
 </code></pre></div>
 <table>
 <thead>
