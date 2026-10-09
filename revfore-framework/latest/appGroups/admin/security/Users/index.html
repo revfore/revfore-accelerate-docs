@@ -3810,7 +3810,7 @@
 <td>Debug</td>
 <td>int</td>
 <td>Turns on diagnostic logging for this user.</td>
-<td>Off, On, or On (JSON). Set by an administrator, for any user. See <a href="#debug-logging">Debug logging</a>.</td>
+<td>Off, On, On (JSON), On (verbose) or On (verbose, JSON). Set by an administrator, for any user. See <a href="#debug-logging">Debug logging</a>.</td>
 </tr>
 <tr>
 <td>Debug Until</td>
@@ -3901,6 +3901,7 @@
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>        order by PrjTsk_Name ASC
 </code></pre></div>
 <p>A long detail with line breaks, such as a SQL statement, is written as indented lines under <code>detail=</code>, so it reads as it would in a query window.</p>
+<p>The <strong>verbose</strong> options write more where the default is deliberately brief. Posting to the cube, for example, normally lists only the cells a posting changed; verbose lists every cell, the columns used and the query. Use it only when the default is not enough, because it can be large. Entries written in verbose mode start with <code>[DEBUG verbose]</code> instead of <code>[DEBUG]</code>.</p>
 <p>Set <strong>Debug</strong> to <strong>On (JSON)</strong> instead to get each line as one JSON object — for feeding the log to a tool or an AI agent:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>{"debug":true,"user":"chris","category":"SQL","ms":38,"source":"GetDataTable","at":"rel.ViewerBaseSettings.Get_DataTable","view":"PrjTask_mE","detail":"select ..."}
 </code></pre></div>
