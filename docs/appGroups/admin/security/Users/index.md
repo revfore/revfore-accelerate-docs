@@ -53,7 +53,7 @@ The following fields are shown for a User record. All are populated from OneStre
 | Effective End Date | date | Date the user stops being active. | Defaults to 2999-12-31. Use this rather than deleting a user who has left.
 | Is Enabled | bit | Indicates whether the user is enabled. |
 | Impersonate User | int | The user this administrator is currently viewing the application as. | Editable only by an administrator, only on their own record. Blank when not impersonating. See [Viewing as Another User](../../../../security/impersonation.md).
-| Debug | int | Turns on diagnostic logging for this user. | Off, On, or On (JSON). Set by an administrator, for any user. See [Debug logging](#debug-logging).
+| Debug | int | Turns on diagnostic logging for this user. | Off, On, On (JSON), On (verbose) or On (verbose, JSON). Set by an administrator, for any user. See [Debug logging](#debug-logging).
 | Debug Until | date | The last day Debug stays on. | Blank keeps it on until it is turned off. Set a date so it switches itself off.
 | Debug Filter | nvarchar | Writes only the debug lines that match. | Blank writes everything. See [Filtering the output](#filtering-the-output).
 | Integration Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
@@ -107,6 +107,8 @@ Each line starts with `[DEBUG] user=` and the user's name, so the log can be fil
 ```
 
 A long detail with line breaks, such as a SQL statement, is written as indented lines under `detail=`, so it reads as it would in a query window.
+
+The **verbose** options write more where the default is deliberately brief. Posting to the cube, for example, normally lists only the cells a posting changed; verbose lists every cell, the columns used and the query. Use it only when the default is not enough, because it can be large. Entries written in verbose mode start with `[DEBUG verbose]` instead of `[DEBUG]`.
 
 Set **Debug** to **On (JSON)** instead to get each line as one JSON object — for feeding the log to a tool or an AI agent:
 
