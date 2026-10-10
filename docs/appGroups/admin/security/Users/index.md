@@ -54,7 +54,7 @@ The following fields are shown for a User record. All are populated from OneStre
 | Is Enabled | bit | Indicates whether the user is enabled. |
 | Impersonate User | int | The user this administrator is currently viewing the application as. | Editable only by an administrator, only on their own record. Blank when not impersonating. See [Viewing as Another User](../../../../security/impersonation.md).
 | Debug | int | Turns on diagnostic logging for this user. | Off, On, On (JSON), On (verbose) or On (verbose, JSON). Set by an administrator, for any user. See [Debug logging](#debug-logging).
-| Debug Until | date | The last day Debug stays on. | Blank keeps it on until it is turned off. Set a date so it switches itself off.
+| Debug Until | date | The last day Debug stays on. | Blank keeps it on until it is turned off. Set a date so it switches itself off. A date in the past is moved to today whenever you save the debug settings with Debug on.
 | Debug Filter | nvarchar | Writes only the debug lines that match. | Blank writes everything. See [Filtering the output](#filtering-the-output).
 | Integration Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
 | Created Date | datetime | Date and time the record was created. |
