@@ -4,10 +4,10 @@
 
 A solution's screens are **pages** in the Revfore navigation. An application group, such as **Home**, holds navigation groups, and a navigation group holds pages. Each page has a [Content Item](../concepts/metadataDrivenUI/contentItem.md) layout with one or two [Content Sub Items](../concepts/metadataDrivenUI/contentSubItem/index.md): a drop-down of grids, a list, summary cards, cube views, and so on. What each content sub item shows is set by the page's **linked page settings**.
 
-A page is set up in two parts, in this order:
+A page is set up in two steps, in this order:
 
-1. **Create the page in OneStream**: its navigation entry and the page itself. These are workspace objects, created by hand, and they ship in your workspace XML.
-2. **Configure what the page shows**: the linked page settings. These are data. Claude writes them in `420-<Solution>-pages.json`, and the [setup package](setup-packages.md#pages) loads them on install.
+1. **Claude writes the page definition**: what each page shows, as linked page settings in `420-<Solution>-pages.json`, plus the list of pages for you to create, with each page's navigation group, page name and layout. The settings are data, and the [setup package](setup-packages.md#pages) loads them on install.
+2. **You create the page in OneStream**: you add the navigation group and the page by hand, then link the page to its layout. These are workspace objects and they ship in your workspace XML.
 
 Keeping the settings as data means the same file sets up the page in every environment the solution is installed in, without anyone repeating the configuration by hand.
 
@@ -37,22 +37,22 @@ Home's caption — what the menu shows — can be changed, to "Revenue" for exam
 !!! warning "Type the names exactly"
     The three names are what connect the page you create in OneStream to its settings in `420-<Solution>-pages.json`. A page created with any other spelling never picks up its settings, and nothing reports it. The text on the page's button is separate and can be anything, so `Projects` can show as "Projects and Tasks".
 
-When Claude writes the pages, it lists each one split into these names, with the dashboard to link to it:
+When Claude writes the pages, it lists each one split into these names, with the layout to link it to. This list is your instructions for [Step 2](#step-2-create-the-page-in-onestream):
 
-| Application group | Navigation group | Page | Linked dashboard | Linked page reference |
+| Application group | Navigation group | Page | Layout (linked dashboard) | Linked page reference |
 |---|---|---|---|---|
-| `Home` (existing) | `ProjectTracking` (new) | `Projects` | `pge_RfaConItm101_Set1000_0_ContentItem` | `Home_ProjectTracking_Projects_Set1000` |
-| `Admin` (existing) | `ProjectTracking` (new) | `Supporting` | `pge_RfaConItm100_Set1000_0_ContentItem` | `Admin_ProjectTracking_Supporting_Set1000` |
+| `Home` (existing) | `ProjectTracking` (new) | `Projects` | Two, stacked — `pge_RfaConItm101_Set1000_0_ContentItem` | `Home_ProjectTracking_Projects_Set1000` |
+| `Admin` (existing) | `ProjectTracking` (new) | `Supporting` | One — `pge_RfaConItm100_Set1000_0_ContentItem` | `Admin_ProjectTracking_Supporting_Set1000` |
 
 ## Layouts
 
-Every page is linked to one of three content item dashboards, which decides its layout:
+Every page is linked to one of three content item dashboards in the **Revfore Framework** workspace, which decides its layout:
 
-| Linked dashboard | Layout | Content sub items |
-|---|---|---|
-| `pge_RfaConItm100_Set1000_0_ContentItem` | One content sub item | 1 |
-| `pge_RfaConItm101_Set1000_0_ContentItem` | Two, stacked vertically | 1 (top), 2 (bottom) |
-| `pge_RfaConItm102_Set1000_0_ContentItem` | Two, side by side | 1 (left), 2 (right) |
+| Linked dashboard | Maintenance unit | Layout | Content sub items |
+|---|---|---|---|
+| `pge_RfaConItm100_Set1000_0_ContentItem` | `XCP_RfaConItm100_Set1000` | One content sub item | 1 |
+| `pge_RfaConItm101_Set1000_0_ContentItem` | `XCP_RfaConItm101_Set1000` | Two, stacked vertically | 1 (top), 2 (bottom) |
+| `pge_RfaConItm102_Set1000_0_ContentItem` | `XCP_RfaConItm102_Set1000` | Two, side by side | 1 (left), 2 (right) |
 
 Any content type can go in any content sub item.
 
@@ -71,40 +71,12 @@ A typical solution has:
 
 Change the sheet like any other. Claude then generates `420-<Solution>-pages.json` from it and lists the pages for you to create.
 
-## Step 1: Create the page in OneStream
+## Step 1: Claude writes the page definition
 
-The quickest way is to **copy an existing page and rename it**. Pick a page with the same layout, then copy each object below and replace that page's `<ApplicationGroup>_<NavigationGroup>_<Page>` with yours **everywhere it appears**: object names, parameter values, embedded dashboard names, and the button settings.
+Claude writes two things:
 
-In the tables, `<App>_<Nav>_<Page>` is your three names — with the example above, `Home_ProjectTracking_Projects`.
-
-**The page**, in its own maintenance unit:
-
-| Object | Name |
-|---|---|
-| Maintenance unit | `Pview_<App>_<Nav>_<Page>` |
-| Dashboard group, in it | `Page_<App>_<Nav>_<Page>` |
-| Dashboard, in the group | `page_bag_<App>_<Nav>_<Page>`, layout **Uniform**, with one member: |
-| Embedded dashboard component | `ebd_XLL_<App>_<Nav>_<Page>_xx<content item dashboard>`, embedding the layout's `pge_RfaConItm10x_Set1000_0_ContentItem` |
-| Embedded dashboard component | `Embedded page_bag_<App>_<Nav>_<Page>` |
-
-**The navigation entry**, in the application group's navigation maintenance unit, `Pnavs_<App>`:
-
-| Object | Name |
-|---|---|
-| Parameter | `bin_Page_<App>_<Nav>_<Page>` |
-| Buttons | `bti_Page_<App>_<Nav>_<Page>` and `btn_Page_<App>_<Nav>_<Page>`, with the page's caption as their text |
-| Supplied parameter | `spp_bin_Page_<App>_<Nav>_<Page>` |
-| Dashboards | `bin_Page_…` in `Template_ButtonIndicators_<App>`, `bpr_Page_…` in `Template_ButtonPairs_<App>`, and `bwr_Page_…` in `Template_ButtonWrappers_<App>` |
-| Embedded dashboard components | `Embedded bin_Page_…`, `Embedded bpr_Page_…` and `Embedded bwr_Page_…` |
-| Members of the navigation group's dashboards | Add `spp_bin_Page_…` to `container_bag_<App>_<Nav>`, and `Embedded bwr_Page_…` to `container_barPage_<App>_<Nav>` and `container_barNavCollapsed_<App>_<Nav>`, in the order the pages should appear |
-
-A **new navigation group** is the dashboard group `Pnav_<App>_<Nav>` with its `container_*_<App>_<Nav>` dashboards, in `Pnavs_<App>`. Copy an existing navigation group the same way.
-
-**Link the layout.** Select the page you just created, click **Link an Existing Content Item from a Shared Workspace** (the chain-link button), and pick the layout's dashboard from the [table above](#layouts).
-
-**Check it.** Open the application group: the new button appears, and clicking it opens an empty page. It has no settings yet.
-
-## Step 2: Configure what the page shows
+- **`420-<Solution>-pages.json`**: what each page shows.
+- **The list of pages to create**: each page's application group, navigation group, page name and layout, as in the [table above](#names-and-the-linked-page-reference). Keep it for Step 2.
 
 ### From the design workbook
 
@@ -118,11 +90,11 @@ This writes and validates `420-<Solution>-pages.json` and prints the list of pag
 
 ### By describing the page
 
-Without a Pages sheet, ask Claude for the page's settings. Give it the linked page reference, the layout, and what each content sub item should show — for example:
+Without a Pages sheet, ask Claude for the page. Say where it goes and what each content sub item should show. Claude proposes the names and layout if you leave them out. For example:
 
-> *Home_Journals_Journals_Set1000, layout 101: item 1 the Journals grid, OneStream workflow on area Jm_Journals; item 2 the Controlled Itemized Area Scope cube view, Revfore workflow on the same area.*
+> *A Journals page under Home in a Journals navigation group, two stacked items: item 1 the Journals grid, OneStream workflow on area Jm_Journals; item 2 the Controlled Itemized Area Scope cube view, Revfore workflow on the same area.*
 
-Claude writes one row per page in `420-<Solution>-pages.json`:
+Claude gives you the names and layout to create in Step 2, here `Home` / `Journals` / `Journals` with the stacked layout `pge_RfaConItm101_Set1000_0_ContentItem`. It also writes one row per page in `420-<Solution>-pages.json`:
 
 ```json
 {
@@ -170,7 +142,26 @@ The page sets up only the data set. The component that shows it, you build in On
 
     The page shows the same text under **Setup**, in its adapter instructions.
 
-### Capturing a page you configured by hand
+## Step 2: Create the page in OneStream
+
+Use Claude's list from Step 1 and create each page by hand. Type the names exactly as the list gives them.
+
+1. **Open the application group's designer.** Use the application group from the list: **Home** or **Admin**.
+2. **Create the navigation group.** Add a new navigation group with the list's **Navigation group** name, for example `ProjectTracking`. A solution normally has one per application group, so do this only for its first page there.
+3. **Create the page.** Add a new page to that navigation group with the list's **Page** name, for example `Projects`. The caption on its button can be anything.
+4. **Link the layout.** Select the new page and click **Link an Existing Content Item from a Shared Workspace** (the chain-link button).
+5. **Pick the workspace.** Select the Revfore Framework workspace: **Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](../appGroups/config/create-new-instance.md).
+6. **Pick the layout.** Type `ContentItem` in the filter and select the content item dashboard the list gives for that page. It is one of the three in [Layouts](#layouts):
+    - `pge_RfaConItm100_Set1000_0_ContentItem` – one content sub item
+    - `pge_RfaConItm101_Set1000_0_ContentItem` – two, stacked vertically
+    - `pge_RfaConItm102_Set1000_0_ContentItem` – two, side by side
+
+**Check it.** Open the application group. The new button appears, and clicking it opens the page. If the pages file hasn't been loaded yet, the page is empty. It shows its content once the [setup package](setup-packages.md#pages) runs, or once you **Load** `420-<Solution>-pages.json` while you build.
+
+!!! warning "The layout must match the definition"
+    Link the page to the layout Claude gave you. Settings written for two content sub items do nothing on a one-item page.
+
+## Capturing a page you configured by hand
 
 Some settings, such as a static filter, are easier to set up on the page than to describe. Set the page up in OneStream, then capture it as data:
 
@@ -200,6 +191,6 @@ A release that adds or changes pages ships them in a file of its own as well, so
 
 ## Notes
 
-- Create the page in OneStream before its settings are loaded. Settings for a page that doesn't exist yet do nothing until it does.
+- The pages file can be loaded before or after the page is created in OneStream. The settings take effect once a page with the matching names exists.
 - The page's objects are workspace objects, so they move with the workspace XML, not with the setup package.
 - A page's columns are the view's. To change what a grid shows on every page, change the view; to change which grids a page offers, change the page.

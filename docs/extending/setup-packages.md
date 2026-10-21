@@ -109,7 +109,7 @@ A column, source, relationship, action, filter or security level that a release 
 
 ## Pages
 
-What each page shows goes in `420-<Solution>-pages.json`, as rows for the Framework's Linked Page Settings view. The page itself — its navigation entry and the layout it links to — is created by hand in OneStream first. Claude writes the page settings from the design workbook's Pages sheet, and a page configured by hand in OneStream can be captured the same way with **Extract**. See [Solution Pages](pages.md).
+What each page shows goes in `420-<Solution>-pages.json`, as rows for the Framework's Linked Page Settings view. Claude writes the page settings from the design workbook's Pages sheet, with a list of the navigation group, page name and layout for each page. You create the pages by hand in OneStream from that list. The settings take effect once a page with matching names exists, and a page configured by hand in OneStream can be captured the same way with **Extract**. See [Solution Pages](pages.md).
 
 The pages step is `"When": "Install"`. An import updates the rows it matches, so without that every Setup press would overwrite the customer's own later changes to a page.
 
