@@ -929,6 +929,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../extending/pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extending/setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../extending/writing-code/" class="md-nav__link">
         
   
@@ -3887,6 +3929,7 @@
 <li>default data</li>
 </ul>
 <p>This step prepares the environment for the solution to run.</p>
+<p>If a solution has been built on the Framework, Setup also installs it: after the Framework's own setup it runs the solution's <strong>setup package</strong>, <code>rfaExtensionSetupPackage.zip</code> in <strong>XCP_xRfaDlg_ActnExtension</strong>, which imports the solution's structure, syncs it, and loads its data and page settings. The workspace ships with an empty placeholder, which Setup skips. See <a href="../../../extending/setup-packages/">Setup Packages</a>.</p>
 <h3 id="step-2-request-a-full-license-key">Step 2: Request a Full License Key</h3>
 <p>Use this step to copy the <strong>Customer Reference Code</strong> from the <strong>Manage License Key</strong> page and send it to OneStream to request a Full License Key</p>
 <p>!!!
@@ -3962,8 +4005,9 @@
 - The <strong>Finalize Upgrade</strong> page should appear</p>
 <h3 id="step-1-finalize-upgrade">Step 1: Finalize Upgrade</h3>
 <blockquote>
-<p>Click on <strong>Finalize Upgrade</strong> to apply any database changes required for the upgraded version, refresh all Relational Views and to relink Forms and Users</p>
+<p>Click on <strong>Finalize Upgrade</strong> to apply any database changes required for the upgraded version, run the solution's setup package, refresh all Relational Views and to relink Forms and Users</p>
 </blockquote>
+<p>To upgrade a solution built on the Framework, replace its <code>rfaExtensionSetupPackage.zip</code> with the new release's and run Setup again. Only the steps the new release needs are run. See <a href="../../../extending/setup-packages/">Setup Packages</a>.</p>
 <h3 id="step-2-launch-solution">Step 2: Launch Solution</h3>
 <p>After the database upgrade is finalized, the solution is ready to use.</p>
 <h2 id="notes">Notes</h2>

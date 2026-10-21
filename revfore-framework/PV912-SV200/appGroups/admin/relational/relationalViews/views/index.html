@@ -929,6 +929,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../extending/pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../extending/setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../extending/writing-code/" class="md-nav__link">
         
   
@@ -1947,6 +1989,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where Clause
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top Count
+    </span>
+  </a>
   
 </li>
       
@@ -3662,6 +3722,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#where-clause" class="md-nav__link">
+    <span class="md-ellipsis">
+      Where Clause
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-count" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top Count
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#business-rule-flags" class="md-nav__link">
     <span class="md-ellipsis">
       Business Rule Flags
@@ -3835,6 +3913,12 @@
 <td>Used when users should be able to navigate from this view to related views or records.</td>
 </tr>
 <tr>
+<td>Top Count</td>
+<td>int</td>
+<td>Shows at most this many rows - the first by the view's own sort.</td>
+<td>Optional; blank shows all rows. Needs a sort on the view's columns. See <a href="#top-count">Top Count</a>.</td>
+</tr>
+<tr>
 <td>Unit Records Shown</td>
 <td>int</td>
 <td>Which records the view shows, relative to the workflow unit looking at it.</td>
@@ -3856,13 +3940,13 @@
 <td>Where Clause</td>
 <td>nvarchar</td>
 <td>Defines additional where clause logic for the view.</td>
-<td>Used to restrict which records are included in the view.  Use the <strong>Clause</strong> button to open the expression editor page.</td>
+<td>Used to restrict which records are included in the view. Its <strong>Flags</strong> decide whether it is built into the view or applied per user - see <a href="#where-clause">Where Clause</a>. Use the <strong>Clause</strong> button to open the expression editor page.</td>
 </tr>
 <tr>
 <td>Having Clause</td>
 <td>nvarchar</td>
-<td>Defines additional having clause logic for the view.</td>
-<td>Used to restrict grouped or aggregated results. Use the <strong>Clause</strong> button to open the expression editor page.</td>
+<td>Intended to restrict grouped or aggregated results.</td>
+<td><strong>Not applied yet</strong> - it is stored, but not written into the view, so it filters nothing. Filter on a model column with the Where Clause (Flags 5) instead, or rank with Top Count.</td>
 </tr>
 <tr>
 <td>Integration Code</td>
@@ -3965,6 +4049,61 @@
 <h3 id="the-unit-column">The unit column</h3>
 <p>Where a view shows more than one unit's rows, the workflow unit column appears by itself. Nothing needs configuring — it follows from Unit Records Shown including descendants and the current unit being a Parent.</p>
 <p>On every other view it stays hidden, because every row belongs to the same unit and the column would repeat a single value down the page.</p>
+<h2 id="where-clause">Where Clause</h2>
+<p>A where clause can be applied at two different moments, and its <strong>Flags</strong> say which:</p>
+<table>
+<thead>
+<tr>
+<th>Flags</th>
+<th>Applied</th>
+<th><code>{Name}</code> refers to</th>
+<th>Use it for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1</strong> (the default)</td>
+<td><strong>When the view is built</strong> - written into the SQL view</td>
+<td>a column of this view</td>
+<td>fixed filters on columns the view shows</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td><strong>Every time the view is read</strong> - the grid, lookups, Top Count and File Export</td>
+<td>a column of this view</td>
+<td>anything that depends on who is looking or which workflow they are in</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td><strong>When the view is built</strong></td>
+<td>a column of the view's <strong>model</strong></td>
+<td>fixed filters on columns the view does not show</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Built into the view (1 and 5).</strong> The clause is resolved once, when the view's SQL is created by Sync or Setup. There is no user and no workflow at that moment, so a clause that uses <code>{CurrentUserId}</code>, <code>{WfUnitId}</code>, <code>{WfInstanceYear}</code> or any other user or workflow value is refused on import - it would hold the value of whoever synced, for everyone. Use Flags 2 for those.</p>
+<p><strong>Flags 5</strong> filters on a model column without adding it to the view. That matters most on a summary view: every column there is either grouped or totalled, so a column added only to filter on would also have to be grouped by - which splits the totals if its values vary. With Flags 5 the view groups only by the columns you chose.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">"Clause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{PrtMsr_Code} = {P1} and {PrtPln_IsInstanceYear} = 1"</span><span class="p">,</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"Parameters"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"P1"</span><span class="p">,</span><span class="w"> </span><span class="nt">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"String"</span><span class="p">,</span><span class="w"> </span><span class="nt">"Value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sales"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">],</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"Flags"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p><strong>Applied every time (2).</strong> The clause is added to each query on the view, with the user's own workflow - so <code>{PrtPln_Year} = {WfInstanceYear}</code> shows each user the rows for the instance they are in. You can give a view one built-in clause and any number of run-time ones as a list; they are combined with AND.</p>
+<div class="admonition note workflow columns still belong on the view">
+<p class="admonition-title">Note</p>
+<p>A workflow-enabled view keeps its instance and unit columns, even if nobody looks at them: the Framework's own workflow filtering runs when the view is read, against those columns.</p>
+</div>
+<h2 id="top-count">Top Count</h2>
+<p><strong>Top Count</strong> limits a view to its first rows — a top 10 by sales, the five largest variances. Which rows are "first" is decided by the view's own sort: the <strong>Order By</strong> sequence and direction on its <a href="../columns/">columns</a>. Sort descending on the value to get the highest.</p>
+<p>The rows are chosen <strong>after</strong> every filter, workflow included, so each unit sees its own top 10 rather than whichever of the overall top 10 happen to be theirs. Everything on the screen uses the same rows:</p>
+<ul>
+<li>clicking a column heading re-sorts the top rows; it does not pick different ones</li>
+<li>the record count and the footer totals and averages cover only the rows shown</li>
+<li><strong>File Export</strong> writes the same rows, to Excel or JSON, and a JSON import only updates rows among them</li>
+</ul>
+<div class="admonition note a top count needs a sort">
+<p class="admonition-title">Note</p>
+<p>Without one there is no "top", so set an Order By on the column that ranks the rows. Loading a view with a Top Count and no sorted column is refused.</p>
+</div>
 <h2 id="business-rule-flags">Business Rule Flags</h2>
 <p><strong>Business Rule Flags</strong> decides which assembly handles the view's save and delete logic.</p>
 <table>

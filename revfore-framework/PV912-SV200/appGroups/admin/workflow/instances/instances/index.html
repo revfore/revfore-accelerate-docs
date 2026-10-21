@@ -929,6 +929,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../../extending/pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../extending/setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../../extending/writing-code/" class="md-nav__link">
         
   
@@ -2701,6 +2743,66 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compare-to-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compare-to instances
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compare-to instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-it-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting it up
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-cube-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      In cube views
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-extension-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      In extension code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3626,6 +3728,66 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compare-to-instances" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compare-to instances
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compare-to instances">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setting-it-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting it up
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-cube-views" class="md-nav__link">
+    <span class="md-ellipsis">
+      In cube views
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-extension-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      In extension code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      Security
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#typical-use-cases" class="md-nav__link">
     <span class="md-ellipsis">
       Typical Use Cases
@@ -3678,6 +3840,7 @@
 <li>review existing instances and their status</li>
 <li>set the period a cycle covers and the scenario its data belongs to</li>
 <li>assign the security groups that control access to the cycle's data</li>
+<li>name the cycles this one is compared with</li>
 </ul>
 <h2 id="workflow-instance-header-record-fields">Workflow Instance Header Record Fields</h2>
 <p>The following fields are used for a Workflow Instance header record.</p>
@@ -3768,6 +3931,18 @@
 <td>int</td>
 <td>The last period containing actuals for the cycle.</td>
 <td>Used where a cycle mixes actual and planned data, to mark where actuals stop.</td>
+</tr>
+<tr>
+<td>Compare To 1</td>
+<td>int</td>
+<td>Another instance this cycle is compared with - last year's actuals, the prior forecast.</td>
+<td>Optional. Any instance type, never the instance itself. See <a href="#compare-to-instances">Compare-to instances</a>.</td>
+</tr>
+<tr>
+<td>Compare To 2</td>
+<td>int</td>
+<td>A second instance to compare with.</td>
+<td>Optional. Same rules as Compare To 1.</td>
 </tr>
 <tr>
 <td>Security Group</td>
@@ -3927,6 +4102,131 @@
 <p>A cycle's status covers everything in it. Where units submit independently — one department still drafting while another has been approved — each unit also carries its own status, held as an <a href="../instanceUnits/">Instance Unit</a> record.</p>
 <p>The two combine as restrictions: <strong>whatever either level forbids is forbidden.</strong> A submitted unit is locked while its cycle stays open, and everything in a closed cycle is locked whatever the individual units say.</p>
 <p>Set <strong>Default Unit Status</strong> on the instance to turn this on. It is the stage a unit starts at, and without it no per-unit records are created.</p>
+<h2 id="compare-to-instances">Compare-to instances</h2>
+<p>A cycle is rarely looked at on its own. A budget is read against last year's actuals; a forecast against the one before it. <strong>Compare To 1</strong> and <strong>Compare To 2</strong> name up to two other instances to compare with, so the comparison is configured once on the cycle rather than built into every report.</p>
+<p>Pick any instance — it does not have to be the same instance type, and actuals and plan usually are not. An instance cannot compare with itself.</p>
+<p>What the solution gets from it, without looking anything up:</p>
+<table>
+<thead>
+<tr>
+<th>Where</th>
+<th>What</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The workflow context</td>
+<td>Each compare-to instance's id, display name, scenario and year</td>
+</tr>
+<tr>
+<td>Member sets</td>
+<td>The compare-to time (the year) and scenario, next to the set's own</td>
+</tr>
+<tr>
+<td>View filters, lookup filters and run-time where clauses</td>
+<td>Tokens for each compare-to instance — see <a href="#tokens">Tokens</a></td>
+</tr>
+<tr>
+<td>Extension code</td>
+<td>The same values as properties of the full workflow context — see <a href="#in-extension-code">In extension code</a></td>
+</tr>
+</tbody>
+</table>
+<p>Only the compared instance's own values are carried. If last year's budget itself compares with the year before, that second comparison is not followed.</p>
+<h3 id="setting-it-up">Setting it up</h3>
+<ol>
+<li>Create — or load — the instance you want to compare with. It has to exist before you can pick it.</li>
+<li>On the cycle that does the comparing, pick it in <strong>Compare To 1</strong>, and optionally a second in <strong>Compare To 2</strong>.</li>
+</ol>
+<p>The drop-down lists <strong>every</strong> instance, including disabled ones and those of other instance types, by name. Choosing the instance itself is refused when you save.</p>
+<div class="admonition warning">
+<p class="admonition-title">Clear the reference before deleting an instance</p>
+<p>An instance that another instance compares with can't be deleted while that reference is there — the delete is refused. Clear <strong>Compare To 1</strong> or <strong>2</strong> on the instance that refers to it first.</p>
+</div>
+<h3 id="tokens">Tokens</h3>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{WfCompareTo1InstanceId}</code></td>
+<td>The compare-to instance's id</td>
+</tr>
+<tr>
+<td><code>{WfCompareTo1DisplayName}</code></td>
+<td>Its display name</td>
+</tr>
+<tr>
+<td><code>{WfCompareTo1ScenarioName}</code></td>
+<td>The name of its scenario member</td>
+</tr>
+<tr>
+<td><code>{WfCompareTo1Year}</code></td>
+<td>Its year</td>
+</tr>
+</tbody>
+</table>
+<p>The same four exist for <code>2</code>. A token is 0, or empty, when no compare-to is set. Text values are quoted for you, so write <code>= {WfCompareTo1ScenarioName}</code>, not <code>= '{WfCompareTo1ScenarioName}'</code>.</p>
+<p>The tokens resolve wherever the user's workflow is known:</p>
+<ul>
+<li><strong>View filters</strong> and <strong>lookup filters</strong></li>
+<li>A view's <strong>run-time Where Clause</strong> (Flags 2), which is applied each time the view is read — in the grid, lookups, Top Count and File Export. See <a href="../../../relational/relationalViews/views/#where-clause">Where Clause</a>.</li>
+</ul>
+<p>They do <strong>not</strong> resolve in a built-in Where Clause, which is compiled into the SQL view with no workflow context, so a token there would always be 0 or empty.</p>
+<p>For example, a view of actuals that shows only the year this cycle compares with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">ActYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{</span><span class="n">WfCompareTo1Year</span><span class="err">}</span>
+</code></pre></div>
+<h3 id="in-cube-views">In cube views</h3>
+<p>Each member set in the member set context carries <code>CompareTo1TimeName</code>, <code>CompareTo1ScenarioName</code>, <code>CompareTo2TimeName</code> and <code>CompareTo2ScenarioName</code>, next to its own time and scenario. A cube view reads the comparison with the same members, with only the time and scenario swapped.</p>
+<p>When a compare-to isn't set — or has no year or scenario — these <strong>fall back to the set's own time and scenario</strong>, so a cube view column built on them still resolves, to the current cycle, rather than failing.</p>
+<p>In a cube view, read them from <code>param_RfaSharedWf_MemberSetContextJson</code> with the set's name and the key, for example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>T#XFBR(Workspace.Current.rfa_os.ParamHelper, GetKeyValueFromJsonDictionary, Json = [|!param_RfaSharedWf_MemberSetContextJson!|], LookupKey = ControlledScope_CompareTo1TimeName)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>S#XFBR(Workspace.Current.rfa_os.ParamHelper, GetKeyValueFromJsonDictionary, Json = [|!param_RfaSharedWf_MemberSetContextJson!|], LookupKey = ControlledScope_CompareTo1ScenarioName)
+</code></pre></div>
+<p>The Framework's own workflow cube views already have a <strong>Compare To Year</strong> column built this way, on Compare To 1.</p>
+<h3 id="in-extension-code">In extension code</h3>
+<p>The compare-to values are on the <strong>full</strong> workflow context:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">oWfContext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">args</span><span class="p">.</span><span class="n">ViewerBaseAndContextSettings</span><span class="p">.</span><span class="n">ViewerBaseSettings</span><span class="p">.</span><span class="n">Get_FullWorkflowContext</span><span class="p">(</span><span class="n">parms</span><span class="p">);</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">iCompareYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oWfContext</span><span class="p">.</span><span class="n">CompareToWfInstance1Year</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">sCompareScenario</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">oWfContext</span><span class="p">.</span><span class="n">CompareToWfInstance1ScenarioDmMemberName</span><span class="p">;</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CompareToWfInstance1Id</code></td>
+<td>The instance's id</td>
+</tr>
+<tr>
+<td><code>CompareToWfInstance1DisplayName</code></td>
+<td>Its display name</td>
+</tr>
+<tr>
+<td><code>CompareToWfInstance1ScenarioDmMemberId</code></td>
+<td>Its scenario member's id</td>
+</tr>
+<tr>
+<td><code>CompareToWfInstance1ScenarioDmMemberName</code></td>
+<td>Its scenario member's name</td>
+</tr>
+<tr>
+<td><code>CompareToWfInstance1Year</code></td>
+<td>Its year</td>
+</tr>
+</tbody>
+</table>
+<p>The same five end in <code>2</code> for Compare To 2. All are 0 or empty when not set. <code>Get_WorkflowContext</code>, the lighter call, carries ids and names only, without the compare-to values.</p>
+<h3 id="security">Security</h3>
+<p>Compare To names a comparison; it does not grant access to it. The instance's name, scenario and year are available to everyone using the cycle, but the data shown against them is still governed by each view's security and, for cube data, by OneStream's.</p>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
 <li>FY26 Budget</li>
@@ -3955,6 +4255,7 @@
 <li>Start Period and End Period express the cycle in periods; Start Date and End Date express it as calendar dates. They describe the same window in two forms, so keep them consistent.</li>
 <li>Set Default Unit Status when creating the instance, not later. It is what per-unit records start at, and they are only created for cycles that have one.</li>
 <li>Actual End Period is a different thing again - it marks where actuals stop <em>within</em> the cycle, and only matters where a cycle contains both actual and planned data.</li>
+<li>Compare To 1 and 2 only name the comparison. What is shown against it is up to the solution's views and cube views.</li>
 </ul>
 
 

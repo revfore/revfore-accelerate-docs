@@ -579,6 +579,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#file-export-and-import-as-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Export and Import as JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Export and Import as JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exporting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-import-compared-with-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Import compared with Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-a-view-needs-for-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      What a view needs for JSON
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#custom-actions" class="md-nav__link">
     <span class="md-ellipsis">
       Custom Actions
@@ -1039,6 +1090,48 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extending/pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extending/setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3589,6 +3682,57 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#file-export-and-import-as-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Export and Import as JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Export and Import as JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exporting
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#importing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Importing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#file-import-compared-with-load" class="md-nav__link">
+    <span class="md-ellipsis">
+      File Import compared with Load
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-a-view-needs-for-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      What a view needs for JSON
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#custom-actions" class="md-nav__link">
     <span class="md-ellipsis">
       Custom Actions
@@ -3742,13 +3886,13 @@
 </tr>
 <tr>
 <td>File Export</td>
-<td>Allows a user to export all the view records to a OneStream spreadsheet or to Excel.</td>
-<td>Useful for review, offline analysis, or sharing data.</td>
+<td>Exports the records the grid's filters select, to a OneStream spreadsheet, to Excel, or to a JSON data file.</td>
+<td>Useful for review, offline analysis, or sharing data. JSON also includes every level of child records - see <a href="#file-export-and-import-as-json">File Export and Import as JSON</a>.</td>
 </tr>
 <tr>
 <td>File Import</td>
-<td>Allows a user to select an Excel file and import the data into OneStream.</td>
-<td>Useful for loading or updating larger sets of records.</td>
+<td>Imports an Excel file or a JSON data file. Rows are shown for review before they are saved.</td>
+<td>Useful for loading or updating larger sets of records, or moving them between environments.</td>
 </tr>
 <tr>
 <td>Navigate</td>
@@ -3767,6 +3911,117 @@
 <p>When using the Add+ action, be sure to select any new records that you add before you attempt to add any children records.</p>
 <p>When using the Spreadsheet action, be sure to save any changes, using the spreadsheet ribbon, before you click on Import.</p>
 </div>
+<h2 id="file-export-and-import-as-json">File Export and Import as JSON</h2>
+<p>Besides Excel, <strong>File Export</strong> can write the grid's data as JSON, and <strong>File Import</strong> reads it back. The file is a <a href="../../../extending/import/data/">data file</a> - the same format <strong>Load</strong> takes - so it also moves data between environments: lookups are written as integration codes, not ids that differ from one instance to the next.</p>
+<p>Typical uses:</p>
+<ul>
+<li><strong>Moving data between environments</strong> — configuration rows built in development, loaded into test and production</li>
+<li><strong>Copying a set of records with their children</strong> — an order and all its lines — into another application</li>
+<li><strong>Editing outside the application</strong> — export, change the file, import it back</li>
+<li><strong>Handing current data to Claude</strong> as context, or getting a file from Claude to import</li>
+</ul>
+<h3 id="exporting">Exporting</h3>
+<ol>
+<li>Filter the grid to the rows you want</li>
+<li>Click <strong>File Export</strong></li>
+<li>Click <strong>Export To Json</strong></li>
+</ol>
+<p>The file is written to your <strong>ExportAndImport</strong> folder in the OneStream File Explorer, named after the view with a timestamp — <code>OrderHeaders_638…json</code> — and opened. Repeated exports sit side by side rather than overwriting each other.</p>
+<p><strong>Which rows.</strong> The rows the grid's filters currently select — the same rows the grid shows, including any <a href="../../../appGroups/admin/relational/relationalViews/views/#top-count">Top Count</a> — then every level of their <strong>child records</strong>. These are the same child views <a href="#general-actions">Add+ and Edit+</a> work with, so an export of three orders includes their lines, the lines' own children, and so on. Only children of the exported rows are included.</p>
+<p><strong>What the file holds.</strong> One <code>Data</code> entry per view, parents first, then each level of children. Rows are flat rather than nested: a child row names its parent by integration code, so it can be read back on its own.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">"ViewId_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.OrderHeader_mE"</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">      </span><span class="nt">"Rows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">"OrdHdr_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO-1001"</span><span class="p">,</span><span class="w"> </span><span class="nt">"OrdHdr_CustomerId_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACME"</span><span class="p">,</span><span class="w"> </span><span class="nt">"OrdHdr_OrderDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-10-01T00:00:00.0000000"</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">      </span><span class="nt">"ViewId_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.OrderLine_mE"</span><span class="p">,</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">      </span><span class="nt">"Rows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">"OrdLn_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO-1001-01"</span><span class="p">,</span><span class="w"> </span><span class="nt">"OrdLn_OrderHeaderId_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SO-1001"</span><span class="p">,</span><span class="w"> </span><span class="nt">"OrdLn_Qty"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><strong>Lookups</strong> are written as the integration code of the row they point at, never an id, so the file works in an application whose ids differ.</li>
+<li><strong>Left out:</strong> the primary key, the audit columns (created and updated, at and by), and empty values. The receiving application assigns its own keys and sets its own audit columns.</li>
+<li><strong>Rows with no integration code</strong> are left out, since they could not be matched on import.</li>
+<li><strong>Child views you can't read</strong> are left out, as are child views that don't meet the <a href="#what-a-view-needs-for-json">requirements below</a> — and their own children with them.</li>
+</ul>
+<h3 id="importing">Importing</h3>
+<ol>
+<li>Click <strong>File Import</strong></li>
+<li>Click <strong>Select</strong> and pick the file. A <code>.json</code> file is read as a data file; anything else as Excel</li>
+<li>Review the rows. Each one shows the view, the record, and whether it will be an <strong>Insert</strong> or an <strong>Update</strong></li>
+<li>Click <strong>Import</strong></li>
+</ol>
+<p>The file is checked in full before anything is saved, and the grid's own save logic runs — the solution's validation and its save handlers — exactly as if the rows had been entered in the grid.</p>
+<ul>
+<li><strong>Matching.</strong> Rows are matched on the view's integration code, ignoring case: an existing code is updated, a new one inserted.</li>
+<li><strong>Only what the grid shows.</strong> A row that exists but the grid's filters hide is <strong>refused</strong>, not updated — widen the filters to include it, or leave it out of the file.</li>
+<li><strong>Children.</strong> A child row must name its parent, and the parent must be a row the grid shows or one in the same file.</li>
+<li><strong>Columns left out</strong> keep their current value on an update, and get the column's default on an insert.</li>
+<li><strong>Lookups</strong> can point at a row created earlier in the same file.</li>
+<li><strong>Only this grid's views.</strong> The file can contain data for the grid's view and its child views, each in one entry, and nothing else — no structure, and no other views.</li>
+<li><strong>No deletes.</strong> A row missing from the file is left alone.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">All or nothing</p>
+<p>Every problem in the file is reported together, before anything is saved: an unknown column, a lookup code that matches nothing, a hidden row, a child without its parent. A failure in validation or a before-save handler saves nothing either, and the save itself is one transaction.</p>
+<p>Only an after-save handler runs once the rows are committed. If it reports a problem, the message says the rows were saved.</p>
+</div>
+<h3 id="file-import-compared-with-load">File Import compared with Load</h3>
+<p>Both take the same file format, but they do different jobs.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>File Import on a grid</th>
+<th><a href="../../../extending/import/#loading-a-file">Load</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>For</td>
+<td>Users, on their own data</td>
+<td>Administrators, setting up a solution</td>
+</tr>
+<tr>
+<td>Views</td>
+<td>The grid's view and its children</td>
+<td>Any view</td>
+</tr>
+<tr>
+<td>Rows</td>
+<td>Only those the grid's filters show</td>
+<td>Every row in the view</td>
+</tr>
+<tr>
+<td>Save handlers and validation</td>
+<td>Run, as for a grid save</td>
+<td>Not run</td>
+</tr>
+<tr>
+<td>Structure in the file</td>
+<td>Refused</td>
+<td>Loaded first</td>
+</tr>
+<tr>
+<td>An entry's <code>Mode</code></td>
+<td>Ignored — every row is inserted or updated</td>
+<td>Honoured — see <a href="../../../extending/import/data/#update-only-or-insert-only">Update only, or insert only</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-a-view-needs-for-json">What a view needs for JSON</h3>
+<ul>
+<li><strong>An Integration column.</strong> Every view involved needs a column flagged <strong>Integration</strong>, since that is what rows are matched on. A grid whose view has none can't export to JSON — the message says to use Excel — and a child view without one is left out.</li>
+<li><strong>A lookup to its parent.</strong> Each child view's link to its parent must be a lookup column, which is how a child row names its parent.</li>
+</ul>
 <h2 id="custom-actions">Custom Actions</h2>
 <p>Custom actions can also be added.</p>
 <p>See <a href="../../../appGroups/admin/relational/relationalViews/actions/#custom-actions">Custom Actions</a></p>

@@ -1055,6 +1055,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#removing-columns-and-other-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing columns and other items
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1111,6 +1120,48 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3769,6 +3820,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#removing-columns-and-other-items" class="md-nav__link">
+    <span class="md-ellipsis">
+      Removing columns and other items
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -4031,16 +4091,69 @@
 <p>Grouping, sorting and filtering are genuinely view-level and have no model equivalent — they are about presenting a particular set of rows, not about the column itself.</p>
 <h3 id="actions-security-and-filters">Actions, security and filters</h3>
 <p><code>Actions</code> are the buttons on the view. Most are built-in; one flagged as custom is handled in <a href="../../writing-code/">extension code</a>. <code>Security</code> controls who can see and change the view. <code>Filters</code> define saved filters users can apply.</p>
+<h3 id="removing-columns-and-other-items">Removing columns and other items</h3>
+<p>A load never deletes anything it is not told to — a column left out of the file stays in the database. To remove something, keep an entry for it in its usual list, marked <code>"Remove": true</code>. Columns are the common case:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">"Columns"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PrtPrt_PrtCustomerId"</span><span class="p">,</span><span class="w"> </span><span class="nt">"Remove"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">]</span>
+</code></pre></div>
+<p>On a <strong>model column</strong>, give just the <code>Name</code>. The model column goes, and so does every view column built on it, in every view of the model — there is no need to list each view.</p>
+<p>On a <strong>view column</strong>, give <code>RelModelColumnId_IntegrationCode</code> (and <code>Name</code> if the view has more than one column on that model column). Only that view loses the column.</p>
+<p>The same works for the rest of a model or view. Each entry carries only what identifies it:</p>
+<table>
+<thead>
+<tr>
+<th>Remove a</th>
+<th>In</th>
+<th>Identify it by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Model source</td>
+<td><code>Sources</code></td>
+<td><code>Alias</code></td>
+</tr>
+<tr>
+<td>Model relationship</td>
+<td><code>Relationships</code></td>
+<td><code>ObjectRelationshipId_IntegrationCode</code>, plus <code>RelatedToModelId_IntegrationCode</code> for just one target model</td>
+</tr>
+<tr>
+<td>View action</td>
+<td><code>Actions</code></td>
+<td><code>Name</code></td>
+</tr>
+<tr>
+<td>View filter</td>
+<td><code>Filters</code></td>
+<td><code>Name</code></td>
+</tr>
+<tr>
+<td>View security level</td>
+<td><code>Security</code></td>
+<td><code>SecurityLevel</code></td>
+</tr>
+</tbody>
+</table>
+<p>An action, filter, security level or model relationship that may come back can be switched off with <code>"IsEnabled": false</code> instead — that keeps it and can be undone.</p>
+<p>Removals run after everything else in the file is saved, and they are all-or-nothing:</p>
+<ul>
+<li>A primary key column, a model's base source and security level 1 cannot be removed.</li>
+<li>Anything something still uses is refused, and the message lists each use — for a column, a lookup's key or display column, a hierarchy set, a model built on the view, or a where clause, filter or lookup expression that names it; for a source, the columns and joins that go through it; for a security level, the columns and actions assigned to it. Change the use — in the same file is fine, since it is saved first, and removing those columns in the same file counts — and load again.</li>
+<li>Anything already gone is reported as already removed, so the entry can stay in the file for every later install and upgrade.</li>
+</ul>
+<p>The views that lost a column, or whose model lost a source, are rebuilt at the next sync. Table columns are never removed this way, so no data is lost. Pages and saved grid layouts that name the column are not checked.</p>
 <h2 id="lookups">Lookups</h2>
 <p>Defines a reusable dropdown.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.CpxCategoryLookup"</span><span class="p">,</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">"BasedOnViewId_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.CpxCategory_mL"</span><span class="p">,</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">"KeyViewColumn_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cat_CpxCategoryId"</span><span class="p">,</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">"DisplayViewColumn_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cat_Name"</span><span class="p">,</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">"IsEnabledViewColumn_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cat_IsActive"</span><span class="p">,</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">  </span><span class="nt">"IsPrimary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.CpxCategoryLookup"</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">"BasedOnViewId_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.CpxCategory_mL"</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">"KeyViewColumn_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cat_CpxCategoryId"</span><span class="p">,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">  </span><span class="nt">"DisplayViewColumn_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cat_Name"</span><span class="p">,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="nt">"IsEnabledViewColumn_Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cat_IsActive"</span><span class="p">,</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">  </span><span class="nt">"IsPrimary"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="p">}</span>
 </code></pre></div>
 <p><strong>Required:</strong> <code>Name</code>.</p>
 <p>A lookup is defined once and referenced from any number of view columns, so the same list behaves identically everywhere it appears. <code>IsEnabledViewColumn_Name</code> is what lets a retired entry stay on historic records while disappearing from the dropdown for new ones.</p>

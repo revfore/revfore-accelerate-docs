@@ -945,9 +945,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-load-it-into-onestream" class="md-nav__link">
+  <a href="#step-5-build-the-setup-package" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Load it into OneStream
+      Step 5: Build the setup package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-install-it-in-onestream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Install it in OneStream
     </span>
   </a>
   
@@ -1154,6 +1163,48 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3783,9 +3834,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-5-load-it-into-onestream" class="md-nav__link">
+  <a href="#step-5-build-the-setup-package" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 5: Load it into OneStream
+      Step 5: Build the setup package
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-install-it-in-onestream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 6: Install it in OneStream
     </span>
   </a>
   
@@ -3962,7 +4022,9 @@
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>├── rfaRef/  rfaOsRef/         Revfore reference stubs - never edit
 <a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>├── samples/GLEntry/           a complete worked solution
 <a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>├── solutions/                 your design work
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>└── .claude/skills/            the Framework skills
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│   └── _template/             copy this to start a solution
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>├── docs/                      the extension-code and setup package reference
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>└── .claude/skills/            the Framework skills
 </code></pre></div>
 <h3 id="step-2-add-the-onestream-reference-assemblies">Step 2: Add the OneStream reference assemblies</h3>
 <p>The kit compiles against OneStream's official reference assemblies. <strong>Revfore cannot redistribute this package</strong>, so the kit does not include it. Get it from your OneStream channel under your own licence.</p>
@@ -4004,7 +4066,7 @@
 <p>Tell Claude what the solution needs to do in plain English: what gets planned or tracked, by whom, how it is approved, and whether and how it posts to the cube. Include anything you know about existing configuration, such as workflow units, cubes, dimensions and accounts.</p>
 <p>Claude asks about anything a design needs but you haven't said. Answer those questions rather than letting it guess. A missing prerequisite, such as cube posting or a parent/child review, usually means table changes later.</p>
 <h3 id="step-2-review-the-design-and-workbook">Step 2: Review the design and workbook</h3>
-<p>Claude creates a folder for the solution under <code>solutions/</code>, named for the solution alone (<code>solutions/SpendPlanning/</code>, no date), and writes:</p>
+<p>Claude creates a folder for the solution under <code>solutions/</code>, named for the solution alone (<code>solutions/SpendPlanning/</code>, no date), starting from <code>solutions/_template/</code>, and writes:</p>
 <table>
 <thead>
 <tr>
@@ -4055,9 +4117,19 @@
 <td><a href="../import/data/">Data Files</a></td>
 </tr>
 <tr>
+<td><code>420-&lt;Solution&gt;-pages.json</code></td>
+<td>Each page's settings — which grids it shows, their names and edit modes — as rows for the Linked Page Settings view</td>
+<td><a href="../pages/">Solution Pages</a></td>
+</tr>
+<tr>
 <td><code>490-&lt;Solution&gt;-data-sample.json</code></td>
 <td>Optional sample data to seed a demo or prototype. Load it only if you want it</td>
 <td><a href="../import/data/">Data Files</a></td>
+</tr>
+<tr>
+<td><code>setup-package.json</code></td>
+<td>The steps that install the solution: import <code>300</code>, sync, import <code>410</code>, import <code>420</code></td>
+<td><a href="../setup-packages/">Setup Packages</a></td>
 </tr>
 </tbody>
 </table>
@@ -4069,8 +4141,17 @@
 <p class="admonition-title">Integration codes from your instance</p>
 <p>A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. Read them off the relevant admin screen, because a guessed code can load against the wrong record.</p>
 </div>
-<h3 id="step-5-load-it-into-onestream">Step 5: Load it into OneStream</h3>
-<p>Load and sync the files in the order described in <a href="../import/#loading-a-file">Loading a file</a>: structure file (<code>300</code>), sync tables, sync views, then the data files (<code>4xx</code>) <strong>in file-name order</strong>. The numbers are chosen so that a data file always loads after the files its rows refer to.</p>
+<h3 id="step-5-build-the-setup-package">Step 5: Build the setup package</h3>
+<p>A solution installs as <strong>one zip</strong>. <code>setup-package.json</code> lists the steps, and the builder turns it into <code>rfaExtensionSetupPackage.zip</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python .claude/skills/revfore-framework/scripts/build_setup_package.py solutions/&lt;folder&gt;/setup-package.json
+</code></pre></div>
+<p>It validates every file the package imports, refuses a data import that has no sync before it, and stamps the version. Raise <code>Revision</code> in <code>setup-package.json</code> for each release. Never zip the files by hand. See <a href="../setup-packages/">Setup Packages</a>.</p>
+<h3 id="step-6-install-it-in-onestream">Step 6: Install it in OneStream</h3>
+<ul>
+<li><strong>While you build it</strong>, load the zip directly: <strong>Load</strong> on <strong>Admin | Relational | Tables</strong> takes a <code>.zip</code> as well as a <code>.json</code>. It runs the whole package — import, sync, data, pages — in one go, and can be reloaded as often as you need. See <a href="../setup-packages/#by-loading-it-while-you-build">Loading a package while you build it</a>.</li>
+<li><strong>For a customer</strong>, upload the zip to the <strong>Files</strong> of <strong>XCP_xRfaDlg_ActnExtension</strong>, replacing the one there, and run <strong>Config | Setup &amp; Upgrade</strong>. See <a href="../setup-packages/#with-setup">Installing it with Setup</a>.</li>
+</ul>
+<p>Either way, nobody loads files or presses Sync by hand. You can still load a single file the manual way — structure (<code>300</code>), sync tables, sync views, then data (<code>4xx</code>) in file-name order, as in <a href="../import/#loading-a-file">Loading a file</a> — which is useful for trying one change on its own. Sample data (<code>490</code>) is never in the package, so it is always loaded that way.</p>
 <p>To change a solution that already exists in an instance, <strong>extract it first</strong> with <strong>Load/Extract | Extract | Both</strong> on <strong>Admin | Relational | Tables</strong>, and save the file in the solution folder. Claude then works from what's actually in the instance, not from a description of it. See <a href="../import/#extracting-a-solution">Extracting a solution</a>.</p>
 <h2 id="solution-folder-file-names">Solution folder file names</h2>
 <p>Everything Claude writes into a solution folder is named so that <strong>sorting by name puts it in working order</strong>: notes first, then the design rounds, then the files to load, in the order to load them.</p>
@@ -4106,12 +4187,12 @@
 </tr>
 <tr>
 <td><code>400</code>-<code>499</code></td>
-<td>Data files to load — one, plus optional sample data</td>
-<td><code>410-SpendPlanning-data.json</code>, <code>490-SpendPlanning-data-sample.json</code></td>
+<td>Data files to load — one, plus page settings and optional sample data</td>
+<td><code>410-SpendPlanning-data.json</code>, <code>420-SpendPlanning-pages.json</code>, <code>490-SpendPlanning-data-sample.json</code></td>
 </tr>
 <tr>
 <td><code>500</code>-<code>599</code></td>
-<td>Hand-written SQL</td>
+<td>Hand-written SQL — <code>500</code> before the structure, <code>510</code> after the sync, <code>590</code> for uninstall</td>
 <td><code>500-SpendPlanning-view-SpdPlanTall.sql</code></td>
 </tr>
 <tr>
@@ -4121,11 +4202,12 @@
 </tr>
 </tbody>
 </table>
+<p>Two files sit outside the numbering: <code>setup-package.json</code>, the <a href="../setup-packages/">setup package</a> source, and the <code>rfaExtensionSetupPackage.zip</code> the builder writes next to it.</p>
 <ul>
 <li><strong>The solution folder has no date</strong> - <code>solutions/SpendPlanning/</code>. The workbook files carry the dates instead.</li>
 <li><strong>Every workbook round has a two-digit round number</strong>, the first one included (<code>-r01</code>), so rounds sort correctly - <code>r10</code> after <code>r09</code>, and the first round before the second.</li>
 <li><strong>Numbers step by 10 within a group</strong>, leaving room to add a file later without renaming the others.</li>
-<li><strong>One data file.</strong> Each file is a separate load, so every row the solution needs to run goes in <code>410-&lt;Solution&gt;-data.json</code>, ordered so that rows are created before anything that refers to them. The only other data file is optional sample data for a demo or prototype, <code>490-&lt;Solution&gt;-data-sample.json</code>, loaded after it if you want it.</li>
+<li><strong>One data file to start with.</strong> Every row the solution needs to run goes in <code>410-&lt;Solution&gt;-data.json</code>, ordered so that rows are created before anything that refers to them. A larger solution can split structure or data by area (<code>310-</code>, <code>430-</code>), since the setup package loads them all in one run. Optional sample data for a demo or prototype goes in <code>490-&lt;Solution&gt;-data-sample.json</code>, outside the package.</li>
 <li><strong>The full solution name is in every file name</strong>, because files are loaded into OneStream and shared on their own, away from the folder.</li>
 <li><strong>No spaces</strong>, so any file can be named on a command line without quotes.</li>
 <li>Scripts Claude writes to produce large files go in a <code>scripts/</code> subfolder, and superseded drafts in <code>archive/</code>.</li>
@@ -4199,6 +4281,11 @@
 <td>As above</td>
 </tr>
 <tr>
+<td>The setup package builder or Setup refuses the package</td>
+<td>A placeholder left from the template, a missing sync, the version, or a hand-edited zip</td>
+<td>See <a href="../setup-packages/#troubleshooting">Setup Packages troubleshooting</a></td>
+</tr>
+<tr>
 <td>The validator reports errors on JSON Claude wrote</td>
 <td>The file was edited by hand, or the kit's skills are older than your release</td>
 <td>Ask Claude to fix the reported rules, then validate again</td>
@@ -4209,7 +4296,7 @@
 <ul>
 <li>Keep one kit folder per project or customer. Each has its own <code>solutions/</code> and its own copy of the extension assembly, as each OneStream instance does.</li>
 <li>Put the kit folder under source control, but exclude <code>packages/</code>, <code>bin/</code> and <code>obj/</code>. The OneStream package must not be committed to a shared or public repository.</li>
-<li><code>samples/GLEntry</code> is a complete worked example, laid out with the <a href="#solution-folder-file-names">solution folder file names</a>: validated import JSON, sample data, and the <code>JrlEntryHandler</code> that goes with it. Read it before writing your first handler.</li>
+<li><code>samples/GLEntry</code> is a complete worked example, laid out with the <a href="#solution-folder-file-names">solution folder file names</a>: validated import JSON, a setup package, sample data, and the <code>JrlEntryHandler</code> that goes with it. Read it before writing your first handler.</li>
 </ul>
 
 

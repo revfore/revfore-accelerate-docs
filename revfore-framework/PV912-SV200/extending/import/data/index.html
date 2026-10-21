@@ -16,7 +16,7 @@
         <link rel="prev" href="../structure/">
       
       
-        <link rel="next" href="../../writing-code/">
+        <link rel="next" href="../../pages/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -983,12 +983,36 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Re-running an import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-only-or-insert-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update only, or insert only
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#what-belongs-here" class="md-nav__link">
     <span class="md-ellipsis">
       What belongs here
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-a-grid-file-export-and-file-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      From a grid: File Export and File Import
     </span>
   </a>
   
@@ -1015,6 +1039,48 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -3580,12 +3646,36 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Re-running an import">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-only-or-insert-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      Update only, or insert only
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#what-belongs-here" class="md-nav__link">
     <span class="md-ellipsis">
       What belongs here
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-a-grid-file-export-and-file-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      From a grid: File Export and File Import
     </span>
   </a>
   
@@ -3653,6 +3743,10 @@
 </code></pre></div>
 <p>This is what makes a data file portable. The same file seeds a development instance and a production one, even though the underlying ids differ.</p>
 <p>Order your blocks so referenced rows are created first — categories before the items that point at them.</p>
+<p>A code that names a relational object — a view, a table, a schema — takes the same schema tokens as a structure file, and they are resolved before rows are matched:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">"RelVw_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.PrtTopSales_mG"</span><span class="p">,</span><span class="w"> </span><span class="nt">"RelVw_NavigateToEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>Never write the literal schema name (<code>rfa01x</code>) — another environment's schema can be named differently. A bare <code>{RfaExtension}</code> is the schema itself. Ordinary codes like <code>Equipment</code> have no token and are left as they are.</p>
 <h2 id="re-running-an-import">Re-running an import</h2>
 <p>Data imports <strong>match on integration code</strong>. A row whose code already exists is updated; a row whose code is new is inserted. Nothing is duplicated.</p>
 <p>That makes a data file the maintainable way to manage reference data:</p>
@@ -3665,6 +3759,45 @@
 <p class="admonition-title">Note</p>
 <p>Without one there is nothing to match on, and a second import inserts a second row instead of updating the first. For seed data you expect to maintain, give every row a stable code and never change it — the code is the identity, not the name.</p>
 </div>
+<h3 id="update-only-or-insert-only">Update only, or insert only</h3>
+<p>An entry's <code>Mode</code> changes how its rows meet the ones already there:</p>
+<table>
+<thead>
+<tr>
+<th><code>Mode</code></th>
+<th>A row whose code exists</th>
+<th>A row whose code is new</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Upsert</code> (the default)</td>
+<td>is updated</td>
+<td>is inserted</td>
+</tr>
+<tr>
+<td><code>Update</code></td>
+<td>is updated</td>
+<td>stops the import, naming the code</td>
+</tr>
+<tr>
+<td><code>Insert</code></td>
+<td>is left as it is, and reported</td>
+<td>is inserted</td>
+</tr>
+</tbody>
+</table>
+<p>In every mode a row sets only the columns it gives — an existing row keeps its other values.</p>
+<p><strong><code>Update</code></strong> is for changing a few columns on rows that already exist, such as switching a setting on a core view. Each row needs only its integration code and the columns that change, and a mistyped code is reported instead of attempting a half-filled insert.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"ViewId_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaCore}.RelView_mE"</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"Mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Update"</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">"Rows"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"RelVw_IntegrationCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.PrtTopSales_mG"</span><span class="p">,</span><span class="w"> </span><span class="nt">"RelVw_NavigateToEnabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</code></pre></div>
+<p><strong><code>Insert</code></strong> is for starter rows that the customer may change afterwards — default categories, initial settings. Setup re-runs data files on every upgrade; with <code>Insert</code> the rows are added once and the customer's later edits are never overwritten.</p>
 <h2 id="what-belongs-here">What belongs here</h2>
 <p>Good candidates:</p>
 <ul>
@@ -3674,10 +3807,14 @@
 </ul>
 <p>Less suitable:</p>
 <ul>
-<li><strong>Transactional data.</strong> Use the file import actions on the views themselves, which are built for volume.</li>
+<li><strong>Transactional data.</strong> Use <strong>File Import</strong> on the views themselves, which is built for volume — and takes this same format. See below.</li>
 <li><strong>Anything users maintain.</strong> If people will edit it in the UI, seeding it once then re-importing later will overwrite their changes.</li>
 </ul>
 <p>That last point is the important judgement call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave the file alone.</p>
+<h2 id="from-a-grid-file-export-and-file-import">From a grid: File Export and File Import</h2>
+<p>A grid's <strong>File Export</strong> can write this same format, and <strong>File Import</strong> reads it back — see <a href="../../../concepts/metadataDrivenUI/actions/#file-export-and-import-as-json">File Export and Import as JSON</a>.</p>
+<p>The file holds one block per view: the grid's view first, with the rows its filters select, then each level of child views with the rows that belong to them. Child rows point at their parent by its integration code, so a new order and its new lines import together.</p>
+<p>Because it is the same format, a grid export can also be loaded with <strong>Load</strong>. The difference is scope: from a grid, a file can only touch the rows that grid shows and its child records; <strong>Load</strong> is an administrator's tool and writes wherever the file says.</p>
 <h2 id="notes">Notes</h2>
 <ul>
 <li>Row keys are view column names, with the model alias prefix.</li>

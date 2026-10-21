@@ -1120,6 +1120,48 @@
   
   
     <li class="md-nav__item">
+      <a href="../pages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Solution Pages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-packages/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setup Packages
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../writing-code/" class="md-nav__link">
         
   
@@ -3896,7 +3938,7 @@
 </tr>
 </tbody>
 </table>
-<p>Because references are by code, an import is <strong>re-runnable</strong>. Running the same file twice updates what it defined the first time rather than creating duplicates.</p>
+<p>Because references are by code, an import is <strong>re-runnable</strong>. Running the same file twice updates what it defined the first time rather than creating duplicates. It never deletes what a file leaves out — columns, sources, relationships, actions, filters and security levels are removed only when <a href="structure/#removing-columns-and-other-items">marked for removal</a>.</p>
 <h2 id="schema-tokens">Schema tokens</h2>
 <p>Names are prefixed with a schema token rather than a literal schema name:</p>
 <ul>
@@ -3935,7 +3977,11 @@
 </table>
 <p>Clicking it opens a page where you choose what to do. Loading works the same from any of the three,
 so use whichever screen you happen to be on. <a href="#extracting-a-solution">Extracting</a> is on Tables only.</p>
-<p>Standing up a new solution takes five steps, in this order.</p>
+<div class="admonition tip">
+<p class="admonition-title">Installing a whole solution? Use its setup package</p>
+<p>A finished solution installs as one zip, a <a href="../setup-packages/">setup package</a>, which runs all of the steps below for you: imports, syncs, data and page settings. <strong>Load</strong> takes that <code>.zip</code> as well as a <code>.json</code>. The steps below are for loading a single file yourself — trying one change, or loading sample data.</p>
+</div>
+<p>Standing up a new solution by hand takes five steps, in this order.</p>
 <h3 id="step-1-load-the-structure-file">Step 1: Load the structure file</h3>
 <ol>
 <li>Go to <strong>Admin | Relational | Tables</strong></li>
