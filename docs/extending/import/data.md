@@ -110,10 +110,28 @@ Good candidates:
 
 Less suitable:
 
-- **Transactional data.** Use **File Import** on the views themselves, which is built for volume — and takes this same format. See below.
-- **Anything users maintain.** If people will edit it in the UI, seeding it once then re-importing later will overwrite their changes.
+- **Transactional data.** Plans, journals, actuals and other high-volume files are a recurring business process, not part of setting up a solution. Users load them with **File Import** on the views themselves, which takes this same format, or — for the largest recurring files — with extension code. See [High-volume transactional files](#high-volume-transactional-files) below.
+- **Anything users maintain.** If people will edit it in the UI, re-importing it later overwrites their changes. Seed it with `"Mode": "Insert"`, which adds the rows once and never touches them again, or leave it out of the file.
 
-That last point is the important judgement call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave the file alone.
+That last point is the important judgement call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave them alone.
+
+### High-volume transactional files
+
+Grid **File Import** handles volume reasonably well: it compares the file with the existing rows first, then inserts and updates in batches. That first compare — matching every row, checking it against the grid's scope, validating it and listing it for review — is what makes it a little slower, and it is worth having when a user is checking what a file will change. For a file of thousands of transactions loaded every period, the compare and review are overhead nobody uses.
+
+For those, write a **custom action** in the extension assembly:
+
+1. **Ask for the file** with the shared **Select File** form. The action calls `SharedMethods.InitializeFileSelect` and names the form in its `ShaFormId_IntegrationCode`. When the user uploads a file and presses Proceed, the form calls the same action again, and `SharedMethods.GetFileSelectFilePath` returns the file.
+2. **Read it** with `SharedMethods.ReadFileText`, and pass the whole document to SQL Server as **one parameter**.
+3. **Check it** with a `select` over `openjson(@Json, '$.Data[0].Rows')`: missing keys, duplicates, and lookup codes that match no row. Refuse the file with counts if anything is wrong.
+4. **Load it** with one `insert … select … from openjson(…)` — or a delete and an insert, for a file that replaces a period's rows — in one transaction.
+
+The file can be in the [data file](#shape) format, so it is the same file a grid exports. However many rows it holds, the load is one round trip and one statement.
+
+!!! warning "Your code takes over what the grid did"
+    A set-based load writes straight to the table. It skips the row-by-row validation, save handlers, default values and audit stamping that a grid save, File Import or Load provides, so the action has to do what it needs itself: resolve each `_IntegrationCode` to its id by joining to the lookup's table, set the audit columns, and check the rows before inserting them. Keep small master tables — customers, classes, statuses — on the ordinary path, where all of that comes for free.
+
+The [Extension Kit](../extension-kit.md)'s reference has the worked code: **Ask the user, then run your code** in `docs/actions.md`, and loading JSON in one statement in `docs/sql.md`.
 
 ## From a grid: File Export and File Import
 
