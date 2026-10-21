@@ -1004,22 +1004,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-create-the-page-in-onestream" class="md-nav__link">
+  <a href="#step-1-claude-writes-the-page-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Create the page in OneStream
+      Step 1: Claude writes the page definition
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-configure-what-the-page-shows" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Configure what the page shows
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 2: Configure what the page shows">
+    <nav class="md-nav" aria-label="Step 1: Claude writes the page definition">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1058,17 +1049,26 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-the-page-in-onestream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create the page in OneStream
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#capturing-a-page-you-configured-by-hand" class="md-nav__link">
     <span class="md-ellipsis">
       Capturing a page you configured by hand
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3683,22 +3683,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-create-the-page-in-onestream" class="md-nav__link">
+  <a href="#step-1-claude-writes-the-page-definition" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 1: Create the page in OneStream
+      Step 1: Claude writes the page definition
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-configure-what-the-page-shows" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 2: Configure what the page shows
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 2: Configure what the page shows">
+    <nav class="md-nav" aria-label="Step 1: Claude writes the page definition">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3737,17 +3728,26 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-the-page-in-onestream" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create the page in OneStream
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#capturing-a-page-you-configured-by-hand" class="md-nav__link">
     <span class="md-ellipsis">
       Capturing a page you configured by hand
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3796,10 +3796,10 @@
 <h1 id="solution-pages">Solution Pages</h1>
 <p><a href="../">← Back to Extending the Framework</a></p>
 <p>A solution's screens are <strong>pages</strong> in the Revfore navigation. An application group, such as <strong>Home</strong>, holds navigation groups, and a navigation group holds pages. Each page has a <a href="../../concepts/metadataDrivenUI/contentItem/">Content Item</a> layout with one or two <a href="../../concepts/metadataDrivenUI/contentSubItem/">Content Sub Items</a>: a drop-down of grids, a list, summary cards, cube views, and so on. What each content sub item shows is set by the page's <strong>linked page settings</strong>.</p>
-<p>A page is set up in two parts, in this order:</p>
+<p>A page is set up in two steps, in this order:</p>
 <ol>
-<li><strong>Create the page in OneStream</strong>: its navigation entry and the page itself. These are workspace objects, created by hand, and they ship in your workspace XML.</li>
-<li><strong>Configure what the page shows</strong>: the linked page settings. These are data. Claude writes them in <code>420-&lt;Solution&gt;-pages.json</code>, and the <a href="../setup-packages/#pages">setup package</a> loads them on install.</li>
+<li><strong>Claude writes the page definition</strong>: what each page shows, as linked page settings in <code>420-&lt;Solution&gt;-pages.json</code>, plus the list of pages for you to create, with each page's navigation group, page name and layout. The settings are data, and the <a href="../setup-packages/#pages">setup package</a> loads them on install.</li>
+<li><strong>You create the page in OneStream</strong>: you add the navigation group and the page by hand, then link the page to its layout. These are workspace objects and they ship in your workspace XML.</li>
 </ol>
 <p>Keeping the settings as data means the same file sets up the page in every environment the solution is installed in, without anyone repeating the configuration by hand.</p>
 <h2 id="names-and-the-linked-page-reference">Names and the linked page reference</h2>
@@ -3848,14 +3848,14 @@
 <p class="admonition-title">Type the names exactly</p>
 <p>The three names are what connect the page you create in OneStream to its settings in <code>420-&lt;Solution&gt;-pages.json</code>. A page created with any other spelling never picks up its settings, and nothing reports it. The text on the page's button is separate and can be anything, so <code>Projects</code> can show as "Projects and Tasks".</p>
 </div>
-<p>When Claude writes the pages, it lists each one split into these names, with the dashboard to link to it:</p>
+<p>When Claude writes the pages, it lists each one split into these names, with the layout to link it to. This list is your instructions for <a href="#step-2-create-the-page-in-onestream">Step 2</a>:</p>
 <table>
 <thead>
 <tr>
 <th>Application group</th>
 <th>Navigation group</th>
 <th>Page</th>
-<th>Linked dashboard</th>
+<th>Layout (linked dashboard)</th>
 <th>Linked page reference</th>
 </tr>
 </thead>
@@ -3864,24 +3864,25 @@
 <td><code>Home</code> (existing)</td>
 <td><code>ProjectTracking</code> (new)</td>
 <td><code>Projects</code></td>
-<td><code>pge_RfaConItm101_Set1000_0_ContentItem</code></td>
+<td>Two, stacked — <code>pge_RfaConItm101_Set1000_0_ContentItem</code></td>
 <td><code>Home_ProjectTracking_Projects_Set1000</code></td>
 </tr>
 <tr>
 <td><code>Admin</code> (existing)</td>
 <td><code>ProjectTracking</code> (new)</td>
 <td><code>Supporting</code></td>
-<td><code>pge_RfaConItm100_Set1000_0_ContentItem</code></td>
+<td>One — <code>pge_RfaConItm100_Set1000_0_ContentItem</code></td>
 <td><code>Admin_ProjectTracking_Supporting_Set1000</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="layouts">Layouts</h2>
-<p>Every page is linked to one of three content item dashboards, which decides its layout:</p>
+<p>Every page is linked to one of three content item dashboards in the <strong>Revfore Framework</strong> workspace, which decides its layout:</p>
 <table>
 <thead>
 <tr>
 <th>Linked dashboard</th>
+<th>Maintenance unit</th>
 <th>Layout</th>
 <th>Content sub items</th>
 </tr>
@@ -3889,16 +3890,19 @@
 <tbody>
 <tr>
 <td><code>pge_RfaConItm100_Set1000_0_ContentItem</code></td>
+<td><code>XCP_RfaConItm100_Set1000</code></td>
 <td>One content sub item</td>
 <td>1</td>
 </tr>
 <tr>
 <td><code>pge_RfaConItm101_Set1000_0_ContentItem</code></td>
+<td><code>XCP_RfaConItm101_Set1000</code></td>
 <td>Two, stacked vertically</td>
 <td>1 (top), 2 (bottom)</td>
 </tr>
 <tr>
 <td><code>pge_RfaConItm102_Set1000_0_ContentItem</code></td>
+<td><code>XCP_RfaConItm102_Set1000</code></td>
 <td>Two, side by side</td>
 <td>1 (left), 2 (right)</td>
 </tr>
@@ -3916,90 +3920,23 @@
 <li>a <strong>Settings</strong> page under <strong>Admin</strong>, when the solution has general settings of its own</li>
 </ul>
 <p>Change the sheet like any other. Claude then generates <code>420-&lt;Solution&gt;-pages.json</code> from it and lists the pages for you to create.</p>
-<h2 id="step-1-create-the-page-in-onestream">Step 1: Create the page in OneStream</h2>
-<p>The quickest way is to <strong>copy an existing page and rename it</strong>. Pick a page with the same layout, then copy each object below and replace that page's <code>&lt;ApplicationGroup&gt;_&lt;NavigationGroup&gt;_&lt;Page&gt;</code> with yours <strong>everywhere it appears</strong>: object names, parameter values, embedded dashboard names, and the button settings.</p>
-<p>In the tables, <code>&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code> is your three names — with the example above, <code>Home_ProjectTracking_Projects</code>.</p>
-<p><strong>The page</strong>, in its own maintenance unit:</p>
-<table>
-<thead>
-<tr>
-<th>Object</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Maintenance unit</td>
-<td><code>Pview_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code></td>
-</tr>
-<tr>
-<td>Dashboard group, in it</td>
-<td><code>Page_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code></td>
-</tr>
-<tr>
-<td>Dashboard, in the group</td>
-<td><code>page_bag_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code>, layout <strong>Uniform</strong>, with one member:</td>
-</tr>
-<tr>
-<td>Embedded dashboard component</td>
-<td><code>ebd_XLL_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;_xx&lt;content item dashboard&gt;</code>, embedding the layout's <code>pge_RfaConItm10x_Set1000_0_ContentItem</code></td>
-</tr>
-<tr>
-<td>Embedded dashboard component</td>
-<td><code>Embedded page_bag_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>The navigation entry</strong>, in the application group's navigation maintenance unit, <code>Pnavs_&lt;App&gt;</code>:</p>
-<table>
-<thead>
-<tr>
-<th>Object</th>
-<th>Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Parameter</td>
-<td><code>bin_Page_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code></td>
-</tr>
-<tr>
-<td>Buttons</td>
-<td><code>bti_Page_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code> and <code>btn_Page_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code>, with the page's caption as their text</td>
-</tr>
-<tr>
-<td>Supplied parameter</td>
-<td><code>spp_bin_Page_&lt;App&gt;_&lt;Nav&gt;_&lt;Page&gt;</code></td>
-</tr>
-<tr>
-<td>Dashboards</td>
-<td><code>bin_Page_…</code> in <code>Template_ButtonIndicators_&lt;App&gt;</code>, <code>bpr_Page_…</code> in <code>Template_ButtonPairs_&lt;App&gt;</code>, and <code>bwr_Page_…</code> in <code>Template_ButtonWrappers_&lt;App&gt;</code></td>
-</tr>
-<tr>
-<td>Embedded dashboard components</td>
-<td><code>Embedded bin_Page_…</code>, <code>Embedded bpr_Page_…</code> and <code>Embedded bwr_Page_…</code></td>
-</tr>
-<tr>
-<td>Members of the navigation group's dashboards</td>
-<td>Add <code>spp_bin_Page_…</code> to <code>container_bag_&lt;App&gt;_&lt;Nav&gt;</code>, and <code>Embedded bwr_Page_…</code> to <code>container_barPage_&lt;App&gt;_&lt;Nav&gt;</code> and <code>container_barNavCollapsed_&lt;App&gt;_&lt;Nav&gt;</code>, in the order the pages should appear</td>
-</tr>
-</tbody>
-</table>
-<p>A <strong>new navigation group</strong> is the dashboard group <code>Pnav_&lt;App&gt;_&lt;Nav&gt;</code> with its <code>container_*_&lt;App&gt;_&lt;Nav&gt;</code> dashboards, in <code>Pnavs_&lt;App&gt;</code>. Copy an existing navigation group the same way.</p>
-<p><strong>Link the layout.</strong> Select the page you just created, click <strong>Link an Existing Content Item from a Shared Workspace</strong> (the chain-link button), and pick the layout's dashboard from the <a href="#layouts">table above</a>.</p>
-<p><strong>Check it.</strong> Open the application group: the new button appears, and clicking it opens an empty page. It has no settings yet.</p>
-<h2 id="step-2-configure-what-the-page-shows">Step 2: Configure what the page shows</h2>
+<h2 id="step-1-claude-writes-the-page-definition">Step 1: Claude writes the page definition</h2>
+<p>Claude writes two things:</p>
+<ul>
+<li><strong><code>420-&lt;Solution&gt;-pages.json</code></strong>: what each page shows.</li>
+<li><strong>The list of pages to create</strong>: each page's application group, navigation group, page name and layout, as in the <a href="#names-and-the-linked-page-reference">table above</a>. Keep it for Step 2.</li>
+</ul>
 <h3 id="from-the-design-workbook">From the design workbook</h3>
 <p>With a Pages sheet, Claude generates the settings from it. In the <a href="../extension-kit/">Extension Kit</a>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>python .claude/skills/revfore-framework/scripts/build_pages.py solutions/&lt;Solution&gt;/200-&lt;Solution&gt;-spec.json
 </code></pre></div>
 <p>This writes and validates <code>420-&lt;Solution&gt;-pages.json</code> and prints the list of pages to create in OneStream.</p>
 <h3 id="by-describing-the-page">By describing the page</h3>
-<p>Without a Pages sheet, ask Claude for the page's settings. Give it the linked page reference, the layout, and what each content sub item should show — for example:</p>
+<p>Without a Pages sheet, ask Claude for the page. Say where it goes and what each content sub item should show. Claude proposes the names and layout if you leave them out. For example:</p>
 <blockquote>
-<p><em>Home_Journals_Journals_Set1000, layout 101: item 1 the Journals grid, OneStream workflow on area Jm_Journals; item 2 the Controlled Itemized Area Scope cube view, Revfore workflow on the same area.</em></p>
+<p><em>A Journals page under Home in a Journals navigation group, two stacked items: item 1 the Journals grid, OneStream workflow on area Jm_Journals; item 2 the Controlled Itemized Area Scope cube view, Revfore workflow on the same area.</em></p>
 </blockquote>
-<p>Claude writes one row per page in <code>420-&lt;Solution&gt;-pages.json</code>:</p>
+<p>Claude gives you the names and layout to create in Step 2, here <code>Home</code> / <code>Journals</code> / <code>Journals</code> with the stacked layout <code>pge_RfaConItm101_Set1000_0_ContentItem</code>. It also writes one row per page in <code>420-&lt;Solution&gt;-pages.json</code>:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">"Data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="p">{</span>
@@ -4071,7 +4008,27 @@
 <p>The page shows the same text under <strong>Setup</strong>, in its adapter instructions.</p>
 </li>
 </ol>
-<h3 id="capturing-a-page-you-configured-by-hand">Capturing a page you configured by hand</h3>
+<h2 id="step-2-create-the-page-in-onestream">Step 2: Create the page in OneStream</h2>
+<p>Use Claude's list from Step 1 and create each page by hand. Type the names exactly as the list gives them.</p>
+<ol>
+<li><strong>Open the application group's designer.</strong> Use the application group from the list: <strong>Home</strong> or <strong>Admin</strong>.</li>
+<li><strong>Create the navigation group.</strong> Add a new navigation group with the list's <strong>Navigation group</strong> name, for example <code>ProjectTracking</code>. A solution normally has one per application group, so do this only for its first page there.</li>
+<li><strong>Create the page.</strong> Add a new page to that navigation group with the list's <strong>Page</strong> name, for example <code>Projects</code>. The caption on its button can be anything.</li>
+<li><strong>Link the layout.</strong> Select the new page and click <strong>Link an Existing Content Item from a Shared Workspace</strong> (the chain-link button).</li>
+<li><strong>Pick the workspace.</strong> Select the Revfore Framework workspace: <strong>Revfore Framework (RFA)</strong>, or <em>name (code)</em> if you <a href="../../appGroups/config/create-new-instance/">created your own instance</a>.</li>
+<li><strong>Pick the layout.</strong> Type <code>ContentItem</code> in the filter and select the content item dashboard the list gives for that page. It is one of the three in <a href="#layouts">Layouts</a>:<ul>
+<li><code>pge_RfaConItm100_Set1000_0_ContentItem</code> – one content sub item</li>
+<li><code>pge_RfaConItm101_Set1000_0_ContentItem</code> – two, stacked vertically</li>
+<li><code>pge_RfaConItm102_Set1000_0_ContentItem</code> – two, side by side</li>
+</ul>
+</li>
+</ol>
+<p><strong>Check it.</strong> Open the application group. The new button appears, and clicking it opens the page. If the pages file hasn't been loaded yet, the page is empty. It shows its content once the <a href="../setup-packages/#pages">setup package</a> runs, or once you <strong>Load</strong> <code>420-&lt;Solution&gt;-pages.json</code> while you build.</p>
+<div class="admonition warning">
+<p class="admonition-title">The layout must match the definition</p>
+<p>Link the page to the layout Claude gave you. Settings written for two content sub items do nothing on a one-item page.</p>
+</div>
+<h2 id="capturing-a-page-you-configured-by-hand">Capturing a page you configured by hand</h2>
 <p>Some settings, such as a static filter, are easier to set up on the page than to describe. Set the page up in OneStream, then capture it as data:</p>
 <ol>
 <li>In Designer mode, open the page, click <strong>Setup</strong>, configure it and click <strong>OK</strong>.</li>
@@ -4109,7 +4066,7 @@
 <p>A release that adds or changes pages ships them in a file of its own as well, so existing installs pick them up when they upgrade. If a release moves a page to a different layout, the administrator has to re-link it by hand after Setup. See <a href="../setup-packages/#pages-in-later-releases">Pages in later releases</a>.</p>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Create the page in OneStream before its settings are loaded. Settings for a page that doesn't exist yet do nothing until it does.</li>
+<li>The pages file can be loaded before or after the page is created in OneStream. The settings take effect once a page with the matching names exists.</li>
 <li>The page's objects are workspace objects, so they move with the workspace XML, not with the setup package.</li>
 <li>A page's columns are the view's. To change what a grid shows on every page, change the view; to change which grids a page offers, change the page.</li>
 </ul>
