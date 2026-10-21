@@ -53,6 +53,14 @@ This is what makes a data file portable. The same file seeds a development insta
 
 Order your blocks so referenced rows are created first — categories before the items that point at them.
 
+A code that names a relational object — a view, a table, a schema — takes the same schema tokens as a structure file, and they are resolved before rows are matched:
+
+```json
+{ "RelVw_IntegrationCode": "{RfaExtension}.PrtTopSales_mG", "RelVw_NavigateToEnabled": false }
+```
+
+Never write the literal schema name (`rfa01x`) — another environment's schema can be named differently. A bare `{RfaExtension}` is the schema itself. Ordinary codes like `Equipment` have no token and are left as they are.
+
 ## Re-running an import
 
 Data imports **match on integration code**. A row whose code already exists is updated; a row whose code is new is inserted. Nothing is duplicated.
@@ -66,6 +74,32 @@ That makes a data file the maintainable way to manage reference data:
 !!!Note Set an integration code on anything you intend to re-import
     Without one there is nothing to match on, and a second import inserts a second row instead of updating the first. For seed data you expect to maintain, give every row a stable code and never change it — the code is the identity, not the name.
 
+### Update only, or insert only
+
+An entry's `Mode` changes how its rows meet the ones already there:
+
+| `Mode` | A row whose code exists | A row whose code is new |
+|---|---|---|
+| `Upsert` (the default) | is updated | is inserted |
+| `Update` | is updated | stops the import, naming the code |
+| `Insert` | is left as it is, and reported | is inserted |
+
+In every mode a row sets only the columns it gives — an existing row keeps its other values.
+
+**`Update`** is for changing a few columns on rows that already exist, such as switching a setting on a core view. Each row needs only its integration code and the columns that change, and a mistyped code is reported instead of attempting a half-filled insert.
+
+```json
+{
+  "ViewId_IntegrationCode": "{RfaCore}.RelView_mE",
+  "Mode": "Update",
+  "Rows": [
+    { "RelVw_IntegrationCode": "{RfaExtension}.PrtTopSales_mG", "RelVw_NavigateToEnabled": false }
+  ]
+}
+```
+
+**`Insert`** is for starter rows that the customer may change afterwards — default categories, initial settings. Setup re-runs data files on every upgrade; with `Insert` the rows are added once and the customer's later edits are never overwritten.
+
 ## What belongs here
 
 Good candidates:
@@ -76,10 +110,18 @@ Good candidates:
 
 Less suitable:
 
-- **Transactional data.** Use the file import actions on the views themselves, which are built for volume.
+- **Transactional data.** Use **File Import** on the views themselves, which is built for volume — and takes this same format. See below.
 - **Anything users maintain.** If people will edit it in the UI, seeding it once then re-importing later will overwrite their changes.
 
 That last point is the important judgement call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave the file alone.
+
+## From a grid: File Export and File Import
+
+A grid's **File Export** can write this same format, and **File Import** reads it back — see [File Export and Import as JSON](../../concepts/metadataDrivenUI/actions.md#file-export-and-import-as-json).
+
+The file holds one block per view: the grid's view first, with the rows its filters select, then each level of child views with the rows that belong to them. Child rows point at their parent by its integration code, so a new order and its new lines import together.
+
+Because it is the same format, a grid export can also be loaded with **Load**. The difference is scope: from a grid, a file can only touch the rows that grid shows and its child records; **Load** is an administrator's tool and writes wherever the file says.
 
 ## Notes
 

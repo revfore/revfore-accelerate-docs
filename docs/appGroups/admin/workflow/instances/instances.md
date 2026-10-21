@@ -14,6 +14,7 @@ Use the Workflow Instances page to:
 - review existing instances and their status
 - set the period a cycle covers and the scenario its data belongs to
 - assign the security groups that control access to the cycle's data
+- name the cycles this one is compared with
 
 ## Workflow Instance Header Record Fields
 
@@ -34,6 +35,8 @@ The following fields are used for a Workflow Instance header record.
 | Start Period | int | First period the cycle covers. | Optional. Bounds the cycle in periods, alongside the calendar dates above.
 | End Period | int | Last period the cycle covers. | Optional. Set with Start Period rather than on its own.
 | Actual End Period | int | The last period containing actuals for the cycle. | Used where a cycle mixes actual and planned data, to mark where actuals stop.
+| Compare To 1 | int | Another instance this cycle is compared with - last year's actuals, the prior forecast. | Optional. Any instance type, never the instance itself. See [Compare-to instances](#compare-to-instances).
+| Compare To 2 | int | A second instance to compare with. | Optional. Same rules as Compare To 1.
 | Security Group | int | Security group granted read-write access to the cycle's data. |
 | Read Security Group | int | Security group granted read-only access to the cycle's data. |
 | Is Enabled | bit | Indicates whether the workflow instance is enabled for use. |
@@ -98,6 +101,96 @@ The two combine as restrictions: **whatever either level forbids is forbidden.**
 
 Set **Default Unit Status** on the instance to turn this on. It is the stage a unit starts at, and without it no per-unit records are created.
 
+## Compare-to instances
+
+A cycle is rarely looked at on its own. A budget is read against last year's actuals; a forecast against the one before it. **Compare To 1** and **Compare To 2** name up to two other instances to compare with, so the comparison is configured once on the cycle rather than built into every report.
+
+Pick any instance — it does not have to be the same instance type, and actuals and plan usually are not. An instance cannot compare with itself.
+
+What the solution gets from it, without looking anything up:
+
+| Where | What |
+|---|---|
+| The workflow context | Each compare-to instance's id, display name, scenario and year |
+| Member sets | The compare-to time (the year) and scenario, next to the set's own |
+| View filters, lookup filters and run-time where clauses | Tokens for each compare-to instance — see [Tokens](#tokens) |
+| Extension code | The same values as properties of the full workflow context — see [In extension code](#in-extension-code) |
+
+Only the compared instance's own values are carried. If last year's budget itself compares with the year before, that second comparison is not followed.
+
+### Setting it up
+
+1. Create — or load — the instance you want to compare with. It has to exist before you can pick it.
+2. On the cycle that does the comparing, pick it in **Compare To 1**, and optionally a second in **Compare To 2**.
+
+The drop-down lists **every** instance, including disabled ones and those of other instance types, by name. Choosing the instance itself is refused when you save.
+
+!!! warning "Clear the reference before deleting an instance"
+    An instance that another instance compares with can't be deleted while that reference is there — the delete is refused. Clear **Compare To 1** or **2** on the instance that refers to it first.
+
+### Tokens
+
+| Token | Value |
+|---|---|
+| `{WfCompareTo1InstanceId}` | The compare-to instance's id |
+| `{WfCompareTo1DisplayName}` | Its display name |
+| `{WfCompareTo1ScenarioName}` | The name of its scenario member |
+| `{WfCompareTo1Year}` | Its year |
+
+The same four exist for `2`. A token is 0, or empty, when no compare-to is set. Text values are quoted for you, so write `= {WfCompareTo1ScenarioName}`, not `= '{WfCompareTo1ScenarioName}'`.
+
+The tokens resolve wherever the user's workflow is known:
+
+- **View filters** and **lookup filters**
+- A view's **run-time Where Clause** (Flags 2), which is applied each time the view is read — in the grid, lookups, Top Count and File Export. See [Where Clause](../../relational/relationalViews/views.md#where-clause).
+
+They do **not** resolve in a built-in Where Clause, which is compiled into the SQL view with no workflow context, so a token there would always be 0 or empty.
+
+For example, a view of actuals that shows only the year this cycle compares with:
+
+```sql
+ActYear = {WfCompareTo1Year}
+```
+
+### In cube views
+
+Each member set in the member set context carries `CompareTo1TimeName`, `CompareTo1ScenarioName`, `CompareTo2TimeName` and `CompareTo2ScenarioName`, next to its own time and scenario. A cube view reads the comparison with the same members, with only the time and scenario swapped.
+
+When a compare-to isn't set — or has no year or scenario — these **fall back to the set's own time and scenario**, so a cube view column built on them still resolves, to the current cycle, rather than failing.
+
+In a cube view, read them from `param_RfaSharedWf_MemberSetContextJson` with the set's name and the key, for example:
+
+```
+T#XFBR(Workspace.Current.rfa_os.ParamHelper, GetKeyValueFromJsonDictionary, Json = [|!param_RfaSharedWf_MemberSetContextJson!|], LookupKey = ControlledScope_CompareTo1TimeName)
+S#XFBR(Workspace.Current.rfa_os.ParamHelper, GetKeyValueFromJsonDictionary, Json = [|!param_RfaSharedWf_MemberSetContextJson!|], LookupKey = ControlledScope_CompareTo1ScenarioName)
+```
+
+The Framework's own workflow cube views already have a **Compare To Year** column built this way, on Compare To 1.
+
+### In extension code
+
+The compare-to values are on the **full** workflow context:
+
+```csharp
+var oWfContext = args.ViewerBaseAndContextSettings.ViewerBaseSettings.Get_FullWorkflowContext(parms);
+int iCompareYear = oWfContext.CompareToWfInstance1Year;
+string sCompareScenario = oWfContext.CompareToWfInstance1ScenarioDmMemberName;
+```
+
+| Property | |
+|---|---|
+| `CompareToWfInstance1Id` | The instance's id |
+| `CompareToWfInstance1DisplayName` | Its display name |
+| `CompareToWfInstance1ScenarioDmMemberId` | Its scenario member's id |
+| `CompareToWfInstance1ScenarioDmMemberName` | Its scenario member's name |
+| `CompareToWfInstance1Year` | Its year |
+
+The same five end in `2` for Compare To 2. All are 0 or empty when not set. `Get_WorkflowContext`, the lighter call, carries ids and names only, without the compare-to values.
+
+### Security
+
+Compare To names a comparison; it does not grant access to it. The instance's name, scenario and year are available to everyone using the cycle, but the data shown against them is still governed by each view's security and, for cube data, by OneStream's.
+
 ## Typical Use Cases
 
 - FY26 Budget
@@ -127,3 +220,4 @@ Set **Default Unit Status** on the instance to turn this on. It is the stage a u
 - Start Period and End Period express the cycle in periods; Start Date and End Date express it as calendar dates. They describe the same window in two forms, so keep them consistent.
 - Set Default Unit Status when creating the instance, not later. It is what per-unit records start at, and they are only created for cycles that have one.
 - Actual End Period is a different thing again - it marks where actuals stop *within* the cycle, and only matters where a cycle contains both actual and planned data.
+- Compare To 1 and 2 only name the comparison. What is shown against it is up to the solution's views and cube views.

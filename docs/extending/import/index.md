@@ -56,7 +56,7 @@ The codes follow predictable shapes:
 | A standard column | Its code | `Key_Int` |
 | An object category | Its code | `RfaTable`, `RfaDataEntryView` |
 
-Because references are by code, an import is **re-runnable**. Running the same file twice updates what it defined the first time rather than creating duplicates.
+Because references are by code, an import is **re-runnable**. Running the same file twice updates what it defined the first time rather than creating duplicates. It never deletes what a file leaves out — columns, sources, relationships, actions, filters and security levels are removed only when [marked for removal](structure.md#removing-columns-and-other-items).
 
 ## Schema tokens
 
@@ -82,7 +82,10 @@ The action is on all three admin screens, named for what each one offers:
 Clicking it opens a page where you choose what to do. Loading works the same from any of the three,
 so use whichever screen you happen to be on. [Extracting](#extracting-a-solution) is on Tables only.
 
-Standing up a new solution takes five steps, in this order.
+!!! tip "Installing a whole solution? Use its setup package"
+    A finished solution installs as one zip, a [setup package](../setup-packages.md), which runs all of the steps below for you: imports, syncs, data and page settings. **Load** takes that `.zip` as well as a `.json`. The steps below are for loading a single file yourself — trying one change, or loading sample data.
+
+Standing up a new solution by hand takes five steps, in this order.
 
 ### Step 1: Load the structure file
 

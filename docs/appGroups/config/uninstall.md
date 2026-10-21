@@ -35,6 +35,8 @@ Use **Uninstall Full** only when:
 - you are no longer using the solution, or
 - you want to fully reset the environment by uninstalling and reinstalling it
 
+A full uninstall drops everything in the extension schema. If a solution's [setup package](../../extending/setup-packages.md#uninstall) has an `Uninstall` section, for objects it created elsewhere, that runs first. Only a OneStream administrator who is not impersonating can run a full uninstall.
+
 ## Warning
 
 A full uninstall removes all solution components, including customizations. Make sure you fully understand the impact before proceeding.

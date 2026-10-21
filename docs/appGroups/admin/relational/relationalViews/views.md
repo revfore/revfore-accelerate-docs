@@ -34,11 +34,12 @@ The following fields are used for a Relational View header record.
 | Group By Enabled | bit | Indicates whether grouping is enabled for the view. | Used when the view should support grouped or aggregated output. |
 | Distinct Enabled | bit | Indicates whether distinct selection is enabled for the view. | Used when duplicate records should be eliminated from the view output.  This field is not used at this time. |
 | Navigate To Enabled | bit | Indicates whether navigation is enabled for the view. | Used when users should be able to navigate from this view to related views or records. |
+| Top Count | int | Shows at most this many rows - the first by the view's own sort. | Optional; blank shows all rows. Needs a sort on the view's columns. See [Top Count](#top-count). |
 | Unit Records Shown | int | Which records the view shows, relative to the workflow unit looking at it. | Defaults to Own Records Only. See [Workflow behaviour](#workflow-behaviour). |
 | Parent Unit Editability | int | What a Parent unit may do on this view. | Blank means read-only for a Parent. See [Workflow behaviour](#workflow-behaviour). |
 | Business Rule Flags | int | Which assembly handles this view's save and delete logic, and in what order. | Defaults to the behaviour that applied before the setting existed. See [Business Rule Flags](#business-rule-flags). |
-| Where Clause | nvarchar | Defines additional where clause logic for the view. | Used to restrict which records are included in the view.  Use the **Clause** button to open the expression editor page. |
-| Having Clause | nvarchar | Defines additional having clause logic for the view. | Used to restrict grouped or aggregated results. Use the **Clause** button to open the expression editor page. |
+| Where Clause | nvarchar | Defines additional where clause logic for the view. | Used to restrict which records are included in the view. Its **Flags** decide whether it is built into the view or applied per user - see [Where Clause](#where-clause). Use the **Clause** button to open the expression editor page. |
+| Having Clause | nvarchar | Intended to restrict grouped or aggregated results. | **Not applied yet** - it is stored, but not written into the view, so it filters nothing. Filter on a model column with the Where Clause (Flags 5) instead, or rank with Top Count. |
 | Integration Code | nvarchar | Unique value for the relational view record. | This is readonly and is auto set the same value as the View Name, providing a unique value for the record that is used for importing data. |
 | Created Date | datetime | Date and time the record was created. | This is system maintained. |
 | Modified Date | datetime | Date and time the record was last modified. | This is system maintained. |
@@ -90,6 +91,44 @@ The workflow status check still applies on top of either. A closed cycle is read
 Where a view shows more than one unit's rows, the workflow unit column appears by itself. Nothing needs configuring — it follows from Unit Records Shown including descendants and the current unit being a Parent.
 
 On every other view it stays hidden, because every row belongs to the same unit and the column would repeat a single value down the page.
+
+## Where Clause
+
+A where clause can be applied at two different moments, and its **Flags** say which:
+
+| Flags | Applied | `{Name}` refers to | Use it for |
+|---|---|---|---|
+| **1** (the default) | **When the view is built** - written into the SQL view | a column of this view | fixed filters on columns the view shows |
+| **2** | **Every time the view is read** - the grid, lookups, Top Count and File Export | a column of this view | anything that depends on who is looking or which workflow they are in |
+| **5** | **When the view is built** | a column of the view's **model** | fixed filters on columns the view does not show |
+
+**Built into the view (1 and 5).** The clause is resolved once, when the view's SQL is created by Sync or Setup. There is no user and no workflow at that moment, so a clause that uses `{CurrentUserId}`, `{WfUnitId}`, `{WfInstanceYear}` or any other user or workflow value is refused on import - it would hold the value of whoever synced, for everyone. Use Flags 2 for those.
+
+**Flags 5** filters on a model column without adding it to the view. That matters most on a summary view: every column there is either grouped or totalled, so a column added only to filter on would also have to be grouped by - which splits the totals if its values vary. With Flags 5 the view groups only by the columns you chose.
+
+```json
+{ "Clause": "{PrtMsr_Code} = {P1} and {PrtPln_IsInstanceYear} = 1",
+  "Parameters": [ { "Name": "P1", "Type": "String", "Value": "Sales" } ],
+  "Flags": 5 }
+```
+
+**Applied every time (2).** The clause is added to each query on the view, with the user's own workflow - so `{PrtPln_Year} = {WfInstanceYear}` shows each user the rows for the instance they are in. You can give a view one built-in clause and any number of run-time ones as a list; they are combined with AND.
+
+!!!Note Workflow columns still belong on the view
+    A workflow-enabled view keeps its instance and unit columns, even if nobody looks at them: the Framework's own workflow filtering runs when the view is read, against those columns.
+
+## Top Count
+
+**Top Count** limits a view to its first rows — a top 10 by sales, the five largest variances. Which rows are "first" is decided by the view's own sort: the **Order By** sequence and direction on its [columns](columns.md). Sort descending on the value to get the highest.
+
+The rows are chosen **after** every filter, workflow included, so each unit sees its own top 10 rather than whichever of the overall top 10 happen to be theirs. Everything on the screen uses the same rows:
+
+- clicking a column heading re-sorts the top rows; it does not pick different ones
+- the record count and the footer totals and averages cover only the rows shown
+- **File Export** writes the same rows, to Excel or JSON, and a JSON import only updates rows among them
+
+!!!Note A Top Count needs a sort
+    Without one there is no "top", so set an Order By on the column that ranks the rows. Loading a view with a Top Count and no sorted column is refused.
 
 ## Business Rule Flags
 

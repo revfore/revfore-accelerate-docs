@@ -34,6 +34,8 @@ This includes items such as:
 
 This step prepares the environment for the solution to run.
 
+If a solution has been built on the Framework, Setup also installs it: after the Framework's own setup it runs the solution's **setup package**, `rfaExtensionSetupPackage.zip` in **XCP_xRfaDlg_ActnExtension**, which imports the solution's structure, syncs it, and loads its data and page settings. The workspace ships with an empty placeholder, which Setup skips. See [Setup Packages](../../extending/setup-packages.md).
+
 ### Step 2: Request a Full License Key
 
 Use this step to copy the **Customer Reference Code** from the **Manage License Key** page and send it to OneStream to request a Full License Key
@@ -129,7 +131,9 @@ After relaunching the solution, you will first be prompted to re-enter your Full
 
 ### Step 1: Finalize Upgrade
 
->Click on **Finalize Upgrade** to apply any database changes required for the upgraded version, refresh all Relational Views and to relink Forms and Users
+>Click on **Finalize Upgrade** to apply any database changes required for the upgraded version, run the solution's setup package, refresh all Relational Views and to relink Forms and Users
+
+To upgrade a solution built on the Framework, replace its `rfaExtensionSetupPackage.zip` with the new release's and run Setup again. Only the steps the new release needs are run. See [Setup Packages](../../extending/setup-packages.md).
 
 ### Step 2: Launch Solution
 

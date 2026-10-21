@@ -40,6 +40,8 @@ nav:
           - Overview: extending/import/index.md
           - Structure Definitions: extending/import/structure.md
           - Data Files: extending/import/data.md
+      - Solution Pages: extending/pages.md
+      - Setup Packages: extending/setup-packages.md
       - Writing Extension Code: extending/writing-code.md
   - Application Groups:
       - Config:

@@ -131,6 +131,7 @@ Set **Debug** to **On (JSON)** instead to get each line as one JSON object — f
 | `EXPR` | Expressions and filter variables before and after their values were substituted |
 | `USER` | Who the user's requests run as, including impersonation. Written when Debug is turned on and again whenever impersonation or the filter changes, not on every request |
 | `DDL` | SQL views created or rebuilt, and any that failed |
+| `LINKEDPAGESETTINGS` | When a page's settings are saved from Configure: the `SolSettingValue_pMerge` call that recreates them, ready to paste into a solution's SQL script |
 
 The fixed shape means both people and automated tools can read the log without guessing.
 

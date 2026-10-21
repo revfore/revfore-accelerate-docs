@@ -51,6 +51,8 @@ MyProject/
 ├── rfaRef/  rfaOsRef/         Revfore reference stubs - never edit
 ├── samples/GLEntry/           a complete worked solution
 ├── solutions/                 your design work
+│   └── _template/             copy this to start a solution
+├── docs/                      the extension-code and setup package reference
 └── .claude/skills/            the Framework skills
 ```
 
@@ -108,7 +110,7 @@ Claude asks about anything a design needs but you haven't said. Answer those que
 
 ### Step 2: Review the design and workbook
 
-Claude creates a folder for the solution under `solutions/`, named for the solution alone (`solutions/SpendPlanning/`, no date), and writes:
+Claude creates a folder for the solution under `solutions/`, named for the solution alone (`solutions/SpendPlanning/`, no date), starting from `solutions/_template/`, and writes:
 
 | File | What it is |
 |---|---|
@@ -136,7 +138,9 @@ You'll usually get:
 |---|---|---|
 | `300-<Solution>-structure.json` | Tables, Models, Views and Lookups | [Structure Definitions](import/structure.md) |
 | `410-<Solution>-data.json` | Every row the solution needs to run — lookups, reference and configuration rows, workflow setup — in one file | [Data Files](import/data.md) |
+| `420-<Solution>-pages.json` | Each page's settings — which grids it shows, their names and edit modes — as rows for the Linked Page Settings view | [Solution Pages](pages.md) |
 | `490-<Solution>-data-sample.json` | Optional sample data to seed a demo or prototype. Load it only if you want it | [Data Files](import/data.md) |
+| `setup-package.json` | The steps that install the solution: import `300`, sync, import `410`, import `420` | [Setup Packages](setup-packages.md) |
 
 Claude validates each file before handing it over. You can also validate a file yourself at any time:
 
@@ -149,9 +153,22 @@ The validator checks the schema and the semantic rules the schema can't express:
 !!! note "Integration codes from your instance"
     A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. Read them off the relevant admin screen, because a guessed code can load against the wrong record.
 
-### Step 5: Load it into OneStream
+### Step 5: Build the setup package
 
-Load and sync the files in the order described in [Loading a file](import/index.md#loading-a-file): structure file (`300`), sync tables, sync views, then the data files (`4xx`) **in file-name order**. The numbers are chosen so that a data file always loads after the files its rows refer to.
+A solution installs as **one zip**. `setup-package.json` lists the steps, and the builder turns it into `rfaExtensionSetupPackage.zip`:
+
+```
+python .claude/skills/revfore-framework/scripts/build_setup_package.py solutions/<folder>/setup-package.json
+```
+
+It validates every file the package imports, refuses a data import that has no sync before it, and stamps the version. Raise `Revision` in `setup-package.json` for each release. Never zip the files by hand. See [Setup Packages](setup-packages.md).
+
+### Step 6: Install it in OneStream
+
+- **While you build it**, load the zip directly: **Load** on **Admin | Relational | Tables** takes a `.zip` as well as a `.json`. It runs the whole package — import, sync, data, pages — in one go, and can be reloaded as often as you need. See [Loading a package while you build it](setup-packages.md#by-loading-it-while-you-build).
+- **For a customer**, upload the zip to the **Files** of **XCP_xRfaDlg_ActnExtension**, replacing the one there, and run **Config | Setup & Upgrade**. See [Installing it with Setup](setup-packages.md#with-setup).
+
+Either way, nobody loads files or presses Sync by hand. You can still load a single file the manual way — structure (`300`), sync tables, sync views, then data (`4xx`) in file-name order, as in [Loading a file](import/index.md#loading-a-file) — which is useful for trying one change on its own. Sample data (`490`) is never in the package, so it is always loaded that way.
 
 To change a solution that already exists in an instance, **extract it first** with **Load/Extract | Extract | Both** on **Admin | Relational | Tables**, and save the file in the solution folder. Claude then works from what's actually in the instance, not from a description of it. See [Extracting a solution](import/index.md#extracting-a-solution).
 
@@ -167,14 +184,16 @@ Everything Claude writes into a solution folder is named so that **sorting by na
 | `100`-`199` | Design workbook rounds | `100-SpendPlanning-workbook-20261005-r01.xlsx` |
 | `200`-`299` | Spec | `200-SpendPlanning-spec.json` |
 | `300`-`399` | Structure files to load | `300-SpendPlanning-structure.json` |
-| `400`-`499` | Data files to load — one, plus optional sample data | `410-SpendPlanning-data.json`, `490-SpendPlanning-data-sample.json` |
-| `500`-`599` | Hand-written SQL | `500-SpendPlanning-view-SpdPlanTall.sql` |
+| `400`-`499` | Data files to load — one, plus page settings and optional sample data | `410-SpendPlanning-data.json`, `420-SpendPlanning-pages.json`, `490-SpendPlanning-data-sample.json` |
+| `500`-`599` | Hand-written SQL — `500` before the structure, `510` after the sync, `590` for uninstall | `500-SpendPlanning-view-SpdPlanTall.sql` |
 | `600`-`699` | Notes on the handler code | `600-SpendPlanning-handlers.md` |
+
+Two files sit outside the numbering: `setup-package.json`, the [setup package](setup-packages.md) source, and the `rfaExtensionSetupPackage.zip` the builder writes next to it.
 
 - **The solution folder has no date** - `solutions/SpendPlanning/`. The workbook files carry the dates instead.
 - **Every workbook round has a two-digit round number**, the first one included (`-r01`), so rounds sort correctly - `r10` after `r09`, and the first round before the second.
 - **Numbers step by 10 within a group**, leaving room to add a file later without renaming the others.
-- **One data file.** Each file is a separate load, so every row the solution needs to run goes in `410-<Solution>-data.json`, ordered so that rows are created before anything that refers to them. The only other data file is optional sample data for a demo or prototype, `490-<Solution>-data-sample.json`, loaded after it if you want it.
+- **One data file to start with.** Every row the solution needs to run goes in `410-<Solution>-data.json`, ordered so that rows are created before anything that refers to them. A larger solution can split structure or data by area (`310-`, `430-`), since the setup package loads them all in one run. Optional sample data for a demo or prototype goes in `490-<Solution>-data-sample.json`, outside the package.
 - **The full solution name is in every file name**, because files are loaded into OneStream and shared on their own, away from the folder.
 - **No spaces**, so any file can be named on a command line without quotes.
 - Scripts Claude writes to produce large files go in a `scripts/` subfolder, and superseded drafts in `archive/`.
@@ -234,10 +253,11 @@ The skills describe the schema and conventions of the release they shipped with,
 | **NU1100** Unable to resolve ... | Package source mapping on your machine blocks the source | Keep the `packageSourceMapping` entry in `nuget.config`, pointed at whichever source holds the package |
 | **CS0117** '*Type*' does not contain a definition for '*Member*' | Your code uses an API that is newer than the kit's stubs | Update to the kit for your Framework release. If you already have it, send the error and your `KIT_VERSION` line to Revfore |
 | A type named in the documentation is missing entirely | Same as above: the kit is behind your release | As above |
+| The setup package builder or Setup refuses the package | A placeholder left from the template, a missing sync, the version, or a hand-edited zip | See [Setup Packages troubleshooting](setup-packages.md#troubleshooting) |
 | The validator reports errors on JSON Claude wrote | The file was edited by hand, or the kit's skills are older than your release | Ask Claude to fix the reported rules, then validate again |
 
 ## Notes
 
 - Keep one kit folder per project or customer. Each has its own `solutions/` and its own copy of the extension assembly, as each OneStream instance does.
 - Put the kit folder under source control, but exclude `packages/`, `bin/` and `obj/`. The OneStream package must not be committed to a shared or public repository.
-- `samples/GLEntry` is a complete worked example, laid out with the [solution folder file names](#solution-folder-file-names): validated import JSON, sample data, and the `JrlEntryHandler` that goes with it. Read it before writing your first handler.
+- `samples/GLEntry` is a complete worked example, laid out with the [solution folder file names](#solution-folder-file-names): validated import JSON, a setup package, sample data, and the `JrlEntryHandler` that goes with it. Read it before writing your first handler.

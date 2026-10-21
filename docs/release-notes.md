@@ -62,6 +62,40 @@ Extract is the more quietly useful half. It gives you a way to **migrate a solut
 
 See [Load & Extract Files](extending/import/index.md).
 
+### Where clauses that know who is looking
+
+A view's where clause can now be applied **every time the view is read**, with the user's own workflow - not only built into the view. Set its Flags to 2 and `{WfInstanceYear}`, `{CurrentUserId}` and the other user and workflow values resolve per user, across the grid, lookups, Top Count and File Export. A built-in clause can also filter on **model columns the view doesn't show** (Flags 5), so a summary view no longer needs hidden columns - and the extra grouping they bring - just to filter on.
+
+A built-in clause that uses a user or workflow value is now refused, because it would hold the value of whoever synced the view.
+
+See [Where Clause](appGroups/admin/relational/relationalViews/views.md#where-clause).
+
+### Update-only and insert-only data
+
+A data file entry can now say how its rows meet the existing ones. **Update** changes only rows that are already there, so a file can switch one setting on core rows without restating them — and a mistyped code is reported, not inserted. **Insert** adds only new rows and leaves existing ones alone, so starter data the customer has since edited survives every upgrade.
+
+See [Update only, or insert only](extending/import/data.md#update-only-or-insert-only).
+
+### Removing things through a load
+
+A structure file can now remove model columns, sources and relationships, and view columns, actions, filters and security levels — mark the entry `"Remove": true`. Removing a model column takes its view columns with it, in every view. Nothing is removed while something still uses it, and the message says what does. Upgrades no longer need a list of things to delete by hand.
+
+See [Removing columns and other items](extending/import/structure.md#removing-columns-and-other-items).
+
+### Top N views
+
+A view can now show just its first rows — a top 10 by sales, the five largest variances — with **Top Count**. The rows are ranked by the view's own sort and chosen after every filter, workflow included, so each unit gets its own top 10. Counts, footer totals and File Export all cover the same rows.
+
+See [Top Count](appGroups/admin/relational/relationalViews/views.md#top-count).
+
+### Grid data as JSON
+
+**File Export** and **File Import** on a grid now handle JSON as well as Excel. The file is the same [data file](extending/import/data.md) format Load takes, so it moves data between environments — lookups travel as integration codes, not ids.
+
+An export takes the rows the grid's filters select and **every level of their child records**, so an order goes out with its lines. An import is reviewed and saved like an Excel import, with the same save logic, and stays within what the grid shows: a row its filters hide is refused rather than updated, and child rows must belong to a parent in the grid or the file.
+
+See [File Export and Import as JSON](concepts/metadataDrivenUI/actions.md#file-export-and-import-as-json).
+
 ### Standard Columns
 
 Standard columns have grown from column templates into the vocabulary that carries meaning across a solution. The set now covers **cube references, dimension members, time periods and workflow linkage** as well as the familiar keys, names and audit columns — so a column that holds an entity member, a period or a workflow unit is declared as such rather than being an untyped integer the code has to interpret.
@@ -163,6 +197,12 @@ Records are created for a unit and everything beneath it when a user sets their 
 
 See [Instance Units](appGroups/admin/workflow/instances/instanceUnits.md).
 
+### Comparing cycles
+
+An instance can now name up to two other instances it is compared with — a budget against last year's actuals, a forecast against the prior one. The comparison is set once on the cycle, and its scenario, year and name reach the solution without a lookup: in the workflow context, in every member set beside the cycle's own time and scenario, and as tokens for view and lookup filters.
+
+See [Compare-to instances](appGroups/admin/workflow/instances/instances.md#compare-to-instances).
+
 ### Statuses are now yours to define
 
 Workflow statuses were a fixed list built into the application. They are now records you maintain, so the stages can be named after your own process rather than around someone else's.
@@ -248,10 +288,15 @@ Administrators can now **impersonate** another user — see the application exac
 
 See [Viewing as Another User](security/impersonation.md).
 
-### Solution setup hook
+### Setup packages
 
-Solutions can run their own scripts and processes as part of **Setup and Upgrade**, through a new extension point that receives the workspace along with the previous and current version numbers.
+A solution now installs and upgrades as **one zip**. Its structure, data, page settings and any SQL of its own go into `rfaExtensionSetupPackage.zip`, and **Setup and Upgrade** runs the steps in order — import, sync, load — so nobody loads files or presses Sync by hand.
 
-The version pair is what makes it safe to call every time: an upgrade that skips two versions still runs each step it should, and re-running the same version does nothing.
+- **One file installs and upgrades.** Steps can run always, on install only, or on upgrade from a given version, so an install that skips releases still runs each migration it needs and pressing Setup again changes nothing.
+- **Built and checked locally.** The [Extension Kit](extending/extension-kit.md) builds the zip from a short manifest, validating every file in it and refusing a data load with no sync before it.
+- **Reloadable while you build.** **Load** takes the zip as well as a JSON file, and reruns the current release's steps on every load.
+- **Only an administrator** who is not impersonating can run one, because a package can run SQL.
 
-The hook and how to use it are described in the [Extension Kit](extending/extension-kit.md)'s reference.
+Solutions that need code at setup still have it: the setup method in the extension assembly runs the package, and custom code goes either side of it.
+
+See [Setup Packages](extending/setup-packages.md).

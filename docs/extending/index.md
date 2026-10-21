@@ -12,7 +12,7 @@ Use this section to:
 - decide whether a requirement needs configuration or code
 - find out what extension code can do, and where the details live
 
-To design and build a solution on your own machine, with Claude and a compiler checking the work before anything reaches OneStream, see [Extension Kit (VS Code)](extension-kit.md).
+To design and build a solution on your own machine, with Claude and a compiler checking the work before anything reaches OneStream, see [Extension Kit (VS Code)](extension-kit.md). To install it in a customer's application as one zip that **Setup & Upgrade** runs, see [Setup Packages](setup-packages.md).
 
 ## What you can and cannot change
 

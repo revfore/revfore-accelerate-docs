@@ -207,6 +207,40 @@ Grouping, sorting and filtering are genuinely view-level and have no model equiv
 
 `Actions` are the buttons on the view. Most are built-in; one flagged as custom is handled in [extension code](../writing-code.md). `Security` controls who can see and change the view. `Filters` define saved filters users can apply.
 
+### Removing columns and other items
+
+A load never deletes anything it is not told to — a column left out of the file stays in the database. To remove something, keep an entry for it in its usual list, marked `"Remove": true`. Columns are the common case:
+
+```json
+"Columns": [
+  { "Name": "PrtPrt_PrtCustomerId", "Remove": true }
+]
+```
+
+On a **model column**, give just the `Name`. The model column goes, and so does every view column built on it, in every view of the model — there is no need to list each view.
+
+On a **view column**, give `RelModelColumnId_IntegrationCode` (and `Name` if the view has more than one column on that model column). Only that view loses the column.
+
+The same works for the rest of a model or view. Each entry carries only what identifies it:
+
+| Remove a | In | Identify it by |
+|---|---|---|
+| Model source | `Sources` | `Alias` |
+| Model relationship | `Relationships` | `ObjectRelationshipId_IntegrationCode`, plus `RelatedToModelId_IntegrationCode` for just one target model |
+| View action | `Actions` | `Name` |
+| View filter | `Filters` | `Name` |
+| View security level | `Security` | `SecurityLevel` |
+
+An action, filter, security level or model relationship that may come back can be switched off with `"IsEnabled": false` instead — that keeps it and can be undone.
+
+Removals run after everything else in the file is saved, and they are all-or-nothing:
+
+- A primary key column, a model's base source and security level 1 cannot be removed.
+- Anything something still uses is refused, and the message lists each use — for a column, a lookup's key or display column, a hierarchy set, a model built on the view, or a where clause, filter or lookup expression that names it; for a source, the columns and joins that go through it; for a security level, the columns and actions assigned to it. Change the use — in the same file is fine, since it is saved first, and removing those columns in the same file counts — and load again.
+- Anything already gone is reported as already removed, so the entry can stay in the file for every later install and upgrade.
+
+The views that lost a column, or whose model lost a source, are rebuilt at the next sync. Table columns are never removed this way, so no data is lost. Pages and saved grid layouts that name the column are not checked.
+
 ## Lookups
 
 Defines a reusable dropdown.
