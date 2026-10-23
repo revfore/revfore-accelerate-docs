@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -3680,7 +3680,7 @@
 <h2 id="the-structures-both-options-use">The structures both options use</h2>
 <p>Revfore workflow is assembled from a small number of pieces:</p>
 <ul>
-<li><a href="units/">Units</a> – <strong>who</strong> the work is performed for: a department, cost centre, entity or region. Units carry the security groups that control access, effective dates, and the <a href="units/memberSets/">member sets</a> that map a unit's data to the cube.</li>
+<li><a href="units/">Units</a> – <strong>who</strong> the work is performed for: a department, cost center, entity or region. Units carry the security groups that control access, effective dates, and the <a href="units/memberSets/">member sets</a> that map a unit's data to the cube.</li>
 <li><a href="instances/">Instances</a> – <strong>when</strong>: a single cycle of the process, paired with an <a href="instances/instanceTypes/">instance type</a> that says what kind of cycle it is.</li>
 <li><a href="areas/">Areas</a> – how a large process is partitioned into manageable sections.</li>
 <li><a href="supporting/">Supporting</a> – the vocabulary the process is described in: <a href="supporting/itemTypes/">item types</a>, <a href="supporting/itemCategories/">item categories</a>, <a href="supporting/memberSetTypes/">member set types</a> and the pairings between them.</li>
@@ -3696,7 +3696,7 @@
 <p>Choose Revfore workflow when the process is governed inside the application. Typically that means one of the following.</p>
 <ul>
 <li><strong>Users will be working in Genesis.</strong> The process is reached through Genesis pages and navigation, so there is no OneStream workflow step for it to hang off.</li>
-<li><strong>The workflow unit needs a scope that is not entity-dependent.</strong> A OneStream workflow profile is tied to an entity. A Revfore workflow unit is not: through its <a href="units/memberSets/">member set</a> it can be set to <strong>any scope or slice of the cube, including all the UD dimension members</strong>. That makes the unit whatever the process is actually performed for — a product line, a project, a channel, a cost centre, or any combination the UDs can express — rather than forcing the process into an entity structure that does not fit it.</li>
+<li><strong>The workflow unit needs a scope that is not entity-dependent.</strong> A OneStream workflow profile is tied to an entity. A Revfore workflow unit is not: through its <a href="units/memberSets/">member set</a> it can be set to <strong>any scope or slice of the cube, including all the UD dimension members</strong>. That makes the unit whatever the process is actually performed for — a product line, a project, a channel, a cost center, or any combination the UDs can express — rather than forcing the process into an entity structure that does not fit it.</li>
 <li><strong>The process is specific to the solution</strong>, does not correspond to a OneStream workflow step, or needs more granularity than one.</li>
 </ul>
 <p>Units and instances are defined and progressed here, and nothing further is required — the <a href="#linking-the-units-and-instances">OneStream Workflow Reference</a> fields stay blank.</p>

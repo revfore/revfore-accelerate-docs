@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -2131,13 +2131,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#standard-column-catalogue" class="md-nav__link">
+  <a href="#standard-column-catalog" class="md-nav__link">
     <span class="md-ellipsis">
-      Standard Column Catalogue
+      Standard Column Catalog
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Standard Column Catalogue">
+    <nav class="md-nav" aria-label="Standard Column Catalog">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3749,13 +3749,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#standard-column-catalogue" class="md-nav__link">
+  <a href="#standard-column-catalog" class="md-nav__link">
     <span class="md-ellipsis">
-      Standard Column Catalogue
+      Standard Column Catalog
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Standard Column Catalogue">
+    <nav class="md-nav" aria-label="Standard Column Catalog">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3922,7 +3922,7 @@
 <h1 id="standard-columns">Standard Columns</h1>
 <p><a href="../">← Back to Relational Supporting Overview</a></p>
 <p>The <strong>Relational Standard Columns</strong> page defines the reusable column definitions that table columns are built from.</p>
-<p>A standard column carries the data type, key behaviour, nullability, default value, and display settings for a kind of column. When a table column is created from a standard column it inherits all of that, so columns of the same kind behave consistently everywhere.</p>
+<p>A standard column carries the data type, key behavior, nullability, default value, and display settings for a kind of column. When a table column is created from a standard column it inherits all of that, so columns of the same kind behave consistently everywhere.</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Relational Standard Columns page to:</p>
 <ul>
@@ -3971,13 +3971,13 @@
 <td>Standard Base Column</td>
 <td>int</td>
 <td>The base column definition this standard column derives from.</td>
-<td>Groups related standard columns that share underlying behaviour.</td>
+<td>Groups related standard columns that share underlying behavior.</td>
 </tr>
 <tr>
 <td>Key Flags</td>
 <td>int</td>
 <td>How the column participates in keys.</td>
-<td>Identifies primary, foreign, integration and parent key behaviour, which drives how the column is treated across models and views.</td>
+<td>Identifies primary, foreign, integration and parent key behavior, which drives how the column is treated across models and views.</td>
 </tr>
 <tr>
 <td>Data Type</td>
@@ -4053,7 +4053,7 @@
 <li>Choosing the right standard column matters more than the column's own settings — it is what makes columns of the same kind behave alike.</li>
 <li>A standard column is referenced by its <strong>integration code</strong>, which follows a <code>Purpose_DataType</code> convention: <code>Key_Int</code>, <code>Name_NVarchar</code>, <code>DmMemberEntity_Int</code>. The suffix tells you the storage type; the prefix tells you what the column means to the Framework.</li>
 </ul>
-<h2 id="standard-column-catalogue">Standard Column Catalogue</h2>
+<h2 id="standard-column-catalog">Standard Column Catalog</h2>
 <p>The platform supplies <strong>117 standard columns</strong>. They are grouped below by purpose, with the integration code used to reference each one from an <a href="../../../../../extending/import/structure/">import structure file</a>.</p>
 <p>The <strong>Nullable</strong> column is the default a table column inherits; a table column can override it.</p>
 <h3 id="primary-keys">Primary keys</h3>
@@ -4282,7 +4282,7 @@
 <tr>
 <td><code>WorkflowItemType_Int</code></td>
 <td>No</td>
-<td>Foreign key to <code>{RfaCore}.WfItemType</code>. Classifies what kind of item a row is, which drives the behaviour and actions offered for it.</td>
+<td>Foreign key to <code>{RfaCore}.WfItemType</code>. Classifies what kind of item a row is, which drives the behavior and actions offered for it.</td>
 </tr>
 <tr>
 <td><code>WorkflowItemCategory_Int</code></td>
@@ -4509,7 +4509,7 @@
 <p>Use the generic UD codes when a column holds a member of whichever UD dimension the context supplies; use the numbered codes when the column is always UD1, always UD2, and so on.</p>
 <div class="admonition warning">
 <p class="admonition-title">Integration codes are case-sensitive, and UD casing is inconsistent</p>
-<p>The id and base variants spell it <code>Ud</code> (<code>DmMemberUd1_Int</code>, <code>DmMemberUd1Base_Int</code>) while the name variants spell it <code>UD</code> (<code>DmMemberUD1_NVarchar</code>). The data-source name variant also carries an extra underscore: <code>DmMemberUD_DataSource_NVarchar</code>, not <code>DmMemberUdDataSource_NVarchar</code>. Copy these codes rather than typing them — an unrecognised code fails the import.</p>
+<p>The id and base variants spell it <code>Ud</code> (<code>DmMemberUd1_Int</code>, <code>DmMemberUd1Base_Int</code>) while the name variants spell it <code>UD</code> (<code>DmMemberUD1_NVarchar</code>). The data-source name variant also carries an extra underscore: <code>DmMemberUD_DataSource_NVarchar</code>, not <code>DmMemberUdDataSource_NVarchar</code>. Copy these codes rather than typing them — an unrecognized code fails the import.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Dimension member columns are hidden on views by default</p>
@@ -4739,12 +4739,12 @@
 </tbody>
 </table>
 <h2 id="what-a-column-inherits-and-when-to-override-it">What a column inherits, and when to override it</h2>
-<p>Inheritance runs in a chain: a <strong>table column</strong> takes its physical shape from its standard column; a <strong>model column</strong> takes its behaviour from the same standard column; and a <strong>view column</strong> takes <code>IsVisible</code>, <code>AllowUpdates</code> and <code>SecurityLevel</code> from the model column, and <code>IsDisplayLabel</code>, <code>FilterFlags</code>, <code>FilterExpression</code> and the summary settings from the standard column directly.</p>
+<p>Inheritance runs in a chain: a <strong>table column</strong> takes its physical shape from its standard column; a <strong>model column</strong> takes its behavior from the same standard column; and a <strong>view column</strong> takes <code>IsVisible</code>, <code>AllowUpdates</code> and <code>SecurityLevel</code> from the model column, and <code>IsDisplayLabel</code>, <code>FilterFlags</code>, <code>FilterExpression</code> and the summary settings from the standard column directly.</p>
 <p>An attribute you leave unset is therefore <strong>seeded, not left blank</strong> — which is why audit columns need no configuration to populate themselves, and why a <code>Name_NVarchar</code> column is searchable without being told to be. An explicit value always wins over an inherited one.</p>
 <p>Two exceptions override whatever you set: view columns built on <strong>workflow key</strong> and <strong>dimension member</strong> standard columns are forced to <code>IsVisible: false</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Inheritance is a safety net, not a reason to omit a value that matters</p>
-<p>Working <strong>in the application</strong>, leave a setting unset when you want the standard column's behaviour — that is what the standard column is for, and overriding it by hand is how columns of the same kind drift apart.</p>
+<p>Working <strong>in the application</strong>, leave a setting unset when you want the standard column's behavior — that is what the standard column is for, and overriding it by hand is how columns of the same kind drift apart.</p>
 <p>Writing an <strong>import file</strong>, prefer to set a value explicitly when it matters for that column, even where it matches what would be inherited. A structure file is reviewed, diffed and audited as a document, and a reader should be able to see that a column is read-only or hidden without cross-referencing the standard column it came from. Genuinely omit an attribute only where its value does not matter for that column.</p>
 </div>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
@@ -4759,7 +4759,7 @@
 <ul>
 <li>Standard columns are shared across every solution in the application; treat them as read-only unless there is a clear reason to change one.</li>
 <li>If no standard column fits a requirement, review the list again before adding one — the intended column often exists under a different name.</li>
-<li>Integration codes are case-sensitive and are validated on import; an unrecognised code fails the file rather than falling back to a default.</li>
+<li>Integration codes are case-sensitive and are validated on import; an unrecognized code fails the file rather than falling back to a default.</li>
 <li>See <a href="../../relationalTables/columns/">Table Columns</a> for how a standard column is applied when defining a column, and <a href="../../../../../extending/import/structure/">Structure Definitions</a> for how one is referenced in an import file.</li>
 </ul>
 

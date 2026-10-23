@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -3724,14 +3724,14 @@
 <h1 id="member-sets">Member Sets</h1>
 <p><a href="../">← Back to Workflow Units Overview</a></p>
 <p>The <strong>Workflow Units : Member Sets</strong> page is used to define and manage the cube and dimension member assignments for a workflow unit.</p>
-<p>A member set is what connects a workflow unit to the cube. It says which cube the unit's data belongs to, which dimension members it is written at, and which members it is summarised to.</p>
+<p>A member set is what connects a workflow unit to the cube. It says which cube the unit's data belongs to, which dimension members it is written at, and which members it is summarized to.</p>
 <h2 id="overview">Overview</h2>
 <p>Use the Workflow Units : Member Sets page to:</p>
 <ul>
 <li>assign a workflow unit to a cube for a given workflow instance type</li>
 <li>set the base dimension members the unit's data is written at</li>
 <li>set the scope dimension members that bound the unit's slice of the cube</li>
-<li>set the data source members that define what the unit can read, what it can change, and which slice each synchronise or clear acts on</li>
+<li>set the data source members that define what the unit can read, what it can change, and which slice each synchronize or clear acts on</li>
 <li>limit an assignment to a period of time using effective dates</li>
 </ul>
 <p>A member set is defined per <strong>workflow unit</strong> and <strong>workflow instance type</strong>, so the same unit can be mapped differently depending on the kind of workflow being performed.</p>
@@ -3845,10 +3845,10 @@
 <p><strong>Scope members</strong> are not a rollup target - they define the <strong>outer bounds of the slice of the cube the unit is assigned to</strong>. That boundary is used three ways:</p>
 <ul>
 <li>to present the unit's data in summary form in cube views</li>
-<li>to define the outer bounds of the data intersections that are synchronised with the detail data</li>
+<li>to define the outer bounds of the data intersections that are synchronized with the detail data</li>
 <li>to define the data that is cleared for the unit</li>
 </ul>
-<p>Because the scope members bound what gets synchronised and cleared, setting them wider than the unit actually owns risks clearing another unit's data, and setting them narrower than the detail risks leaving data behind.</p>
+<p>Because the scope members bound what gets synchronized and cleared, setting them wider than the unit actually owns risks clearing another unit's data, and setting them narrower than the detail risks leaving data behind.</p>
 <h3 id="data-source-scope-members">Data source scope members</h3>
 <p>While the scope members above bound the unit's slice across the ordinary dimensions, the <strong>data source</strong> members bound it along the data source dimension - and they carry an extra meaning. They separate what a unit is allowed to <strong>look at</strong> from what it is allowed to <strong>change</strong>.</p>
 <p>The <strong>Data Source Dimension</strong> field identifies which dimension these members are selected from. Each member marks a region of that dimension:</p>
@@ -3870,7 +3870,7 @@
 </tr>
 <tr>
 <td><strong>Controlled Itemized</strong></td>
-<td>The part of the controlled region holding <strong>itemized</strong> data - detail built up from workflow items. This is where itemized detail is written when a unit is synchronised to the cube.</td>
+<td>The part of the controlled region holding <strong>itemized</strong> data - detail built up from workflow items. This is where itemized detail is written when a unit is synchronized to the cube.</td>
 </tr>
 <tr>
 <td><strong>Controlled Direct</strong></td>
@@ -3891,7 +3891,7 @@
 </code></pre></div>
 <p>The Readable/Controlled split is what lets a unit see more than it owns. A contributor can be shown surrounding context - other departments, prior actuals, group-level targets - while only the controlled region can be overwritten or cleared by that unit's own operations.</p>
 <h4 id="which-member-each-operation-uses">Which member each operation uses</h4>
-<p>Every synchronise and clear is bounded by one of these members, and acts on that member's <strong>base</strong> descendants:</p>
+<p>Every synchronize and clear is bounded by one of these members, and acts on that member's <strong>base</strong> descendants:</p>
 <table>
 <thead>
 <tr>
@@ -3901,7 +3901,7 @@
 </thead>
 <tbody>
 <tr>
-<td>Synchronise itemized detail to the cube</td>
+<td>Synchronize itemized detail to the cube</td>
 <td>Controlled Itemized</td>
 </tr>
 <tr>
@@ -3923,11 +3923,11 @@
 </tbody>
 </table>
 <p>This is why the boundary matters as much as it does: the member chosen for an operation is exactly how much of the cube that operation can touch. Setting <strong>Controlled</strong> wider than the unit genuinely owns risks clearing another unit's data.</p>
-<p>All five members must be set. If any is missing, synchronising the unit to the cube stops and reports which one.</p>
+<p>All five members must be set. If any is missing, synchronizing the unit to the cube stops and reports which one.</p>
 <h2 id="typical-use-cases">Typical Use Cases</h2>
 <ul>
 <li>Mapping a department to the entity and account members its budget is written at</li>
-<li>Bounding a cost centre's slice of the cube so its data can be summarised, synchronised and cleared correctly</li>
+<li>Bounding a cost center's slice of the cube so its data can be summarized, synchronized and cleared correctly</li>
 <li>Mapping the same unit to different cubes for budget and forecast instance types</li>
 <li>Re-mapping a unit from a given date after a restructure, without altering prior cycles</li>
 </ul>
@@ -3951,7 +3951,7 @@
 <li>Only populate the dimensions the solution uses; leave the rest blank rather than selecting a default member.</li>
 <li>Base and scope members serve different purposes - base is where the unit's detail data is written; scope bounds the region of the cube that data occupies.</li>
 <li>Readable and Controlled answer different questions - Readable is what the unit may look at, Controlled is what it may change. Controlled can never be wider than Readable.</li>
-<li>If a synchronise or clear affects more of the cube than expected, check the data source member that operation uses before looking anywhere else; it is the boundary being applied.</li>
+<li>If a synchronize or clear affects more of the cube than expected, check the data source member that operation uses before looking anywhere else; it is the boundary being applied.</li>
 <li>A unit with no member set for the instance type being run has no cube destination, which is a common cause of data not appearing in the cube.</li>
 <li>Use effective dates to change a mapping over time rather than editing an existing member set in place.</li>
 </ul>

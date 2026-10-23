@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -1951,13 +1951,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-behaviour" class="md-nav__link">
+  <a href="#workflow-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow behaviour
+      Workflow behavior
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Workflow behaviour">
+    <nav class="md-nav" aria-label="Workflow behavior">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3680,13 +3680,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#workflow-behaviour" class="md-nav__link">
+  <a href="#workflow-behavior" class="md-nav__link">
     <span class="md-ellipsis">
-      Workflow behaviour
+      Workflow behavior
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Workflow behaviour">
+    <nav class="md-nav" aria-label="Workflow behavior">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3922,19 +3922,19 @@
 <td>Unit Records Shown</td>
 <td>int</td>
 <td>Which records the view shows, relative to the workflow unit looking at it.</td>
-<td>Defaults to Own Records Only. See <a href="#workflow-behaviour">Workflow behaviour</a>.</td>
+<td>Defaults to Own Records Only. See <a href="#workflow-behavior">Workflow behavior</a>.</td>
 </tr>
 <tr>
 <td>Parent Unit Editability</td>
 <td>int</td>
 <td>What a Parent unit may do on this view.</td>
-<td>Blank means read-only for a Parent. See <a href="#workflow-behaviour">Workflow behaviour</a>.</td>
+<td>Blank means read-only for a Parent. See <a href="#workflow-behavior">Workflow behavior</a>.</td>
 </tr>
 <tr>
 <td>Business Rule Flags</td>
 <td>int</td>
 <td>Which assembly handles this view's save and delete logic, and in what order.</td>
-<td>Defaults to the behaviour that applied before the setting existed. See <a href="#business-rule-flags">Business Rule Flags</a>.</td>
+<td>Defaults to the behavior that applied before the setting existed. See <a href="#business-rule-flags">Business Rule Flags</a>.</td>
 </tr>
 <tr>
 <td>Where Clause</td>
@@ -3990,7 +3990,7 @@
 <p class="admonition-title">Note</p>
 <p><strong>Is RFA Managed</strong> - If Managed, the view definition is maintained in RFA and pushed to the database as a SQL view.  If not managed, the view is created directly in the database by some other method and RFA only references it.  Managed Views give you the full Relational View functionality.  Non-managed Views can only be used as Model Sources.  A good example of a non-managed view is a SQL view that is very complex and can only be created directly in SQL and is required for reporting &amp; analytics.</p>
 </div>
-<h2 id="workflow-behaviour">Workflow behaviour</h2>
+<h2 id="workflow-behavior">Workflow behavior</h2>
 <p>Two settings decide how a workflow-enabled view behaves for the unit looking at it. Both live on the view rather than on the unit, because the same unit is usually treated differently on a data entry screen and on the review screen next to it.</p>
 <h3 id="unit-records-shown">Unit Records Shown</h3>
 <p>Which rows the view returns, relative to the current workflow unit.</p>
@@ -4088,6 +4088,10 @@
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"Flags"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <p><strong>Applied every time (2).</strong> The clause is added to each query on the view, with the user's own workflow - so <code>{PrtPln_Year} = {WfInstanceYear}</code> shows each user the rows for the instance they are in. You can give a view one built-in clause and any number of run-time ones as a list; they are combined with AND.</p>
+<p><strong>Other tables.</strong> A clause can look at a table the view doesn't show, for example in an <code>exists</code> subquery. Name the table with a schema token, as import files do: <code>{RfaCore}.WfInstance</code>, <code>{RfaExtension}.PrtPlanLine</code> or <code>{OsCore}.XFC_Something</code>. The token resolves to the application's own schema, so the clause works in any environment. Never write the schema's name itself (<code>rfa01</code>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">"Clause"</span><span class="p">:</span><span class="w"> </span><span class="s2">"exists (select 1 from {RfaCore}.WfInstance_Unit iu where iu.WfInstanceId = {WfInstanceId} and iu.WfUnitId = {PrtPln_WfUnitId})"</span><span class="p">,</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">"Flags"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
 <div class="admonition note workflow columns still belong on the view">
 <p class="admonition-title">Note</p>
 <p>A workflow-enabled view keeps its instance and unit columns, even if nobody looks at them: the Framework's own workflow filtering runs when the view is read, against those columns.</p>
@@ -4110,7 +4114,7 @@
 <thead>
 <tr>
 <th>Setting</th>
-<th>Behaviour</th>
+<th>Behavior</th>
 </tr>
 </thead>
 <tbody>
@@ -4124,7 +4128,7 @@
 </tr>
 <tr>
 <td>Extension</td>
-<td>Extension logic only — it <strong>replaces</strong> the core behaviour rather than adding to it.</td>
+<td>Extension logic only — it <strong>replaces</strong> the core behavior rather than adding to it.</td>
 </tr>
 <tr>
 <td>Core, then Extension</td>
@@ -4136,7 +4140,7 @@
 </tr>
 </tbody>
 </table>
-<p>The common reason to set it is to add validation to a <strong>core</strong> view without losing what the core already does — <em>Core, then Extension</em>. Choosing <em>Extension</em> on its own is how you deliberately take the core behaviour out.</p>
+<p>The common reason to set it is to add validation to a <strong>core</strong> view without losing what the core already does — <em>Core, then Extension</em>. Choosing <em>Extension</em> on its own is how you deliberately take the core behavior out.</p>
 <p>See <a href="../../../../../extending/writing-code/">Writing Extension Code</a> for what runs where.</p>
 <h2 id="key-concepts">Key Concepts</h2>
 <ul>

@@ -634,7 +634,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -4203,7 +4203,7 @@
 <p>Standard columns have grown from column templates into the vocabulary that carries meaning across a solution. The set now covers <strong>cube references, dimension members, time periods and workflow linkage</strong> as well as the familiar keys, names and audit columns — so a column that holds an entity member, a period or a workflow unit is declared as such rather than being an untyped integer the code has to interpret.</p>
 <p>The full set of <strong>117 standard columns is now documented</strong>, grouped by purpose, with what each one carries and when to reach for it.</p>
 <p>Six time period codes were <strong>renamed</strong> for consistency. The underlying standard columns are unchanged, so existing definitions and data are unaffected, but import files referencing the old codes must be updated: <code>DimGeneralPeriod_Decimal</code> and <code>DimYtdPeriod_Decimal</code> become <code>TimePeriodPeriodicAmount_Decimal</code> and <code>TimePeriodYtdAmount_Decimal</code>, and the <code>*Raw_Int</code>/<code>*Os_NVarchar</code> period and year codes become <code>TimePeriod_Int</code>/<code>TimePeriodName_NVarchar</code> and <code>TimeYear_Int</code>/<code>TimeYearName_NVarchar</code>.</p>
-<p>See <a href="../appGroups/admin/relational/supporting/standardColumns/">Standard Columns</a> and the <a href="../appGroups/admin/relational/supporting/standardColumns/#standard-column-catalogue">catalogue</a>.</p>
+<p>See <a href="../appGroups/admin/relational/supporting/standardColumns/">Standard Columns</a> and the <a href="../appGroups/admin/relational/supporting/standardColumns/#standard-column-catalog">catalog</a>.</p>
 <h3 id="audit-log">Audit Log</h3>
 <p>Change tracking is now a <strong>property of a table rather than something each solution writes for itself</strong>. Turn it on and inserts, updates and deletes are recorded automatically, with no handler code and nothing to remember at the call site.</p>
 <p>Each entry records the action, the record it applied to, who made it and when, together with a <strong>JSON payload of the values themselves</strong> — a full snapshot for an insert or a delete, and the before-and-after values for an update, so a change can be read back long after the fact without reconstructing it from the current row.</p>
@@ -4233,7 +4233,7 @@
 <h4 id="workflow-unit-member-sets">Workflow Unit Member Sets</h4>
 <p>A dimension member column says <em>which</em> member a row points at. A <strong>workflow unit member set</strong> says what that member means in context — it hangs a full cube intersection off a workflow unit, holding the cube together with its base entity, scenario, account, flow, intercompany and UD1–UD8 members, effective-dated so the intersection can change over time without rewriting history.</p>
 <p>That context is what lets a detail table stay thin. On detail tables that ultimately post to the cube, the member set should be <strong>assigned automatically from extension code</strong> rather than captured on each row: the workflow unit the record belongs to already determines its intersection, so having the user restate it is both redundant and a source of error.</p>
-<p>The resolved context is also serialised into the <strong><code>param_RfaSharedWf_MemberSetContextJson</code></strong> parameter, which is how cube views pick up their context. A cube view placed next to a relational grid reads the same intersection the workflow unit resolved to, so both halves of the page are looking at the same slice of the cube without any wiring between them.</p>
+<p>The resolved context is also serialized into the <strong><code>param_RfaSharedWf_MemberSetContextJson</code></strong> parameter, which is how cube views pick up their context. A cube view placed next to a relational grid reads the same intersection the workflow unit resolved to, so both halves of the page are looking at the same slice of the cube without any wiring between them.</p>
 <p>See <a href="../appGroups/admin/workflow/units/memberSets/">Workflow Unit Member Sets</a>.</p>
 <h4 id="item-category-member-sets">Item Category Member Sets</h4>
 <p>An <strong>item category member set</strong> does the same job one level down, against the item category rather than the workflow unit, and is typically used to <strong>derive the account member from the category assigned to a record</strong>.</p>
@@ -4274,7 +4274,7 @@
 <li><strong>Parent Unit Editability</strong> — what a Parent unit may do here. Left blank it is read-only, which is the safe default for a unit looking across other units' data. Set, it <em>replaces</em> the view's editability for a Parent, which is how a review screen stays editable for an approver on a grid nobody else can change.</li>
 </ul>
 <p>Where a view genuinely shows more than one unit's rows, the workflow unit column appears by itself. Nothing needs configuring, and it stays hidden everywhere else rather than repeating a single value down the page.</p>
-<p>See <a href="../appGroups/admin/relational/relationalViews/views/#workflow-behaviour">Workflow behaviour</a>.</p>
+<p>See <a href="../appGroups/admin/relational/relationalViews/views/#workflow-behavior">Workflow behavior</a>.</p>
 <h3 id="workflow-actions">Workflow actions</h3>
 <p>View actions can now be marked as <strong>Workflow</strong> actions — Submit, Approve, Reject, Recall and the Calculate that runs with them.</p>
 <p>A workflow action is gated on the <strong>cycle</strong> being open, not on the unit's own status. That distinction matters: a unit-level read-only status freezes that unit's <em>data</em>, not the workflow's ability to move it on. Marked as an edit action instead, a Submit button would disable itself the moment it succeeded, and nothing could ever recall it.</p>
@@ -4290,7 +4290,7 @@
 <p>See <a href="../appGroups/admin/relational/relationalViews/columns/#showing-a-column-to-some-units-only">Showing a column to some units only</a> and <a href="../appGroups/admin/relational/relationalViews/actions/#actions-for-some-units-only">Actions for some units only</a>.</p>
 <h3 id="core-and-extension-logic-together">Core and extension logic together</h3>
 <p>A Relational View can now say <strong>which assembly handles its save and delete logic, and in what order</strong> — core, extension, or both in either order.</p>
-<p>Previously it was one or the other, decided by whether the view was an extension. Adding a rule to a core view meant taking over its behaviour entirely and reproducing whatever the core already did. Now <em>Core, then Extension</em> leaves the framework's own validation and stamping in place and runs your handler afterwards on the same save.</p>
+<p>Previously it was one or the other, decided by whether the view was an extension. Adding a rule to a core view meant taking over its behavior entirely and reproducing whatever the core already did. Now <em>Core, then Extension</em> leaves the framework's own validation and stamping in place and runs your handler afterwards on the same save.</p>
 <p>See <a href="../appGroups/admin/relational/relationalViews/views/#business-rule-flags">Business Rule Flags</a>.</p>
 <h3 id="security-that-stays-out-of-the-way">Security that stays out of the way</h3>
 <p>Security now works quietly in the background instead of interrupting people.</p>

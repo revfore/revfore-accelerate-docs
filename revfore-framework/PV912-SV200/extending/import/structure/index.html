@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -3875,7 +3875,7 @@
 <p>Revfore Framework separates what is stored from how it is assembled from how it is accessed, and the import file mirrors that:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Tables    what is stored          physical columns, indexes, foreign keys
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>   ↓
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Models    how it is assembled     joins, stored and expression columns, column behaviour
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Models    how it is assembled     joins, stored and expression columns, column behavior
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>   ↓
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Views     how it is accessed      which columns are exposed, actions, security, filters
 </code></pre></div>
@@ -3953,7 +3953,7 @@
 </div>
 <h2 id="models">Models</h2>
 <p>Defines how tables are joined together, which columns are available to views — stored and calculated — and how each of those columns behaves.</p>
-<p>This is the layer that does most of the work. Queries are written against <strong>views</strong>, but a view can only expose what its model makes available, and much of a column's behaviour is settled here rather than on the view.</p>
+<p>This is the layer that does most of the work. Queries are written against <strong>views</strong>, but a view can only expose what its model makes available, and much of a column's behavior is settled here rather than on the view.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{RfaExtension}.CpxDepartment"</span><span class="p">,</span>
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">"DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cpx Departments"</span><span class="p">,</span>
@@ -3978,7 +3978,7 @@
 </code></pre></div>
 <p>The <code>Name</code> is the aliased form — source alias, underscore, column name. This is the name views and <a href="../../writing-code/">extension code</a> use, so it is worth getting the alias right early.</p>
 <p>A model column does not have to map to a stored column. Set <code>Expression</code> instead, naming the sources it draws from (<code>ExpressionRelModelSource1Id_IntegrationCode</code> through <code>...Source5Id...</code>), and the value is calculated — which is how derived values are produced without any code.</p>
-<p>Model columns also carry the column's <strong>behaviour</strong>, and this is where most of it is defined:</p>
+<p>Model columns also carry the column's <strong>behavior</strong>, and this is where most of it is defined:</p>
 <table>
 <thead>
 <tr>
@@ -3992,7 +3992,7 @@
 <td><code>KeyFlags</code>, <code>PeriodFlags</code>, <code>PeriodValue</code></td>
 </tr>
 <tr>
-<td>Behaviour</td>
+<td>Behavior</td>
 <td><code>RequiredFlags</code>, <code>AllowUpdates</code>, <code>SecurityLevel</code>, <code>IsVisible</code></td>
 </tr>
 <tr>
@@ -4062,7 +4062,7 @@
 <td><code>DisplayName</code>, <code>Width</code>, <code>IsVisible</code>, <code>SequenceNumber</code>, position properties</td>
 </tr>
 <tr>
-<td>Behaviour</td>
+<td>Behavior</td>
 <td><code>AllowUpdates</code>, <code>RequiredFlags</code>, <code>SecurityLevel</code></td>
 </tr>
 <tr>
@@ -4161,8 +4161,8 @@
 <ul>
 <li>Define tables, models and views together in the structure file; the framework resolves them in dependency order within it. Seed data goes in a separate file, imported after the sync.</li>
 <li>Get aliases right before anything references them; changing one later ripples through model columns, view columns and code.</li>
-<li>Prefer standard columns over spelling out types. Consistency across solutions is the point of them. The <a href="../../../appGroups/admin/relational/supporting/standardColumns/#standard-column-catalogue">full catalogue</a> lists every code and what it means.</li>
-<li>Most behaviour people reach for code to do — defaults, required rules, dropdown filtering — is a view column property. Check <a href="../../#configuration-first">Configuration first</a>.</li>
+<li>Prefer standard columns over spelling out types. Consistency across solutions is the point of them. The <a href="../../../appGroups/admin/relational/supporting/standardColumns/#standard-column-catalog">full catalog</a> lists every code and what it means.</li>
+<li>Most behavior people reach for code to do — defaults, required rules, dropdown filtering — is a view column property. Check <a href="../../#configuration-first">Configuration first</a>.</li>
 </ul>
 
 

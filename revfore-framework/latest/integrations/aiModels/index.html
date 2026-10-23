@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -3195,22 +3195,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-the-claude-skills-file" class="md-nav__link">
+  <a href="#getting-the-extension-kit" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting the Claude skills file
+      Getting the Extension Kit
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#loading-the-skills-into-claude" class="md-nav__link">
+  <a href="#using-the-skills-without-the-kit" class="md-nav__link">
     <span class="md-ellipsis">
-      Loading the skills into Claude
+      Using the skills without the kit
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Loading the skills into Claude">
+    <nav class="md-nav" aria-label="Using the skills without the kit">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3223,9 +3223,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#claude-code" class="md-nav__link">
+  <a href="#claude-code-outside-the-kit" class="md-nav__link">
     <span class="md-ellipsis">
-      Claude Code
+      Claude Code outside the kit
     </span>
   </a>
   
@@ -3733,22 +3733,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#getting-the-claude-skills-file" class="md-nav__link">
+  <a href="#getting-the-extension-kit" class="md-nav__link">
     <span class="md-ellipsis">
-      Getting the Claude skills file
+      Getting the Extension Kit
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#loading-the-skills-into-claude" class="md-nav__link">
+  <a href="#using-the-skills-without-the-kit" class="md-nav__link">
     <span class="md-ellipsis">
-      Loading the skills into Claude
+      Using the skills without the kit
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Loading the skills into Claude">
+    <nav class="md-nav" aria-label="Using the skills without the kit">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -3761,9 +3761,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#claude-code" class="md-nav__link">
+  <a href="#claude-code-outside-the-kit" class="md-nav__link">
     <span class="md-ellipsis">
-      Claude Code
+      Claude Code outside the kit
     </span>
   </a>
   
@@ -3828,7 +3828,7 @@
 <h1 id="ai-model-integrations">AI Model Integrations</h1>
 <p>Revfore Framework is designed so that a solution's structure can be <strong>generated from plain-English requirements</strong> rather than hand-built.</p>
 <p>Because tables, models, and views are defined as metadata — importable JSON rather than hand-written SQL and screens — an AI model can produce a complete, reviewable solution definition, and that definition can be validated before anything reaches the database.</p>
-<p>Revfore provides a <strong>Claude skills file</strong> that teaches Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. With that loaded, Claude takes a solution from a conversation through to the files you import. See <a href="#getting-the-claude-skills-file">Getting the Claude skills file</a> for where to download it and how to load it.</p>
+<p>Revfore provides <strong>Claude skills</strong> that teach Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. They ship inside the <strong><a href="../../extending/extension-kit/">Extension Kit</a></strong>, a VS Code folder where you work with Claude Code on your own machine. Open the kit and Claude takes a solution from a conversation through to the files you import and the extension code behind them, with every file written to the solution's folder in the kit. See <a href="#getting-the-extension-kit">Getting the Extension Kit</a>.</p>
 <h2 id="how-a-solution-gets-built">How a solution gets built</h2>
 <table>
 <thead>
@@ -3897,6 +3897,10 @@
 <td>Seed rows the solution needs to function</td>
 </tr>
 <tr>
+<td><strong>Pages</strong></td>
+<td>The solution's pages: application group, navigation group, order, layout and what each part shows</td>
+</tr>
+<tr>
 <td><strong>Behaviour</strong></td>
 <td>The rules that need code behind them</td>
 </tr>
@@ -3921,28 +3925,33 @@
 <li>the <strong>import JSON</strong> that defines tables, models, views and lookups</li>
 <li>the <strong>import JSON</strong> that seeds reference data</li>
 <li>the <strong>C# extension code</strong> that implements the solution's business logic</li>
+<li>the <strong>setup package</strong> that installs the solution in one load</li>
 </ul>
-<p>Claude validates what it generates against the Framework's schema and conventions before you import it, which catches the class of mistakes that produce valid-looking JSON that is still wrong.</p>
-<h2 id="getting-the-claude-skills-file">Getting the Claude skills file</h2>
-<p>The skills file ships with the product, in the same maintenance unit as the extension assembly.</p>
+<p>Claude validates what it generates against the Framework's schema and conventions before you import it, which catches the class of mistakes that produce valid-looking JSON that is still wrong. In the Extension Kit it also compiles the extension code against the Revfore and OneStream APIs, so a wrong name, argument or type shows up before you deploy.</p>
+<h2 id="getting-the-extension-kit">Getting the Extension Kit</h2>
+<p>The kit ships with the product, in the same maintenance unit as the extension assembly.</p>
 <ol>
 <li>In OneStream, go to <strong>Application | Presentation | Workspaces</strong></li>
 <li>Select your Revfore Framework workspace — <strong>Revfore Framework (RFA)</strong>, or <em>name (code)</em> if you <a href="../../appGroups/config/create-new-instance/">created your own instance</a></li>
 <li>Open <strong>XCP_xRfaDlg_ActnExtension</strong>, the extension assembly's maintenance unit</li>
-<li>Under <strong>Files</strong>, download <strong>rfaClaudeSkills.zip</strong></li>
+<li>Under <strong>Files</strong>, download <strong>rfaExtensionKit.zip</strong></li>
 </ol>
-<p>The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts.</p>
-<p>The same folder also holds <strong>rfaExtensionKit.zip</strong>, the <a href="../../extending/extension-kit/">Extension Kit</a> for building solutions in VS Code. It includes the skills, so if you work in Claude Code you can download the kit instead of <strong>rfaClaudeSkills.zip</strong>.</p>
-<h2 id="loading-the-skills-into-claude">Loading the skills into Claude</h2>
-<p>Both Claude apps take the zip as it is downloaded. There is no need to unpack and repackage it.</p>
+<p>Extract it to a folder for the project, open the folder in VS Code and start Claude Code. The skills are already in the kit's <code>.claude/skills</code> folder and Claude Code loads them on its own, so there is nothing to upload or install. See <a href="../../extending/extension-kit/">Extension Kit (VS Code)</a> for the requirements, setup steps and the full design-to-deploy workflow.</p>
+<div class="admonition note">
+<p class="admonition-title">Upgrades ship a new kit</p>
+<p>The skills describe the schema and conventions of the version they shipped with. After an upgrade, take the new kit, as described in <a href="../../extending/extension-kit/#kit-updates">Kit updates</a>, so Claude is generating against the current schema.</p>
+</div>
+<h2 id="using-the-skills-without-the-kit">Using the skills without the kit</h2>
+<p>The same skills are also available on their own, as <strong>rfaClaudeSkills.zip</strong> in the same <strong>Files</strong> folder, for working in Claude Desktop or claude.ai. That gives you the design conversation, the workbook and the import files, but not the solution folder, the code build or the setup package builder. Use the kit wherever you can.</p>
+<p>The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts. Both Claude apps take the zip as it is downloaded. There is no need to unpack and repackage it.</p>
 <h3 id="claude-desktop-and-claudeai">Claude Desktop and claude.ai</h3>
 <ol>
 <li>Open <strong>Settings | Capabilities | Skills</strong></li>
 <li>Choose <strong>Upload skill</strong> and select <strong>rfaClaudeSkills.zip</strong></li>
 <li>Enable the skills once the upload finishes</li>
 </ol>
-<h3 id="claude-code">Claude Code</h3>
-<p>Claude Code reads skills from a <code>skills</code> folder inside a <code>.claude</code> directory, so here the archive is extracted rather than uploaded. Extract it so each skill folder sits directly under <code>skills</code> — that is, <code>.../skills/&lt;skill-name&gt;/SKILL.md</code>.</p>
+<h3 id="claude-code-outside-the-kit">Claude Code outside the kit</h3>
+<p>If you use Claude Code but not the kit, Claude Code reads skills from a <code>skills</code> folder inside a <code>.claude</code> directory, so here the archive is extracted rather than uploaded. Extract it so each skill folder sits directly under <code>skills</code> — that is, <code>.../skills/&lt;skill-name&gt;/SKILL.md</code>.</p>
 <p>Choose where it goes:</p>
 <ul>
 <li><strong>Personal</strong>, available in every project — <code>%USERPROFILE%\.claude\skills\</code></li>
@@ -3951,10 +3960,6 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Expand-Archive</span> <span class="n">rfaClaudeSkills</span><span class="p">.</span><span class="n">zip</span> <span class="n">-DestinationPath</span> <span class="s2">"$env:USERPROFILE\.claude\skills\"</span>
 </code></pre></div>
 <p>Restart Claude Code and run <code>/skills</code> to confirm they are listed.</p>
-<div class="admonition tip">
-<p class="admonition-title">The Extension Kit already includes the skills</p>
-<p>If you build solutions in VS Code, download <strong>rfaExtensionKit.zip</strong> from the same maintenance unit instead. It ships with the skills in its own <code>.claude/skills</code> folder, together with a buildable copy of the extension assembly, and Claude Code loads them when you open the kit folder. See <a href="../../extending/extension-kit/">Extension Kit (VS Code)</a>.</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Upgrades ship a new skills file</p>
 <p>The skills describe the schema and conventions of the version they shipped with. After an upgrade, download <strong>rfaClaudeSkills.zip</strong> again and replace the copy you loaded, so Claude is generating against the current schema.</p>
@@ -3992,7 +3997,7 @@
 </ul>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>Each solution gets one working folder, named for the solution. Every round of the workbook is a separate, dated and numbered file in it (<code>100-SpendPlanning-workbook-20261005-r01.xlsx</code>, <code>-r02</code>, ...), so an edited workbook is never confused with an earlier version. See <a href="../../extending/extension-kit/#solution-folder-file-names">Solution folder file names</a>.</li>
+<li>Each solution gets one working folder in the kit's <code>solutions/</code> folder, named for the solution. Every round of the workbook is a separate, dated and numbered file in it (<code>100-SpendPlanning-workbook-20261005-r01.xlsx</code>, <code>-r02</code>, ...), so an edited workbook is never confused with an earlier version. See <a href="../../extending/extension-kit/#solution-folder-file-names">Solution folder file names</a>.</li>
 <li>Generated output is always reviewed before import — nothing reaches the database without a person applying it.</li>
 <li>A vague design produces vague files. The workbook stage exists to make the design specific before it is built.</li>
 <li>See <a href="../../getting-started/">Getting Started</a> for where these stages sit in the overall build process, and <a href="../../extending/">Extending the Framework</a> for what the generated files contain.</li>

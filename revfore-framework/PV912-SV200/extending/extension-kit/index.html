@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -4027,7 +4027,7 @@
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>└── .claude/skills/            the Framework skills
 </code></pre></div>
 <h3 id="step-2-add-the-onestream-reference-assemblies">Step 2: Add the OneStream reference assemblies</h3>
-<p>The kit compiles against OneStream's official reference assemblies. <strong>Revfore cannot redistribute this package</strong>, so the kit does not include it. Get it from your OneStream channel under your own licence.</p>
+<p>The kit compiles against OneStream's official reference assemblies. <strong>Revfore cannot redistribute this package</strong>, so the kit does not include it. Get it from your OneStream channel under your own license.</p>
 <ol>
 <li>Copy <code>OneStream.Platform.ReferenceAssemblies.&lt;version&gt;.nupkg</code> into the kit's <code>packages/</code> folder</li>
 <li>If its version differs from the one in <code>Directory.Build.props</code>, edit that file to match:</li>
@@ -4042,7 +4042,7 @@
 <p><code>OneStreamTargetFramework</code> must match the framework folder under <code>ref/</code> inside the package. It only changes when OneStream moves to a new .NET version.</p>
 <div class="admonition tip">
 <p class="admonition-title">Using your own NuGet feed</p>
-<p>If your organisation already hosts the package on an internal feed, add that feed to <code>nuget.config</code> instead of copying the file. Keep the <code>packageSourceMapping</code> entry and point it at your feed. Machines that use package source mapping will otherwise fail restore with <strong>NU1100</strong>.</p>
+<p>If your organization already hosts the package on an internal feed, add that feed to <code>nuget.config</code> instead of copying the file. Keep the <code>packageSourceMapping</code> entry and point it at your feed. Machines that use package source mapping will otherwise fail restore with <strong>NU1100</strong>.</p>
 </div>
 <h3 id="step-3-check-the-baseline">Step 3: Check the baseline</h3>
 <p>From a terminal in the kit folder:</p>
@@ -4064,6 +4064,14 @@
 <p>The design follows the same stages described in <a href="../../integrations/aiModels/#how-a-solution-gets-built">AI Model Integrations</a>. The difference is that every file lands in your project folder, where you can version, diff and review it.</p>
 <h3 id="step-1-describe-the-requirement">Step 1: Describe the requirement</h3>
 <p>Tell Claude what the solution needs to do in plain English: what gets planned or tracked, by whom, how it is approved, and whether and how it posts to the cube. Include anything you know about existing configuration, such as workflow units, cubes, dimensions and accounts.</p>
+<p>You don't have to type it all out. If the requirements already exist as documents, such as an Excel workbook of the current process, a Word requirements document or a Markdown file of notes, copy them into the solution folder, or anywhere in the kit folder, and ask Claude to read them. Claude works from the files and asks about whatever they leave open.</p>
+<p>You can also start from a <strong>Revfore Solution Pattern</strong>: a Markdown file that describes a proven design for a common use case. Revfore will publish these on its website. Copy the pattern that fits into the kit folder alongside your own requirements, and ask Claude to use it as the starting point, adapting it to what is different about your solution.</p>
+<p>Optionally, you can also give Claude the existing configuration as files:</p>
+<ul>
+<li><strong>Lists from the admin screens.</strong> Open the screen, click <strong><a href="../../concepts/metadataDrivenUI/actions/#file-export-and-import-as-json">File Export</a></strong>, and copy the file from your <strong>ExportAndImport</strong> folder into the kit. This is especially helpful for <strong>Admin | Security | Users</strong>, <strong>Admin | Cube | Cubes</strong> and <strong>Admin | Cube | Dimension Members</strong>: Claude gets the real names and integration codes rather than asking you for each one, or guessing.</li>
+<li><strong>A dimension hierarchy, for workflow units.</strong> If the solution's <a href="../../appGroups/admin/workflow/units/hierarchies/">workflow unit hierarchy</a> should follow an existing dimension hierarchy, such as entities or cost centers, use OneStream's <strong>Application | Tools | Load/Extract</strong> to extract the dimension's metadata as an XML file, and give that to Claude. It builds the units and their hierarchy from the members and parent-child relationships in the file.</li>
+</ul>
+<p>You don't need every export before you start. Once the <a href="#step-2-review-the-design-and-workbook">design workbook</a> exists, you can add these data points to it at any round: paste the exported rows into the workbook's <strong>Users</strong>, <strong>Dimension members</strong> or <strong>Workflow units</strong> sheet, lining the columns up with the sheet's headings and deleting any exported columns the sheet doesn't have, or save the export in the solution folder and ask Claude to bring it into the next round of the workbook.</p>
 <p>Claude asks about anything a design needs but you haven't said. Answer those questions rather than letting it guess. A missing prerequisite, such as cube posting or a parent/child review, usually means table changes later.</p>
 <h3 id="step-2-review-the-design-and-workbook">Step 2: Review the design and workbook</h3>
 <p>Claude creates a folder for the solution under <code>solutions/</code>, named for the solution alone (<code>solutions/SpendPlanning/</code>, no date), starting from <code>solutions/_template/</code>, and writes:</p>
@@ -4139,7 +4147,7 @@
 <p>The validator checks the schema and the semantic rules the schema can't express: lookup pairings, model source wiring, sequence numbers, and whether data rows target real view columns. Those mistakes produce valid-looking JSON that fails, or silently misbehaves, at import.</p>
 <div class="admonition note">
 <p class="admonition-title">Integration codes from your instance</p>
-<p>A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. Read them off the relevant admin screen, because a guessed code can load against the wrong record.</p>
+<p>A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. The quickest way to supply them is a <strong>File Export</strong> from the relevant admin screen, copied into the kit, as described in <a href="#step-1-describe-the-requirement">Step 1</a>. Otherwise read them off the screen. Never let Claude guess one, because a guessed code can load against the wrong record.</p>
 </div>
 <h3 id="step-5-build-the-setup-package">Step 5: Build the setup package</h3>
 <p>A solution installs as <strong>one zip</strong>. <code>setup-package.json</code> lists the steps, and the builder turns it into <code>rfaExtensionSetupPackage.zip</code>:</p>
@@ -4236,7 +4244,7 @@
 <li>Add or update the files you changed, using the same folder structure as the kit. This includes <code>ExtensionHandlerDispatcher.cs</code> if you registered a new handler</li>
 <li>Save. The change takes effect immediately</li>
 </ol>
-<p>Then test on a real environment. That is where behaviour, as opposed to shape, gets proven.</p>
+<p>Then test on a real environment. That is where behavior, as opposed to shape, gets proven.</p>
 <div class="admonition warning">
 <p class="admonition-title">Keep one source of truth</p>
 <p>If someone edits a handler directly in OneStream, copy the change back into the kit before your next deploy, or your next deploy overwrites it. This matters even more when deploys are pushed with Developer Studio, since a push replaces what is in the workspace without anyone looking at it first. Keeping the kit folder in source control makes that drift easy to see.</p>

@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -3840,7 +3840,7 @@
 <li><strong>Transactional data.</strong> Plans, journals, actuals and other high-volume files are a recurring business process, not part of setting up a solution. Users load them with <strong>File Import</strong> on the views themselves, which takes this same format, or — for the largest recurring files — with extension code. See <a href="#high-volume-transactional-files">High-volume transactional files</a> below.</li>
 <li><strong>Anything users maintain.</strong> If people will edit it in the UI, re-importing it later overwrites their changes. Seed it with <code>"Mode": "Insert"</code>, which adds the rows once and never touches them again, or leave it out of the file.</li>
 </ul>
-<p>That last point is the important judgement call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave them alone.</p>
+<p>That last point is the important judgment call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave them alone.</p>
 <h3 id="high-volume-transactional-files">High-volume transactional files</h3>
 <p>Grid <strong>File Import</strong> handles volume reasonably well: it compares the file with the existing rows first, then inserts and updates in batches. That first compare — matching every row, checking it against the grid's scope, validating it and listing it for review — is what makes it a little slower, and it is worth having when a user is checking what a file will change. For a file of thousands of transactions loaded every period, the compare and review are overhead nobody uses.</p>
 <p>For those, write a <strong>custom action</strong> in the extension assembly:</p>

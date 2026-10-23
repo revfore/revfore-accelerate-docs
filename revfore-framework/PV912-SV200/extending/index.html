@@ -636,7 +636,7 @@
         
   
   <span class="md-ellipsis">
-    Dyanamic Grid
+    Dynamic Grid
   </span>
   
 
@@ -3687,7 +3687,7 @@
 
 <h1 id="extending-the-framework">Extending the Framework</h1>
 <p>Revfore Framework is designed so that most of a solution is <strong>configured</strong>, not coded. Tables, models, views, actions and security are all defined as metadata, and the framework builds the screens from that.</p>
-<p>Some behaviour cannot be expressed as configuration — a validation rule that depends on other records, a calculation that runs when a row is saved, a button that pushes data to the cube. That is what the <strong>extension assembly</strong> is for.</p>
+<p>Some behavior cannot be expressed as configuration — a validation rule that depends on other records, a calculation that runs when a row is saved, a button that pushes data to the cube. That is what the <strong>extension assembly</strong> is for.</p>
 <h2 id="overview">Overview</h2>
 <p>Use this section to:</p>
 <ul>
@@ -3725,7 +3725,7 @@
 <tr>
 <td><code>rfa_wf_os</code></td>
 <td>No</td>
-<td>Workflow engine, cube synchronise and clear.</td>
+<td>Workflow engine, cube synchronize and clear.</td>
 </tr>
 <tr>
 <td><code>rfa_actnFile_os</code></td>
@@ -3744,7 +3744,7 @@
 </tr>
 </tbody>
 </table>
-<p>This matters more than it might appear. Because the closed assemblies call <em>into</em> your extension assembly at fixed points, upgrading the framework does not overwrite your code — and your code cannot destabilise the engine. You extend at defined seams rather than by modifying the product.</p>
+<p>This matters more than it might appear. Because the closed assemblies call <em>into</em> your extension assembly at fixed points, upgrading the framework does not overwrite your code — and your code cannot destabilize the engine. You extend at defined seams rather than by modifying the product.</p>
 <h3 id="adding-your-own-assemblies">Adding your own assemblies</h3>
 <p><code>rfa_actnExtension_os</code> is not the only place your code can live. You can add further assemblies of your own:</p>
 <ul>
@@ -3767,7 +3767,7 @@
 </ul>
 <p>Reach for code when the requirement involves something configuration genuinely cannot express: cross-record validation, writing to other tables, calling an external service, or driving a cube operation.</p>
 <h2 id="what-code-can-do">What code can do</h2>
-<p>Code runs at fixed <strong>extension points</strong> — when records are saved, copied, deleted or bulk updated, and when a custom action is clicked — and is organised by model family, so a view with no code behaves exactly as configured. See <a href="writing-code/">Writing Extension Code</a> for what each point is for. The full API reference ships in the <a href="extension-kit/">Extension Kit</a>.</p>
+<p>Code runs at fixed <strong>extension points</strong> — when records are saved, copied, deleted or bulk updated, and when a custom action is clicked — and is organized by model family, so a view with no code behaves exactly as configured. See <a href="writing-code/">Writing Extension Code</a> for what each point is for. The full API reference ships in the <a href="extension-kit/">Extension Kit</a>.</p>
 <h2 id="where-the-code-lives">Where the code lives</h2>
 <p>Inside OneStream:</p>
 <ol>
