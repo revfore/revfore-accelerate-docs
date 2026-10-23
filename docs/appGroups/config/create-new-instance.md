@@ -18,7 +18,7 @@ The process produces a new install file. It does not install anything by itself 
 
 ## When to use it
 
-An additional instance is worth creating when work needs to be genuinely separate rather than merely organised:
+An additional instance is worth creating when work needs to be genuinely separate rather than merely organized:
 
 - separating solutions that must not share tables, views, or data
 - giving a team or business area its own environment within the same application

@@ -58,7 +58,7 @@ MyProject/
 
 ### Step 2: Add the OneStream reference assemblies
 
-The kit compiles against OneStream's official reference assemblies. **Revfore cannot redistribute this package**, so the kit does not include it. Get it from your OneStream channel under your own licence.
+The kit compiles against OneStream's official reference assemblies. **Revfore cannot redistribute this package**, so the kit does not include it. Get it from your OneStream channel under your own license.
 
 1. Copy `OneStream.Platform.ReferenceAssemblies.<version>.nupkg` into the kit's `packages/` folder
 2. If its version differs from the one in `Directory.Build.props`, edit that file to match:
@@ -75,7 +75,7 @@ The kit compiles against OneStream's official reference assemblies. **Revfore ca
 `OneStreamTargetFramework` must match the framework folder under `ref/` inside the package. It only changes when OneStream moves to a new .NET version.
 
 !!! tip "Using your own NuGet feed"
-    If your organisation already hosts the package on an internal feed, add that feed to `nuget.config` instead of copying the file. Keep the `packageSourceMapping` entry and point it at your feed. Machines that use package source mapping will otherwise fail restore with **NU1100**.
+    If your organization already hosts the package on an internal feed, add that feed to `nuget.config` instead of copying the file. Keep the `packageSourceMapping` entry and point it at your feed. Machines that use package source mapping will otherwise fail restore with **NU1100**.
 
 ### Step 3: Check the baseline
 
@@ -105,6 +105,17 @@ The design follows the same stages described in [AI Model Integrations](../integ
 ### Step 1: Describe the requirement
 
 Tell Claude what the solution needs to do in plain English: what gets planned or tracked, by whom, how it is approved, and whether and how it posts to the cube. Include anything you know about existing configuration, such as workflow units, cubes, dimensions and accounts.
+
+You don't have to type it all out. If the requirements already exist as documents, such as an Excel workbook of the current process, a Word requirements document or a Markdown file of notes, copy them into the solution folder, or anywhere in the kit folder, and ask Claude to read them. Claude works from the files and asks about whatever they leave open.
+
+You can also start from a **Revfore Solution Pattern**: a Markdown file that describes a proven design for a common use case. Revfore will publish these on its website. Copy the pattern that fits into the kit folder alongside your own requirements, and ask Claude to use it as the starting point, adapting it to what is different about your solution.
+
+Optionally, you can also give Claude the existing configuration as files:
+
+- **Lists from the admin screens.** Open the screen, click **[File Export](../concepts/metadataDrivenUI/actions.md#file-export-and-import-as-json)**, and copy the file from your **ExportAndImport** folder into the kit. This is especially helpful for **Admin | Security | Users**, **Admin | Cube | Cubes** and **Admin | Cube | Dimension Members**: Claude gets the real names and integration codes rather than asking you for each one, or guessing.
+- **A dimension hierarchy, for workflow units.** If the solution's [workflow unit hierarchy](../appGroups/admin/workflow/units/hierarchies.md) should follow an existing dimension hierarchy, such as entities or cost centers, use OneStream's **Application | Tools | Load/Extract** to extract the dimension's metadata as an XML file, and give that to Claude. It builds the units and their hierarchy from the members and parent-child relationships in the file.
+
+You don't need every export before you start. Once the [design workbook](#step-2-review-the-design-and-workbook) exists, you can add these data points to it at any round: paste the exported rows into the workbook's **Users**, **Dimension members** or **Workflow units** sheet, lining the columns up with the sheet's headings and deleting any exported columns the sheet doesn't have, or save the export in the solution folder and ask Claude to bring it into the next round of the workbook.
 
 Claude asks about anything a design needs but you haven't said. Answer those questions rather than letting it guess. A missing prerequisite, such as cube posting or a parent/child review, usually means table changes later.
 
@@ -151,7 +162,7 @@ python .claude/skills/revfore-framework/scripts/validate_framework_json.py solut
 The validator checks the schema and the semantic rules the schema can't express: lookup pairings, model source wiring, sequence numbers, and whether data rows target real view columns. Those mistakes produce valid-looking JSON that fails, or silently misbehaves, at import.
 
 !!! note "Integration codes from your instance"
-    A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. Read them off the relevant admin screen, because a guessed code can load against the wrong record.
+    A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. The quickest way to supply them is a **File Export** from the relevant admin screen, copied into the kit, as described in [Step 1](#step-1-describe-the-requirement). Otherwise read them off the screen. Never let Claude guess one, because a guessed code can load against the wrong record.
 
 ### Step 5: Build the setup package
 
@@ -228,7 +239,7 @@ Either way, deploy the same files to the same place.
 3. Add or update the files you changed, using the same folder structure as the kit. This includes `ExtensionHandlerDispatcher.cs` if you registered a new handler
 4. Save. The change takes effect immediately
 
-Then test on a real environment. That is where behaviour, as opposed to shape, gets proven.
+Then test on a real environment. That is where behavior, as opposed to shape, gets proven.
 
 !!! warning "Keep one source of truth"
     If someone edits a handler directly in OneStream, copy the change back into the kit before your next deploy, or your next deploy overwrites it. This matters even more when deploys are pushed with Developer Studio, since a push replaces what is in the workspace without anyone looking at it first. Keeping the kit folder in source control makes that drift easy to see.

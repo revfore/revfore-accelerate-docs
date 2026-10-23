@@ -79,7 +79,7 @@ FY ─┬─ HY1 ─┬─ Q1 ─┬─ M1  M2  M3
 Reading that top to bottom gives FY, HY1, Q1, M1, M2, M3, Q2, M4, M5, M6, HY2, Q3, M7, M8, M9, Q4, M10, M11, M12 — the offsets in order. This is why M4 is `007000` rather than `006000`: Q2 occupies the slot in between.
 
 !!! note "The time key carries the workflow's grain"
-    Take the key as OneStream gives it rather than normalising it to a month. A OneStream workflow run **by period** produces a period-level key such as `2026003000`; one run **by year** produces `2026000000`, the FY offset.
+    Take the key as OneStream gives it rather than normalizing it to a month. A OneStream workflow run **by period** produces a period-level key such as `2026003000`; one run **by year** produces `2026000000`, the FY offset.
 
     That means the same reference format yields one workflow instance per scenario-period for a period workflow, and one per scenario-year for a yearly one. Seed instances to match the grain the OneStream workflow actually runs at.
 

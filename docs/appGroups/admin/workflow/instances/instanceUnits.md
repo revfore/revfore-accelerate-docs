@@ -58,7 +58,7 @@ It never disturbs a status someone has already set: existing records are left ex
 
 The **Unit** column is hidden by default, because on most screens every row belongs to the same unit and the column would repeat one value down the page.
 
-It appears by itself when the grid is genuinely showing more than one unit — that is, when the view is set to include descendant records and the unit you are working as is a **Parent**. Nothing needs configuring for this; it follows from the view's [Unit Records Shown](../../relational/relationalViews/views.md#workflow-behaviour) setting and the unit's [Profile Type](../units/units.md#unit-profile-type).
+It appears by itself when the grid is genuinely showing more than one unit — that is, when the view is set to include descendant records and the unit you are working as is a **Parent**. Nothing needs configuring for this; it follows from the view's [Unit Records Shown](../../relational/relationalViews/views.md#workflow-behavior) setting and the unit's [Profile Type](../units/units.md#unit-profile-type).
 
 ## Typical Use Cases
 

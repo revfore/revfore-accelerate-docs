@@ -38,7 +38,7 @@ The following fields are used for a Workflow Status record.
 
 ## Behavior
 
-**Behavior** says what a status takes away. It is a restriction, not a permission — a status with no behaviour set does not grant anything, it simply restricts nothing.
+**Behavior** says what a status takes away. It is a restriction, not a permission — a status with no behavior set does not grant anything, it simply restricts nothing.
 
 | Value | Behavior | Effect |
 |---|---|---|
@@ -86,7 +86,7 @@ Most solutions want a few of each. *Draft*, *Open* and *Closed* describe a cycle
 
 ## Notes
 
-- Decide the behaviour before the name. A status that reads as final but restricts nothing is the most common configuration mistake here.
+- Decide the behavior before the name. A status that reads as final but restricts nothing is the most common configuration mistake here.
 - Number sequences in tens, so a stage can be inserted later without renumbering the ones after it.
 - Set Usage deliberately. A unit-level status offered on an instance, or the other way round, will be picked by someone eventually.
 - Statuses are referenced by instances and by [Instance Units](instanceUnits.md), so disable rather than delete.

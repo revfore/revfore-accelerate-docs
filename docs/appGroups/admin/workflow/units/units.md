@@ -4,7 +4,7 @@
 
 The **Workflow Units** page is used to define and manage the header fields for a workflow unit.
 
-Workflow units represent the entities a workflow process is performed for, such as a department, cost centre, or region.
+Workflow units represent the entities a workflow process is performed for, such as a department, cost center, or region.
 
 ## Overview
 
@@ -51,7 +51,7 @@ The following fields are used for a Workflow Unit header record.
 
 **Both kinds of unit can hold records of their own.** A Parent unit is not a heading — a regional manager may enter their own overhead alongside reviewing the departments beneath them. Whether a given screen shows those rows is set on the view, by **Unit Records Shown**: a view including *Parent Records* shows a Parent's own rows, and one including *Descendant Records* shows the rows of the units below it. A view can include either, both, or neither.
 
-The profile type is a label and nothing more — it says what the unit *is*, not what any particular screen lets it do. What a Parent unit sees and may change is decided **per view**, by [Unit Records Shown and Parent Unit Editability](../../relational/relationalViews/views.md#workflow-behaviour).
+The profile type is a label and nothing more — it says what the unit *is*, not what any particular screen lets it do. What a Parent unit sees and may change is decided **per view**, by [Unit Records Shown and Parent Unit Editability](../../relational/relationalViews/views.md#workflow-behavior).
 
 That split is deliberate. The same Parent unit is often read-only on a data entry screen and fully editable on the review screen that sits next to it, and a setting on the unit could not express both.
 
@@ -63,7 +63,7 @@ That split is deliberate. The same Parent unit is often read-only on a data entr
 Use workflow units to represent the structures a process is performed for, such as:
 
 - Departments
-- Cost centres
+- Cost centers
 - Regions or territories
 - Legal entities
 - Business units

@@ -113,7 +113,7 @@ Less suitable:
 - **Transactional data.** Plans, journals, actuals and other high-volume files are a recurring business process, not part of setting up a solution. Users load them with **File Import** on the views themselves, which takes this same format, or — for the largest recurring files — with extension code. See [High-volume transactional files](#high-volume-transactional-files) below.
 - **Anything users maintain.** If people will edit it in the UI, re-importing it later overwrites their changes. Seed it with `"Mode": "Insert"`, which adds the rows once and never touches them again, or leave it out of the file.
 
-That last point is the important judgement call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave them alone.
+That last point is the important judgment call. A data file is a statement that the file is the source of truth. Where the users are the source of truth, seed the initial rows and then leave them alone.
 
 ### High-volume transactional files
 

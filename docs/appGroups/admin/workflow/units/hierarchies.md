@@ -12,7 +12,7 @@ Use Unit Hierarchies to:
 
 - define which units report to which, for a given purpose
 - give a **Parent** unit a view across the units beneath it
-- drive which records a view shows, through the view's [Unit Records Shown](../../relational/relationalViews/views.md#workflow-behaviour) setting
+- drive which records a view shows, through the view's [Unit Records Shown](../../relational/relationalViews/views.md#workflow-behavior) setting
 - roll a submission process up through review and approval levels
 
 A unit can appear in more than one hierarchy. Reporting structure and approval structure are often different, and each is its own hierarchy rather than a compromise between the two.
@@ -96,7 +96,7 @@ Each row says *this unit hangs under that unit*. This is the only part of a hier
 Process reads the order you asked for and then writes it back tidied up — renumbered 1, 2, 3 and so on, restarting under each parent. Two things follow from that:
 
 - **A new row added with no sequence number sorts to the end of its group**, not to the top, and is given the next number. Adding a unit puts it where you would expect rather than at the front of the list.
-- **You do not have to renumber by hand** to make room. Give a row any number that puts it in the right place relative to its siblings, and Process normalises the rest.
+- **You do not have to renumber by hand** to make room. Give a row any number that puts it in the right place relative to its siblings, and Process normalizes the rest.
 
 ## Sorting into tree order
 

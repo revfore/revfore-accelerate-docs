@@ -10,7 +10,7 @@ While the **Config** application group is focused on setup, upgrades, and system
 
 ## Admin Sections
 
-The Admin application group is organised into four sections:
+The Admin application group is organized into four sections:
 
 **Relational** – the relational data model and the database behind it
 

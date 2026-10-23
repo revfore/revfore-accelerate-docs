@@ -104,7 +104,7 @@ The full set of **117 standard columns is now documented**, grouped by purpose, 
 
 Six time period codes were **renamed** for consistency. The underlying standard columns are unchanged, so existing definitions and data are unaffected, but import files referencing the old codes must be updated: `DimGeneralPeriod_Decimal` and `DimYtdPeriod_Decimal` become `TimePeriodPeriodicAmount_Decimal` and `TimePeriodYtdAmount_Decimal`, and the `*Raw_Int`/`*Os_NVarchar` period and year codes become `TimePeriod_Int`/`TimePeriodName_NVarchar` and `TimeYear_Int`/`TimeYearName_NVarchar`.
 
-See [Standard Columns](appGroups/admin/relational/supporting/standardColumns.md) and the [catalogue](appGroups/admin/relational/supporting/standardColumns.md#standard-column-catalogue).
+See [Standard Columns](appGroups/admin/relational/supporting/standardColumns.md) and the [catalog](appGroups/admin/relational/supporting/standardColumns.md#standard-column-catalog).
 
 ### Audit Log
 
@@ -153,7 +153,7 @@ A dimension member column says *which* member a row points at. A **workflow unit
 
 That context is what lets a detail table stay thin. On detail tables that ultimately post to the cube, the member set should be **assigned automatically from extension code** rather than captured on each row: the workflow unit the record belongs to already determines its intersection, so having the user restate it is both redundant and a source of error.
 
-The resolved context is also serialised into the **`param_RfaSharedWf_MemberSetContextJson`** parameter, which is how cube views pick up their context. A cube view placed next to a relational grid reads the same intersection the workflow unit resolved to, so both halves of the page are looking at the same slice of the cube without any wiring between them.
+The resolved context is also serialized into the **`param_RfaSharedWf_MemberSetContextJson`** parameter, which is how cube views pick up their context. A cube view placed next to a relational grid reads the same intersection the workflow unit resolved to, so both halves of the page are looking at the same slice of the cube without any wiring between them.
 
 See [Workflow Unit Member Sets](appGroups/admin/workflow/units/memberSets.md).
 
@@ -230,7 +230,7 @@ Two new settings on a Relational View decide how it behaves for the unit looking
 
 Where a view genuinely shows more than one unit's rows, the workflow unit column appears by itself. Nothing needs configuring, and it stays hidden everywhere else rather than repeating a single value down the page.
 
-See [Workflow behaviour](appGroups/admin/relational/relationalViews/views.md#workflow-behaviour).
+See [Workflow behavior](appGroups/admin/relational/relationalViews/views.md#workflow-behavior).
 
 ### Workflow actions
 
@@ -262,7 +262,7 @@ See [Showing a column to some units only](appGroups/admin/relational/relationalV
 
 A Relational View can now say **which assembly handles its save and delete logic, and in what order** — core, extension, or both in either order.
 
-Previously it was one or the other, decided by whether the view was an extension. Adding a rule to a core view meant taking over its behaviour entirely and reproducing whatever the core already did. Now *Core, then Extension* leaves the framework's own validation and stamping in place and runs your handler afterwards on the same save.
+Previously it was one or the other, decided by whether the view was an extension. Adding a rule to a core view meant taking over its behavior entirely and reproducing whatever the core already did. Now *Core, then Extension* leaves the framework's own validation and stamping in place and runs your handler afterwards on the same save.
 
 See [Business Rule Flags](appGroups/admin/relational/relationalViews/views.md#business-rule-flags).
 

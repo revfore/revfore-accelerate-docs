@@ -123,7 +123,7 @@ The settings are in **transit mode**: views, cube views and workflow areas are n
 | Cube views in a drop-down | One or more [cube views](../appGroups/admin/relational/supporting/cubeViews.md) |
 | Single grid, or list | One view, and which of its actions show. Its columns — width, visibility, editability and header filters — are the view's own, set on the view rather than on the page |
 | [Summary cards](../concepts/metadataDrivenUI/contentSubItem/summaryCard.md) | Totals from one view, normally a summary view: which columns are cards, with what summary (sum, min, max, count, average) and label, and which columns are filters |
-| [Pivot grid](../concepts/metadataDrivenUI/contentSubItem/pivotGrid.md) | One view summarised: which columns are row fields, column fields and totalled data fields |
+| [Pivot grid](../concepts/metadataDrivenUI/contentSubItem/pivotGrid.md) | One view summarized: which columns are row fields, column fields and totalled data fields |
 | [Adapter dashboard](../concepts/metadataDrivenUI/contentSubItem/adapterDashboard.md) | An adapter data set on one view, and which columns it carries, for an adapter-based component such as a BI Viewer |
 | Any of them, under workflow | Revfore or OneStream workflow, on a workflow area |
 | Master and detail | A list or grid in one content sub item; selecting a row refreshes the other — customers on the left, the selected customer's contracts on the right |

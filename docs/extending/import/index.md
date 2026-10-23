@@ -18,7 +18,7 @@ An import file is a single JSON document with up to five top-level sections, pro
 |---|---|---|
 | **`Tables`** | Physical tables — columns, indexes, relationships | [Structure Definitions](structure.md#tables) |
 | **`Models`** | How tables are joined, which columns — stored and expression — are available, and how each behaves | [Structure Definitions](structure.md#models) |
-| **`Views`** | The access layer — which columns are exposed, with what security, behaviour and filters | [Structure Definitions](structure.md#views) |
+| **`Views`** | The access layer — which columns are exposed, with what security, behavior and filters | [Structure Definitions](structure.md#views) |
 | **`Lookups`** | Reusable dropdown definitions | [Structure Definitions](structure.md#lookups) |
 | **`Data`** | Reference and seed rows | [Data Files](data.md) |
 
@@ -44,7 +44,7 @@ Any property ending `_IntegrationCode` is a reference to something else:
 }
 ```
 
-Read that as: *a view named `CpxDepartment_mE`, built over the model `CpxDepartment`, categorised as a data entry view.*
+Read that as: *a view named `CpxDepartment_mE`, built over the model `CpxDepartment`, categorized as a data entry view.*
 
 The codes follow predictable shapes:
 

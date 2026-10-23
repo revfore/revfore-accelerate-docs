@@ -87,7 +87,7 @@ After you have loaded the file, relaunch the application and finalize the upgrad
 ---
 ## Upgrade Only Core RFA & Custom RFA | Upgrade Only Core RFA
 
-To upgrade only a subset of the maintenance units, you must must create an upgrade file from a full install package.
+To upgrade only a subset of the maintenance units, you must create an upgrade file from a full install package.
 
 You will need to download the full install zip file for the desired version from the OneStream Solution Exchange, unzip it and select the ApplicationWorkspaces.xml, which will then create an upgrade file.
 

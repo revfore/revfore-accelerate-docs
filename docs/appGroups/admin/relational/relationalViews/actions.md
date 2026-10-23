@@ -65,7 +65,7 @@ Neither of the obvious alternatives works:
 The rule underneath is that **a unit-level read-only status freezes that unit's data, not the workflow's ability to move it on.** A submitted unit cannot be edited; it can still be recalled or approved.
 
 !!!Note
-    The Workflow test is applied ahead of the others, so an action marked Workflow behaves as a transition first. Marking an action Read *and* Workflow adds nothing — the behaviour is the same as Workflow on its own.
+    The Workflow test is applied ahead of the others, so an action marked Workflow behaves as a transition first. Marking an action Read *and* Workflow adds nothing — the behavior is the same as Workflow on its own.
 
 ## Actions for some units only
 

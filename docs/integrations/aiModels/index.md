@@ -4,7 +4,7 @@ Revfore Framework is designed so that a solution's structure can be **generated 
 
 Because tables, models, and views are defined as metadata — importable JSON rather than hand-written SQL and screens — an AI model can produce a complete, reviewable solution definition, and that definition can be validated before anything reaches the database.
 
-Revfore provides a **Claude skills file** that teaches Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. With that loaded, Claude takes a solution from a conversation through to the files you import. See [Getting the Claude skills file](#getting-the-claude-skills-file) for where to download it and how to load it.
+Revfore provides **Claude skills** that teach Claude the Framework: its schema, conventions, standard columns, extension points, and the shape of every file it produces. They ship inside the **[Extension Kit](../../extending/extension-kit.md)**, a VS Code folder where you work with Claude Code on your own machine. Open the kit and Claude takes a solution from a conversation through to the files you import and the extension code behind them, with every file written to the solution's folder in the kit. See [Getting the Extension Kit](#getting-the-extension-kit).
 
 ## How a solution gets built
 
@@ -32,6 +32,7 @@ Rather than going straight from a conversation to import files, Claude produces 
 | **Actions** | The buttons on each view |
 | **Lookups** | The dropdowns, and where their values come from |
 | **ReferenceData** | Seed rows the solution needs to function |
+| **Pages** | The solution's pages: application group, navigation group, order, layout and what each part shows |
 | **Behaviour** | The rules that need code behind them |
 
 ### Why it exists
@@ -61,25 +62,29 @@ This normally takes several rounds, and that is expected. The workbook stage is 
 - the **import JSON** that defines tables, models, views and lookups
 - the **import JSON** that seeds reference data
 - the **C# extension code** that implements the solution's business logic
+- the **setup package** that installs the solution in one load
 
-Claude validates what it generates against the Framework's schema and conventions before you import it, which catches the class of mistakes that produce valid-looking JSON that is still wrong.
+Claude validates what it generates against the Framework's schema and conventions before you import it, which catches the class of mistakes that produce valid-looking JSON that is still wrong. In the Extension Kit it also compiles the extension code against the Revfore and OneStream APIs, so a wrong name, argument or type shows up before you deploy.
 
-## Getting the Claude skills file
+## Getting the Extension Kit
 
-The skills file ships with the product, in the same maintenance unit as the extension assembly.
+The kit ships with the product, in the same maintenance unit as the extension assembly.
 
 1. In OneStream, go to **Application | Presentation | Workspaces**
 2. Select your Revfore Framework workspace — **Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](../../appGroups/config/create-new-instance.md)
 3. Open **XCP_xRfaDlg_ActnExtension**, the extension assembly's maintenance unit
-4. Under **Files**, download **rfaClaudeSkills.zip**
+4. Under **Files**, download **rfaExtensionKit.zip**
 
-The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts.
+Extract it to a folder for the project, open the folder in VS Code and start Claude Code. The skills are already in the kit's `.claude/skills` folder and Claude Code loads them on its own, so there is nothing to upload or install. See [Extension Kit (VS Code)](../../extending/extension-kit.md) for the requirements, setup steps and the full design-to-deploy workflow.
 
-The same folder also holds **rfaExtensionKit.zip**, the [Extension Kit](../../extending/extension-kit.md) for building solutions in VS Code. It includes the skills, so if you work in Claude Code you can download the kit instead of **rfaClaudeSkills.zip**.
+!!! note "Upgrades ship a new kit"
+    The skills describe the schema and conventions of the version they shipped with. After an upgrade, take the new kit, as described in [Kit updates](../../extending/extension-kit.md#kit-updates), so Claude is generating against the current schema.
 
-## Loading the skills into Claude
+## Using the skills without the kit
 
-Both Claude apps take the zip as it is downloaded. There is no need to unpack and repackage it.
+The same skills are also available on their own, as **rfaClaudeSkills.zip** in the same **Files** folder, for working in Claude Desktop or claude.ai. That gives you the design conversation, the workbook and the import files, but not the solution folder, the code build or the setup package builder. Use the kit wherever you can.
+
+The archive holds one folder per skill — each with its instructions, reference material, schemas, examples and validation scripts. Both Claude apps take the zip as it is downloaded. There is no need to unpack and repackage it.
 
 ### Claude Desktop and claude.ai
 
@@ -87,9 +92,9 @@ Both Claude apps take the zip as it is downloaded. There is no need to unpack an
 2. Choose **Upload skill** and select **rfaClaudeSkills.zip**
 3. Enable the skills once the upload finishes
 
-### Claude Code
+### Claude Code outside the kit
 
-Claude Code reads skills from a `skills` folder inside a `.claude` directory, so here the archive is extracted rather than uploaded. Extract it so each skill folder sits directly under `skills` — that is, `.../skills/<skill-name>/SKILL.md`.
+If you use Claude Code but not the kit, Claude Code reads skills from a `skills` folder inside a `.claude` directory, so here the archive is extracted rather than uploaded. Extract it so each skill folder sits directly under `skills` — that is, `.../skills/<skill-name>/SKILL.md`.
 
 Choose where it goes:
 
@@ -101,9 +106,6 @@ Expand-Archive rfaClaudeSkills.zip -DestinationPath "$env:USERPROFILE\.claude\sk
 ```
 
 Restart Claude Code and run `/skills` to confirm they are listed.
-
-!!! tip "The Extension Kit already includes the skills"
-    If you build solutions in VS Code, download **rfaExtensionKit.zip** from the same maintenance unit instead. It ships with the skills in its own `.claude/skills` folder, together with a buildable copy of the extension assembly, and Claude Code loads them when you open the kit folder. See [Extension Kit (VS Code)](../../extending/extension-kit.md).
 
 !!! note "Upgrades ship a new skills file"
     The skills describe the schema and conventions of the version they shipped with. After an upgrade, download **rfaClaudeSkills.zip** again and replace the copy you loaded, so Claude is generating against the current schema.
@@ -141,7 +143,7 @@ Restart Claude Code and run `/skills` to confirm they are listed.
 
 ## Notes
 
-- Each solution gets one working folder, named for the solution. Every round of the workbook is a separate, dated and numbered file in it (`100-SpendPlanning-workbook-20261005-r01.xlsx`, `-r02`, ...), so an edited workbook is never confused with an earlier version. See [Solution folder file names](../../extending/extension-kit.md#solution-folder-file-names).
+- Each solution gets one working folder in the kit's `solutions/` folder, named for the solution. Every round of the workbook is a separate, dated and numbered file in it (`100-SpendPlanning-workbook-20261005-r01.xlsx`, `-r02`, ...), so an edited workbook is never confused with an earlier version. See [Solution folder file names](../../extending/extension-kit.md#solution-folder-file-names).
 - Generated output is always reviewed before import — nothing reaches the database without a person applying it.
 - A vague design produces vague files. The workbook stage exists to make the design specific before it is built.
 - See [Getting Started](../../getting-started.md) for where these stages sit in the overall build process, and [Extending the Framework](../../extending/index.md) for what the generated files contain.

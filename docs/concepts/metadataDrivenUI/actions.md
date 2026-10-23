@@ -126,7 +126,7 @@ Both take the same file format, but they do different jobs.
 | Rows | Only those the grid's filters show | Every row in the view |
 | Save handlers and validation | Run, as for a grid save | Not run |
 | Structure in the file | Refused | Loaded first |
-| An entry's `Mode` | Ignored — every row is inserted or updated | Honoured — see [Update only, or insert only](../../extending/import/data.md#update-only-or-insert-only) |
+| An entry's `Mode` | Ignored — every row is inserted or updated | Honored — see [Update only, or insert only](../../extending/import/data.md#update-only-or-insert-only) |
 
 ### What a view needs for JSON
 

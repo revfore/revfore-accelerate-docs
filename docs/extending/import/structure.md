@@ -13,7 +13,7 @@ Revfore Framework separates what is stored from how it is assembled from how it 
 ```
 Tables    what is stored          physical columns, indexes, foreign keys
    ↓
-Models    how it is assembled     joins, stored and expression columns, column behaviour
+Models    how it is assembled     joins, stored and expression columns, column behavior
    ↓
 Views     how it is accessed      which columns are exposed, actions, security, filters
 ```
@@ -95,7 +95,7 @@ These work for both new and existing columns, so re-importing with a changed pos
 
 Defines how tables are joined together, which columns are available to views — stored and calculated — and how each of those columns behaves.
 
-This is the layer that does most of the work. Queries are written against **views**, but a view can only expose what its model makes available, and much of a column's behaviour is settled here rather than on the view.
+This is the layer that does most of the work. Queries are written against **views**, but a view can only expose what its model makes available, and much of a column's behavior is settled here rather than on the view.
 
 ```json
 {
@@ -135,12 +135,12 @@ The `Name` is the aliased form — source alias, underscore, column name. This i
 
 A model column does not have to map to a stored column. Set `Expression` instead, naming the sources it draws from (`ExpressionRelModelSource1Id_IntegrationCode` through `...Source5Id...`), and the value is calculated — which is how derived values are produced without any code.
 
-Model columns also carry the column's **behaviour**, and this is where most of it is defined:
+Model columns also carry the column's **behavior**, and this is where most of it is defined:
 
 | Group | Properties |
 |---|---|
 | Keys and periods | `KeyFlags`, `PeriodFlags`, `PeriodValue` |
-| Behaviour | `RequiredFlags`, `AllowUpdates`, `SecurityLevel`, `IsVisible` |
+| Behavior | `RequiredFlags`, `AllowUpdates`, `SecurityLevel`, `IsVisible` |
 | Lookups | `RelLookupId_IntegrationCode`, `LookupRelModelSourceId_IntegrationCode`, `LookupDataSet` |
 | Presentation | `DisplayName`, `FormatString` |
 | Defaulting | `DefaultRelFunctionId`, `DefaultExpression` |
@@ -192,7 +192,7 @@ A view column's job is to **select** a model column and settle how it appears an
 | Group | Properties |
 |---|---|
 | Display | `DisplayName`, `Width`, `IsVisible`, `SequenceNumber`, position properties |
-| Behaviour | `AllowUpdates`, `RequiredFlags`, `SecurityLevel` |
+| Behavior | `AllowUpdates`, `RequiredFlags`, `SecurityLevel` |
 | Lookups | `RelLookupId_IntegrationCode`, `LookupDataSet`, `LookupFilterExpression` |
 | Grouping | `IsGroupBy`, `SummaryFunction`, `SummaryNames` |
 | Sorting | `OrderBySequenceNumber`, `OrderByAscending` |
@@ -264,5 +264,5 @@ A lookup is defined once and referenced from any number of view columns, so the 
 
 - Define tables, models and views together in the structure file; the framework resolves them in dependency order within it. Seed data goes in a separate file, imported after the sync.
 - Get aliases right before anything references them; changing one later ripples through model columns, view columns and code.
-- Prefer standard columns over spelling out types. Consistency across solutions is the point of them. The [full catalogue](../../appGroups/admin/relational/supporting/standardColumns.md#standard-column-catalogue) lists every code and what it means.
-- Most behaviour people reach for code to do — defaults, required rules, dropdown filtering — is a view column property. Check [Configuration first](../index.md#configuration-first).
+- Prefer standard columns over spelling out types. Consistency across solutions is the point of them. The [full catalog](../../appGroups/admin/relational/supporting/standardColumns.md#standard-column-catalog) lists every code and what it means.
+- Most behavior people reach for code to do — defaults, required rules, dropdown filtering — is a view column property. Check [Configuration first](../index.md#configuration-first).

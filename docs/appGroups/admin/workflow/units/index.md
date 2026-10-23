@@ -4,7 +4,7 @@
 
 Workflow Units define **who or what a workflow is performed for**.
 
-A workflow unit is the organisational entity a planning or reporting process is carried out against — a department, cost centre, entity, region, or any other structure the process is divided by.
+A workflow unit is the organizational entity a planning or reporting process is carried out against — a department, cost center, entity, region, or any other structure the process is divided by.
 
 ## Overview
 
@@ -18,7 +18,7 @@ Use Workflow Units to:
 Each workflow unit definition consists of:
 
 - [Units](units.md) – name, effective dates, security groups, and other unit-level settings
-- [Member Sets](memberSets.md) – the cube and dimension members a unit's data is written to and summarised at, per workflow instance type
+- [Member Sets](memberSets.md) – the cube and dimension members a unit's data is written to and summarized at, per workflow instance type
 - [Unit Hierarchies](hierarchies.md) – how units are arranged under one another, so a unit can review the work of those beneath it
 
 ## Key Concepts
@@ -34,7 +34,7 @@ Each workflow unit definition consists of:
 ## Typical Use Cases
 
 - Departments submitting a budget
-- Cost centres forecasting spend
+- Cost centers forecasting spend
 - Regions or business units reporting actuals
 - Entities completing a planning cycle
 

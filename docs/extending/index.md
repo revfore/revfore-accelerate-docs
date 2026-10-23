@@ -2,7 +2,7 @@
 
 Revfore Framework is designed so that most of a solution is **configured**, not coded. Tables, models, views, actions and security are all defined as metadata, and the framework builds the screens from that.
 
-Some behaviour cannot be expressed as configuration — a validation rule that depends on other records, a calculation that runs when a row is saved, a button that pushes data to the cube. That is what the **extension assembly** is for.
+Some behavior cannot be expressed as configuration — a validation rule that depends on other records, a calculation that runs when a row is saved, a button that pushes data to the cube. That is what the **extension assembly** is for.
 
 ## Overview
 
@@ -23,12 +23,12 @@ Revfore Framework ships as a set of OneStream workspace assemblies. All but one 
 | **`rfa_actnExtension_os`** | **Yes** | The extension assembly — where the framework calls your code. Every handler's entry point lives here. |
 | `rfa_os` | No | Core engine — builds screens from metadata and calls into your extension code. |
 | `rfa_shared_os` | No | Shared services used across the framework. |
-| `rfa_wf_os` | No | Workflow engine, cube synchronise and clear. |
+| `rfa_wf_os` | No | Workflow engine, cube synchronize and clear. |
 | `rfa_actnFile_os` | No | File import and export actions. |
 | `rfa_actnOther_os` | No | Additional built-in actions. |
 | `rfa_conSubItmCnfg_os`, `rfa_expressionEditor_os`, `rfa_solCnfg_os` | No | Configuration and editor support. |
 
-This matters more than it might appear. Because the closed assemblies call *into* your extension assembly at fixed points, upgrading the framework does not overwrite your code — and your code cannot destabilise the engine. You extend at defined seams rather than by modifying the product.
+This matters more than it might appear. Because the closed assemblies call *into* your extension assembly at fixed points, upgrading the framework does not overwrite your code — and your code cannot destabilize the engine. You extend at defined seams rather than by modifying the product.
 
 ### Adding your own assemblies
 
@@ -57,7 +57,7 @@ Reach for code when the requirement involves something configuration genuinely c
 
 ## What code can do
 
-Code runs at fixed **extension points** — when records are saved, copied, deleted or bulk updated, and when a custom action is clicked — and is organised by model family, so a view with no code behaves exactly as configured. See [Writing Extension Code](writing-code.md) for what each point is for. The full API reference ships in the [Extension Kit](extension-kit.md).
+Code runs at fixed **extension points** — when records are saved, copied, deleted or bulk updated, and when a custom action is clicked — and is organized by model family, so a view with no code behaves exactly as configured. See [Writing Extension Code](writing-code.md) for what each point is for. The full API reference ships in the [Extension Kit](extension-kit.md).
 
 ## Where the code lives
 

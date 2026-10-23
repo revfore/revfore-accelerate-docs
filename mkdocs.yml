@@ -29,7 +29,7 @@ nav:
           - Content Sub Item:
               - Overview: concepts/metadataDrivenUI/contentSubItem/index.md          
               - Adapter Dashboard: concepts/metadataDrivenUI/contentSubItem/adapterDashboard.md
-              - Dyanamic Grid: concepts/metadataDrivenUI/contentSubItem/dynamicGrid.md                   
+              - Dynamic Grid: concepts/metadataDrivenUI/contentSubItem/dynamicGrid.md                   
               - List: concepts/metadataDrivenUI/contentSubItem/list.md
               - Pivot Grid: concepts/metadataDrivenUI/contentSubItem/pivotGrid.md
               - Summary Card: concepts/metadataDrivenUI/contentSubItem/summaryCard.md

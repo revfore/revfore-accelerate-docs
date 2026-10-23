@@ -57,24 +57,26 @@ Before getting started, make sure your environment is ready:
 
 Solutions are designed and built with AI assistance, using **Claude**.
 
-Revfore publishes a **Claude skill** for this. The skill gives Claude the Framework's schema, conventions, standard columns, core table structures, and worked examples, so what it generates follows the same rules a hand-built solution is held to. Install the skill before you start — without it, Claude has no knowledge of the Framework.
+Revfore ships an **Extension Kit** for this: a VS Code folder where you work with Claude Code on your own machine. It brings together:
 
-With the skill loaded, Claude takes a solution from a requirements conversation through to the files you import.
+- the **Claude skills**, already installed in the folder, which give Claude the Framework's schema, conventions, standard columns, core table structures and worked examples, so what it generates follows the same rules a hand-built solution is held to
+- a **design area** (`solutions/`) where each solution's design documents, workbooks and import JSON are kept, so you can version, diff and review them
+- a **buildable copy of the extension assembly**, so the handler code Claude writes compiles against the Revfore and OneStream APIs before you deploy it
 
-### Installing the skill
+Open the kit folder and start Claude Code, and it loads the skills on its own. There is nothing to upload or configure. From there Claude takes a solution from a requirements conversation through to the files you import and the extension code behind them.
 
-Download **rfaClaudeSkills.zip** from OneStream: **Application | Presentation | Workspaces**, select your Revfore Framework workspace (**Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](appGroups/config/create-new-instance.md)), open the **XCP_xRfaDlg_ActnExtension** maintenance unit, and take the file from **Files**.
+### Getting the Extension Kit
 
-Then load it into whichever Claude you use — both take the zip exactly as downloaded:
+Download **rfaExtensionKit.zip** from OneStream: **Application | Presentation | Workspaces**, select your Revfore Framework workspace (**Revfore Framework (RFA)**, or *name (code)* if you [created your own instance](appGroups/config/create-new-instance.md)), open the **XCP_xRfaDlg_ActnExtension** maintenance unit, and take the file from **Files**.
 
-- **Claude Desktop or claude.ai** — open **Settings | Capabilities | Skills**, choose **Upload skill**, select the zip, and enable the skills.
-- **Claude Code** — extract the zip into `%USERPROFILE%\.claude\skills\`, restart, and run `/skills` to confirm they are listed.
+Extract it to a folder for the project, open that folder in VS Code, and start Claude Code. Take a new kit after each Framework upgrade, so Claude is working from the current schema. See [Extension Kit (VS Code)](extending/extension-kit.md) for the requirements, setup steps and the full design-to-deploy workflow.
 
-Download it again after an upgrade, so Claude is working from the current schema. See [Getting the Claude skills file](integrations/aiModels/index.md#getting-the-claude-skills-file) for the full instructions, including project-level installs.
+!!! note "Using Claude Desktop or claude.ai instead"
+    The same skills are available on their own as **rfaClaudeSkills.zip**, in the same maintenance unit, for uploading to Claude Desktop or claude.ai. That gives you the design conversation and the import files, but not the solution folder or the code build. See [Using the skills without the kit](integrations/aiModels/index.md#using-the-skills-without-the-kit).
 
 ### The design workbook
 
-Claude does not go straight from a conversation to import files. It first produces a **design workbook** — an Excel file with a sheet for each part of the configuration: tables, columns, views, actions, lookups, reference data and behaviour.
+Claude does not go straight from a conversation to import files. It first produces a **design workbook** — an Excel file with a sheet for each part of the configuration: tables, columns, views, actions, lookups, reference data and behavior.
 
 The workbook is where the design gets settled. Because it is an ordinary `.xlsx`, you can take it away and work through it with the people who own the process — email it round, sit down with them and go through the columns, gather changes over a week. **The design conversation does not have to happen in front of Claude.**
 
@@ -113,35 +115,35 @@ Core structures are defined in metadata, enabling consistent, automatically gene
 
 ## ⚙️ Basic Workflow
 
-Here’s the typical process for building a solution:
+Here’s the typical process for building a solution. Steps 2 to 4 happen in the [Extension Kit](extending/extension-kit.md), working with Claude Code in VS Code; everything it produces is written to the solution's folder under `solutions/` in the kit.
 
-1. **Gather requirements**
+1. **Set up the Extension Kit**
+   - Download and extract the kit (one folder per project or customer), open it in VS Code and start Claude Code
 
 2. **Work through the design with Claude, which produces a design workbook**
-   - An Excel file covering the tables, columns, views, actions, lookups and reference data
+   - Give Claude the requirements: what the solution needs to plan or track, who works on it, how it is approved, and whether it posts to the cube. Include any existing configuration you know of, such as workflow units, cubes and dimensions
+   - An Excel file covering the tables, columns, views, actions, lookups and reference data, saved in the solution folder
 
 3. **Review and edit the workbook, with your stakeholders**
-   - Hand it back to Claude, which reports what changed and produces the next version. Expect several rounds
+   - Save the edited workbook back into the solution folder and ask Claude to read it. It reports what changed and produces the next version. Expect several rounds
 
 4. **When the design has settled, ask Claude for the JSON schema, JSON data, and code assembly files**
+   - Claude validates the JSON and builds the extension code in the kit, so schema and compile errors are caught before anything reaches OneStream
+   - It then builds the solution's [setup package](extending/setup-packages.md), **rfaExtensionSetupPackage.zip**, in the solution folder
 
-5. **Import the JSON schema files**
-   - This will create all your table, model and view definitions
+5. **Load the rfaExtensionSetupPackage.zip file**
+   - Use **Load** on **Admin | Relational | Tables** and select the zip. In one run it imports the table, model and view definitions, syncs them to create the database tables and views, loads the data the solution needs, and loads the page settings
 
-6. **Review and sync the table and view definitions**
-   - This will create the database tables and views
+6. **Deploy the code assembly files from the kit**
+   - Copy the handlers you changed into the **rfa_actnExtension_os** assembly, or push them with OneStream Developer Studio. This puts in place all the logic that needs to run when data is entered, submitted, and so on
 
-7. **Import the JSON data files for supporting tables**
-   - Now that the database tables and views are created, data can be imported into them
+7. **Add the navigation groups and pages documented in the design**
+   - Claude's page list gives each page's application group, **Navigation Group** and **Page** name. Create them in OneStream with those names, typed exactly. See [Create the page in OneStream](extending/pages.md#step-2-create-the-page-in-onestream)
 
-8. **Add the code assembly files**
-   - This will put in place all the logic that needs to run when data is entered, submitted, and so on
+8. **Link each page to the Revfore dashboard documented in the design**
+   - Select the page and click **Link an Existing Content Item from a Shared Workspace**, choose the Revfore Framework workspace, and pick the **Linked Revfore dashboard** (the content item layout) the page list gives for it. The page then shows the grids and content from its page settings
 
-9. **Add new Genesis navigation groups and pages**
-
-10. **Link Revfore to the Genesis pages and configure the presentation**
-
-11. **Start using the solution**
+9. **Start using the solution**
 
 ---
 

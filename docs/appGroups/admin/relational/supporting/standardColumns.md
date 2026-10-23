@@ -4,7 +4,7 @@
 
 The **Relational Standard Columns** page defines the reusable column definitions that table columns are built from.
 
-A standard column carries the data type, key behaviour, nullability, default value, and display settings for a kind of column. When a table column is created from a standard column it inherits all of that, so columns of the same kind behave consistently everywhere.
+A standard column carries the data type, key behavior, nullability, default value, and display settings for a kind of column. When a table column is created from a standard column it inherits all of that, so columns of the same kind behave consistently everywhere.
 
 ## Overview
 
@@ -26,8 +26,8 @@ The following fields are used for a Relational Standard Column record.
 | Standard Column Description | nvarchar | Description of the standard column and what it is for. |
 | Table/View Column Name | nvarchar | The default column name applied when this standard column is used. |
 | Table/View Column Display Name | nvarchar | The default display name applied when this standard column is used. |
-| Standard Base Column | int | The base column definition this standard column derives from. | Groups related standard columns that share underlying behaviour.
-| Key Flags | int | How the column participates in keys. | Identifies primary, foreign, integration and parent key behaviour, which drives how the column is treated across models and views.
+| Standard Base Column | int | The base column definition this standard column derives from. | Groups related standard columns that share underlying behavior.
+| Key Flags | int | How the column participates in keys. | Identifies primary, foreign, integration and parent key behavior, which drives how the column is treated across models and views.
 | Data Type | int | The column's data type. |
 | Is Nullable | bit | Whether columns created from this standard column allow nulls by default. | A table column can override this.
 | Max Length | int | Default maximum length for text columns. |
@@ -46,7 +46,7 @@ The following fields are used for a Relational Standard Column record.
 - Choosing the right standard column matters more than the column's own settings — it is what makes columns of the same kind behave alike.
 - A standard column is referenced by its **integration code**, which follows a `Purpose_DataType` convention: `Key_Int`, `Name_NVarchar`, `DmMemberEntity_Int`. The suffix tells you the storage type; the prefix tells you what the column means to the Framework.
 
-## Standard Column Catalogue
+## Standard Column Catalog
 
 The platform supplies **117 standard columns**. They are grouped below by purpose, with the integration code used to reference each one from an [import structure file](../../../../extending/import/structure.md).
 
@@ -125,7 +125,7 @@ The first six are foreign keys into the Revfore workflow tables. All carry `KeyF
 |---|---|---|
 | `WorkflowInstance_Int` | No | Foreign key to `{RfaCore}.WfInstance`. Use on any table whose rows hang off a specific workflow instance — a period's run of a process — as `WfItem` does. This is the column that scopes a record to one execution of a workflow. |
 | `WorkflowUnit_Int` | No | Foreign key to `{RfaCore}.WfUnit`. The unit is the *who* of workflow — the entity, region or team a row of work belongs to — and is what row-level workflow security is applied against. |
-| `WorkflowItemType_Int` | No | Foreign key to `{RfaCore}.WfItemType`. Classifies what kind of item a row is, which drives the behaviour and actions offered for it. |
+| `WorkflowItemType_Int` | No | Foreign key to `{RfaCore}.WfItemType`. Classifies what kind of item a row is, which drives the behavior and actions offered for it. |
 | `WorkflowItemCategory_Int` | No | Foreign key to `{RfaCore}.WfItemCategory`. Groups item types into categories for reporting and filtering. |
 | `WorkflowArea_Int` | No | Foreign key to `{RfaCore}.WfArea`. The area a workflow item sits within, used to partition a large process into manageable sections. |
 | `WorkflowMemberSetType_Int` | No | Foreign key used for dimension-member-set type linkage on workflow unit tables — how a workflow unit resolves to the set of dimension members it covers. |
@@ -195,7 +195,7 @@ Each dimension offers the same three variants, and choosing between them is the 
 Use the generic UD codes when a column holds a member of whichever UD dimension the context supplies; use the numbered codes when the column is always UD1, always UD2, and so on.
 
 !!! warning "Integration codes are case-sensitive, and UD casing is inconsistent"
-    The id and base variants spell it `Ud` (`DmMemberUd1_Int`, `DmMemberUd1Base_Int`) while the name variants spell it `UD` (`DmMemberUD1_NVarchar`). The data-source name variant also carries an extra underscore: `DmMemberUD_DataSource_NVarchar`, not `DmMemberUdDataSource_NVarchar`. Copy these codes rather than typing them — an unrecognised code fails the import.
+    The id and base variants spell it `Ud` (`DmMemberUd1_Int`, `DmMemberUd1Base_Int`) while the name variants spell it `UD` (`DmMemberUD1_NVarchar`). The data-source name variant also carries an extra underscore: `DmMemberUD_DataSource_NVarchar`, not `DmMemberUdDataSource_NVarchar`. Copy these codes rather than typing them — an unrecognized code fails the import.
 
 !!! note "Dimension member columns are hidden on views by default"
     As with workflow keys, a view column built on a dimension member standard column inherits `IsVisible: false`. The member drives the cube intersection rather than being shown in the grid.
@@ -280,14 +280,14 @@ These carry no domain meaning — they are plain typed columns for business data
 
 ## What a column inherits, and when to override it
 
-Inheritance runs in a chain: a **table column** takes its physical shape from its standard column; a **model column** takes its behaviour from the same standard column; and a **view column** takes `IsVisible`, `AllowUpdates` and `SecurityLevel` from the model column, and `IsDisplayLabel`, `FilterFlags`, `FilterExpression` and the summary settings from the standard column directly.
+Inheritance runs in a chain: a **table column** takes its physical shape from its standard column; a **model column** takes its behavior from the same standard column; and a **view column** takes `IsVisible`, `AllowUpdates` and `SecurityLevel` from the model column, and `IsDisplayLabel`, `FilterFlags`, `FilterExpression` and the summary settings from the standard column directly.
 
 An attribute you leave unset is therefore **seeded, not left blank** — which is why audit columns need no configuration to populate themselves, and why a `Name_NVarchar` column is searchable without being told to be. An explicit value always wins over an inherited one.
 
 Two exceptions override whatever you set: view columns built on **workflow key** and **dimension member** standard columns are forced to `IsVisible: false`.
 
 !!! note "Inheritance is a safety net, not a reason to omit a value that matters"
-    Working **in the application**, leave a setting unset when you want the standard column's behaviour — that is what the standard column is for, and overriding it by hand is how columns of the same kind drift apart.
+    Working **in the application**, leave a setting unset when you want the standard column's behavior — that is what the standard column is for, and overriding it by hand is how columns of the same kind drift apart.
 
     Writing an **import file**, prefer to set a value explicitly when it matters for that column, even where it matches what would be inherited. A structure file is reviewed, diffed and audited as a document, and a reader should be able to see that a column is read-only or hidden without cross-referencing the standard column it came from. Genuinely omit an attribute only where its value does not matter for that column.
 
@@ -303,5 +303,5 @@ Two exceptions override whatever you set: view columns built on **workflow key**
 
 - Standard columns are shared across every solution in the application; treat them as read-only unless there is a clear reason to change one.
 - If no standard column fits a requirement, review the list again before adding one — the intended column often exists under a different name.
-- Integration codes are case-sensitive and are validated on import; an unrecognised code fails the file rather than falling back to a default.
+- Integration codes are case-sensitive and are validated on import; an unrecognized code fails the file rather than falling back to a default.
 - See [Table Columns](../relationalTables/columns.md) for how a standard column is applied when defining a column, and [Structure Definitions](../../../../extending/import/structure.md) for how one is referenced in an import file.

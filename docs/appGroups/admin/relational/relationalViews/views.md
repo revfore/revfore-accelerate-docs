@@ -35,9 +35,9 @@ The following fields are used for a Relational View header record.
 | Distinct Enabled | bit | Indicates whether distinct selection is enabled for the view. | Used when duplicate records should be eliminated from the view output.  This field is not used at this time. |
 | Navigate To Enabled | bit | Indicates whether navigation is enabled for the view. | Used when users should be able to navigate from this view to related views or records. |
 | Top Count | int | Shows at most this many rows - the first by the view's own sort. | Optional; blank shows all rows. Needs a sort on the view's columns. See [Top Count](#top-count). |
-| Unit Records Shown | int | Which records the view shows, relative to the workflow unit looking at it. | Defaults to Own Records Only. See [Workflow behaviour](#workflow-behaviour). |
-| Parent Unit Editability | int | What a Parent unit may do on this view. | Blank means read-only for a Parent. See [Workflow behaviour](#workflow-behaviour). |
-| Business Rule Flags | int | Which assembly handles this view's save and delete logic, and in what order. | Defaults to the behaviour that applied before the setting existed. See [Business Rule Flags](#business-rule-flags). |
+| Unit Records Shown | int | Which records the view shows, relative to the workflow unit looking at it. | Defaults to Own Records Only. See [Workflow behavior](#workflow-behavior). |
+| Parent Unit Editability | int | What a Parent unit may do on this view. | Blank means read-only for a Parent. See [Workflow behavior](#workflow-behavior). |
+| Business Rule Flags | int | Which assembly handles this view's save and delete logic, and in what order. | Defaults to the behavior that applied before the setting existed. See [Business Rule Flags](#business-rule-flags). |
 | Where Clause | nvarchar | Defines additional where clause logic for the view. | Used to restrict which records are included in the view. Its **Flags** decide whether it is built into the view or applied per user - see [Where Clause](#where-clause). Use the **Clause** button to open the expression editor page. |
 | Having Clause | nvarchar | Intended to restrict grouped or aggregated results. | **Not applied yet** - it is stored, but not written into the view, so it filters nothing. Filter on a model column with the Where Clause (Flags 5) instead, or rank with Top Count. |
 | Integration Code | nvarchar | Unique value for the relational view record. | This is readonly and is auto set the same value as the View Name, providing a unique value for the record that is used for importing data. |
@@ -50,7 +50,7 @@ The following fields are used for a Relational View header record.
 !!!Note Important Field Notes
     **Is RFA Managed** - If Managed, the view definition is maintained in RFA and pushed to the database as a SQL view.  If not managed, the view is created directly in the database by some other method and RFA only references it.  Managed Views give you the full Relational View functionality.  Non-managed Views can only be used as Model Sources.  A good example of a non-managed view is a SQL view that is very complex and can only be created directly in SQL and is required for reporting & analytics.
 
-## Workflow behaviour
+## Workflow behavior
 
 Two settings decide how a workflow-enabled view behaves for the unit looking at it. Both live on the view rather than on the unit, because the same unit is usually treated differently on a data entry screen and on the review screen next to it.
 
@@ -114,6 +114,13 @@ A where clause can be applied at two different moments, and its **Flags** say wh
 
 **Applied every time (2).** The clause is added to each query on the view, with the user's own workflow - so `{PrtPln_Year} = {WfInstanceYear}` shows each user the rows for the instance they are in. You can give a view one built-in clause and any number of run-time ones as a list; they are combined with AND.
 
+**Other tables.** A clause can look at a table the view doesn't show, for example in an `exists` subquery. Name the table with a schema token, as import files do: `{RfaCore}.WfInstance`, `{RfaExtension}.PrtPlanLine` or `{OsCore}.XFC_Something`. The token resolves to the application's own schema, so the clause works in any environment. Never write the schema's name itself (`rfa01`).
+
+```json
+{ "Clause": "exists (select 1 from {RfaCore}.WfInstance_Unit iu where iu.WfInstanceId = {WfInstanceId} and iu.WfUnitId = {PrtPln_WfUnitId})",
+  "Flags": 2 }
+```
+
 !!!Note Workflow columns still belong on the view
     A workflow-enabled view keeps its instance and unit columns, even if nobody looks at them: the Framework's own workflow filtering runs when the view is read, against those columns.
 
@@ -134,15 +141,15 @@ The rows are chosen **after** every filter, workflow included, so each unit sees
 
 **Business Rule Flags** decides which assembly handles the view's save and delete logic.
 
-| Setting | Behaviour |
+| Setting | Behavior |
 |---|---|
 | Default (by area) | What applied before this setting existed: core handles core views, the extension assembly handles extension views. |
 | Core | Core logic only. |
-| Extension | Extension logic only — it **replaces** the core behaviour rather than adding to it. |
+| Extension | Extension logic only — it **replaces** the core behavior rather than adding to it. |
 | Core, then Extension | Both, core first. |
 | Extension, then Core | Both, extension first. |
 
-The common reason to set it is to add validation to a **core** view without losing what the core already does — *Core, then Extension*. Choosing *Extension* on its own is how you deliberately take the core behaviour out.
+The common reason to set it is to add validation to a **core** view without losing what the core already does — *Core, then Extension*. Choosing *Extension* on its own is how you deliberately take the core behavior out.
 
 See [Writing Extension Code](../../../../extending/writing-code.md) for what runs where.
 

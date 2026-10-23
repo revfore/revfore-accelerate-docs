@@ -17,7 +17,7 @@ Most of a solution is configuration. Code is for the rules configuration cannot 
 
 Code can also read the user's **workflow context** — the unit, instance, cube and dimension members they are working in — which is how cube posting lines up with what the user sees.
 
-Code is organised by **model family**: each family of related views has its own handler, so solutions do not interfere with one another, and a view with no handler simply behaves as configured.
+Code is organized by **model family**: each family of related views has its own handler, so solutions do not interfere with one another, and a view with no handler simply behaves as configured.
 
 ## Where the details are
 

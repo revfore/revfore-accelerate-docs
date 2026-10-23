@@ -4,7 +4,7 @@
 
 The **Workflow Units : Member Sets** page is used to define and manage the cube and dimension member assignments for a workflow unit.
 
-A member set is what connects a workflow unit to the cube. It says which cube the unit's data belongs to, which dimension members it is written at, and which members it is summarised to.
+A member set is what connects a workflow unit to the cube. It says which cube the unit's data belongs to, which dimension members it is written at, and which members it is summarized to.
 
 ## Overview
 
@@ -13,7 +13,7 @@ Use the Workflow Units : Member Sets page to:
 - assign a workflow unit to a cube for a given workflow instance type
 - set the base dimension members the unit's data is written at
 - set the scope dimension members that bound the unit's slice of the cube
-- set the data source members that define what the unit can read, what it can change, and which slice each synchronise or clear acts on
+- set the data source members that define what the unit can read, what it can change, and which slice each synchronize or clear acts on
 - limit an assignment to a period of time using effective dates
 
 A member set is defined per **workflow unit** and **workflow instance type**, so the same unit can be mapped differently depending on the kind of workflow being performed.
@@ -49,10 +49,10 @@ A workflow unit can have more than one member set, but only one per combination 
 **Scope members** are not a rollup target - they define the **outer bounds of the slice of the cube the unit is assigned to**. That boundary is used three ways:
 
 - to present the unit's data in summary form in cube views
-- to define the outer bounds of the data intersections that are synchronised with the detail data
+- to define the outer bounds of the data intersections that are synchronized with the detail data
 - to define the data that is cleared for the unit
 
-Because the scope members bound what gets synchronised and cleared, setting them wider than the unit actually owns risks clearing another unit's data, and setting them narrower than the detail risks leaving data behind.
+Because the scope members bound what gets synchronized and cleared, setting them wider than the unit actually owns risks clearing another unit's data, and setting them narrower than the detail risks leaving data behind.
 
 ### Data source scope members
 
@@ -64,7 +64,7 @@ The **Data Source Dimension** field identifies which dimension these members are
 |---|---|
 | **Readable** | Everything the unit can **see**. The widest of the five - it bounds what the unit may read, whether or not it may change it. |
 | **Controlled** | Everything the unit can **control**, meaning view, modify and delete. Always the same as, or a subset of, Readable. |
-| **Controlled Itemized** | The part of the controlled region holding **itemized** data - detail built up from workflow items. This is where itemized detail is written when a unit is synchronised to the cube. |
+| **Controlled Itemized** | The part of the controlled region holding **itemized** data - detail built up from workflow items. This is where itemized detail is written when a unit is synchronized to the cube. |
 | **Controlled Direct** | The part of the controlled region holding data **entered directly** against the unit rather than itemized through workflow items. |
 | **Controlled Actual** | The part of the controlled region holding **actuals**. |
 
@@ -82,11 +82,11 @@ The Readable/Controlled split is what lets a unit see more than it owns. A contr
 
 #### Which member each operation uses
 
-Every synchronise and clear is bounded by one of these members, and acts on that member's **base** descendants:
+Every synchronize and clear is bounded by one of these members, and acts on that member's **base** descendants:
 
 | Operation | Member used |
 |---|---|
-| Synchronise itemized detail to the cube | Controlled Itemized |
+| Synchronize itemized detail to the cube | Controlled Itemized |
 | Clear all controlled data | Controlled |
 | Clear itemized data | Controlled Itemized |
 | Clear direct data | Controlled Direct |
@@ -94,12 +94,12 @@ Every synchronise and clear is bounded by one of these members, and acts on that
 
 This is why the boundary matters as much as it does: the member chosen for an operation is exactly how much of the cube that operation can touch. Setting **Controlled** wider than the unit genuinely owns risks clearing another unit's data.
 
-All five members must be set. If any is missing, synchronising the unit to the cube stops and reports which one.
+All five members must be set. If any is missing, synchronizing the unit to the cube stops and reports which one.
 
 ## Typical Use Cases
 
 - Mapping a department to the entity and account members its budget is written at
-- Bounding a cost centre's slice of the cube so its data can be summarised, synchronised and cleared correctly
+- Bounding a cost center's slice of the cube so its data can be summarized, synchronized and cleared correctly
 - Mapping the same unit to different cubes for budget and forecast instance types
 - Re-mapping a unit from a given date after a restructure, without altering prior cycles
 
@@ -124,6 +124,6 @@ All five members must be set. If any is missing, synchronising the unit to the c
 - Only populate the dimensions the solution uses; leave the rest blank rather than selecting a default member.
 - Base and scope members serve different purposes - base is where the unit's detail data is written; scope bounds the region of the cube that data occupies.
 - Readable and Controlled answer different questions - Readable is what the unit may look at, Controlled is what it may change. Controlled can never be wider than Readable.
-- If a synchronise or clear affects more of the cube than expected, check the data source member that operation uses before looking anywhere else; it is the boundary being applied.
+- If a synchronize or clear affects more of the cube than expected, check the data source member that operation uses before looking anywhere else; it is the boundary being applied.
 - A unit with no member set for the instance type being run has no cube destination, which is a common cause of data not appearing in the cube.
 - Use effective dates to change a mapping over time rather than editing an existing member set in place.
