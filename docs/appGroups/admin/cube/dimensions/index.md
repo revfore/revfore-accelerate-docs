@@ -68,11 +68,15 @@ Members are selected when configuring:
 
 1. Go to **Admin | Cube | Dimensions**
 2. Click **Sync**
+3. Click **OK** to confirm
 
 Syncing brings the current set of members across from OneStream. Run it after members are added, renamed, or restructured there.
 
+!!! note "The 'None' member"
+    Each dimension's **None** member exists in the Framework but does not show on this page. It can still be selected in the dimension member drop-downs in other parts of the solution, such as member sets.
+
 ## Notes
 
-- A member missing from a selection list is usually either not yet synced, or disabled here.
+- A member missing from a selection list is usually either not yet synced, or disabled here. The **None** member is the exception: it is missing from this page but appears in the selection lists.
 - **Is Base** matters when choosing a base member for a member set — data is normally written at base members and bounded by scope members.
 - Prefer fixing a member in OneStream where you can, so the two stay aligned; use the overrides for cases OneStream cannot express.

@@ -48,6 +48,7 @@ A cube is selected when configuring:
 
 1. Go to **Admin | Cube | Cubes**
 2. Click **Sync**
+3. Click **OK** to confirm
 
 Syncing brings the current set of cubes across from OneStream. Run it after a cube is added, renamed, or removed there.
 
