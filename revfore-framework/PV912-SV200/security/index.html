@@ -415,6 +415,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#actions-that-need-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions that need a role
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-questions" class="md-nav__link">
     <span class="md-ellipsis">
       Common questions
@@ -1469,6 +1478,27 @@
   
   <span class="md-ellipsis">
     Groups
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../appGroups/admin/security/Roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roles
   </span>
   
 
@@ -3674,6 +3704,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#actions-that-need-a-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actions that need a role
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#common-questions" class="md-nav__link">
     <span class="md-ellipsis">
       Common questions
@@ -3746,6 +3785,17 @@ View Name: …</p>
 <p><strong>View name | Unit | Instance | Instance status | Unit status</strong></p>
 <p>The unit status appears only when your solution uses per-unit status. If the title reads <strong>WORKFLOW SELECTION IS MISSING</strong>, choose a workflow unit and instance before working on that page. The <strong>Navigate</strong> dialog shows the same header as the main grids.</p>
 <hr />
+<h2 id="actions-that-need-a-role">Actions that need a role</h2>
+<p>Some actions are protected by a <strong>security role</strong> rather than by access to the data - for example, approving a request above a limit. If you try one without the role, nothing changes and you see a message naming it:</p>
+<blockquote>
+<p>Security Error: you need the Acme.Approver security role to approve a request above the limit.</p>
+</blockquote>
+<p>Your administrator decides who holds each role by mapping it to a security group on <a href="../appGroups/admin/security/Roles/">Admin | Security | Roles</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Need the role?</p>
+<p>Ask your administrator to add you to the group mapped to that role. Tell them the role named in the message.</p>
+</div>
+<hr />
 <h2 id="common-questions">Common questions</h2>
 <p><strong>A grid is empty and its title says I don't have access.</strong>
 You are not in the view's read group. Ask your administrator for access, quoting the view name.</p>
@@ -3753,6 +3803,8 @@ You are not in the view's read group. Ask your administrator for access, quoting
 You are not in its read group. Ask your administrator.</p>
 <p><strong>I can see a parent unit in the tree but can't select it.</strong>
 You can read units beneath it but not the parent itself. That is expected; ask your administrator if you need the parent too.</p>
+<p><strong>I get "you need the … security role" when I try an action.</strong>
+You are not in the group mapped to that role. Ask your administrator, quoting the role. If you are viewing the application as another user, stop first - roles are never used while impersonating.</p>
 <p><strong>Everything is read-only and I get "You are impersonating another user…" when I save.</strong>
 You are viewing the application as another user. See <a href="impersonation/">Viewing as Another User</a> for how to stop.</p>
 

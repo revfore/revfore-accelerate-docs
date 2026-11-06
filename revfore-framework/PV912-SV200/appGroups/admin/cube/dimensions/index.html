@@ -1365,6 +1365,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/Roles/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Roles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3851,11 +3872,16 @@
 <ol>
 <li>Go to <strong>Admin | Cube | Dimensions</strong></li>
 <li>Click <strong>Sync</strong></li>
+<li>Click <strong>OK</strong> to confirm</li>
 </ol>
 <p>Syncing brings the current set of members across from OneStream. Run it after members are added, renamed, or restructured there.</p>
+<div class="admonition note">
+<p class="admonition-title">The 'None' member</p>
+<p>Each dimension's <strong>None</strong> member exists in the Framework but does not show on this page. It can still be selected in the dimension member drop-downs in other parts of the solution, such as member sets.</p>
+</div>
 <h2 id="notes">Notes</h2>
 <ul>
-<li>A member missing from a selection list is usually either not yet synced, or disabled here.</li>
+<li>A member missing from a selection list is usually either not yet synced, or disabled here. The <strong>None</strong> member is the exception: it is missing from this page but appears in the selection lists.</li>
 <li><strong>Is Base</strong> matters when choosing a base member for a member set — data is normally written at base members and bounded by scope members.</li>
 <li>Prefer fixing a member in OneStream where you can, so the two stay aligned; use the overrides for cases OneStream cannot express.</li>
 </ul>
