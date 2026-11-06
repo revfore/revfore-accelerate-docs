@@ -30,7 +30,7 @@ The Admin application group is organized into four sections:
 
 **Security** – who can see and edit data
 
-- [Users](security/Users/index.md) and [Groups](security/Groups/index.md)
+- [Users](security/Users/index.md), [Groups](security/Groups/index.md) and [Roles](security/Roles/index.md)
 
 ---
 

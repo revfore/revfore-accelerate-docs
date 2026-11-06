@@ -56,7 +56,8 @@ nav:
           - Overview: appGroups/admin/index.md
           - Security:
               - Users: appGroups/admin/security/Users/index.md
-              - Groups: appGroups/admin/security/Groups/index.md          
+              - Groups: appGroups/admin/security/Groups/index.md
+              - Roles: appGroups/admin/security/Roles/index.md          
           - Relational:
             - Database:
                 - Overview: appGroups/admin/relational/database/index.md

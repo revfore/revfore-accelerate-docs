@@ -68,6 +68,19 @@ The unit status appears only when your solution uses per-unit status. If the tit
 
 ---
 
+## Actions that need a role
+
+Some actions are protected by a **security role** rather than by access to the data - for example, approving a request above a limit. If you try one without the role, nothing changes and you see a message naming it:
+
+> Security Error: you need the Acme.Approver security role to approve a request above the limit.
+
+Your administrator decides who holds each role by mapping it to a security group on [Admin | Security | Roles](../appGroups/admin/security/Roles/index.md).
+
+!!! tip "Need the role?"
+    Ask your administrator to add you to the group mapped to that role. Tell them the role named in the message.
+
+---
+
 ## Common questions
 
 **A grid is empty and its title says I don't have access.**
@@ -78,6 +91,9 @@ You are not in its read group. Ask your administrator.
 
 **I can see a parent unit in the tree but can't select it.**
 You can read units beneath it but not the parent itself. That is expected; ask your administrator if you need the parent too.
+
+**I get "you need the … security role" when I try an action.**
+You are not in the group mapped to that role. Ask your administrator, quoting the role. If you are viewing the application as another user, stop first - roles are never used while impersonating.
 
 **Everything is read-only and I get "You are impersonating another user…" when I save.**
 You are viewing the application as another user. See [Viewing as Another User](impersonation.md) for how to stop.
