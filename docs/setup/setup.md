@@ -8,7 +8,7 @@ This guide walks you through installing and configuring Revfore Framework in you
 
 Revfore Framework requires:
 
-- OneStream **version 9.1.2 or later**
+- OneStream **version 9.2.1 or later**
 - A standard OneStream installation (no additional external dependencies required)
 
 ### Security Requirements
@@ -31,7 +31,7 @@ The user installing the solution will need be part of a group that has 'Table Cr
 - Once you have received your **Starter key**, go to Step 2
 
 !!!
-    The solution supports a **Starter License Key** that provides **Only Designer** access and a **Full License Key** that provides **Both Designer and Navigation** access.
+    The solution supports a **Starter License Key**, which lets **OneStream administrators only** use the solution, and a **Full License Key**, which opens it to everyone according to their security roles. Starter keys are short-lived. Enter a key before creating any tables, models or views.
     A **Starter License Key** can be generated prior to the installation of the solution with just the application Customer Name found at (Application -> Application Properties -> Customer Name)
     **The Customer Reference Code** which is found on the **Manage License Key** page is required to obtain a **Full License Key** Please provide this code to OneStream when requesting your **Full License Key**.
 ---
@@ -100,7 +100,7 @@ The user installing the solution will need be part of a group that has 'Table Cr
   - Begin building your own relational solution by creating new tables, models, and views
 
 !!!
-    You will need a Full license key before you can use the Views in the end-user Navigation pages
+    You will need a Full license key before anyone other than a OneStream administrator can use the solution, including the end-user Navigation pages
 
 
 ---

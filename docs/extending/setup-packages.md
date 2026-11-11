@@ -2,21 +2,25 @@
 
 [← Back to Extending the Framework](index.md)
 
-A **setup package** is how a solution installs and upgrades itself. Everything the solution needs — its structure, its data, its page settings and any SQL of its own — goes into **one zip**, `rfaExtensionSetupPackage.zip`, uploaded to the workspace. An administrator presses **Setup and Upgrade** and the package's steps run in order.
+A **setup package** is how a solution installs and upgrades itself. Everything the solution needs — its structure, its data, its page settings and any SQL of its own — goes into **one zip**, the solution's `<SolutionCode>SetupPackage.zip` (for example `PrjSetupPackage.zip`). Loading it runs its steps in order, and keeps it in the workspace so **Setup and Upgrade** runs it too.
 
-Nobody loads files or presses Sync by hand. That replaces the manual sequence in [Loading a file](import/index.md#loading-a-file) (load the structure, sync the tables, sync the views, load the data) with one upload, and it is what makes an upgrade repeatable: the same zip installs a new environment and upgrades an existing one.
+Nobody loads files or presses Sync by hand. That replaces the manual sequence in [Loading a file](import/index.md#loading-a-file) (load the structure, sync the tables, sync the views, load the data) with one load, and it is what makes an upgrade repeatable: the same zip installs a new environment and upgrades an existing one.
 
 The Framework uses the same mechanism for its own database scripts.
 
-## Where the package lives
+## Where the packages live
+
+One application can hold **several solutions**, each with its own package. The workspace keeps them all in one file:
 
 | | |
 |---|---|
-| **File** | `rfaExtensionSetupPackage.zip` |
-| **Where** | The **Files** of the **XCP_xRfaDlg_ActnExtension** maintenance unit, in your Revfore Framework workspace |
-| **Run by** | **Config \| Setup & Upgrade**, after the Framework's own setup. See [Setup & Upgrade](../appGroups/config/setup-upgrade.md) |
+| **A solution's package** | `<SolutionCode>SetupPackage.zip` — what you build, ship and load |
+| **The workspace zip** | `rfaExtensionSetupPackage.zip`, in the **Files** of the **XCP_xRfaDlg_ActnExtension** maintenance unit. It holds every solution's package installed in the application, one folder each |
+| **Run by** | **Config \| Setup & Upgrade**, after the Framework's own setup — every solution's package, in order. See [Setup & Upgrade](../appGroups/config/setup-upgrade.md) |
 
-The workspace ships with an **empty placeholder** of that zip, which Setup skips. A solution replaces it with its own build rather than adding a new file.
+Loading a solution's package adds it to the workspace zip, or replaces that solution's earlier package; every other solution's stays as it was. The solutions run in the order they were first loaded, so **load a solution that builds on another after it**.
+
+You rarely handle the workspace zip yourself — loads keep it up to date. The workspace ships with it as an **empty placeholder**, which Setup skips.
 
 ## Starting a solution
 
@@ -94,7 +98,7 @@ A file is also what `When` and `SinceVersion` apply to, so a release's new rows 
 |---|---|
 | neither, or `"When": "Always"` | Every run — a new install, an upgrade, and Setup pressed again |
 | `"When": "Install"` | Only when the package has never been applied |
-| `"SinceVersion": "PV912-SV200-R003"` | Upgrades only: when the installed version is below it and the package's is at or above it. Skipped on a new install |
+| `"SinceVersion": "PV921-SV200-R003"` | Upgrades only: when the installed version is below it and the package's is at or above it. Skipped on a new install |
 
 A step cannot have both.
 
@@ -118,7 +122,7 @@ The pages step is `"When": "Install"`. An import updates the rows it matches, so
 Because `420` runs on install only, a changed page does not reach existing installs on its own. For each release that adds or changes pages, put those page rows in a new file as well, as a step for that release:
 
 ```json
-{ "Type": "Import", "File": "422-Prj-pages-R020.json", "SinceVersion": "PV912-SV200-R020" }
+{ "Type": "Import", "File": "422-Prj-pages-R020.json", "SinceVersion": "PV921-SV200-R020" }
 ```
 
 - **Keep `420` up to date** — it holds every page in its current form, for new installs.
@@ -131,7 +135,7 @@ Because `420` runs on install only, a changed page does not reach existing insta
 
 ## Versions
 
-A package version looks like `PV912-SV200-R003`: the Framework build it was built against, then your revision. Every part is exactly three digits.
+A package version looks like `PV921-SV200-R003`: the Framework build it was built against, then your revision. Every part is exactly three digits.
 
 - **Raise `Revision` with every release**, and give that release's migration steps a `SinceVersion` equal to the new version. A step whose `SinceVersion` is above the package's version would never run, so the builder refuses it.
 - **Never type the core part.** The builder stamps it from the kit's `KIT_VERSION`.
@@ -148,7 +152,7 @@ From the kit folder:
 python .claude/skills/revfore-framework/scripts/build_setup_package.py solutions/Prj/setup-package.json
 ```
 
-The builder checks the manifest, [validates](extension-kit.md#step-4-generate-the-import-json) every `Import` file, refuses a data import that follows an unsynced structure import, stamps the version and a checksum of every file, and writes `rfaExtensionSetupPackage.zip` next to the manifest.
+The builder checks the manifest, [validates](extension-kit.md#step-4-generate-the-import-json) every `Import` file, refuses a data import that follows an unsynced structure import, stamps the version and a checksum of every file, and writes `PrjSetupPackage.zip` next to the manifest.
 
 ```
 python .claude/skills/revfore-framework/scripts/build_setup_package.py solutions/Prj/setup-package.json --check
@@ -159,42 +163,54 @@ python .claude/skills/revfore-framework/scripts/build_setup_package.py solutions
 !!! warning "Never zip a package by hand"
     The checksum of every file is checked when the package runs, and a file that doesn't match is refused. Rebuild with the builder; don't edit the zip.
 
+### Several solutions in one zip
+
+To install several solutions in one load — a new environment, or copying an application's solutions to another — build a workspace zip of them, in the order they should run:
+
+```
+python .claude/skills/revfore-framework/scripts/build_setup_package.py --bundle rfaExtensionSetupPackage.zip solutions/CapEx/setup-package.json solutions/Prj/setup-package.json
+```
+
+Each package in it is built and checked exactly as on its own. A workspace zip downloaded from one application's **Files** can be loaded into another the same way.
+
 On Windows, use `py` in place of `python`.
 
 ## Installing it
 
+### By loading it
+
+This is how a solution is installed and upgraded. The **Load** action on **Admin | Relational | Tables** (see [Loading a file](import/index.md#loading-a-file)) takes the `.zip` as well as a `.json` — a solution's package, or a workspace zip of several. Loading it:
+
+1. checks every solution in it — who may load it, the Framework version, the version already installed — and refuses the whole load, changing nothing, if any one fails
+2. adds each solution to the workspace's `rfaExtensionSetupPackage.zip`, replacing that solution's earlier package; every other solution's stays
+3. runs the loaded solutions' steps, in order
+4. relinks OneStream records and rebuilds the SQL views the change affected
+
+!!! warning "Don't replace the workspace zip by hand"
+    Uploading a solution's zip over `rfaExtensionSetupPackage.zip` in the workspace's **Files** would drop every other solution's package from it. Load packages instead.
+
 ### With Setup
 
-1. In OneStream, go to **Application | Presentation | Workspaces** and select your Revfore Framework workspace
-2. Open **XCP_xRfaDlg_ActnExtension** and, under **Files**, replace `rfaExtensionSetupPackage.zip` with your build
-3. Go to **Config | Setup & Upgrade** and run Setup
+**Config | Setup & Upgrade** runs the Framework's own package first, then your custom setup code and **every solution's package** in the workspace zip, then relinks OneStream records and rebuilds the SQL views for every relational view. Every solution's package is checked before any runs. Each stage runs only if the one before it succeeded. A failure names the solution, step and file — and, for SQL, the batch — and leaves Setup unfinished, so it runs again from the start next time.
 
-Setup runs the Framework's own package first, then your solution's custom setup code and package, then relinks OneStream records and rebuilds the SQL views for every relational view. Each stage runs only if the one before it succeeded. A failure names the step and file — and, for SQL, the batch — and leaves Setup unfinished, so it runs again from the start next time.
+Setup is also what runs after a Framework upgrade, so the solutions' packages run against the new Framework.
 
-This is how customers install and upgrade a solution.
+### Reloading while you build
 
-### By loading it while you build
+A load picks steps a little differently from Setup when it reloads the **version already installed**, so you can reload the release you are working on as often as you need to:
 
-An administrator can also run a package without going through Setup: the **Load** action on **Admin | Relational | Tables** (see [Loading a file](import/index.md#loading-a-file)) takes the `.zip` as well as a `.json`. Loading it:
-
-1. replaces the workspace's `rfaExtensionSetupPackage.zip` with the one you picked, so the next Setup runs the same package
-2. runs the package's steps
-3. relinks OneStream records and rebuilds the SQL views the change affected
-
-A load picks steps a little differently from Setup, so you can reload the release you are working on as often as you need to:
-
-| Step | Setup pressed again | Load, same version again |
+| Step | Setup pressed again | Reload of the installed version |
 |---|---|---|
 | no `When`, or `"Always"` | runs | runs |
 | `"When": "Install"` | skipped | **runs** |
 | `SinceVersion` equal to the package's version | skipped | **runs** |
 | `SinceVersion` of an earlier version | skipped | skipped |
 
-The first load of a package, or of a new version, runs exactly what Setup would. So while you build a release, leave `Revision` at that release and tag its migrations with it: every load reruns them, and at release the tags are already right for your customers' upgrades. Write migrations to cope with a database that is already migrated.
+The first load of a package, or of a new version, runs exactly what Setup would — so a customer installing a release keeps their changes to the shipped pages. While you build a release, leave `Revision` at that release and tag its migrations with it: every reload reruns them, and at release the tags are already right for your customers' upgrades. Write migrations to cope with a database that is already migrated.
 
-- A zip that is not a valid package, or is refused for its version, is not kept: the previous file is put back and nothing runs. Once a step has run, the new zip stays even if a later step fails — fix the cause and load it again.
+- A zip that is not a valid package, or holds a solution refused for its version, changes nothing and runs nothing. Once the solutions are added to the workspace zip they stay, even if a step then fails — fix the cause and load it again.
 - Custom setup code does not run on a load. Press Setup for that.
-- A load reapplies the `Install` steps, so in a customer's environment it overwrites their changes to the shipped pages. **Use loading in your development environment; customers use Setup.**
+- Reloading the version a customer already has reapplies the `Install` steps and overwrites their changes to the shipped pages. Reload in your development environment only.
 
 ## Uninstall
 
@@ -210,15 +226,17 @@ Add one only for objects your scripts created **outside** the extension schema:
 
 It runs before the Framework's own drop, every script in order — `Sql` steps only, with no `When` or `SinceVersion`. Setup never reads it. Write it to work against any installed version: `if exists`, dependents first.
 
-Both the solution's package and the Framework's are loaded and checked before anything is dropped. A failure names the step, file and batch, and stops the uninstall.
+Every solution's package and the Framework's are loaded and checked before anything is dropped. The solutions' `Uninstall` sections run in the reverse of the order they were loaded, then the Framework's. A failure names the step, file and batch, and stops the uninstall.
 
 ## Who can run one
 
-A package can run any SQL it holds, so only a **OneStream administrator who is not [impersonating](../security/impersonation.md)** can run, load or uninstall one. The Framework enforces this where the SQL runs, not only on the buttons, so custom code that calls the package as anyone else is refused too.
+A package can run any SQL it holds, so a package with a `Sql` step — in `Steps` or `Uninstall` — can be run, loaded or uninstalled only by a **OneStream administrator who is not [impersonating](../security/impersonation.md)**. The Framework enforces this where the SQL runs, not only on the buttons, so custom code that calls the package as anyone else is refused too.
+
+A package with **no `Sql` step** can also be loaded (**Load** with the `.zip`) by a user with the **[Revfore Administrator](../appGroups/admin/security/Roles/index.md)** security role — for a workspace zip, only when none of its solutions has one. Each step still checks its own rules — a data load needs write access to each view it loads into — so keep SQL out of your package where you can, and the customer's Framework administrators can install your upgrades themselves. **Setup and Upgrade** and **Uninstall** stay with OneStream administrators.
 
 ## Custom setup code
 
-Most solutions need nothing beyond the package. For the rare step that has to be code, `SolutionHelper.Setup_RunSolutionSetupScriptsAndProcesses` in `rfa_actnExtension_os` runs the package and ships with that call already in it. Code that must run before the package goes above the call, and code that must run after goes below it. **Never remove the call** — without it Setup no longer installs the solution. See the kit's `docs/shared-methods.md`.
+Most solutions need nothing beyond the package. For the rare step that has to be code, `SolutionHelper.Setup_RunSolutionSetupScriptsAndProcesses` in `rfa_actnExtension_os` runs the packages and ships with that call already in it. Code that must run before the package goes above the call, and code that must run after goes below it. **Never remove the call** — without it Setup no longer installs the solution. See the kit's `docs/shared-methods.md`.
 
 ## Troubleshooting
 
@@ -230,5 +248,6 @@ Most solutions need nothing beyond the package. For the rare step that has to be
 | Setup refuses a file's checksum | The zip was edited or assembled by hand | Rebuild it with the builder |
 | A changed page didn't reach an existing install | `420` runs on install only | Add the page to a `42x-…-pages-R0NN.json` file as a `SinceVersion` step |
 | A migration step didn't run on a new install | `SinceVersion` steps are for upgrades only | Make the change in the install-path files too |
+| Another solution stopped installing after a package was uploaded | A solution's zip was uploaded over `rfaExtensionSetupPackage.zip` in **Files**, replacing every solution's package | Load each solution's package again — loads add to the workspace zip |
 
-Setup and loading write a line per step to the OneStream error log, with each file's checksum prefix — which is how you tell which build of a zip was actually uploaded. Turn on [Debug logging](../appGroups/admin/security/Users/index.md#debug-logging) for the administrator running it to see them.
+Setup and loading write a line per step to the OneStream error log, with each file's checksum prefix — which is how you tell which build of a package was actually loaded. Turn on [Debug logging](../appGroups/admin/security/Users/index.md#debug-logging) for the administrator running it to see them.

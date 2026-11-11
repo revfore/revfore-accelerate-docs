@@ -5,7 +5,7 @@
 Security Roles are **permissions to do something**, as opposed to access to data. Each role is mapped to one
 [security group](../Groups/index.md), and the members of that group hold the role.
 
-Where a [security group](../Groups/index.md) on a view, unit or instance decides **what data** a user can see and
+Where a [security group](../Groups/index.md) on a view, unit or cycle decides **what data** a user can see and
 change, a role decides **whether a user may perform an action** - for example, approving a request above a limit. A
 solution checks for the role by its code, so you decide who holds it by choosing the group, and you can change that
 at any time without any change to the solution.
@@ -63,18 +63,29 @@ delete roles - otherwise a user holding a role could map their own group to ever
 
 | Role | Integration Code | Covers |
 |---|---|---|
-| Revfore Administrator | `RevforeAdmin` | Configuring the Framework: tables, models, views, pages, settings and users. |
-| Solution Installer | `SolutionInstaller` | Running setup packages and SQL scripts, and uninstalling a solution. |
-| Schema Manager | `SchemaManager` | Creating, changing and dropping database tables and the SQL views built for views. |
-| Impersonator | `Impersonator` | Viewing the application as another user. |
-| Developer | `Developer` | Switching debug logging, and verbose debug, on for a user. |
-| License Manager | `LicenseManager` | Entering or changing the license key. |
+| Revfore Administrator | `RevforeAdmin` | Configuring the Framework's **extension** tables, models, views and pages: creating models and views, adding columns, sources, relationships and actions to them, resequencing columns, syncing their database structure, dropping database tables and views, rebuilding SQL views, adding table and view definitions, configuring pages, relinking to OneStream records, loading files that contain structure, and loading setup packages that contain no SQL. Also syncing users, security groups, cubes and dimensions with OneStream, viewing the application as another user, debug settings, and the license key. |
+| Developer | `Developer` | Switching debug logging, and verbose debug, on for a user. Give it to developers, or an agent account, who need debug without administrator rights. |
 
-!!! warning "Not yet in effect"
-    In this release, the Framework's own screens and actions still require membership of OneStream's
-    **Administrators** group directly. Revfore's roles are in place so they can be mapped ahead of time, but mapping a
-    group to one of them does not yet give that group's members anything. Roles added by your solutions take effect
-    as soon as they are mapped.
+### What stays with OneStream administrators
+
+These need membership of OneStream's **Administrators** group, whatever the roles are mapped to:
+
+- installing, upgrading and uninstalling Revfore - **Setup & Upgrade**, **Uninstall**, **Create New Instance**
+- **Run Maintenance Scripts**, and any setup package that contains SQL
+- adding or changing security roles
+- changing Revfore's own tables, models, views and lookups, or anything under them - their columns, indexes,
+  relationships, sources, actions, filters and security
+
+### Loading data files
+
+Loading a data file does not need a role. Each view the file loads into needs your **write access** - the same access
+that lets you edit its rows in the grid, including write access to any column the file sets that is secured
+separately. A file that loads into a view you can't write to is refused, names the view, and saves nothing. A file
+that adds or changes tables, models or views needs the Revfore Administrator role.
+
+The same check applies wherever you change data: saving in the grid, **File Import**, **Delete**, **Copy** and
+**Bulk Update** (which also needs write access to the column you choose). Exporting follows your **read access**:
+**File Export** and **Extract** leave out columns you can't see in the grid, and Extract skips a view you can't open.
 
 ## Notes
 

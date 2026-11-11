@@ -34,7 +34,7 @@ This includes items such as:
 
 This step prepares the environment for the solution to run.
 
-If a solution has been built on the Framework, Setup also installs it: after the Framework's own setup it runs the solution's **setup package**, `rfaExtensionSetupPackage.zip` in **XCP_xRfaDlg_ActnExtension**, which imports the solution's structure, syncs it, and loads its data and page settings. The workspace ships with an empty placeholder, which Setup skips. See [Setup Packages](../../extending/setup-packages.md).
+If solutions have been built on the Framework, Setup also installs them: after the Framework's own setup it runs every solution's **setup package**, kept in `rfaExtensionSetupPackage.zip` in **XCP_xRfaDlg_ActnExtension**, which imports each solution's structure, syncs it, and loads its data and page settings. A solution's package gets there when it is loaded; the workspace ships with an empty placeholder, which Setup skips. See [Setup Packages](../../extending/setup-packages.md).
 
 ### Step 2: Request a Full License Key
 
@@ -133,7 +133,7 @@ After relaunching the solution, you will first be prompted to re-enter your Full
 
 >Click on **Finalize Upgrade** to apply any database changes required for the upgraded version, run the solution's setup package, refresh all Relational Views and to relink Forms and Users
 
-To upgrade a solution built on the Framework, replace its `rfaExtensionSetupPackage.zip` with the new release's and run Setup again. Only the steps the new release needs are run. See [Setup Packages](../../extending/setup-packages.md).
+To upgrade a solution built on the Framework, load the new release's setup package (**Load** on **Admin | Relational | Tables** with its `.zip`). It replaces that solution's package in the workspace and runs only the steps the new release needs; other solutions are not touched. See [Setup Packages](../../extending/setup-packages.md).
 
 ### Step 2: Launch Solution
 

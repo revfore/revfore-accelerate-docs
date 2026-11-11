@@ -60,9 +60,10 @@ An override applies to how the Framework treats the member; it does not change a
 Members are selected when configuring:
 
 - [Workflow Unit Member Sets](../../workflow/units/memberSets.md) – base and scope members per dimension
+- [Cycle Type Member Sets](../../workflow/cycles/cycleTypes.md#member-sets-every-units-defaults) – every unit's default base and scope members, and the data source scope members
 - [Item Category Member Sets](../../workflow/supporting/itemCategoryMemberSets.md) – base and scope members per dimension
 - [Workflow Areas](../../workflow/areas/index.md) – the area's data source member
-- [Workflow Instances](../../workflow/instances/instances.md) – the cycle's scenario member
+- [Workflow Cycles](../../workflow/cycles/cycles.md) – the cycle's scenario member
 
 ## Sync members from OneStream
 

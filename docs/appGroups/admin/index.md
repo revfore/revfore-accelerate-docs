@@ -22,7 +22,7 @@ The Admin application group is organized into four sections:
 
 **Workflow** – the workflow structures a process runs against
 
-- [Units](workflow/units/index.md), [Instances](workflow/instances/index.md), [Areas](workflow/areas/index.md) and [Supporting](workflow/supporting/index.md)
+- [Units](workflow/units/index.md), [Cycles](workflow/cycles/index.md), [Areas](workflow/areas/index.md) and [Supporting](workflow/supporting/index.md)
 
 **Cube** – the OneStream cubes and dimension members relational data maps to
 

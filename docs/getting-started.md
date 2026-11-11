@@ -129,10 +129,10 @@ Here’s the typical process for building a solution. Steps 2 to 4 happen in the
 
 4. **When the design has settled, ask Claude for the JSON schema, JSON data, and code assembly files**
    - Claude validates the JSON and builds the extension code in the kit, so schema and compile errors are caught before anything reaches OneStream
-   - It then builds the solution's [setup package](extending/setup-packages.md), **rfaExtensionSetupPackage.zip**, in the solution folder
+   - It then builds the solution's [setup package](extending/setup-packages.md), **&lt;SolutionCode&gt;SetupPackage.zip** (for example **PrjSetupPackage.zip**), in the solution folder
 
-5. **Load the rfaExtensionSetupPackage.zip file**
-   - Use **Load** on **Admin | Relational | Tables** and select the zip. In one run it imports the table, model and view definitions, syncs them to create the database tables and views, loads the data the solution needs, and loads the page settings
+5. **Load the setup package**
+   - Use **Load** on **Admin | Relational | Tables** and select the zip. In one run it imports the table, model and view definitions, syncs them to create the database tables and views, loads the data the solution needs, and loads the page settings. The package is kept in the workspace, beside any other solution's, so Setup runs it from then on
 
 6. **Deploy the code assembly files from the kit**
    - Copy the handlers you changed into the **rfa_actnExtension_os** assembly, or push them with OneStream Developer Studio. This puts in place all the logic that needs to run when data is entered, submitted, and so on

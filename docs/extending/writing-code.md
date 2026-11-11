@@ -17,7 +17,7 @@ Most of a solution is configuration. Code is for the rules configuration cannot 
 
 Code can also check a **security role** - a permission such as "may approve above the limit" that the customer maps to one of their security groups on [Admin | Security | Roles](../appGroups/admin/security/Roles/index.md) - so a solution never hard-codes a group name. A solution ships its own roles in its setup package.
 
-Code can also read the user's **workflow context** — the unit, instance, cube and dimension members they are working in — which is how cube posting lines up with what the user sees.
+Code can also read the user's **workflow context** — the unit, cycle, cube and dimension members they are working in — which is how cube posting lines up with what the user sees.
 
 Code is organized by **model family**: each family of related views has its own handler, so solutions do not interfere with one another, and a view with no handler simply behaves as configured.
 

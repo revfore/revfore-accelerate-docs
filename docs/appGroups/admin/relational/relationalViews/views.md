@@ -75,7 +75,7 @@ The combinations exist because Base and Parent units usually want different scre
 Note that **Parent Records** means a Parent unit's *own* rows, not the rows of the units below it. A Parent unit can hold data like any other — the two are separate settings precisely so a view can show one, the other, or both.
 
 !!!Note
-    Descendant records are resolved through the unit hierarchy that governs the current cycle. That hierarchy has to exist, have been [processed](../../workflow/units/hierarchies.md#process), and be named on the [instance type's Time](../../workflow/instances/instanceTypes.md#time-which-hierarchy-applies) grid for the cycle's start date — otherwise there is nothing to resolve and no descendant rows appear.
+    Descendant records are resolved through the unit hierarchy that governs the current cycle. That hierarchy has to exist, have been [processed](../../workflow/units/hierarchies.md#process), and be named on the [cycle type's Time](../../workflow/cycles/cycleTypes.md#time-which-hierarchy-applies) grid for the cycle's start date — otherwise there is nothing to resolve and no descendant rows appear.
 
 ### Parent Unit Editability
 
@@ -102,27 +102,27 @@ A where clause can be applied at two different moments, and its **Flags** say wh
 | **2** | **Every time the view is read** - the grid, lookups, Top Count and File Export | a column of this view | anything that depends on who is looking or which workflow they are in |
 | **5** | **When the view is built** | a column of the view's **model** | fixed filters on columns the view does not show |
 
-**Built into the view (1 and 5).** The clause is resolved once, when the view's SQL is created by Sync or Setup. There is no user and no workflow at that moment, so a clause that uses `{CurrentUserId}`, `{WfUnitId}`, `{WfInstanceYear}` or any other user or workflow value is refused on import - it would hold the value of whoever synced, for everyone. Use Flags 2 for those.
+**Built into the view (1 and 5).** The clause is resolved once, when the view's SQL is created by Sync or Setup. There is no user and no workflow at that moment, so a clause that uses `{CurrentUserId}`, `{WfUnitId}`, `{WfCycleYear}` or any other user or workflow value is refused on import - it would hold the value of whoever synced, for everyone. Use Flags 2 for those.
 
 **Flags 5** filters on a model column without adding it to the view. That matters most on a summary view: every column there is either grouped or totalled, so a column added only to filter on would also have to be grouped by - which splits the totals if its values vary. With Flags 5 the view groups only by the columns you chose.
 
 ```json
-{ "Clause": "{PrtMsr_Code} = {P1} and {PrtPln_IsInstanceYear} = 1",
+{ "Clause": "{PrtMsr_Code} = {P1} and {PrtPln_IsCycleYear} = 1",
   "Parameters": [ { "Name": "P1", "Type": "String", "Value": "Sales" } ],
   "Flags": 5 }
 ```
 
-**Applied every time (2).** The clause is added to each query on the view, with the user's own workflow - so `{PrtPln_Year} = {WfInstanceYear}` shows each user the rows for the instance they are in. You can give a view one built-in clause and any number of run-time ones as a list; they are combined with AND.
+**Applied every time (2).** The clause is added to each query on the view, with the user's own workflow - so `{PrtPln_Year} = {WfCycleYear}` shows each user the rows for the cycle they are in. You can give a view one built-in clause and any number of run-time ones as a list; they are combined with AND.
 
-**Other tables.** A clause can look at a table the view doesn't show, for example in an `exists` subquery. Name the table with a schema token, as import files do: `{RfaCore}.WfInstance`, `{RfaExtension}.PrtPlanLine` or `{OsCore}.XFC_Something`. The token resolves to the application's own schema, so the clause works in any environment. Never write the schema's name itself (`rfa01`).
+**Other tables.** A clause can look at a table the view doesn't show, for example in an `exists` subquery. Name the table with a schema token, as import files do: `{RfaCore}.WfCycle`, `{RfaExtension}.PrtPlanLine` or `{OsCore}.XFC_Something`. The token resolves to the application's own schema, so the clause works in any environment. Never write the schema's name itself (`rfa01`).
 
 ```json
-{ "Clause": "exists (select 1 from {RfaCore}.WfInstance_Unit iu where iu.WfInstanceId = {WfInstanceId} and iu.WfUnitId = {PrtPln_WfUnitId})",
+{ "Clause": "exists (select 1 from {RfaCore}.WfCycle_Unit iu where iu.WfCycleId = {WfCycleId} and iu.WfUnitId = {PrtPln_WfUnitId})",
   "Flags": 2 }
 ```
 
 !!!Note Workflow columns still belong on the view
-    A workflow-enabled view keeps its instance and unit columns, even if nobody looks at them: the Framework's own workflow filtering runs when the view is read, against those columns.
+    A workflow-enabled view keeps its cycle and unit columns, even if nobody looks at them: the Framework's own workflow filtering runs when the view is read, against those columns.
 
 ## Top Count
 

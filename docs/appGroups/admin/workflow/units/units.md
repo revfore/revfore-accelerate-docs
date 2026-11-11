@@ -74,7 +74,7 @@ Use workflow units to represent the structures a process is performed for, such 
 2. Click on '**Add+**' or '**Add & Edit in Grid**'
 3. Click on the '**+**' button on the top left of the grid
 4. Enter required fields and click **Save**
-5. Create the unit's [Member Sets](memberSets.md) for each workflow instance type it participates in
+5. Create the unit's [Member Sets](memberSets.md) for each workflow cycle type it participates in
 6. Place the unit in a [Unit Hierarchy](hierarchies.md) if it takes part in a review or roll-up structure
 
 **Add & Edit in Grid** allows adding and modifying rows directly in the grid

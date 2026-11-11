@@ -117,13 +117,13 @@ Include all four on every managed table. They bring their own auto-population wi
 
 ### Workflow
 
-These are what tie an extension table into workflow — both **Revfore workflow** and **OneStream workflow**. Adding them is what makes a solution's records workflow-aware rather than free-floating: the record knows which unit and instance it belongs to, so it can be filtered, secured and progressed by the same mechanics that drive every other workflow-enabled view.
+These are what tie an extension table into workflow — both **Revfore workflow** and **OneStream workflow**. Adding them is what makes a solution's records workflow-aware rather than free-floating: the record knows which unit and cycle it belongs to, so it can be filtered, secured and progressed by the same mechanics that drive every other workflow-enabled view.
 
 The first six are foreign keys into the Revfore workflow tables. All carry `KeyFlags: Foreign` and appear as **header filters** on a view, which is what gives users the workflow selectors at the top of a grid without any configuration.
 
 | Code | Nullable | Description |
 |---|---|---|
-| `WorkflowInstance_Int` | No | Foreign key to `{RfaCore}.WfInstance`. Use on any table whose rows hang off a specific workflow instance — a period's run of a process — as `WfItem` does. This is the column that scopes a record to one execution of a workflow. |
+| `WorkflowCycle_Int` | No | Foreign key to `{RfaCore}.WfCycle`. Use on any table whose rows hang off a specific workflow cycle — a period's run of a process — as `WfItem` does. This is the column that scopes a record to one execution of a workflow. |
 | `WorkflowUnit_Int` | No | Foreign key to `{RfaCore}.WfUnit`. The unit is the *who* of workflow — the entity, region or team a row of work belongs to — and is what row-level workflow security is applied against. |
 | `WorkflowItemType_Int` | No | Foreign key to `{RfaCore}.WfItemType`. Classifies what kind of item a row is, which drives the behavior and actions offered for it. |
 | `WorkflowItemCategory_Int` | No | Foreign key to `{RfaCore}.WfItemCategory`. Groups item types into categories for reporting and filtering. |
@@ -236,7 +236,7 @@ Choosing between them is a data-shape decision rather than a preference. Wide su
 
 Holding the periodic and year-to-date amounts as separate columns is deliberate: a cube stores one and derives the other, and which one a solution is authoritative for differs by use case. Storing both explicitly means a movement in either direction knows which figure it is carrying.
 
-!!! note "Renamed in PV912-SV200"
+!!! note "Renamed in PV921-SV200"
     These six codes were renamed; the underlying standard columns are unchanged, so existing data and definitions are unaffected, but **import files referencing the old codes must be updated**.
 
     | Old code | New code |

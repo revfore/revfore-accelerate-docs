@@ -4,7 +4,7 @@
 
 Workflow Supporting holds the **reference data the rest of the workflow configuration is built from**.
 
-These records are defined once and reused across workflow units, instances, and areas. They rarely change after a solution is set up.
+These records are defined once and reused across workflow units, cycles, and areas. They rarely change after a solution is set up.
 
 ## Overview
 
@@ -50,5 +50,5 @@ Workflow Supporting consists of:
 
 ## Notes
 
-- Set these up before creating workflow instances, since instances depend on them.
+- Set these up before creating workflow cycles, since cycles depend on them.
 - Keep the number of item types and categories small; they multiply through the mapping tables.

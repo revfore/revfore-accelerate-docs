@@ -47,24 +47,24 @@ A view can also restrict individual columns or buttons. Depending on your groups
 
 ---
 
-## Workflow units and instances
+## Workflow units and cycles
 
-When you choose your workflow — the **instance** (cycle) and the **unit** you are working on — you only see the ones you are allowed to read.
+When you choose your workflow — the **cycle** and the **unit** you are working on — you only see the ones you are allowed to read.
 
-- **Instances and units you can't read don't appear** in the workflow selectors or in drop-downs that list them.
+- **Cycles and units you can't read don't appear** in the workflow selectors or in drop-downs that list them.
 - **In the unit tree**, a parent unit you can't read is still shown so the tree keeps its shape and you can reach the units beneath it. If you select it, you are told you don't have access to it.
 - **Records** belonging to units you can't read don't appear in grids that show "this unit and the units below it".
 
 !!! note "For administrators"
-    Visibility follows the unit's or instance's **Read Security Group**, including groups nested beneath it. A unit or instance with no read group is visible to no one. Make sure users in the read-write group are also covered by the read group, for example by nesting the read-write group under it. The **Admin | Workflow** maintenance grids are not filtered, so administrators can always maintain every unit and instance.
+    Visibility follows the unit's or cycle's **Read Security Group**, including groups nested beneath it. A unit or cycle with no read group is visible to no one. Make sure users in the read-write group are also covered by the read group, for example by nesting the read-write group under it. The **Admin | Workflow** maintenance grids are not filtered, so administrators can always maintain every unit and cycle.
 
 ### The workflow header
 
 Grids that follow your workflow show it in their title:
 
-**View name | Unit | Instance | Instance status | Unit status**
+**View name | Unit | Cycle | Cycle status | Unit status**
 
-The unit status appears only when your solution uses per-unit status. If the title reads **WORKFLOW SELECTION IS MISSING**, choose a workflow unit and instance before working on that page. The **Navigate** dialog shows the same header as the main grids.
+The unit status appears only when your solution uses per-unit status. If the title reads **WORKFLOW SELECTION IS MISSING**, choose a workflow unit and cycle before working on that page. The **Navigate** dialog shows the same header as the main grids.
 
 ---
 
@@ -86,7 +86,7 @@ Your administrator decides who holds each role by mapping it to a security group
 **A grid is empty and its title says I don't have access.**
 You are not in the view's read group. Ask your administrator for access, quoting the view name.
 
-**I can't find a workflow unit or instance my colleague can see.**
+**I can't find a workflow unit or cycle my colleague can see.**
 You are not in its read group. Ask your administrator.
 
 **I can see a parent unit in the tree but can't select it.**

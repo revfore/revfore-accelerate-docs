@@ -53,7 +53,7 @@ The following fields are shown for a User record. All are populated from OneStre
 | Effective End Date | date | Date the user stops being active. | Defaults to 2999-12-31. Use this rather than deleting a user who has left.
 | Is Enabled | bit | Indicates whether the user is enabled. |
 | Impersonate User | int | The user this administrator is currently viewing the application as. | Editable only by an administrator, only on their own record. Blank when not impersonating. See [Viewing as Another User](../../../../security/impersonation.md).
-| Debug | int | Turns on diagnostic logging for this user. | Off, On, On (JSON), On (verbose) or On (verbose, JSON). Set by an administrator, for any user. See [Debug logging](#debug-logging).
+| Debug | int | Turns on diagnostic logging for this user. | Off, On, On (JSON), On (verbose) or On (verbose, JSON). Set by a user with the Developer or Revfore Administrator [security role](../Roles/index.md), for any user. See [Debug logging](#debug-logging).
 | Debug Until | date | The last day Debug stays on. | Blank keeps it on until it is turned off. Set a date so it switches itself off. A date in the past is moved to today whenever you save the debug settings with Debug on.
 | Debug Filter | nvarchar | Writes only the debug lines that match. | Blank writes everything. See [Filtering the output](#filtering-the-output).
 | Integration Code | nvarchar | Unique value for the user record. | This is readonly and provides a unique value for the record that is used for importing data
@@ -126,7 +126,7 @@ Set **Debug** to **On (JSON)** instead to get each line as one JSON object — f
 | `CUBE` | The context used when posting to the cube |
 | `ACTION` | Each action clicked |
 | `IMPORT` | Each stage of a Load, with record counts and times, every deferred source and column it resolved, and whether the load succeeded |
-| `WORKFLOW` | The workflow context — when it is chosen, changed by OneStream workflow, refreshed, or resolved for posting — with unit, instance, cube and periods |
+| `WORKFLOW` | The workflow context — when it is chosen, changed by OneStream workflow, refreshed, or resolved for posting — with unit, cycle, cube and periods |
 | `DASHBOARD` | When a grid's settings are rebuilt, and which change caused it. Reusing them writes nothing |
 | `EXPR` | Expressions and filter variables before and after their values were substituted |
 | `USER` | Who the user's requests run as, including impersonation. Written when Debug is turned on and again whenever impersonation or the filter changes, not on every request |
@@ -150,7 +150,7 @@ Debug output is detailed. To keep only the lines you care about, put a filter in
 |---|---|
 | *(blank)* | Every debug line |
 | `PrjTask` | Lines containing *PrjTask*, in any case |
-| `PrjTask; WfInstance_Unit` | Lines containing **any** of the terms, separated by `;` |
+| `PrjTask; WfCycle_Unit` | Lines containing **any** of the terms, separated by `;` |
 | `/category=SAVE.*view=PrjTask_mE\b/` | Lines matching a regular expression, written between `/` and `/` — here, saves through the PrjTask_mE view |
 
 Good things to filter on are a category (`category=READONLY` for only the read-only explanations), a `key=value` pair (`result=refused`, `handler=none`), a view or table name, a column name or a record key. `/ms=\d{3,}/` keeps only things that took 100 ms or more. The filter is matched against each entry as plain `key=value` pairs, before it is formatted, so the same filter works whether Debug is **On** or **On (JSON)**. A filter only matches what a line contains, so a record key finds the queries and saves that mention it, not every line about that record.
@@ -161,7 +161,7 @@ Good things to filter on are a category (`category=READONLY` for only the read-o
 Turn it off — or let **Debug Until** pass — when you are done. Debug output is detailed and the error log is not meant for continuous tracing.
 
 !!! note
-    Only administrators can change Debug. It follows the person signed in, not someone they are [impersonating](../../../../security/impersonation.md), so an administrator viewing as another user sees their own debug output.
+    Only users with the **Developer** or **Revfore Administrator** [security role](../Roles/index.md) can change Debug (administrators hold both). It follows the person signed in, not someone they are [impersonating](../../../../security/impersonation.md), so an administrator viewing as another user sees their own debug output.
 
 ## Sync users from OneStream
 

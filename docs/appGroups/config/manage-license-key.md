@@ -11,7 +11,14 @@ Revfore Framework supports two types of license keys:
 - **Starter**
 - **Full**
 
-Both license types allow access to the designer experience, but the **Starter** license key does not allow access to the Navigation pages.
+| License | Who can use Revfore Framework |
+|---|---|
+| **Starter** | OneStream administrators only |
+| **Full** | Everyone, according to their [security roles](../admin/security/Roles/index.md) and view security |
+| None, or not valid | Nobody. Installing, upgrading and entering a license key still work. |
+
+The license applies wherever your tables, models and views are used - the pages, file imports and exports, setup
+packages, and any code a solution runs - not only the Navigation pages.
 
 ## Customer Reference Code
 
@@ -23,13 +30,12 @@ A **Starter** license key can be requested before Revfore Framework is installed
 
 ### Starter Key Benefits
 
-Starter keys allow users to begin using Revfore Framework immediately rather than waiting for a Full license key.
+Starter keys let your OneStream administrators begin using Revfore Framework immediately rather than waiting for a
+Full license key. With a Starter key, an administrator can create and work with relational tables, models and views,
+and load solutions. Other users, including Revfore Administrators who are not OneStream administrators, cannot use
+the solution until a Full key is entered.
 
-With a Starter key, users can access the designer pages and work with:
-
-- Relational Table definitions
-- Relational Model definitions
-- Relational View definitions
+Starter keys are short-lived. Request your Full key as soon as Revfore Framework is installed.
 
 ## Full License Keys
 
@@ -37,7 +43,8 @@ To request a **Full** license key, send Revfore the **customer reference code** 
 
 ### Full Key Benefits
 
-A Full license key allows users to do everything a Starter key allows, plus gain access to the **end user navigation pages**.
+A Full license key opens Revfore Framework to everyone, including the **end user navigation pages**. What each user can
+do is then decided by their [security roles](../admin/security/Roles/index.md) and view security.
 
 ## Common Tasks
 
@@ -50,5 +57,6 @@ Use this section to:
 
 ## Notes
 
-- Starter keys are helpful when you want to begin setup and design work quickly.
-- Full keys are required for full solution access, including end user navigation pages.
+- Enter a license key before creating any tables, models or views, or loading a solution.
+- Starter keys are helpful when your administrators want to begin setup and design work quickly.
+- Full keys are required before anyone other than a OneStream administrator can use the solution.

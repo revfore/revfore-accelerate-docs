@@ -102,12 +102,13 @@ nav:
                   - Units: appGroups/admin/workflow/units/units.md
                   - Member Sets: appGroups/admin/workflow/units/memberSets.md
                   - Unit Hierarchies: appGroups/admin/workflow/units/hierarchies.md
-              - Instances:
-                  - Overview: appGroups/admin/workflow/instances/index.md
-                  - Instances: appGroups/admin/workflow/instances/instances.md
-                  - Instance Types: appGroups/admin/workflow/instances/instanceTypes.md
-                  - Statuses: appGroups/admin/workflow/instances/statuses.md
-                  - Instance Units: appGroups/admin/workflow/instances/instanceUnits.md
+              - Cycles:
+                  - Overview: appGroups/admin/workflow/cycles/index.md
+                  - Cycles: appGroups/admin/workflow/cycles/cycles.md
+                  - Cycle Types: appGroups/admin/workflow/cycles/cycleTypes.md
+                  - Workflow Scenarios: appGroups/admin/workflow/cycles/workflowScenarios.md
+                  - Statuses: appGroups/admin/workflow/cycles/statuses.md
+                  - Cycle Units: appGroups/admin/workflow/cycles/cycleUnits.md
               - Areas: appGroups/admin/workflow/areas/index.md
               - Supporting:
                   - Overview: appGroups/admin/workflow/supporting/index.md

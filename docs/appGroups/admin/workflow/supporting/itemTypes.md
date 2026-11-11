@@ -12,7 +12,7 @@ Use the Workflow Item Types page to:
 
 - define the types of item the solution captures
 - set the numbering prefix applied to items of each type
-- set the cube and data source members the type's data belongs to
+- set the cube and the data source member the type's data belongs to
 - map each type to its [Areas](itemTypeAreas.md) and [Item Categories](itemTypeItemCategories.md)
 
 ## Workflow Item Type Record Fields
@@ -26,8 +26,7 @@ The following fields are used for a Workflow Item Type record.
 | Workflow Item Type Description | nvarchar | Description of the item type and its purpose. |
 | Number Prefix | nvarchar | Prefix applied to numbers generated for items of this type. | For example a prefix of CR produces CR10000, CR10001.
 | Cube | int | The cube the item type's data belongs to. | Leave blank where the type does not post to a cube.
-| Data Source Dimension | int | The dimension the data source member is selected from. |
-| Data Source Member | int | The data source dimension member used for this item type's data. |
+| Data Source Dim Member | int | The data source dimension member used for this item type's data. | A member of the unit's [data source](../cycles/cycleTypes.md#data-source) dimension - the cycle type's. An item type has no data source of its own.
 | Effective Start Date | date | Date the item type becomes available. | Defaults to 1900-01-01.
 | Effective End Date | date | Date the item type stops being available. | Defaults to 2999-12-31.
 | Is Enabled | bit | Indicates whether the item type is enabled for use. |

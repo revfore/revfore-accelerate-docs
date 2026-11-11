@@ -1,6 +1,6 @@
 # Statuses
 
-[← Back to Workflow Instances Overview](index.md)
+[← Back to Workflow Cycles Overview](index.md)
 
 A **Workflow Status** is a named stage a cycle — or a single unit within a cycle — can be in, together with what that stage restricts.
 
@@ -26,7 +26,7 @@ The following fields are used for a Workflow Status record.
 | Display Name | nvarchar | User-friendly display name shown in the application. | This is what users see on the workflow bar. |
 | Description | nvarchar | Description of the status and what it means. | |
 | Behavior | int | What the status restricts. | Blank restricts nothing. **Read Only** stops data being entered. See [Behavior](#behavior). |
-| Usage | int | Whether the status applies to instances, to instance units, or to both. | See [Usage](#usage). |
+| Usage | int | Whether the status applies to cycles, to cycle units, or to both. | See [Usage](#usage). |
 | Is Enabled | bit | Indicates whether the status is available for use. | Disable a status you no longer want chosen rather than deleting one that historical records still point at. |
 | Integration Code | nvarchar | Unique value for the status record. | Used when importing data. |
 | XRef Code | nvarchar | External reference for the status. | Optional. |
@@ -45,7 +45,7 @@ The following fields are used for a Workflow Status record.
 | *(blank)* | — | The stage restricts nothing. Data can be entered as normal. |
 | 1 | Read Only | Data entry is off. Grids are not editable and Add, Edit and Delete buttons are unavailable. |
 
-Because it is a restriction, the instance's status and the unit's status combine: **whatever either level forbids is forbidden**. A unit that has been submitted is read-only even while its cycle is still open, and everything in a closed cycle is read-only whatever the individual units say.
+Because it is a restriction, the cycle's status and the unit's status combine: **whatever either level forbids is forbidden**. A unit that has been submitted is read-only even while its cycle is still open, and everything in a closed cycle is read-only whatever the individual units say.
 
 !!!Note
     Read Only does not stop the workflow itself moving on. A **Recall** or **Approve** button still works on a submitted unit — see [Workflow actions](../../relational/relationalViews/actions.md#workflow-actions) for how an action is marked as a workflow transition rather than an edit.
@@ -56,8 +56,8 @@ Because it is a restriction, the instance's status and the unit's status combine
 
 | Value | Usage | Meaning |
 |---|---|---|
-| 1 | Instance | Offered for a whole cycle only. |
-| 2 | Instance Unit | Offered for a single unit within a cycle only. |
+| 1 | Cycle | Offered for a whole cycle only. |
+| 2 | Cycle Unit | Offered for a single unit within a cycle only. |
 | 3 | Both | Offered at either level. |
 
 Most solutions want a few of each. *Draft*, *Open* and *Closed* describe a cycle; *Not Started*, *In Progress*, *Submitted* and *Approved* describe one unit's progress within it. A status such as *Locked* may be worth having at both levels.
@@ -70,7 +70,7 @@ Most solutions want a few of each. *Draft*, *Open* and *Closed* describe a cycle
 
 ## Create a new Status
 
-1. Go to **Admin | Workflow | Instances**
+1. Go to **Admin | Workflow | Cycles**
 2. Select **Workflow Statuses**
 3. Click on '**Add+**' or '**Add & Edit in Grid**'
 4. Enter the name, display name and sequence
@@ -88,5 +88,5 @@ Most solutions want a few of each. *Draft*, *Open* and *Closed* describe a cycle
 
 - Decide the behavior before the name. A status that reads as final but restricts nothing is the most common configuration mistake here.
 - Number sequences in tens, so a stage can be inserted later without renumbering the ones after it.
-- Set Usage deliberately. A unit-level status offered on an instance, or the other way round, will be picked by someone eventually.
-- Statuses are referenced by instances and by [Instance Units](instanceUnits.md), so disable rather than delete.
+- Set Usage deliberately. A unit-level status offered on a cycle, or the other way round, will be picked by someone eventually.
+- Statuses are referenced by cycles and by [Cycle Units](cycleUnits.md), so disable rather than delete.

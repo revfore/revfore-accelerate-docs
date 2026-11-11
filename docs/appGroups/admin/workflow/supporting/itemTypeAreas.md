@@ -52,5 +52,5 @@ The following fields are used for a Workflow Item Type Area record.
 ## Notes
 
 - Mark exactly one area as primary per item type, so the default is unambiguous.
-- Areas belong to an instance type, so mapping an item type to an area also determines which kind of cycle it appears in.
+- Areas belong to a cycle type, so mapping an item type to an area also determines which kind of cycle it appears in.
 - Use effective dates to withdraw a mapping rather than deleting it.

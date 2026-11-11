@@ -48,7 +48,7 @@ The following general actions can be added to most views.
 
 ## File Export and Import as JSON
 
-Besides Excel, **File Export** can write the grid's data as JSON, and **File Import** reads it back. The file is a [data file](../../extending/import/data.md) - the same format **Load** takes - so it also moves data between environments: lookups are written as integration codes, not ids that differ from one instance to the next.
+Besides Excel, **File Export** can write the grid's data as JSON, and **File Import** reads it back. The file is a [data file](../../extending/import/data.md) - the same format **Load** takes - so it also moves data between environments: lookups are written as integration codes, not ids that differ from one cycle to the next.
 
 Typical uses:
 

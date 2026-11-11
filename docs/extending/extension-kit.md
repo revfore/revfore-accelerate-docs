@@ -8,7 +8,7 @@ It brings together three things that are otherwise separate:
 
 - the **Claude skills**, already installed in the folder, so Claude Code knows the Framework's schema and conventions as soon as you open it
 - a **design area** (`solutions/`) for the design documents, workbooks and import JSON of each solution
-- a **buildable copy of the extension assembly**, `rfa_actnExtension_os`, which compiles against reference copies of the Revfore and OneStream APIs — their method signatures, without the code behind them — so a wrong name, argument or type shows up in the editor rather than in OneStream
+- a **buildable copy of the extension assembly**, `rfa_actnExtension_os`, which compiles against reference copies of the Revfore and OneStream APIs — their method signatures, without the code behind them — so a wrong name, argument or type shows up in the editor rather than in OneStream. You download it, and the Revfore references, from your own OneStream environment with OneStream Developer Studio, so the kit always matches the release you're running
 
 Nothing in the kit runs your code. The Revfore references are stubs generated from each release, where every method throws, and the OneStream references are OneStream's own reference assemblies, which you supply. A clean build therefore proves your code matches the APIs' shapes — names, parameter types and signatures — and nothing more. The logic itself is tested on a OneStream environment after you deploy.
 
@@ -19,6 +19,7 @@ Nothing in the kit runs your code. The Revfore references are stubs generated fr
 | **VS Code** | With the **C# Dev Kit** extension, for editing and building the handlers |
 | **.NET SDK 10.0** or later | `dotnet build` compiles the extension assembly |
 | **OneStream reference assemblies** | `OneStream.Platform.ReferenceAssemblies.<version>.nupkg`, from OneStream. See [Adding the OneStream reference assemblies](#step-2-add-the-onestream-reference-assemblies) |
+| **OneStream Developer Studio** | OneStream's desktop app and its `ods` command line, for downloading the Revfore assemblies into the kit and pushing your code back. See [Downloading the assemblies](#step-3-download-the-assemblies-with-developer-studio) |
 | **Python 3.9+** | With `jsonschema` and `openpyxl` (`pip install jsonschema openpyxl`), for the validator and the design-workbook scripts |
 | **Claude Code** | In the terminal or the VS Code extension. It reads the skills from the kit folder |
 
@@ -47,8 +48,8 @@ MyProject/
 ├── Directory.Build.props      your OneStream version - yours to edit
 ├── nuget.config               points restore at packages/
 ├── packages/                  put the OneStream package here
-├── rfa_actnExtension_os/      your extension code
-├── rfaRef/  rfaOsRef/         Revfore reference stubs - never edit
+├── rfa_actnExtension_os/      your extension code - empty until you download it
+├── rfaRef/                    Revfore reference stubs - empty until you download them; never edit
 ├── samples/GLEntry/           a complete worked solution
 ├── solutions/                 your design work
 │   └── _template/             copy this to start a solution
@@ -77,7 +78,29 @@ The kit compiles against OneStream's official reference assemblies. **Revfore ca
 !!! tip "Using your own NuGet feed"
     If your organization already hosts the package on an internal feed, add that feed to `nuget.config` instead of copying the file. Keep the `packageSourceMapping` entry and point it at your feed. Machines that use package source mapping will otherwise fail restore with **NU1100**.
 
-### Step 3: Check the baseline
+### Step 3: Download the assemblies with Developer Studio
+
+The kit ships `rfaRef/` and `rfa_actnExtension_os/` **empty**. Their code comes from your OneStream environment, so it always matches the release you're running. Both assemblies are in the **XCP_xRfaDlg_ActnExtension** maintenance unit of your Revfore Framework workspace:
+
+| Kit folder | Assembly | What it is |
+|---|---|---|
+| `rfaRef/` | **rfaRef** | The Revfore reference stubs. Download only. Never edit or push it |
+| `rfa_actnExtension_os/` | **rfa_actnExtension_os** | The extension assembly — your handlers. Download it once, then push your changes back |
+
+1. Install **OneStream Developer Studio** and sign in to your OneStream server
+2. Register the kit folder as a Developer Studio repository, and map `rfaRef/` and `rfa_actnExtension_os/` to the two assemblies above. Developer Studio writes a small mapping file into each folder (`.osconfig`)
+3. Pull both assemblies into their folders
+4. Start Claude Code in the kit folder and ask it to **hook up the project references**
+
+Step 4 is needed because the project files Developer Studio writes don't build as they are. Claude sets the target framework and adds the OneStream package reference to both, plus a reference from `rfa_actnExtension_os` to `rfaRef`. The kit's `CLAUDE.md` lists exactly what it changes.
+
+!!! tip "Let Claude drive Developer Studio's command line"
+    Developer Studio installs a command line, `ods`. Run `ods agent skill init cli --tool claude` in the kit folder to give Claude Code ODS's own skill for it, then restart Claude Code. Claude can then check the setup (`ods status`, `ods validate`) and preview a push or pull on its own. Anything that writes to OneStream or overwrites your files — `push`, `pull`, `load`, `extract` — always waits for your confirmation. Signing in is interactive, so you run that yourself: `! ods connect https://<server>:<port>` in Claude Code's prompt.
+
+!!! warning "A pull overwrites your local files"
+    Pulling replaces local files with the server's copy, project files included. Never pull over work that isn't on the server yet, such as new handlers or a dispatcher registration — push it first. `ods preview-pull` shows what a pull would replace without changing anything. After a pull, ask Claude to check the project references again.
+
+### Step 4: Check the baseline
 
 From a terminal in the kit folder:
 
@@ -162,11 +185,11 @@ python .claude/skills/revfore-framework/scripts/validate_framework_json.py solut
 The validator checks the schema and the semantic rules the schema can't express: lookup pairings, model source wiring, sequence numbers, and whether data rows target real view columns. Those mistakes produce valid-looking JSON that fails, or silently misbehaves, at import.
 
 !!! note "Integration codes from your instance"
-    A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or instances, needs their real integration codes. Claude asks for any it can't derive. The quickest way to supply them is a **File Export** from the relevant admin screen, copied into the kit, as described in [Step 1](#step-1-describe-the-requirement). Otherwise read them off the screen. Never let Claude guess one, because a guessed code can load against the wrong record.
+    A data file that refers to records already in OneStream, such as users, cubes, dimension members, workflow units or cycles, needs their real integration codes. Claude asks for any it can't derive. The quickest way to supply them is a **File Export** from the relevant admin screen, copied into the kit, as described in [Step 1](#step-1-describe-the-requirement). Otherwise read them off the screen. Never let Claude guess one, because a guessed code can load against the wrong record.
 
 ### Step 5: Build the setup package
 
-A solution installs as **one zip**. `setup-package.json` lists the steps, and the builder turns it into `rfaExtensionSetupPackage.zip`:
+A solution installs as **one zip**. `setup-package.json` lists the steps, and the builder turns it into `<SolutionCode>SetupPackage.zip` (for example `PrjSetupPackage.zip`):
 
 ```
 python .claude/skills/revfore-framework/scripts/build_setup_package.py solutions/<folder>/setup-package.json
@@ -176,8 +199,7 @@ It validates every file the package imports, refuses a data import that has no s
 
 ### Step 6: Install it in OneStream
 
-- **While you build it**, load the zip directly: **Load** on **Admin | Relational | Tables** takes a `.zip` as well as a `.json`. It runs the whole package — import, sync, data, pages — in one go, and can be reloaded as often as you need. See [Loading a package while you build it](setup-packages.md#by-loading-it-while-you-build).
-- **For a customer**, upload the zip to the **Files** of **XCP_xRfaDlg_ActnExtension**, replacing the one there, and run **Config | Setup & Upgrade**. See [Installing it with Setup](setup-packages.md#with-setup).
+Load the zip: **Load** on **Admin | Relational | Tables** takes a `.zip` as well as a `.json`. It runs the whole package — import, sync, data, pages — in one go, and adds it to the workspace's `rfaExtensionSetupPackage.zip`, beside any other solution's, so **Config | Setup & Upgrade** runs it from then on. The same load installs it for a customer and upgrades it with a new release; while you build, you can reload the current release as often as you need. See [Installing it](setup-packages.md#installing-it).
 
 Either way, nobody loads files or presses Sync by hand. You can still load a single file the manual way — structure (`300`), sync tables, sync views, then data (`4xx`) in file-name order, as in [Loading a file](import/index.md#loading-a-file) — which is useful for trying one change on its own. Sample data (`490`) is never in the package, so it is always loaded that way.
 
@@ -199,7 +221,7 @@ Everything Claude writes into a solution folder is named so that **sorting by na
 | `500`-`599` | Hand-written SQL — `500` before the structure, `510` after the sync, `590` for uninstall | `500-SpendPlanning-view-SpdPlanTall.sql` |
 | `600`-`699` | Notes on the handler code | `600-SpendPlanning-handlers.md` |
 
-Two files sit outside the numbering: `setup-package.json`, the [setup package](setup-packages.md) source, and the `rfaExtensionSetupPackage.zip` the builder writes next to it.
+Two files sit outside the numbering: `setup-package.json`, the [setup package](setup-packages.md) source, and the `<SolutionCode>SetupPackage.zip` the builder writes next to it.
 
 - **The solution folder has no date** - `solutions/SpendPlanning/`. The workbook files carry the dates instead.
 - **Every workbook round has a two-digit round number**, the first one included (`-r01`), so rounds sort correctly - `r10` after `r09`, and the first round before the second.
@@ -221,16 +243,25 @@ Once the structure is settled, ask Claude to write the handlers, or write them y
 2. Run `dotnet build RfaExtension.sln`, or build from VS Code
 3. Fix what the compiler reports: misspelled members, wrong parameter types, missing hooks
 
-The build compiles against **reference stubs**, not the real Revfore engine. `rfaRef` and `rfaOsRef` have the real Revfore signatures, but every method throws; OneStream's own types come from the reference assemblies package. A clean build proves the code will compile in OneStream. It doesn't prove the logic is right.
+The build compiles against **reference stubs**, not the real Revfore engine. `rfaRef` has the real Revfore signatures, but every method throws; OneStream's own types come from the reference assemblies package. A clean build proves the code will compile in OneStream. It doesn't prove the logic is right.
 
 ### Deploying to OneStream
 
 The kit doesn't publish anything itself. There are two ways to get your changes into OneStream:
 
-- **Manually**, by copying the files into the workspace — the steps below.
-- **With OneStream Developer Studio**, which pushes assembly code to a OneStream workspace from your development environment, so a deploy can be repeated or scripted rather than copied by hand. Point it at the same place as the manual steps: the **rfa_actnExtension_os** assembly in the **XCP_xRfaDlg_ActnExtension** maintenance unit, plus any **XCP_x** units of your own. See OneStream's Developer Studio documentation for how to set it up.
+- **With OneStream Developer Studio** — the usual way, since the kit folder is already mapped to the assembly from [Step 3](#step-3-download-the-assemblies-with-developer-studio). See below.
+- **Manually**, by copying the files into the workspace — the steps under [Deploying manually](#deploying-manually).
 
-Either way, deploy the same files to the same place.
+Either way, deploy the same files to the same place: the **rfa_actnExtension_os** assembly in the **XCP_xRfaDlg_ActnExtension** maintenance unit, plus any **XCP_x** units of your own.
+
+#### Deploying with Developer Studio
+
+1. Build: `dotnet build RfaExtension.sln` must be clean
+2. If you added a handler, check it is registered in `ExtensionHandlerDispatcher.cs`. An unregistered handler deploys without error but never runs
+3. Preview the push of `rfa_actnExtension_os` (`ods preview-push rfa_actnExtension_os`) and check what will change
+4. Push it (`ods push rfa_actnExtension_os`)
+
+Push `rfa_actnExtension_os` on its own, never the whole kit folder, and never push `rfaRef`. If Claude has the ODS skill, it previews the push and shows you the changes. It pushes only after you confirm.
 
 #### Deploying manually
 
@@ -246,13 +277,14 @@ Then test on a real environment. That is where behavior, as opposed to shape, ge
 
 ## Kit updates
 
-Each Revfore release comes with a new kit. The reference stubs, skills and samples are regenerated to match that release.
+Each Revfore release comes with a new kit. The skills, samples and documentation are regenerated to match that release. The reference stubs come with the release itself: after the upgrade, pull **rfaRef** again with Developer Studio and rebuild.
 
 - **`solutions/` is never overwritten.** Your design work is safe across updates.
-- **`rfa_actnExtension_os/` holds your code.** Keep your handlers and your dispatcher registrations when you take a new kit. Take Revfore's own files, such as `IExtensionHandler.cs`, `SolutionHelper.cs` and `SharedMethods.cs`, from the new kit.
+- **`rfa_actnExtension_os/` holds your code.** Keep your handlers and your dispatcher registrations. Revfore's own files, such as `IExtensionHandler.cs`, `SolutionHelper.cs` and `SharedMethods.cs`, are updated in OneStream by the upgrade. Preview a pull of `rfa_actnExtension_os` to see what changed, and merge before you push again.
 - **`Directory.Build.props` and `packages/` are yours.** Keep them unless you're also moving to a new OneStream version.
+- **Developer Studio's setup stays with the folder.** Keep `rfaRef/`, `rfa_actnExtension_os/` and their `.osconfig` mapping files, and any skills of your own, such as ODS's `ods-cli`.
 
-To take a new kit, download **rfaExtensionKit.zip** from the maintenance unit again, as in [Step 1](#step-1-unpack-the-kit). Then copy your `solutions/`, `packages/`, `Directory.Build.props` and handler folders across from your old kit folder.
+To take a new kit, download **rfaExtensionKit.zip** from the maintenance unit again, as in [Step 1](#step-1-unpack-the-kit). Then copy your `solutions/`, `packages/`, `Directory.Build.props`, `rfaRef/` and `rfa_actnExtension_os/` folders across from your old kit folder. Register the new folder with Developer Studio in place of the old one.
 
 The skills describe the schema and conventions of the release they shipped with, so update the kit whenever you upgrade the Framework in OneStream. Otherwise Claude generates against an older schema.
 
@@ -264,6 +296,10 @@ The skills describe the schema and conventions of the release they shipped with,
 | **NU1100** Unable to resolve ... | Package source mapping on your machine blocks the source | Keep the `packageSourceMapping` entry in `nuget.config`, pointed at whichever source holds the package |
 | **CS0117** '*Type*' does not contain a definition for '*Member*' | Your code uses an API that is newer than the kit's stubs | Update to the kit for your Framework release. If you already have it, send the error and your `KIT_VERSION` line to Revfore |
 | A type named in the documentation is missing entirely | Same as above: the kit is behind your release | As above |
+| The build reports a missing project, or finds no Revfore types | `rfaRef/` or `rfa_actnExtension_os/` hasn't been downloaded yet, or the project references aren't hooked up | Download both with Developer Studio ([Step 3](#step-3-download-the-assemblies-with-developer-studio)), then ask Claude to hook up the project references |
+| The build broke straight after a pull | The pull replaced the project files, removing the references | Ask Claude to hook up the project references again |
+| Duplicate OneStream types, or a restore error naming `OneStream.ReferenceAssemblies` | A second OneStream package was added to a project, for example by following Developer Studio's own reference-assembly steps | Remove it. The kit already references `OneStream.Platform.ReferenceAssemblies` through `Directory.Build.props` and `packages/` |
+| A handler you pushed never runs | It isn't registered in `ExtensionHandlerDispatcher.cs` | Register it, build, and push again |
 | The setup package builder or Setup refuses the package | A placeholder left from the template, a missing sync, the version, or a hand-edited zip | See [Setup Packages troubleshooting](setup-packages.md#troubleshooting) |
 | The validator reports errors on JSON Claude wrote | The file was edited by hand, or the kit's skills are older than your release | Ask Claude to fix the reported rules, then validate again |
 

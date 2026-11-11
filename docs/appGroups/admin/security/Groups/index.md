@@ -4,7 +4,7 @@
 
 Security Groups are **how access to data is granted**.
 
-Users are not given access directly. They are placed in groups, and groups are assigned to the things that need securing — relational views, workflow units, and workflow instances.
+Users are not given access directly. They are placed in groups, and groups are assigned to the things that need securing — relational views, workflow units, and workflow cycles.
 
 !!! note "Read-only"
     Security groups come from OneStream and are refreshed by **Sync**. They cannot be added or edited here, and group membership is maintained in OneStream. To change a group, change it in OneStream and sync again.
@@ -68,7 +68,7 @@ A security group is selected when configuring:
 
 - [Relational Views](../../relational/relationalViews/security.md) – who can see and edit a view
 - [Workflow Units](../../workflow/units/units.md) – read-write and read-only access to a unit's data
-- [Workflow Instances](../../workflow/instances/instances.md) – read-write and read-only access to a cycle's data
+- [Workflow Cycles](../../workflow/cycles/cycles.md) – read-write and read-only access to a cycle's data
 - [Security Roles](../Roles/index.md) – who may perform an action a role protects
 
 Read-write and read-only access are granted through **separate groups**, so a user can be given visibility of data without the ability to change it.

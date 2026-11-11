@@ -6,7 +6,7 @@ Workflow is what turns a set of relational tables into a **process**: it says wh
 
 A solution is driven by **either Revfore workflow or OneStream workflow** — you choose one or the other. What is not a choice is the underlying structure: **both options are built on the Revfore workflow tables.** Choosing OneStream workflow does not replace them, it drives them.
 
-That means the shape of a solution is the same either way. A workflow unit says *who* a piece of work is for, a workflow instance says *when*, and a solution's own tables carry both. Choosing OneStream workflow adds one further step — linking those units and instances to the OneStream workflow they correspond to — rather than removing anything.
+That means the shape of a solution is the same either way. A workflow unit says *who* a piece of work is for, a workflow cycle says *when*, and a solution's own tables carry both. Choosing OneStream workflow adds one further step — linking those units and cycles to the OneStream workflow they correspond to — rather than removing anything.
 
 So the decision is about **where the process is governed from**, not about which tables to build.
 
@@ -15,13 +15,13 @@ So the decision is about **where the process is governed from**, not about which
 Revfore workflow is assembled from a small number of pieces:
 
 - [Units](units/index.md) – **who** the work is performed for: a department, cost center, entity or region. Units carry the security groups that control access, effective dates, and the [member sets](units/memberSets.md) that map a unit's data to the cube.
-- [Instances](instances/index.md) – **when**: a single cycle of the process, paired with an [instance type](instances/instanceTypes.md) that says what kind of cycle it is.
+- [Cycles](cycles/index.md) – **when**: a single cycle of the process, paired with a [cycle type](cycles/cycleTypes.md) that says what kind of cycle it is.
 - [Areas](areas/index.md) – how a large process is partitioned into manageable sections.
 - [Supporting](supporting/index.md) – the vocabulary the process is described in: [item types](supporting/itemTypes.md), [item categories](supporting/itemCategories.md), [member set types](supporting/memberSetTypes.md) and the pairings between them.
 
-An instance and a unit together identify a specific piece of work: the instance says *when*, the unit says *for whom*.
+A cycle and a unit together identify a specific piece of work: the cycle says *when*, the unit says *for whom*.
 
-To make a solution's own records workflow-aware, add the workflow [standard columns](../relational/supporting/standardColumns.md#workflow) to its tables. **A table needs `WorkflowUnit_Int` and `WorkflowInstance_Int` whichever workflow drives the process** — they are what let a record be filtered, secured and progressed by the same mechanics as every other workflow-enabled view, with no per-solution code.
+To make a solution's own records workflow-aware, add the workflow [standard columns](../relational/supporting/standardColumns.md#workflow) to its tables. **A table needs `WorkflowUnit_Int` and `WorkflowCycle_Int` whichever workflow drives the process** — they are what let a record be filtered, secured and progressed by the same mechanics as every other workflow-enabled view, with no per-solution code.
 
 !!! note "Workflow is configured in two places, and both are required"
     The columns are only the input. Workflow also has to be **enabled on the [Relational View](../relational/relationalViews/views.md)** and configured on the **[Content Sub Item](../../../concepts/metadataDrivenUI/contentSubItem/index.md)** that renders it. Each carries its own workflow settings, and both must be set — configuring one without the other leaves the page non-workflow, even though the table and model are correct.
@@ -36,7 +36,7 @@ Choose Revfore workflow when the process is governed inside the application. Typ
 - **The workflow unit needs a scope that is not entity-dependent.** A OneStream workflow profile is tied to an entity. A Revfore workflow unit is not: through its [member set](units/memberSets.md) it can be set to **any scope or slice of the cube, including all the UD dimension members**. That makes the unit whatever the process is actually performed for — a product line, a project, a channel, a cost center, or any combination the UDs can express — rather than forcing the process into an entity structure that does not fit it.
 - **The process is specific to the solution**, does not correspond to a OneStream workflow step, or needs more granularity than one.
 
-Units and instances are defined and progressed here, and nothing further is required — the [OneStream Workflow Reference](#linking-the-units-and-instances) fields stay blank.
+Units and cycles are defined and progressed here, and nothing further is required — the [OneStream Workflow Reference](#linking-the-units-and-cycles) fields stay blank.
 
 ## OneStream workflow
 
@@ -47,16 +47,16 @@ Choose OneStream workflow when the process is one OneStream is already running �
 
 Note that the workflow unit then follows OneStream's structure: a workflow profile is entity-based, so this is the option that ties the unit to an entity.
 
-The Revfore workflow units and instances are still required, and a solution's tables still carry the workflow standard columns. What is added is the link between the two.
+The Revfore workflow units and cycles are still required, and a solution's tables still carry the workflow standard columns. What is added is the link between the two.
 
-### Linking the units and instances
+### Linking the units and cycles
 
-Each Revfore unit and instance names the OneStream workflow it corresponds to, through the **OneStream Workflow Reference** field:
+Each Revfore unit and cycle names the OneStream workflow it corresponds to, through the **OneStream Workflow Reference** field:
 
 - on a [unit](units/units.md), the OneStream **parent workflow profile name**
-- on an [instance](instances/instances.md), the scenario and time key, as `Scenario|TimeKey` (e.g. `Budget|2026003000` — see [the time key format](instances/instances.md#onestream-workflow-reference))
+- on an [cycle](cycles/cycles.md), the scenario and time key, as `Scenario|TimeKey` (e.g. `Budget|2026003000` — see [the time key format](cycles/cycles.md#onestream-workflow-reference))
 
-These are what tie the two workflows together, so they must be populated for every unit and instance participating in the OneStream-driven process. They are left blank only when the solution is driven by Revfore workflow.
+These are what tie the two workflows together, so they must be populated for every unit and cycle participating in the OneStream-driven process. They are left blank only when the solution is driven by Revfore workflow.
 
 Where a record needs to hold OneStream's own keys directly — to reconcile against a OneStream step, or to confirm one is complete before allowing a relational action — use the `OneStreamWorkflow*Key` [standard columns](../relational/supporting/standardColumns.md#workflow).
 
