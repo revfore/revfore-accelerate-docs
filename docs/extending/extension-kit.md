@@ -88,7 +88,7 @@ The kit ships `rfaRef/` and `rfa_actnExtension_os/` **empty**. Their code comes 
 | `rfa_actnExtension_os/` | **rfa_actnExtension_os** | The extension assembly — your handlers. Download it once, then push your changes back |
 
 1. Install **OneStream Developer Studio** and sign in to your OneStream server
-2. Register the kit folder as a Developer Studio repository, and map `rfaRef/` and `rfa_actnExtension_os/` to the two assemblies above. Developer Studio writes a small mapping file into each folder (`.osconfig`)
+2. Register the kit folder as a Developer Studio repository, and map `rfaRef/` and `rfa_actnExtension_os/` to the two assembly folders above. To find both assemblies quickly, type or paste `XCP_xRfaDlg_ActnExtension` into the search text box. You can only add one at a time, so repeat the search after you add the first. Developer Studio writes a small mapping file into each folder (`.osconfig`)
 3. Pull both assemblies into their folders
 4. Start Claude Code in the kit folder and ask it to **hook up the project references**
 
@@ -100,9 +100,22 @@ Step 4 is needed because the project files Developer Studio writes don't build a
 !!! warning "A pull overwrites your local files"
     Pulling replaces local files with the server's copy, project files included. Never pull over work that isn't on the server yet, such as new handlers or a dispatcher registration — push it first. `ods preview-pull` shows what a pull would replace without changing anything. After a pull, ask Claude to check the project references again.
 
-### Step 4: Check the baseline
+## Designing a solution
 
-From a terminal in the kit folder:
+!!! note "Trust the folder first"
+    The first time you click the **Terminal** menu item, VS Code asks whether you trust the folder. Click **Trust Folder & Continue**, or the terminal won't open.
+
+Start Claude Code in the kit folder:
+
+- **From a terminal:** open a terminal in the kit folder (in VS Code, **Terminal | New Terminal**) and type `claude`. The first time, Claude Code runs a safety check on the folder; select **Yes, I trust this folder**.
+- **From the VS Code extension:** open the kit folder in VS Code and start Claude Code from the extension.
+
+It loads `CLAUDE.md` and the Framework skills on its own; you don't need to upload or configure anything.
+
+!!! tip "PowerShell says running scripts is disabled"
+    If typing `claude` in PowerShell fails with an error about `claude.ps1` and script execution, type `claude.cmd` instead. That starts the same program without going through PowerShell's script policy.
+
+Run the following commands:
 
 ```
 dotnet build RfaExtension.sln
@@ -110,18 +123,6 @@ python .claude/skills/revfore-framework/scripts/validate_framework_json.py sampl
 ```
 
 Both should pass before you change anything. If one fails, fix it first, because every later step assumes this baseline. See [Troubleshooting](#troubleshooting).
-
-## Designing a solution
-
-Start Claude Code in the kit folder:
-
-- **From a terminal:** open a terminal in the kit folder (in VS Code, **Terminal | New Terminal**) and type `claude`.
-- **From the VS Code extension:** open the kit folder in VS Code and start Claude Code from the extension.
-
-It loads `CLAUDE.md` and the Framework skills on its own; you don't need to upload or configure anything.
-
-!!! tip "PowerShell says running scripts is disabled"
-    If typing `claude` in PowerShell fails with an error about `claude.ps1` and script execution, type `claude.cmd` instead. That starts the same program without going through PowerShell's script policy.
 
 The design follows the same stages described in [AI Model Integrations](../integrations/aiModels/index.md#how-a-solution-gets-built). The difference is that every file lands in your project folder, where you can version, diff and review it.
 
