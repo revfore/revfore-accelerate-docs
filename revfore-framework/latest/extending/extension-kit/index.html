@@ -893,15 +893,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#step-4-check-the-baseline" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Check the baseline
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -3842,15 +3833,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#step-4-check-the-baseline" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 4: Check the baseline
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4151,7 +4133,7 @@
 </table>
 <ol>
 <li>Install <strong>OneStream Developer Studio</strong> and sign in to your OneStream server</li>
-<li>Register the kit folder as a Developer Studio repository, and map <code>rfaRef/</code> and <code>rfa_actnExtension_os/</code> to the two assemblies above. Developer Studio writes a small mapping file into each folder (<code>.osconfig</code>)</li>
+<li>Register the kit folder as a Developer Studio repository, and map <code>rfaRef/</code> and <code>rfa_actnExtension_os/</code> to the two assembly folders above. To find both assemblies quickly, type or paste <code>XCP_xRfaDlg_ActnExtension</code> into the search text box. You can only add one at a time, so repeat the search after you add the first. Developer Studio writes a small mapping file into each folder (<code>.osconfig</code>)</li>
 <li>Pull both assemblies into their folders</li>
 <li>Start Claude Code in the kit folder and ask it to <strong>hook up the project references</strong></li>
 </ol>
@@ -4164,16 +4146,14 @@
 <p class="admonition-title">A pull overwrites your local files</p>
 <p>Pulling replaces local files with the server's copy, project files included. Never pull over work that isn't on the server yet, such as new handlers or a dispatcher registration — push it first. <code>ods preview-pull</code> shows what a pull would replace without changing anything. After a pull, ask Claude to check the project references again.</p>
 </div>
-<h3 id="step-4-check-the-baseline">Step 4: Check the baseline</h3>
-<p>From a terminal in the kit folder:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet build RfaExtension.sln
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python .claude/skills/revfore-framework/scripts/validate_framework_json.py samples/GLEntry/300-GLEntry-structure.json
-</code></pre></div>
-<p>Both should pass before you change anything. If one fails, fix it first, because every later step assumes this baseline. See <a href="#troubleshooting">Troubleshooting</a>.</p>
 <h2 id="designing-a-solution">Designing a solution</h2>
+<div class="admonition note">
+<p class="admonition-title">Trust the folder first</p>
+<p>The first time you click the <strong>Terminal</strong> menu item, VS Code asks whether you trust the folder. Click <strong>Trust Folder &amp; Continue</strong>, or the terminal won't open.</p>
+</div>
 <p>Start Claude Code in the kit folder:</p>
 <ul>
-<li><strong>From a terminal:</strong> open a terminal in the kit folder (in VS Code, <strong>Terminal | New Terminal</strong>) and type <code>claude</code>.</li>
+<li><strong>From a terminal:</strong> open a terminal in the kit folder (in VS Code, <strong>Terminal | New Terminal</strong>) and type <code>claude</code>. The first time, Claude Code runs a safety check on the folder; select <strong>Yes, I trust this folder</strong>.</li>
 <li><strong>From the VS Code extension:</strong> open the kit folder in VS Code and start Claude Code from the extension.</li>
 </ul>
 <p>It loads <code>CLAUDE.md</code> and the Framework skills on its own; you don't need to upload or configure anything.</p>
@@ -4181,6 +4161,11 @@
 <p class="admonition-title">PowerShell says running scripts is disabled</p>
 <p>If typing <code>claude</code> in PowerShell fails with an error about <code>claude.ps1</code> and script execution, type <code>claude.cmd</code> instead. That starts the same program without going through PowerShell's script policy.</p>
 </div>
+<p>Run the following commands:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>dotnet build RfaExtension.sln
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>python .claude/skills/revfore-framework/scripts/validate_framework_json.py samples/GLEntry/300-GLEntry-structure.json
+</code></pre></div>
+<p>Both should pass before you change anything. If one fails, fix it first, because every later step assumes this baseline. See <a href="#troubleshooting">Troubleshooting</a>.</p>
 <p>The design follows the same stages described in <a href="../../integrations/aiModels/#how-a-solution-gets-built">AI Model Integrations</a>. The difference is that every file lands in your project folder, where you can version, diff and review it.</p>
 <h3 id="step-1-describe-the-requirement">Step 1: Describe the requirement</h3>
 <p>Tell Claude what the solution needs to do in plain English: what gets planned or tracked, by whom, how it is approved, and whether and how it posts to the cube. Include anything you know about existing configuration, such as workflow units, cubes, dimensions and accounts.</p>
